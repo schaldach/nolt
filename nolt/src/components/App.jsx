@@ -7,6 +7,7 @@ import PageFooter from './mainpages/PageFooter.jsx'
 import ProjectDesc from './mainpages/ProjectDesc.jsx'
 
 function App() {
+  const[darkMode, setDarkMode] = useState(false)
   const[pagesVisible, setPages] = useState({
     home: true,
     notetypes: false,
@@ -14,8 +15,8 @@ function App() {
     contact: false,
   })
   const[notesVisible, setNoteType] = useState({
-    notes: true,
-    lists: false,
+    notas: true,
+    listas: false,
     links: false,
   })
   const[currentNote, changeCurrentNote] = useState('Notas')
@@ -52,9 +53,8 @@ function App() {
     let newNote = ''
     for(let note in notesVisible){
       if(notesVisible[note]){
-        newNote += JSON.stringify(note)==='"notes"'?'Notas':''
-        newNote += JSON.stringify(note)==='"links"'?'Links':''
-        newNote += JSON.stringify(note)==='"lists"'?'Listas':''
+        let string = JSON.stringify(note)
+        newNote = string.charAt(1).toUpperCase() + string.slice(2,string.length-1);
       }
     }
     changeCurrentNote(newNote)
@@ -65,9 +65,9 @@ function App() {
 
   return (
     <>
-      <NavBar currentNote={currentNote} notesVisible={notesVisible} pagesVisible={pagesVisible} onPageChange={changePage} onNoteChange={changeNoteType}/>
+      <NavBar darkMode={darkMode} setDarkMode={setDarkMode} currentNote={currentNote} notesVisible={notesVisible} pagesVisible={pagesVisible} onPageChange={changePage} onNoteChange={changeNoteType}/>
       <main>
-        <Home notesNumbers={notesNumbers} visualclass={manageDisplay('home')}/>
+        <Home onPageChange={changePage} notesNumbers={notesNumbers} visualclass={manageDisplay('home')}/>
         <NoteTypes manageShownNote={manageShownNote} visualnote={notesVisible} visualclass={manageDisplay('notetypes')}/>
         <ProjectDesc visualclass={manageDisplay('project')}/>
         <Contact visualclass={manageDisplay('contact')}/>

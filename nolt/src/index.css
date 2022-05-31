@@ -1,21 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300&family=Poppins:wght@300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Plus+Jakarta+Sans:wght@300&family=Poppins:wght@300&family=Roboto+Condensed&display=swap');
 
 :root{
   --color1: #000000;
-  --color2: #e9e9e9;
+  --color2light: #2C2F33;
+  --color2dark: #23272A;
   --color3: #ffffff;
-  --color4: #79DAE8;
-  --color5: #0AA1DD;
-  --color6: #2155CD;
+  --color4: #0AA1DD;
+  --color5: #2155CD;
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
+  --font3: 'Inter', sans-serif;
 }
 
 body, html{
   margin: 0;
   padding: 0;
-  background: var(--color3);
+  background: var(--color2);
 }
 
 .navbar{
@@ -75,8 +75,8 @@ body, html{
 .dropdownitem{
   border: solid;
   border-width: 0px 0px 1px 0px;
-  border-color: var(--color6);
-  background-color: var(--color5);
+  border-color: var(--color5);
+  background-color: var(--color4);
   color: var(--color3);
   font-family: var(--font1);
   font-size: 2.3vw;
@@ -84,7 +84,7 @@ body, html{
   cursor: pointer;
 }
 .dropdownitem:hover{
-  background-color: var(--color6);
+  background-color: var(--color5);
 }
 
 .titlesecond{
@@ -99,7 +99,7 @@ main{
 }
 
 .foot{
-  background: var(--color6);
+  background: var(--color5);
   color: var(--color3);
   font-family: var(--font1);
   font-size: 1vw;
@@ -114,30 +114,32 @@ main{
 }
 
 .darkmode{
-  max-width: fit-content;
+  background-color: var(--color3);
+  cursor: pointer;
   border: none;
-  color: var(--color3);
-  background-color: var(--color6);
 }
 
 .homebutton{
-  background: linear-gradient(to right, var(--color4), var(--color6));
-  color: var(--color3);
+  background: var(--color3);
+  color: var(--color4);
   font-family: var(--font2);
+  font-weight: bold;
   font-size: 1.5vw;
-  border: none;
+  border: solid;
+  border-color: var(--color4);
   cursor: pointer;
-  border-radius: 20px;
   align-self: center;
   max-width: fit-content;
 }
 .homebutton:hover{
-  font-size: 2vw;
-  transition: 0.4s ease;
+  color: var(--color5);
+  border-color: var(--color5);
+  font-size: 2.5vw;
+  transition: 0.5s ease;
 }
 
 .secondtext{
-  font-family: var(--font1);
+  font-family: var(--font3);
   font-size: 1.5vw;
   color: var(--color1);
 }
@@ -156,7 +158,7 @@ main{
   display: flex;
   flex-direction: column;
   gap: 5px;
-  background-color: var(--color5);
+  background-color: var(--color4);
   border-radius: 20px;
   height: 20vh;
   width: 10vh;
@@ -166,4 +168,9 @@ main{
   position: absolute;
   width: 30vw;
   height: 50vh
+}
+
+img{
+  width: 9vh;
+  height: 9vh;
 }

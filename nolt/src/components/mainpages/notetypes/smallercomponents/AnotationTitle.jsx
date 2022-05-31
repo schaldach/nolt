@@ -1,6 +1,6 @@
 function AnotationTitle({title}) {
     return (
-        <div>{title}</div>
+        <div contentEditable="true">{title}</div>
     )
 }
 

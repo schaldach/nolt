@@ -13,9 +13,9 @@ function NoteTypes({visualclass, visualnote}) {
     return (
         <div className={visualclass}>
             <SecondTitle titlecontent='Anotações'/>
-            <Notes visualnote={manageNote('notes')}/>
+            <Notes visualnote={manageNote('notas')}/>
             <Links visualnote={manageNote('links')}/>
-            <Lists visualnote={manageNote('lists')}/>
+            <Lists visualnote={manageNote('listas')}/>
         </div>
     )
 }

@@ -2,7 +2,7 @@ import React from "react"
 import SecondTitle from "./smallcomponents/SecondTitle"
 import SectionDescription from "./smallcomponents/SectionDescription";
 
-function Home({visualclass, notesNumbers}) {
+function Home({visualclass, notesNumbers, onPageChange}) {
     function textToWrite(){
         let text = ''
         if(notesNumbers['notes']+notesNumbers['lists']+notesNumbers['links']){
@@ -19,7 +19,7 @@ function Home({visualclass, notesNumbers}) {
         <div className={visualclass+'home'}>
             <SecondTitle titlecontent='Home'/>
             <SectionDescription paragraph={textToWrite()}/>
-            <button className='homebutton'>Leve-me para lá →</button>
+            <button onClick={() => onPageChange('notetypes')} className='homebutton'>Leve-me para lá →</button>
         </div>
     )
 }
