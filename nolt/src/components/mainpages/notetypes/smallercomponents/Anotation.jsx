@@ -5,8 +5,8 @@ import AnotationContent from "./AnotationContent"
 function Anotation() {
     return (
         <div className='anot'>
-            <AnotationTitle></AnotationTitle>
-            <AnotationContent></AnotationContent>
+            <AnotationTitle title='Título'></AnotationTitle>
+            <AnotationContent text='Texto'></AnotationContent>
         </div>
     )
 }

@@ -151,3 +151,19 @@ main{
 .displaynone{
   display: none;
 }
+
+.anot{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: var(--color5);
+  border-radius: 20px;
+  height: 20vh;
+  width: 10vh;
+}
+
+.datarequest{
+  position: absolute;
+  width: 30vw;
+  height: 50vh
+}

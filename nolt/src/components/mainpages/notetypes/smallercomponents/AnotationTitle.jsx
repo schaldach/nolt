@@ -1,6 +1,6 @@
-function AnotationTitle() {
+function AnotationTitle({title}) {
     return (
-        <div></div>
+        <div>{title}</div>
     )
 }
 

@@ -1,6 +1,6 @@
-function AnotationContent() {
+function AnotationContent({text}) {
     return (
-        <div></div>
+        <div>{text}</div>
     )
 }
 
