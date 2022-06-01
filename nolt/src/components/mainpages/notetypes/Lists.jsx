@@ -15,8 +15,8 @@ function Lists({visualnote}) {
     }
 
     return (
-        <div className={visualnote}>
-            <button>+</button>
+        <div className={visualnote+' displayanotations'}>
+            <button onClick={addAnotation}>+</button>
             <NecessaryData/>
         </div>
     )

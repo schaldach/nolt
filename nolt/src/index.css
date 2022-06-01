@@ -130,12 +130,13 @@ main{
   cursor: pointer;
   align-self: center;
   max-width: fit-content;
+  margin-top: 3vh;
 }
 .homebutton:hover{
   color: var(--color5);
   border-color: var(--color5);
   font-size: 2.5vw;
-  transition: 0.5s ease;
+  transition: 0.35s ease;
 }
 
 .secondtext{
@@ -156,8 +157,8 @@ main{
   gap: 5px;
   background-color: var(--color4);
   border-radius: 20px;
-  height: 30vh;
-  width: 20vh;
+  width: 30vh;
+  height: 40vh;
 }
 
 .datarequest{
@@ -179,8 +180,8 @@ img{
   background-color: var(--color3);
   border-radius: 20px;
   color: var(--color1);
-  width: 20vh;
-  height: 30vh;
+  width: 30vh;
+  height: 40vh;
   border: solid;
   border-width: 1px;
   border-color: var(--color1);
@@ -192,6 +193,31 @@ img{
   color: var(--color3);
   font-family: var(--font3);
   background-color: red;
+}
+
+.displayanotations{
+  margin-top: 3vh;
+  gap: 1vw;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.addanotation{
+  width: 30vh;
+  height: 40vh;
+  font-family: var(--font1);
+  color: var(--color4);
+  background: var(--color3);
+  border-radius: 40px;
+  border-style: dashed;
+  border-color: var(--color4);
+  padding-bottom: 8vh;
+  font-size: 7rem;
+  cursor: pointer;
+}
+.addanotation:hover{
+  color: var(--color5);
+  border-color: var(--color5);
 }
 
 .displaynone{

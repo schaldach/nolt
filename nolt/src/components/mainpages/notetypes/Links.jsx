@@ -12,6 +12,11 @@ function Links({visualnote}) {
 
     function finishAnotation(href){
         requestD(false)
+        let newLinks = [...allLinks]
+        newLinks.push({
+            ref: href,
+            name: ''
+        })
     }
 
     function requestData(){
@@ -20,11 +25,11 @@ function Links({visualnote}) {
     }
 
     return (
-        <div className={visualnote}>
+        <div className={visualnote+' displayanotations'}>
             <button onClick={addAnotation}>+</button>
-            <NecessaryData visualclass={requestData()}/>
+            <NecessaryData onFinish={finishAnotation} visualclass={requestData()}/>
             {allLinks.map(link =>
-            <SmallerAnotation linkcontent={link.ref}></SmallerAnotation>
+            <SmallerAnotation linkname={link.name} linkcontent={link.ref}></SmallerAnotation>
             )}
         </div>
     )

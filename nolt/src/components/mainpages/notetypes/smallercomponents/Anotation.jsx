@@ -1,18 +1,26 @@
-import React from "react"
-import AnotationTitle from "./AnotationTitle"
-import AnotationTitleInput from "./AnotationTitleInput"
-import AnotationContent from "./AnotationContent"
-import AnotationContInput from "./AnotationContInput"
+import React, { useState } from "react"
 
-function Anotation({edit}) {
+function Anotation({title, content}) {
+    const[editMode, startEdit] = useState(true)
+    
+    function manageEdit(){
+        let classes = !editMode?'':'displaynone'
+        return classes
+    }
+    function manageEditInput(){
+        let classes = editMode?'':'displaynone'
+        return classes
+    }
+
     return (
         <div className='anot'>
-            <div>
-                <AnotationTitle title='Título'></AnotationTitle>
+            <div className='anottitle'>
+                <div className={manageEdit()}>{title}</div>
+                <input className={manageEditInput()} placeholder={title}/>
             </div>
-            <div>
-                <AnotationContent text='Texto'></AnotationContent>
-                <AnotationContent text='Texto'></AnotationContent>
+            <div className='anotcontent'>
+                <div className={manageEdit()}>{content}</div>
+                <input className={manageEditInput()} placeholder={content}/>
             </div>
         </div>
     )

@@ -3,16 +3,24 @@ import Anotation from "./smallercomponents/Anotation"
 
 function Notes({visualnote}) {
     const[allNotes,addNote] = useState([])
+    const[latestId, addId] = useState(0)
 
     function addAnotation(){
-        
+        let newNotes = [...allNotes]
+        newNotes.push({
+            title: '',
+            content: '',
+            id: latestId
+        })
+        addId(latestId+1)
+        addNote(newNotes)
     }
 
     return (
-        <div className={visualnote}>
-            <button>+</button>
+        <div className={visualnote+' displayanotations'}>
+            <button className='addanotation' onClick={addAnotation}>+</button>
             {allNotes.map(note => 
-                <Anotation edit={note.editmode}></Anotation>
+                <Anotation key={note.id} title={note.title} content={note.content}></Anotation>
             )}
         </div>
     )
