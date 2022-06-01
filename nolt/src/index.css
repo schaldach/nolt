@@ -12,7 +12,7 @@
 }
 [data-theme='dark'] {
   --color1: #ffffff;
-  --color2p: #23272A;
+  --color2p: #212426;
   --color2s: #2C2F33;
   --color3: #8E2DE2;
   --color4: #4A00E0;
@@ -86,7 +86,7 @@ body, html{
   border-width: 0px 0px 1px 0px;
   border-color: var(--color4);
   background-color: var(--color3);
-  color: var(--color2p);
+  color: #ffffff;
   font-family: var(--font1);
   font-size: 2.3vw;
   text-align: left;
@@ -106,8 +106,9 @@ body, html{
 main{
   background-color: var(--color2s);
   padding: 4vh 10vw 10vh 10vw;
-  min-height: 70vh;
+  min-height: 69vh;
 }
+/* 83vh (main, height+padding vertical) + 13vh (navbar, height+border) + 4vh (foot) = 100vh */
 
 .foot{
   background: var(--color4);
@@ -117,11 +118,9 @@ main{
   bottom: 0;
   left: 0;
   height: 4vh;
-  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: fixed;
 }
 
 .darkmode{
@@ -131,7 +130,7 @@ main{
 }
 
 .homebutton{
-  background: var(--color2p);
+  background: var(--color2s);
   color: var(--color3);
   font-family: var(--font2);
   font-weight: bold;
@@ -172,7 +171,7 @@ main{
   border: solid;
   border-color: var(--color3);
   border-width: 1px;
-  box-shadow: 4px 4px 8px var(--color3);
+  box-shadow: 3px 3px 8px var(--color3);
 }
 
 .datarequest{
@@ -221,7 +220,7 @@ img{
   height: 40vh;
   font-family: var(--font1);
   color: var(--color3);
-  background: var(--color2p);
+  background: var(--color2s);
   border-radius: 40px;
   border-style: dashed;
   border-color: var(--color3);
@@ -253,6 +252,10 @@ textarea{
 
 .anottitle{
   font-weight: bold;
+}
+
+.coloredtext{
+  color: var(--color3);
 }
 
 .displaynone{

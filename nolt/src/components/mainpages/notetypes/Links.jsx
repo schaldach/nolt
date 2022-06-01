@@ -5,32 +5,28 @@ import SmallerAnotation from "./smallercomponents/SmallerAnotation"
 function Links({visualnote, onNoteAdded}) {
     const[allLinks,addLink] = useState([])
     const[needData,requestD] = useState(false)
-
-    function addAnotation(){
-        requestD(true)
-    }
+    const[latestId, addId] = useState(0)
 
     function finishAnotation(href){
         requestD(false)
         let newLinks = [...allLinks]
         newLinks.push({
             ref: href,
-            name: ''
+            name: '',
+            id: latestId
         })
-    }
-
-    function requestData(){
-        let classes = needData?'':'displaynone'
-        return classes
+        addId(latestId+1)
+        addLink(newLinks)
+        onNoteAdded()
     }
 
     return (
         <div className={visualnote+' displayanotations'}>
-            <button onClick={addAnotation}>+</button>
-            <NecessaryData onFinish={finishAnotation} visualclass={requestData()}/>
+            <button onClick={() => requestD(true)}>+</button>
             {allLinks.map(link =>
-            <SmallerAnotation linkname={link.name} linkcontent={link.ref}></SmallerAnotation>
+            <SmallerAnotation key={link.id} linkname={link.name} linkcontent={link.ref}></SmallerAnotation>
             )}
+            <NecessaryData size='link' requestD={requestD} onFinish={finishAnotation} visualclass={needData?'':'displaynone'}/>
         </div>
     )
 }

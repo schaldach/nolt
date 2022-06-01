@@ -4,7 +4,7 @@ function SmallerAnotation({linkcontent, linkname}) {
     return (
         <a href={linkcontent} target='_blank'>
             <div>{linkname}</div>
-            <input placeholder={linkname}/>
+            <input placeholder='Link'/>
         </a>
     )
 }

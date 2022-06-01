@@ -1,8 +1,14 @@
 import React from "react"
 
-function NecessaryData({visualclass}) {
+function NecessaryData({visualclass, onFinish, requestD, size}) {
+    function manageSize(){
+        let classes = visualclass
+        classes += size=='link'?'':' necessarydata'
+        return classes
+    }
+
     return (
-        <div className={visualclass+' necessarydata'}>
+        <div className={manageSize()}>
             <div>Opa amigo!</div>
             <div>
                 <button className='confirmbuttons'>Salvar</button>
