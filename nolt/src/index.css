@@ -154,11 +154,14 @@ main{
 .anot{
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 1vh;
   background-color: var(--color4);
-  border-radius: 20px;
   width: 30vh;
   height: 40vh;
+  border: solid;
+  border-color: var(--color4);
+  border-width: 1px;
+  box-shadow: 4px 4px 8px var(--color4);
 }
 
 .datarequest{
@@ -218,6 +221,27 @@ img{
 .addanotation:hover{
   color: var(--color5);
   border-color: var(--color5);
+}
+
+input, textarea{
+  resize: none;
+  box-sizing: border-box;
+  border: none;
+  font-family: var(--font2);
+  outline: none;
+  width: 30vh;
+  overflow: auto;
+}
+input{
+  height: 4vh;
+  font-size: 3vh;
+}
+textarea{
+  height: 35vh;
+}
+
+.anottitle{
+  font-weight: bold;
 }
 
 .displaynone{

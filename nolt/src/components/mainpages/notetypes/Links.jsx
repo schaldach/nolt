@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import NecessaryData from "./smallercomponents/NecessaryData";
 import SmallerAnotation from "./smallercomponents/SmallerAnotation"
 
-function Links({visualnote}) {
+function Links({visualnote, onNoteAdded}) {
     const[allLinks,addLink] = useState([])
     const[needData,requestD] = useState(false)
 

@@ -21,8 +21,8 @@ function App() {
   })
   const[currentNote, changeCurrentNote] = useState('Notas')
   const[notesNumbers, changeNotesNumbers] = useState({
-    notes: 0,
-    lists: 0,
+    notas: 0,
+    listas: 0,
     links: 0,
   })
 
@@ -49,6 +49,13 @@ function App() {
     return classes
   }
 
+  function addNote(type){
+    let newNotes = JSON.parse(JSON.stringify(notesNumbers))
+    newNotes[type]++
+    changeNotesNumbers(newNotes)
+    console.log(type)
+}
+
   function manageShownNote(){
     let newNote = ''
     for(let note in notesVisible){
@@ -68,7 +75,7 @@ function App() {
       <NavBar darkMode={darkMode} setDarkMode={setDarkMode} currentNote={currentNote} notesVisible={notesVisible} pagesVisible={pagesVisible} onPageChange={changePage} onNoteChange={changeNoteType}/>
       <main>
         <Home onPageChange={changePage} notesNumbers={notesNumbers} visualclass={manageDisplay('home')}/>
-        <NoteTypes manageShownNote={manageShownNote} visualnote={notesVisible} visualclass={manageDisplay('notetypes')}/>
+        <NoteTypes onNoteAdded={addNote} manageShownNote={manageShownNote} visualnote={notesVisible} visualclass={manageDisplay('notetypes')}/>
         <ProjectDesc visualclass={manageDisplay('project')}/>
         <Contact visualclass={manageDisplay('contact')}/>
       </main>

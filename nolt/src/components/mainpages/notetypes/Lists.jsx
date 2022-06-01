@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import NecessaryData from "./smallercomponents/NecessaryData";
 import Anotation from "./smallercomponents/Anotation"
 
-function Lists({visualnote}) {
+function Lists({visualnote, onNoteAdded}) {
     const[allLists,addList] = useState([])
     const[needData,requestD] = useState(false)
 

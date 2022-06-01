@@ -14,13 +14,13 @@ function Anotation({title, content}) {
 
     return (
         <div className='anot'>
-            <div className='anottitle'>
-                <div className={manageEdit()}>{title}</div>
-                <input className={manageEditInput()} placeholder={title}/>
+            <div>
+                <div className={manageEdit()+' anottitle'}>{title}</div>
+                <input className={manageEditInput()+' anottitle'} placeholder='Título'/>
             </div>
-            <div className='anotcontent'>
-                <div className={manageEdit()}>{content}</div>
-                <input className={manageEditInput()} placeholder={content}/>
+            <div>
+                <div className={manageEdit()+' anotcontent'}>{content}</div>
+                <textarea className={manageEditInput()+' anotcontent'} placeholder='Conteúdo'/>
             </div>
         </div>
     )

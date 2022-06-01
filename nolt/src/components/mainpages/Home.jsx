@@ -4,9 +4,9 @@ import SectionDescription from "./smallcomponents/SectionDescription";
 
 function Home({visualclass, notesNumbers, onPageChange}) {
     function textToWrite(){
-        let text = ''
-        if(notesNumbers['notes']+notesNumbers['lists']+notesNumbers['links']){
-            text = `Você possui ${notesNumbers['notes']} Notas, ${notesNumbers['lists']} Listas e
+        let text
+        if(notesNumbers['notas']+notesNumbers['listas']+notesNumbers['links']){
+            text = `Você possui ${notesNumbers['notas']} Notas, ${notesNumbers['listas']} Listas e
             ${notesNumbers['links']} Links. Aproveite como quiser!`
         }
         else{

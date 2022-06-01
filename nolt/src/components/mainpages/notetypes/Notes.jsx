@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Anotation from "./smallercomponents/Anotation"
 
-function Notes({visualnote}) {
+function Notes({visualnote, onNoteAdded}) {
     const[allNotes,addNote] = useState([])
     const[latestId, addId] = useState(0)
 
@@ -14,6 +14,7 @@ function Notes({visualnote}) {
         })
         addId(latestId+1)
         addNote(newNotes)
+        onNoteAdded()
     }
 
     return (
