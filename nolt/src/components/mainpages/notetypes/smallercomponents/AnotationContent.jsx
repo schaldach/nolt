@@ -1,6 +1,6 @@
 function AnotationContent({text}) {
     return (
-        <div contentEditable="true">{text}</div>
+        <div>{text}</div>
     )
 }
 

@@ -1,12 +1,19 @@
 import React from "react"
 import AnotationTitle from "./AnotationTitle"
+import AnotationTitleInput from "./AnotationTitleInput"
 import AnotationContent from "./AnotationContent"
+import AnotationContInput from "./AnotationContInput"
 
-function Anotation() {
+function Anotation({edit}) {
     return (
         <div className='anot'>
-            <AnotationTitle title='Título'></AnotationTitle>
-            <AnotationContent text='Texto'></AnotationContent>
+            <div>
+                <AnotationTitle title='Título'></AnotationTitle>
+            </div>
+            <div>
+                <AnotationContent text='Texto'></AnotationContent>
+                <AnotationContent text='Texto'></AnotationContent>
+            </div>
         </div>
     )
 }

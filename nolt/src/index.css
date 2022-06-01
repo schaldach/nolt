@@ -33,7 +33,7 @@ body, html{
 .titulo{
   font-family: var(--font2);
   color: var(--color1);
-  font-size: 5vw;
+  font-size: 4vw;
   font-weight: bold;
 }
 
@@ -44,7 +44,7 @@ body, html{
 }
 
 .navbar-select{
-  font-size: 2.5vw;
+  font-size: 2vw;
   font-family: var(--font1);
   color: var(--color1);
   border-style: solid;
@@ -150,18 +150,14 @@ main{
   gap: 15px;
 }
 
-.displaynone{
-  display: none;
-}
-
 .anot{
   display: flex;
   flex-direction: column;
   gap: 5px;
   background-color: var(--color4);
   border-radius: 20px;
-  height: 20vh;
-  width: 10vh;
+  height: 30vh;
+  width: 20vh;
 }
 
 .datarequest{
@@ -171,6 +167,33 @@ main{
 }
 
 img{
-  width: 9vh;
-  height: 9vh;
+  width: 7vh;
+  height: 7vh;
+}
+
+.necessarydata{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color3);
+  border-radius: 20px;
+  color: var(--color1);
+  width: 20vh;
+  height: 30vh;
+  border: solid;
+  border-width: 1px;
+  border-color: var(--color1);
+}
+
+.confirmbuttons{
+  border-radius: 5px;
+  border: none;
+  color: var(--color3);
+  font-family: var(--font3);
+  background-color: red;
+}
+
+.displaynone{
+  display: none;
 }
