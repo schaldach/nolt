@@ -2,11 +2,20 @@
 
 :root{
   --color1: #000000;
-  --color2light: #2C2F33;
-  --color2dark: #23272A;
-  --color3: #ffffff;
-  --color4: #0AA1DD;
-  --color5: #2155CD;
+  --color2p: #ffffff;
+  --color2s: #ffffff;
+  --color3: #0AA1DD;
+  --color4: #2155CD;
+  --font1: 'Plus Jakarta Sans', sans-serif;
+  --font2: 'Poppins', sans-serif;
+  --font3: 'Inter', sans-serif;
+}
+[data-theme='dark'] {
+  --color1: #ffffff;
+  --color2p: #23272A;
+  --color2s: #2C2F33;
+  --color3: #8E2DE2;
+  --color4: #4A00E0;
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --font3: 'Inter', sans-serif;
@@ -15,25 +24,25 @@
 body, html{
   margin: 0;
   padding: 0;
-  background: var(--color2);
+  background: var(--color2s);
 }
 
 .navbar{
   display: grid;
   justify-items: center;
-  margin-bottom: 4vh;
   border-style: solid;
-  border-width: 0px 0px 5px 0px;
-  border-color: var(--color5);
+  border-width: 0px 0px 1vh 0px;
+  border-color: var(--color4);
   grid-template-columns: 2fr 5fr 1fr;
+  height: 12vh;
   align-items: center;
-  background: var(--color3);
+  background: var(--color2p);
 }
 
 .titulo{
   font-family: var(--font2);
   color: var(--color1);
-  font-size: 4vw;
+  font-size: 3.5vw;
   font-weight: bold;
 }
 
@@ -49,16 +58,16 @@ body, html{
   color: var(--color1);
   border-style: solid;
   border-width: 0px 0px 3px 0px;
-  border-color: var(--color3);
+  border-color: var(--color2p);
   user-select: none;
   cursor: pointer;
 }
 .navbar-select:hover{
-  color: var(--color4);
+  color: var(--color3);
   transition: 0.35s ease;
 }
 .contentselected{
-  border-color: var(--color4);
+  border-color: var(--color3);
 }
 
 .contentselection:hover>.dropdowns{
@@ -75,16 +84,16 @@ body, html{
 .dropdownitem{
   border: solid;
   border-width: 0px 0px 1px 0px;
-  border-color: var(--color5);
-  background-color: var(--color4);
-  color: var(--color3);
+  border-color: var(--color4);
+  background-color: var(--color3);
+  color: var(--color2p);
   font-family: var(--font1);
   font-size: 2.3vw;
   text-align: left;
   cursor: pointer;
 }
 .dropdownitem:hover{
-  background-color: var(--color5);
+  background-color: var(--color4);
 }
 
 .titlesecond{
@@ -95,14 +104,16 @@ body, html{
   color: var(--color1);
 }
 main{
-  padding: 0vw 10vw 0vw 10vw;
+  background-color: var(--color2s);
+  padding: 4vh 10vw 10vh 10vw;
+  min-height: 70vh;
 }
 
 .foot{
-  background: var(--color5);
-  color: var(--color3);
+  background: var(--color4);
+  color: #ffffff;
   font-family: var(--font1);
-  font-size: 1vw;
+  font-size: 2vh;
   bottom: 0;
   left: 0;
   height: 4vh;
@@ -114,27 +125,27 @@ main{
 }
 
 .darkmode{
-  background-color: var(--color3);
+  background-color: var(--color2p);
   cursor: pointer;
   border: none;
 }
 
 .homebutton{
-  background: var(--color3);
-  color: var(--color4);
+  background: var(--color2p);
+  color: var(--color3);
   font-family: var(--font2);
   font-weight: bold;
   font-size: 1.5vw;
   border: solid;
-  border-color: var(--color4);
+  border-color: var(--color3);
   cursor: pointer;
   align-self: center;
   max-width: fit-content;
   margin-top: 3vh;
 }
 .homebutton:hover{
-  color: var(--color5);
-  border-color: var(--color5);
+  color: var(--color4);
+  border-color: var(--color4);
   font-size: 2.5vw;
   transition: 0.35s ease;
 }
@@ -155,13 +166,13 @@ main{
   display: flex;
   flex-direction: column;
   gap: 1vh;
-  background-color: var(--color4);
+  background-color: var(--color3);
   width: 30vh;
   height: 40vh;
   border: solid;
-  border-color: var(--color4);
+  border-color: var(--color3);
   border-width: 1px;
-  box-shadow: 4px 4px 8px var(--color4);
+  box-shadow: 4px 4px 8px var(--color3);
 }
 
 .datarequest{
@@ -180,7 +191,7 @@ img{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--color3);
+  background-color: var(--color2p);
   border-radius: 20px;
   color: var(--color1);
   width: 30vh;
@@ -193,7 +204,7 @@ img{
 .confirmbuttons{
   border-radius: 5px;
   border: none;
-  color: var(--color3);
+  color: var(--color2p);
   font-family: var(--font3);
   background-color: red;
 }
@@ -209,18 +220,18 @@ img{
   width: 30vh;
   height: 40vh;
   font-family: var(--font1);
-  color: var(--color4);
-  background: var(--color3);
+  color: var(--color3);
+  background: var(--color2p);
   border-radius: 40px;
   border-style: dashed;
-  border-color: var(--color4);
+  border-color: var(--color3);
   padding-bottom: 8vh;
   font-size: 7rem;
   cursor: pointer;
 }
 .addanotation:hover{
-  color: var(--color5);
-  border-color: var(--color5);
+  color: var(--color4);
+  border-color: var(--color4);
 }
 
 input, textarea{

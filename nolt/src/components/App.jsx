@@ -71,7 +71,7 @@ function App() {
   useEffect(() => manageShownNote(), [notesVisible])
 
   return (
-    <>
+    <div data-theme={darkMode?'dark':'light'}>
       <NavBar darkMode={darkMode} setDarkMode={setDarkMode} currentNote={currentNote} notesVisible={notesVisible} pagesVisible={pagesVisible} onPageChange={changePage} onNoteChange={changeNoteType}/>
       <main>
         <Home onPageChange={changePage} notesNumbers={notesNumbers} visualclass={manageDisplay('home')}/>
@@ -80,7 +80,7 @@ function App() {
         <Contact visualclass={manageDisplay('contact')}/>
       </main>
       <PageFooter/>
-    </>
+    </div>
   )
 }
 
