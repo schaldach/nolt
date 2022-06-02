@@ -9,7 +9,7 @@ function Anotation({title, content, onEdit, note, onDelete}) {
             <button onClick={() => startEdit(!editMode)} className={editMode?' greenbutton functionbutton':'functionbutton'}>o</button>
             <button onClick={() => onDelete(note.id)} className='deletebutton functionbutton'>x</button>
         </div>
-        <div className='anot'>
+        <div className={editMode?'anot editting':'anot'}>
             <div>
                 <div className={!editMode?'anottitle':'displaynone anottitle'}>{title}</div>
                 <input className={editMode?'anottitle':'displaynone anottitle'} type='text' 

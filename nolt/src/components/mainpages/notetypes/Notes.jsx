@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Anotation from "./smallercomponents/Anotation"
 
-function Notes({visualnote, onNoteAdded}) {
+function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
     const[allNotes,addNote] = useState([])
     const[latestId,addId] = useState(0)
 
@@ -27,6 +27,7 @@ function Notes({visualnote, onNoteAdded}) {
 
     function onDelete(noteId){
         let newNotes = allNotes.filter(notes => notes.id!==noteId)
+        onNoteRemoved()
         addNote(newNotes)
     }
 

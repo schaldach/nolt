@@ -13,9 +13,12 @@ function NoteTypes({visualclass, visualnote, onNoteAdded, currentNote}) {
     return (
         <div className={visualclass}>
             <SecondTitle titlecontent='Anotações' extra={'/'+currentNote}/>
-            <Notes onNoteAdded={() => onNoteAdded('notas')} visualnote={manageNote('notas')}/>
-            <Links onNoteAdded={() => onNoteAdded('links')} visualnote={manageNote('links')}/>
-            <Lists onNoteAdded={() => onNoteAdded('listas')} visualnote={manageNote('listas')}/>
+            <Notes onNoteRemoved={() => onNoteAdded('notas', -1)} 
+            onNoteAdded={() => onNoteAdded('notas', 1)} visualnote={manageNote('notas')}/>
+            <Links onNoteRemoved={() => onNoteAdded('links', -1)} 
+            onNoteAdded={() => onNoteAdded('links', 1)} visualnote={manageNote('links')}/>
+            <Lists onNoteRemoved={() => onNoteAdded('listas', -1)} 
+            onNoteAdded={() => onNoteAdded('listas', 1)} visualnote={manageNote('listas')}/>
         </div>
     )
 }

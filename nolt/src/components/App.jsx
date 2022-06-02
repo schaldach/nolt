@@ -49,11 +49,10 @@ function App() {
     return classes
   }
 
-  function addNote(type){
+  function addNote(type, number){
     let newNotes = JSON.parse(JSON.stringify(notesNumbers))
-    newNotes[type]++
+    newNotes[type] += number
     changeNotesNumbers(newNotes)
-    console.log(type)
 }
 
   function manageShownNote(){
