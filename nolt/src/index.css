@@ -128,6 +128,9 @@ main{
   cursor: pointer;
   border: none;
 }
+.darkmode:hover{
+  border: solid 2px #8E2DE2;
+}
 
 .homebutton{
   background: var(--color2s);
@@ -172,12 +175,6 @@ main{
   border-color: var(--color3);
   border-width: 1px;
   box-shadow: 3px 3px 8px var(--color3);
-}
-
-.datarequest{
-  position: absolute;
-  width: 30vw;
-  height: 50vh
 }
 
 img{
