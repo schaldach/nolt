@@ -1,27 +1,26 @@
 import React, { useState } from "react"
 
-function Anotation({title, content}) {
+function Anotation({title, content, onEdit, note, onDelete}) {
     const[editMode, startEdit] = useState(true)
-    
-    function manageEdit(){
-        let classes = !editMode?'':'displaynone'
-        return classes
-    }
-    function manageEditInput(){
-        let classes = editMode?'':'displaynone'
-        return classes
-    }
 
     return (
+        <div>
+        <div className='functionality'>
+            <button onClick={() => startEdit(!editMode)} className={editMode?' greenbutton functionbutton':'functionbutton'}>o</button>
+            <button onClick={() => onDelete(note.id)} className='deletebutton functionbutton'>x</button>
+        </div>
         <div className='anot'>
             <div>
-                <div className={manageEdit()+' anottitle'}>{title}</div>
-                <input className={manageEditInput()+' anottitle'} placeholder='Título'/>
+                <div className={!editMode?'anottitle':'displaynone anottitle'}>{title}</div>
+                <input className={editMode?'anottitle':'displaynone anottitle'} type='text' 
+                value={title} onInput={e => onEdit(e.target.value, note.content, note)} placeholder='Título'/>
             </div>
             <div>
-                <div className={manageEdit()+' anotcontent'}>{content}</div>
-                <textarea className={manageEditInput()+' anotcontent'} placeholder='Conteúdo'/>
+                <div className={!editMode?'anotcontent':'displaynone anotcontent'}>{content}</div>
+                <textarea className={editMode?'anotcontent':'displaynone anotcontent'} type='text' 
+                value={content} onInput={e => onEdit(note.title, e.target.value, note)} placeholder='Conteúdo'/>
             </div>
+        </div>
         </div>
     )
 }
