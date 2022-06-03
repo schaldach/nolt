@@ -4,7 +4,7 @@ function Anotation({title, content, onEdit, note, onDelete}) {
     const[editMode, startEdit] = useState(true)
 
     return (
-        <div>
+        <div className='wholething'>
         <div className='functionality'>
             <button onClick={() => startEdit(!editMode)} className={editMode?' greenbutton functionbutton':'functionbutton'}>o</button>
             <button onClick={() => onDelete(note.id)} className='deletebutton functionbutton'>x</button>
