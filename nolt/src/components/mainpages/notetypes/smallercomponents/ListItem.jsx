@@ -1,6 +1,6 @@
 import React from "react";
 
-function ListItem({index, text, editMode, onEdit}) {
+function ListItem({index, text, editMode, onEdit, note}) {
     let formatedText = JSON.stringify(index)+'. '+text
     return(
         <div>

@@ -18,7 +18,7 @@ function ListAnotation({title, content, onEdit, note, onDelete}) {
             </div>
             <div>
             {content.map(item =>
-                <ListItem editMode={editMode} text={item} index={() => content.indexOf(item)}></ListItem>
+                <ListItem key={() => content.indexOf(item)} note={note} editMode={editMode} text={item} index={() => content.indexOf(item)}></ListItem>
             )}
             </div>
         </div>

@@ -10,8 +10,8 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
     function finishAnotation(listsize){
         requestD(false)
         let newLists = [...allLists]
-        let contentArray
-        for(i=0; i<listsize; i++){
+        let contentArray = []
+        for(let i=0; i<listsize; i++){
             contentArray.push('')
         }
         newLists.push({
@@ -33,9 +33,9 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
     }
 
     function onDelete(listId){
-        let newNotes = allLists.filter(lists => lists.id!==listId)
+        let newLists = allLists.filter(lists => lists.id!==listId)
         onNoteRemoved()
-        addNote(newNotes)
+        addList(newLists)
     }
 
     return (
