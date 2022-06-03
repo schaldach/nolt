@@ -209,6 +209,7 @@ main{
   transform: scale(1.15);
   position: relative;
   z-index: 1;
+  transition: 0.45s ease;
 }
 
 img{
