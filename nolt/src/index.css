@@ -167,13 +167,13 @@ main{
 .anot{
   display: flex;
   flex-direction: column;
-  gap: 0.5vh;
+  gap: 2px;
   background-color: var(--color3);
   width: 30vh;
   height: 40vh;
   border: solid;
   border-color: var(--color3);
-  border-width: 0.5vh 1px 1px 1px;
+  border-width: 1vh 2px 2px 2px;
   box-shadow: 5px 5px 0px var(--color3);
 }
 .editting{
@@ -204,6 +204,11 @@ main{
   transform: rotate(1deg);
   top: -2px;
   position: relative;
+}
+.displayanotations .wholething:hover{
+  transform: scale(1.15);
+  position: relative;
+  z-index: 1;
 }
 
 img{
