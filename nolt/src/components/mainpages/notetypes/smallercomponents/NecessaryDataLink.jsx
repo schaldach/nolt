@@ -1,6 +1,6 @@
 import React from "react"
 
-function NecessaryData({visualclass, onFinish, requestD}) {
+function NecessaryDataLink({visualclass, onFinish, requestD}) {
 
     return (
         <div className={visualclass}>
@@ -13,4 +13,4 @@ function NecessaryData({visualclass, onFinish, requestD}) {
     )
 }
 
-export default NecessaryData
+export default NecessaryDataLink

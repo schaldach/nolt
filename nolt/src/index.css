@@ -317,6 +317,19 @@ input, textarea{
   color: #ffffff;
 }
 
+.linkbutton{
+  max-width: fit-content;
+  padding: 0 2vw;
+  font-size: 3vh;
+  border: dashed var(--color3);
+  color: var(--color3);
+  background: none;
+}
+.linkbutton:hover{
+  border-color: var(--color4);
+  color: var(--color4);
+}
+
 .coloredtext{
   color: var(--color3);
 }
