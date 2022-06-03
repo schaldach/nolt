@@ -17,9 +17,9 @@ function ListAnotation({title, content, onEdit, note, onDelete}) {
                 value={title} onInput={e => onEdit(e.target.value, content, note)} placeholder='Título'/>
             </div>
             <div>
-            {
-                <ListItem></ListItem>
-            }
+            {content.map(item =>
+                <ListItem text={item} index={() => content.indexOf(item)}></ListItem>
+            )}
             </div>
         </div>
         </div>
