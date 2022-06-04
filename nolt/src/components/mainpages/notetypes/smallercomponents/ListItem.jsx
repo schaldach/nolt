@@ -1,13 +1,11 @@
 import React from "react";
 
-function ListItem({index, text, editMode, itemEdit, note}) {
-    let formatedText = JSON.stringify(index)+'. '+text
-
+function ListItem({index, text, editMode, itemEdit, list}) {
     return(
         <div>
-            <div className={!editMode?'':'displaynone'}>{formatedText}</div>
-            <textarea className={editMode?'':'displaynone'} type='text' 
-            value={formatedText} onInput={e => itemEdit(e.target.value, note)}/>
+            <div className={!editMode?'':'displaynone'}>{text}</div>
+            <textarea className={editMode?'':'displaynone'} type='text'
+            value={text} onInput={e => itemEdit(e.target.value, list, index)}/>
         </div>
     );
 }

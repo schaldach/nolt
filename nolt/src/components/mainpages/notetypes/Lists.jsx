@@ -41,16 +41,12 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
         addList(newLists)
     }
 
-    function itemEdit(text, note){
-        let actualContent
-        onEdit(actualContent, title, note)
-    }
-
     return (
         <div className={visualnote+' displayanotations'}>
             <button className='addanotation' onClick={() => requestD(true)}>+</button>
-            {allLists.map(list => 
-                <ListAnotation note={list} onDelete={onDelete} onEdit={onEdit} key={list.id} title={list.title} content={list.content}/>
+            {allLists.map(list =>
+                <ListAnotation note={list} onDelete={onDelete} onEdit={onEdit}
+                key={list.id} title={list.title} content={list.content}/>
             )}
             <NecessaryData size='list' requestD={requestD} onFinish={finishAnotation} visualclass={needData?'':'displaynone'}/>
         </div>
