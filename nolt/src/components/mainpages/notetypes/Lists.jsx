@@ -13,7 +13,7 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
         let contentArray = []
         for(let i=0; i<listsize; i++){
             contentArray.push({
-                content: '',
+                content: `${i+1}. `,
                 id: i,
             })
         }
