@@ -7,12 +7,12 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
     const[needData,requestD] = useState(false)
     const[latestId, addId] = useState(0)
 
-    function finishAnotation(href){
+    function finishAnotation(name, href){
         requestD(false)
         let newLinks = [...allLinks]
         newLinks.push({
-            ref: href,
-            name: '',
+            href: href,
+            name: name,
             id: latestId
         })
         addId(latestId+1)
@@ -20,11 +20,17 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
         onNoteAdded()
     }
 
+    function onDelete(linkId){
+        let newLinks = allLinks.filter(links => links.id!==linkId)
+        onNoteRemoved()
+        addLink(newLinks)
+    }
+
     return (
         <div className={visualnote+' displayanotations'}>
             <button className='linkbutton' onClick={() => requestD(true)}>+</button>
             {allLinks.map(link =>
-            <SmallerAnotation key={link.id} linkname={link.name} linkcontent={link.ref}></SmallerAnotation>
+            <SmallerAnotation onDelete={onDelete} key={link.id} id={link.id} linkname={link.name} linkcontent={link.href}></SmallerAnotation>
             )}
             <NecessaryDataLink size='link' requestD={requestD} onFinish={finishAnotation} visualclass={needData?'':'displaynone'}/>
         </div>

@@ -302,7 +302,6 @@ input, textarea{
   font-size: 2.25vh;
   overflow: auto;
   height: 35vh;
-  scrollbar-gutter: stable;
 }
 
 .functionbutton{
@@ -327,7 +326,7 @@ input, textarea{
 .linkbutton{
   max-width: fit-content;
   padding: 0 2vw;
-  font-size: 3vh;
+  font-size: 5vh;
   border: dashed var(--color3);
   color: var(--color3);
   background: none;
@@ -351,6 +350,65 @@ input, textarea{
   text-align: center;
   font-family: var(--font3);
   color: #ffffff;
+}
+
+.listarea::-webkit-scrollbar {
+  width: 5px;
+}
+.listarea::-webkit-scrollbar-thumb{
+  background-color: var(--color3);
+}
+.listarea::-webkit-scrollbar-thumb:hover{
+  background-color: var(--color4);
+}
+
+.littlelink{
+  border: solid;
+  border-width: 2px 0 2px 2px;
+  background-color: var(--color3);
+  border-color: var(--color4);
+  color: #ffffff;
+  font-size: 5vh;
+  font-family: var(--font3);
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0 2vw;
+}
+.littlelink:hover{
+  background-color: var(--color4);
+  border-color: var(--color5);
+}
+
+.linkdata{
+  border-width: 2px;
+  font-size: 2vh;
+  width: 30vh;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px 0;
+}
+.linkdata:hover{
+  background-color: var(--color3);
+  border-color: var(--color4);
+}
+
+.linkdisplay{
+  display: flex;
+  gap: 0px;
+}
+
+.deletelinkbutton{
+  font-size: 5vh;
+  border: solid var(--color4);
+  border-width: 2px 2px 2px 0;
+  color: var(--color1);
+  background-color: var(--color2s);
+  cursor: pointer;
+}
+.deletelinkbutton:hover{
+  color: #ffffff;
+  background-color: #e61e1e;
 }
 
 .displaynone{
