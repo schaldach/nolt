@@ -4,11 +4,11 @@ import ListItem from "./ListItem";
 function ListAnotation({title, content, onEdit, list, onDelete}) {
     const[editMode, startEdit] = useState(true)
 
-    function itemEdit(text, list, id){
-        let newContent = [...list.content]
-        const index = newContent.findIndex(el => el.id == id)
+    function itemEdit(text, list2, id){
+        let newContent = list2.content
+        const index = newContent.findIndex(el => el.id === id)
         newContent[index].text = text
-        onEdit(newContent, title, list)
+        onEdit(newContent, title, list2)
     }
 
     return (
@@ -25,7 +25,7 @@ function ListAnotation({title, content, onEdit, list, onDelete}) {
             </div>
             <div>
             {content.map(item =>
-                <ListItem itemEdit={itemEdit} key={item.id} list={list} editMode={editMode} text={item.content}></ListItem>
+                <ListItem itemEdit={itemEdit} key={item.id} list={list} editMode={editMode} text={item.text}></ListItem>
             )}
             </div>
         </div>
