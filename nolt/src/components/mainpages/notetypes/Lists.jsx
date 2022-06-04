@@ -12,7 +12,10 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
         let newLists = [...allLists]
         let contentArray = []
         for(let i=0; i<listsize; i++){
-            contentArray.push('')
+            contentArray.push({
+                content: '',
+                id: i,
+            })
         }
         newLists.push({
             title: '',
@@ -36,6 +39,11 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
         let newLists = allLists.filter(lists => lists.id!==listId)
         onNoteRemoved()
         addList(newLists)
+    }
+
+    function itemEdit(text, note){
+        let actualContent
+        onEdit(actualContent, title, note)
     }
 
     return (

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import ListItem from "./ListItem";
 
-function ListAnotation({title, content, onEdit, note, onDelete}) {
+function ListAnotation({title, content, onEdit, note, onDelete, itemEdit}) {
     const[editMode, startEdit] = useState(true)
 
     return (
@@ -18,7 +18,7 @@ function ListAnotation({title, content, onEdit, note, onDelete}) {
             </div>
             <div>
             {content.map(item =>
-                <ListItem key={2/* conserta isso pelo amor de deus */} note={note} editMode={editMode} text={item} index={() => content.indexOf(item)}></ListItem>
+                <ListItem itemEdit={itemEdit} key={item.id} note={note} editMode={editMode} text={item.content} index={item.id+1}></ListItem>
             )}
             </div>
         </div>
