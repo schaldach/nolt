@@ -19,7 +19,7 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
         }
         newLists.push({
             title: '',
-            content: contentArray,
+            content: [...contentArray],
             id: latestId
         })
         addId(latestId+1)
@@ -28,8 +28,8 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
     }
 
     function onEdit(title,content,list){
+        const index = allLists.indexOf(list)
         let newLists = [...allLists]
-        const index = newLists.indexOf(list)
         newLists[index].content = content
         newLists[index].title = title
         addList(newLists)
@@ -45,7 +45,7 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
         <div className={visualnote+' displayanotations'}>
             <button className='addanotation' onClick={() => requestD(true)}>+</button>
             {allLists.map(list =>
-                <ListAnotation note={list} onDelete={onDelete} onEdit={onEdit}
+                <ListAnotation list={list} onDelete={onDelete} onEdit={onEdit}
                 key={list.id} title={list.title} content={list.content}/>
             )}
             <NecessaryData size='list' requestD={requestD} onFinish={finishAnotation} visualclass={needData?'':'displaynone'}/>

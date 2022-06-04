@@ -6,6 +6,7 @@
   --color2s: #ffffff;
   --color3: #0AA1DD;
   --color4: #2155CD;
+  --color5: #40139b;
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --font3: 'Inter', sans-serif;
@@ -16,6 +17,7 @@
   --color2s: #2C2F33;
   --color3: #8E2DE2;
   --color4: #4A00E0;
+  --color5: #40139b;
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --font3: 'Inter', sans-serif;
@@ -237,7 +239,12 @@ img{
   border: none;
   color: var(--color2p);
   font-family: var(--font3);
-  background-color: red;
+  background-color: var(--color4);
+  color: #ffffff;
+  cursor: pointer;
+}
+.confirmbuttons:hover{
+  background-color: var(--color5);
 }
 
 .displayanotations{
@@ -332,6 +339,18 @@ input, textarea{
 
 .coloredtext{
   color: var(--color3);
+}
+
+.bothbuttons{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.requestingdata{
+  text-align: center;
+  font-family: var(--font3);
+  color: #ffffff;
 }
 
 .displaynone{
