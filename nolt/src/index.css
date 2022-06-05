@@ -422,6 +422,9 @@ input, textarea{
   width: 2.25vh;
   height: 2.25vh;
 }
+.functionality{
+  border: solid 1px var(--color3);
+}
 
 .displaynone{
   display: none;
