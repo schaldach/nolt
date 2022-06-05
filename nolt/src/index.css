@@ -4,9 +4,10 @@
   --color1: #000000;
   --color2p: #ffffff;
   --color2s: #ffffff;
-  --color3: #0AA1DD;
-  --color4: #2155CD;
-  --color5: #40139b;
+  --color3: #50cdff;
+  --color4: #0AA1DD;
+  --color5: #2155CD;
+  --color6: #40139b;
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --font3: 'Inter', sans-serif;
@@ -15,9 +16,10 @@
   --color1: #ffffff;
   --color2p: #212426;
   --color2s: #2C2F33;
-  --color3: #8E2DE2;
-  --color4: #4A00E0;
-  --color5: #40139b;
+  --color3: #ac48da;
+  --color4: #8E2DE2;
+  --color5: #4A00E0;
+  --color6: #40139b;
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --font3: 'Inter', sans-serif;
@@ -34,7 +36,7 @@ body, html{
   justify-items: center;
   border-style: solid;
   border-width: 0px 0px 1vh 0px;
-  border-color: var(--color4);
+  border-color: var(--color5);
   grid-template-columns: 2fr 5fr 1fr;
   height: 12vh;
   align-items: center;
@@ -65,11 +67,11 @@ body, html{
   cursor: pointer;
 }
 .navbar-select:hover{
-  color: var(--color3);
+  color: var(--color4);
   transition: 0.35s ease;
 }
 .contentselected{
-  border-color: var(--color3);
+  border-color: var(--color4);
 }
 
 .contentselection:hover>.dropdowns{
@@ -86,8 +88,8 @@ body, html{
 .dropdownitem{
   border: solid;
   border-width: 0px 0px 1px 0px;
-  border-color: var(--color4);
-  background-color: var(--color3);
+  border-color: var(--color5);
+  background-color: var(--color4);
   color: #ffffff;
   font-family: var(--font1);
   font-size: 2.3vw;
@@ -95,7 +97,7 @@ body, html{
   cursor: pointer;
 }
 .dropdownitem:hover{
-  background-color: var(--color4);
+  background-color: var(--color5);
 }
 
 .titlesecond{
@@ -113,7 +115,7 @@ main{
 /* 83vh (main, height+padding vertical) + 13vh (navbar, height+border) + 4vh (foot) = 100vh */
 
 .foot{
-  background: var(--color4);
+  background: var(--color5);
   color: #ffffff;
   font-family: var(--font1);
   font-size: 2vh;
@@ -136,20 +138,20 @@ main{
 
 .homebutton{
   background: var(--color2s);
-  color: var(--color3);
+  color: var(--color4);
   font-family: var(--font2);
   font-weight: bold;
   font-size: 1.5vw;
   border: solid;
-  border-color: var(--color3);
+  border-color: var(--color4);
   cursor: pointer;
   align-self: center;
   max-width: fit-content;
   margin-top: 3vh;
 }
 .homebutton:hover{
-  color: var(--color4);
-  border-color: var(--color4);
+  color: var(--color5);
+  border-color: var(--color5);
   font-size: 2.5vw;
   transition: 0.35s ease;
 }
@@ -170,26 +172,26 @@ main{
   display: flex;
   flex-direction: column;
   gap: 2px;
-  background-color: var(--color3);
+  background-color: var(--color4);
   width: 30vh;
   height: 40vh;
   border: solid;
-  border-color: var(--color3);
+  border-color: var(--color4);
   border-width: 1vh 2px 2px 2px;
-  box-shadow: 5px 5px 0px var(--color3);
+  box-shadow: 5px 5px 0px var(--color4);
 }
 .editting{
-  box-shadow: 5px 5px 15px var(--color3);
+  box-shadow: 5px 5px 15px var(--color4);
 }
 
 .anotcontent::-webkit-scrollbar {
   width: 7px;
 }
 .anotcontent::-webkit-scrollbar-thumb{
-  background-color: var(--color3);
+  background-color: var(--color4);
 }
 .anotcontent::-webkit-scrollbar-thumb:hover{
-  background-color: var(--color4);
+  background-color: var(--color5);
 }
 
 .displayanotations .wholething:nth-child(even){
@@ -208,10 +210,17 @@ main{
   position: relative;
 }
 .displayanotations .wholething:hover{
-  transform: scale(1.15);
+  top: 0px;
+  transform: scale(1.1);
   position: relative;
   z-index: 1;
   transition: 0.45s ease;
+}
+.displayanotations .view:nth-child(1n){
+  top: 0px;
+  transform: scale(1.1);
+  position: relative;
+  z-index: 2;
 }
 
 img{
@@ -239,12 +248,12 @@ img{
   border: none;
   color: var(--color2p);
   font-family: var(--font3);
-  background-color: var(--color4);
+  background-color: var(--color5);
   color: #ffffff;
   cursor: pointer;
 }
 .confirmbuttons:hover{
-  background-color: var(--color5);
+  background-color: var(--color6);
 }
 
 .displayanotations{
@@ -259,18 +268,18 @@ img{
   width: 30vh;
   height: 40vh;
   font-family: var(--font1);
-  color: var(--color3);
+  color: var(--color4);
   background: var(--color2s);
   border-radius: 25px;
   border-style: dashed;
-  border-color: var(--color3);
+  border-color: var(--color4);
   padding-bottom: 8vh;
   font-size: 15vh;
   cursor: pointer;
 }
 .addanotation:hover{
-  color: var(--color4);
-  border-color: var(--color4);
+  color: var(--color5);
+  border-color: var(--color5);
 }
 
 input, textarea{
@@ -305,7 +314,7 @@ input, textarea{
 }
 
 .functionbutton{
-  color: var(--color1);
+  color: #000000;
   background: none;
   border: none;
   background: none;
@@ -323,17 +332,17 @@ input, textarea{
   max-width: fit-content;
   padding: 0 2vw;
   font-size: 5vh;
-  border: dashed var(--color3);
-  color: var(--color3);
+  border: dashed var(--color4);
+  color: var(--color4);
   background: none;
 }
 .linkbutton:hover{
-  border-color: var(--color4);
-  color: var(--color4);
+  border-color: var(--color5);
+  color: var(--color5);
 }
 
 .coloredtext{
-  color: var(--color3);
+  color: var(--color4);
 }
 
 .bothbuttons{
@@ -352,17 +361,17 @@ input, textarea{
   width: 5px;
 }
 .listarea::-webkit-scrollbar-thumb{
-  background-color: var(--color3);
+  background-color: var(--color4);
 }
 .listarea::-webkit-scrollbar-thumb:hover{
-  background-color: var(--color4);
+  background-color: var(--color5);
 }
 
 .littlelink{
   border: solid;
   border-width: 2px 0 2px 2px;
-  background-color: var(--color3);
-  border-color: var(--color4);
+  background-color: var(--color4);
+  border-color: var(--color5);
   color: #ffffff;
   font-size: 5vh;
   font-family: var(--font3);
@@ -371,8 +380,8 @@ input, textarea{
   padding: 0 2vw;
 }
 .littlelink:hover{
-  background-color: var(--color4);
-  border-color: var(--color5);
+  background-color: var(--color5);
+  border-color: var(--color6);
 }
 
 .linkdata{
@@ -385,8 +394,8 @@ input, textarea{
   padding: 5px 0;
 }
 .linkdata:hover{
-  background-color: var(--color3);
-  border-color: var(--color4);
+  background-color: var(--color4);
+  border-color: var(--color5);
 }
 
 .linkdisplay{
@@ -396,7 +405,7 @@ input, textarea{
 
 .deletelinkbutton{
   font-size: 5vh;
-  border: solid var(--color4);
+  border: solid var(--color5);
   border-width: 2px 2px 2px 0;
   color: var(--color1);
   background-color: var(--color2s);
@@ -408,32 +417,48 @@ input, textarea{
 }
 
 .editimg{
-  background-image: url("pencil.png");
+  background-image: url("pencil.jpg");
+  background-blend-mode: darken;
+  background-size: cover;
+}
+.viewimg{
+  background-image: url("eyeicon.jpg");
+  background-blend-mode: darken;
   background-size: cover;
 }
 .greenbutton{
-  background-image: url("pencilcheck.png");
+  background-color: var(--color3);
 }
 .dropdownbutton{
   background-image: url("three-bars-icon-28.jpg");
+  background-blend-mode: lighten;
   background-size: cover;
-  width: 2.25vh;
-  height: 2.25vh;
+  width: 4vh;
+  height: 4vh;
+}
+.dropped{
+  background-color: var(--color4);
+}
+.dropmenu{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
 }
 .functionality{
   display: flex;
   flex-direction: column;
-  border: solid var(--color3);
-  border-width:  1px 1px 1px 1px;
+  border: solid var(--color4);
+  border-width:  2px;
   justify-content: center;
   align-items: center;
   height: fit-content;
-  padding: 1vh 0 0 0;
   background-color: #ffffff;
 }
 .wholething{
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
 
 .displaynone{

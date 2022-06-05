@@ -1,10 +1,13 @@
 import React, { useState } from "react"
+import DropdownMenu from "./DropdownMenu"
 
 function Anotation({title, content, onEdit, note, onDelete}) {
     const[editMode, startEdit] = useState(true)
+    const[viewMode, startView] = useState(false)
+    const[dropped, startDrop] = useState(false)
 
     return (
-        <div className='wholething'>
+        <div className={viewMode?'wholething view':'wholething'}>
         <div className={editMode?'anot editting':'anot'}>
             <div>
                 <div className={!editMode?'anottitle':'displaynone anottitle'}>{title}</div>
@@ -17,12 +20,8 @@ function Anotation({title, content, onEdit, note, onDelete}) {
                 value={content} onInput={e => onEdit(note.title, e.target.value, note)} placeholder='Conteúdo'/>
             </div>
         </div>
-        <div className='functionality'>
-            <button className='dropdownbutton functionbutton'></button>
-            <button onClick={() => startEdit(!editMode)} 
-            className={editMode?' greenbutton editimg functionbutton':'editimg functionbutton'}></button>
-            <button onClick={() => onDelete(note.id)} className='deletebutton functionbutton'>x</button>
-        </div>
+        <DropdownMenu editMode={editMode} startEdit={startEdit} viewMode={viewMode}
+        startView={startView} dropped={dropped} startDrop={startDrop} onDelete={() => onDelete(note.id)}/>
         </div>
     )
 }
