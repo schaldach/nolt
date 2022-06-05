@@ -258,7 +258,7 @@ img{
 
 .displayanotations{
   margin-top: 3vh;
-  gap: 1vw;
+  gap: 2.25vw;
   display: flex;
   flex-wrap: wrap;
 }

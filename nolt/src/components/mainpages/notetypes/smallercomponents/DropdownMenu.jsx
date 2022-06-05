@@ -1,4 +1,8 @@
-function DropdownMenu({editMode, startEdit, viewMode, startView, dropped, startDrop, onDelete}) {
+import React, { useState } from "react";
+
+function DropdownMenu({editMode, startEdit, viewMode, startView, onDelete}) {
+    const[dropped, startDrop] = useState(false)
+
     return (
         <div className='functionality'>
             <button onClick={() => startDrop(!dropped)} 

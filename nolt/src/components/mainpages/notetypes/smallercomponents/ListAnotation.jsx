@@ -5,7 +5,6 @@ import DropdownMenu from "./DropdownMenu"
 function ListAnotation({title, content, onEdit, list, onDelete}) {
     const[editMode, startEdit] = useState(true)
     const[viewMode, startView] = useState(false)
-    const[dropped, startDrop] = useState(false)
 
     function itemEdit(text, id){
         let newContent = [...content]
@@ -29,7 +28,7 @@ function ListAnotation({title, content, onEdit, list, onDelete}) {
             </div>
         </div>
         <DropdownMenu editMode={editMode} startEdit={startEdit} viewMode={viewMode}
-        startView={startView} dropped={dropped} startDrop={startDrop} onDelete={() => onDelete(list.id)}/>
+        startView={startView} onDelete={() => onDelete(list.id)}/>
         </div>
     )
 }

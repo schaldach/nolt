@@ -35,7 +35,8 @@ function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
         <div className={visualnote+' displayanotations'}>
             <button className='addanotation' onClick={addAnotation}>+</button>
             {allNotes.map(note => 
-                <Anotation note={note} onDelete={onDelete} onEdit={onEdit} key={note.id} title={note.title} content={note.content}></Anotation>
+                <Anotation note={note} onDelete={onDelete} onEdit={onEdit} key={note.id} 
+                title={note.title} content={note.content}></Anotation>
             )}
         </div>
     )
