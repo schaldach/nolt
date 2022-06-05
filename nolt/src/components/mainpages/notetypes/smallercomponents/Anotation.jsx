@@ -5,12 +5,6 @@ function Anotation({title, content, onEdit, note, onDelete}) {
 
     return (
         <div className='wholething'>
-        <div className='functionality'>
-            <button onClick={() => startEdit(!editMode)} 
-            className={editMode?' greenbutton editimg functionbutton':'editimg functionbutton'}></button>
-            <button onClick={() => onDelete(note.id)} className='deletebutton functionbutton'>x</button>
-            <button className='dropdownbutton functionbutton'></button>
-        </div>
         <div className={editMode?'anot editting':'anot'}>
             <div>
                 <div className={!editMode?'anottitle':'displaynone anottitle'}>{title}</div>
@@ -22,6 +16,12 @@ function Anotation({title, content, onEdit, note, onDelete}) {
                 <textarea className={editMode?'anotcontent':'displaynone anotcontent'} type='text' 
                 value={content} onInput={e => onEdit(note.title, e.target.value, note)} placeholder='Conteúdo'/>
             </div>
+        </div>
+        <div className='functionality'>
+            <button className='dropdownbutton functionbutton'></button>
+            <button onClick={() => startEdit(!editMode)} 
+            className={editMode?' greenbutton editimg functionbutton':'editimg functionbutton'}></button>
+            <button onClick={() => onDelete(note.id)} className='deletebutton functionbutton'>x</button>
         </div>
         </div>
     )

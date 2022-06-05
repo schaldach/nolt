@@ -13,12 +13,6 @@ function ListAnotation({title, content, onEdit, list, onDelete}) {
 
     return (
         <div className='wholething'>
-            <div className='functionality'>
-                <button onClick={() => startEdit(!editMode)} 
-                className={editMode?' greenbutton editimg functionbutton':'editimg functionbutton'}></button>
-                <button onClick={() => onDelete(list.id)} className='deletebutton functionbutton'>x</button>
-                <button className='dropdownbutton functionbutton'></button>
-            </div>
             <div className={editMode?'anot editting':'anot'}>
                 <div>
                     <div className={!editMode?'anottitle':'displaynone anottitle'}>{title}</div>
@@ -30,6 +24,12 @@ function ListAnotation({title, content, onEdit, list, onDelete}) {
                     <ListItem itemEdit={itemEdit} index={item.id} key={item.id} editMode={editMode} text={item.text}></ListItem>
                 )}
                 </div>
+            </div>
+            <div className='functionality'>
+                <button className='dropdownbutton functionbutton'></button>
+                <button onClick={() => startEdit(!editMode)} 
+                className={editMode?' greenbutton editimg functionbutton':'editimg functionbutton'}></button>
+                <button onClick={() => onDelete(list.id)} className='deletebutton functionbutton'>x</button>
             </div>
         </div>
     )

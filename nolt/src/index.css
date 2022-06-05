@@ -312,8 +312,6 @@ input, textarea{
   cursor: pointer;
   height: 4vh;
   width: 4vh;
-}
-.deletebutton{
   font-size: 3vh;
 }
 .deletebutton:hover{
@@ -423,7 +421,19 @@ input, textarea{
   height: 2.25vh;
 }
 .functionality{
-  border: solid 1px var(--color3);
+  display: flex;
+  flex-direction: column;
+  border: solid var(--color3);
+  border-width:  1px 1px 1px 1px;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  padding: 1vh 0 0 0;
+  background-color: #ffffff;
+}
+.wholething{
+  display: flex;
+  gap: 8px;
 }
 
 .displaynone{
