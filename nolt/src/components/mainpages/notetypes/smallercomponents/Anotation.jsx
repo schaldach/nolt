@@ -6,8 +6,10 @@ function Anotation({title, content, onEdit, note, onDelete}) {
     return (
         <div className='wholething'>
         <div className='functionality'>
-            <button onClick={() => startEdit(!editMode)} className={editMode?' greenbutton functionbutton':'functionbutton'}>o</button>
+            <button onClick={() => startEdit(!editMode)} 
+            className={editMode?' greenbutton editimg functionbutton':'editimg functionbutton'}></button>
             <button onClick={() => onDelete(note.id)} className='deletebutton functionbutton'>x</button>
+            <button className='dropdownbutton functionbutton'></button>
         </div>
         <div className={editMode?'anot editting':'anot'}>
             <div>

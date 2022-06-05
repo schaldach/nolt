@@ -308,18 +308,16 @@ input, textarea{
   color: var(--color1);
   background: none;
   border: none;
-  font-size: 3vh;
   background: none;
   cursor: pointer;
   height: 4vh;
   width: 4vh;
 }
+.deletebutton{
+  font-size: 3vh;
+}
 .deletebutton:hover{
   background-color: #e61e1e;
-  color: #ffffff;
-}
-.greenbutton{
-  background-color: #19d839;
   color: #ffffff;
 }
 
@@ -409,6 +407,20 @@ input, textarea{
 .deletelinkbutton:hover{
   color: #ffffff;
   background-color: #e61e1e;
+}
+
+.editimg{
+  background-image: url("pencil.png");
+  background-size: cover;
+}
+.greenbutton{
+  background-image: url("pencilcheck.png");
+}
+.dropdownbutton{
+  background-image: url("three-bars-icon-28.jpg");
+  background-size: cover;
+  width: 2.25vh;
+  height: 2.25vh;
 }
 
 .displaynone{
