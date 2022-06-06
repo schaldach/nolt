@@ -74,7 +74,7 @@ body, html{
   border-color: var(--color4);
 }
 
-.contentselection:hover>.dropdowns{
+.contentselection:hover .dropdowns{
   display: flex;
   flex-direction: column;
 }
@@ -436,15 +436,8 @@ input, textarea{
   width: 4vh;
   height: 4vh;
 }
-.dropped{
+.functionality:hover .dropdownbutton{
   background-color: var(--color4);
-}
-.dropmenu{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: fit-content;
 }
 .functionality{
   display: flex;
@@ -459,6 +452,28 @@ input, textarea{
 .wholething{
   display: flex;
   gap: 10px;
+}
+
+@keyframes growDown {
+  0% {
+    transform: scaleY(0)
+  }
+  80% {
+    transform: scaleY(1.1)
+  }
+  100% {
+    transform: scaleY(1)
+  }
+}
+
+.dropmenu{
+  display: none;
+  animation: growDown 0.4s ease-in-out forwards;
+  transform-origin: top center;
+}
+.functionality:hover .dropmenu{
+  display: flex;
+  flex-direction: column;
 }
 
 .displaynone{
