@@ -178,7 +178,7 @@ main{
   border: solid;
   border-color: var(--color4);
   border-width: 1vh 2px 2px 2px;
-  box-shadow: 5px 5px 0px var(--color4);
+  box-shadow: 5px 5px 0px var(--color5);
 }
 .editting{
   box-shadow: 5px 5px 15px var(--color4);
@@ -333,6 +333,7 @@ input, textarea{
   padding: 0 2vw;
   font-size: 5vh;
   border: dashed var(--color4);
+  border-radius: 15px;
   color: var(--color4);
   background: none;
 }
@@ -368,16 +369,15 @@ input, textarea{
 }
 
 .littlelink{
-  border: solid;
-  border-width: 2px 0 2px 2px;
   background-color: var(--color4);
-  border-color: var(--color5);
   color: #ffffff;
   font-size: 5vh;
   font-family: var(--font3);
   cursor: pointer;
   text-decoration: none;
   padding: 0 2vw;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
 }
 .littlelink:hover{
   background-color: var(--color5);
@@ -395,20 +395,22 @@ input, textarea{
 }
 .linkdata:hover{
   background-color: var(--color4);
-  border-color: var(--color5);
 }
 
 .linkdisplay{
+  border-radius: 15px;
+  border: solid 2px var(--color5);
   display: flex;
   gap: 0px;
 }
 
 .deletelinkbutton{
+  border-top-right-radius: 13px;
+  border-bottom-right-radius: 13px;
+  border: none;
   font-size: 5vh;
-  border: solid var(--color5);
-  border-width: 2px 2px 2px 0;
-  color: var(--color1);
-  background-color: var(--color2s);
+  color: #000000;
+  background-color: #ffffff;
   cursor: pointer;
 }
 .deletelinkbutton:hover{
