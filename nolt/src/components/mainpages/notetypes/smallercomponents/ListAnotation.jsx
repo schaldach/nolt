@@ -18,7 +18,7 @@ function ListAnotation({title, content, onEdit, list, onDelete}) {
         <div className={editMode?'anot editting':'anot'}>
             <div>
                 <div className={!editMode?'anottitle':'displaynone anottitle'}>{title}</div>
-                <input className={editMode?'anottitle':'displaynone anottitle'} type='text' 
+                <input autoFocus className={editMode?'anottitle':'displaynone anottitle'} type='text' 
                 value={title} onInput={e => onEdit(e.target.value, content, list)} placeholder='Título'/>
             </div>
             <div className='anotcontent'>
