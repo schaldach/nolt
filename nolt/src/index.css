@@ -110,18 +110,18 @@ body, html{
 main{
   background-color: var(--color2s);
   padding: 4vh 10vw 10vh 10vw;
-  min-height: 69vh;
+  min-height: 70vh;
 }
-/* 83vh (main, height+padding vertical) + 13vh (navbar, height+border) + 4vh (foot) = 100vh */
+/* 84vh (main, height+padding vertical) + 13vh (navbar, height+border) + 3vh (foot) = 100vh */
 
 .foot{
   background: var(--color5);
   color: #ffffff;
   font-family: var(--font1);
-  font-size: 2vh;
+  font-size: 1.5vh;
   bottom: 0;
   left: 0;
-  height: 4vh;
+  height: 3vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -141,19 +141,19 @@ main{
   color: var(--color4);
   font-family: var(--font2);
   font-weight: bold;
-  font-size: 1.5vw;
+  font-size: 2.5vw;
   border: solid;
   border-color: var(--color4);
   cursor: pointer;
   align-self: center;
   max-width: fit-content;
   margin-top: 3vh;
+  box-shadow: none;
+  transition: 0.4s;
 }
 .homebutton:hover{
-  color: var(--color5);
-  border-color: var(--color5);
-  font-size: 2.5vw;
-  transition: 0.35s ease;
+  box-shadow: inset 10em 0 0 0 var(--color4);
+  color: #ffffff;
 }
 
 .secondtext{
@@ -322,7 +322,8 @@ input, textarea{
   height: 4vh;
   width: 4vh;
   font-size: 3vh;
-  position: relative;
+  background-blend-mode: darken;
+  background-size: cover;
 }
 .deletebutton:hover{
   background-color: #e61e1e;
@@ -421,13 +422,9 @@ input, textarea{
 
 .editimg{
   background-image: url("pencil.jpg");
-  background-blend-mode: darken;
-  background-size: cover;
 }
 .viewimg{
   background-image: url("eyeicon.jpg");
-  background-blend-mode: darken;
-  background-size: cover;
 }
 .greenbutton{
   background-color: var(--color3);
@@ -435,7 +432,6 @@ input, textarea{
 .dropdownbutton{
   background-image: url("three-bars-icon-28.jpg");
   background-blend-mode: lighten;
-  background-size: cover;
 }
 .wholething:hover .dropdownbutton{
   background-color: var(--color4);
@@ -452,7 +448,7 @@ input, textarea{
 }
 .wholething:hover .functionality{
   height: 16vh;
-  animation: growDown 0.5s;
+  animation: growDown 0.45s linear;
   transform-origin: top center;
 }
 .wholething{
