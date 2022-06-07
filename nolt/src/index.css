@@ -134,6 +134,12 @@ main{
 }
 .darkmode:hover{
   border: solid 2px #8E2DE2;
+  animation: pulse 1s;
+  box-shadow: 0 0 0 1em transparent;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 #8E2DE2; }
 }
 
 .homebutton{
@@ -149,7 +155,7 @@ main{
   max-width: fit-content;
   margin-top: 3vh;
   box-shadow: none;
-  transition: 0.5s;
+  transition: 0.65s;
 }
 .homebutton:hover{
   box-shadow: inset 10em 0 0 0 var(--color4);
