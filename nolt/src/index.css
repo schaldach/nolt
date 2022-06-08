@@ -134,6 +134,8 @@ main{
 }
 .darkmode:hover{
   border: solid 2px #8E2DE2;
+}
+.darkanimation{
   animation: pulse 1s;
   box-shadow: 0 0 0 1em transparent;
 }
@@ -166,12 +168,12 @@ main{
   font-family: var(--font3);
   font-size: 1.5vw;
   color: var(--color1);
+  margin: 3vh 0;
 }
 
 .home{
   display: flex;
   flex-direction: column;
-  gap: 15px;
 }
 
 .anot{
@@ -460,6 +462,10 @@ input, textarea{
 .wholething{
   display: flex;
   gap: 10px;
+}
+.wholething .menuview{
+  height: 16vh;
+  animation: none !important;  
 }
 
 @keyframes growDown {

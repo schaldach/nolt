@@ -2,7 +2,7 @@ import React from "react";
 
 function DropdownMenu({editMode, startEdit, viewMode, startView, onDelete}) {
     return (
-        <div className='functionality'>
+        <div className={viewMode?'functionality menuview':'functionality'}>
             <button className='dropdownbutton functionbutton'></button>
             <button onClick={() => startEdit(!editMode)} 
             className={editMode?' greenbutton editimg functionbutton':'editimg functionbutton'}></button>

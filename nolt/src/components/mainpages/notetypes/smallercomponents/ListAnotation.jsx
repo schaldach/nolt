@@ -5,6 +5,7 @@ import DropdownMenu from "./DropdownMenu"
 function ListAnotation({title, content, onEdit, list, onDelete}) {
     const[editMode, startEdit] = useState(true)
     const[viewMode, startView] = useState(false)
+    const[currentItemFocus, changeFocus] = useState(0)
 
     function itemEdit(text, id){
         let newContent = [...content]

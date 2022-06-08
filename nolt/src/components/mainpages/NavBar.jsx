@@ -1,16 +1,11 @@
 import React from "react"
+import DarkModeButton from "./smallcomponents/DarkModeButton"
 
 function NavBar({onPageChange, onNoteChange, pagesVisible, currentNote, darkMode, setDarkMode}) {
     function manageShown(pageReference){
         let classes = 'navbar-select'
         classes += pagesVisible[pageReference]?' contentselected':''
         return classes
-    }
-
-    function manageDarkMode(){
-        let src = darkMode?'moondarktheme':'moonlighttheme'
-        src += '.jpg'
-        return src
     }
 
     return (
@@ -34,9 +29,7 @@ function NavBar({onPageChange, onNoteChange, pagesVisible, currentNote, darkMode
                 <div className={manageShown('project')} onClick={() => onPageChange('project')}>Projeto</div>
                 <div className={manageShown('contact')} onClick={() => onPageChange('contact')}>Contato</div>
             </div>
-            <button onClick={() => setDarkMode(!darkMode)} className='darkmode'>
-                <img src={manageDarkMode()}/>
-            </button>
+            <DarkModeButton setDarkMode={setDarkMode} darkMode={darkMode}/>
         </div>
     )
 }
