@@ -11,11 +11,10 @@ function Anotation({title, content, onEdit, note, onDelete}) {
             e.preventDefault()
             searchInput.current.focus()
         }
-        
     }
 
     return (
-        <div className={viewMode?'wholething view':'wholething'}>
+        <div className={viewMode?'wholething view':'wholething'} onDoubleClick={() => startEdit(!editMode)}>
         <div className={editMode?'anot editting':'anot'}>
             <div>
                 <div className={!editMode?'anottitle':'displaynone anottitle'}>{title}</div>

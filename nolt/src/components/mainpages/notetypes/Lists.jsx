@@ -20,7 +20,7 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
         newLists.push({
             title: '',
             content: [...contentArray],
-            id: latestId
+            id: latestId,
         })
         addId(latestId+1)
         addList(newLists)

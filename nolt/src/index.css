@@ -468,6 +468,12 @@ input, textarea{
   animation: none !important;  
 }
 
+.listinstruction{
+  color: #000000;
+  user-select: none;
+  font-size: 1.6vh;
+}
+
 @keyframes growDown {
   0% {
     height: 4vh;
