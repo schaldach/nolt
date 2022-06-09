@@ -136,8 +136,9 @@ main{
   border: solid 2px #8E2DE2;
 }
 .darkanimation{
-  animation: pulse 1s;
-  box-shadow: 0 0 0 1em transparent;
+  border: solid 2px #8E2DE2;
+  animation: pulse 0.75s;
+  box-shadow: 0 0 0 1.2em transparent;
 }
 
 @keyframes pulse {

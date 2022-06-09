@@ -15,16 +15,16 @@ function ListAnotation({title, content, onEdit, list, onDelete}) {
     }
 
     function handleTextFocus(e){
-        if(currentItemFocus==content.length){
-            let newContent = [...content]
-            newContent.push({
-                text: `${content.length+1}. `,
-                id: content.length
-            })
-            onEdit(title, newContent, list)
-        }
-        else if(e.key==='Enter'){
+        if(e.key==='Enter'){
             e.preventDefault()
+            if(currentItemFocus+1===content.length){
+                let newContent = [...content]
+                newContent.push({
+                    text: `${content.length+1}. `,
+                    id: content.length
+                })
+                onEdit(title, newContent, list)
+            }
             changeFocus(currentItemFocus+1)
         }
     }
@@ -43,7 +43,7 @@ function ListAnotation({title, content, onEdit, list, onDelete}) {
                 text={item.text} changeFocus={changeFocus} handleTextFocus={handleTextFocus} 
                 itemFocus={currentItemFocus}></ListItem>
             )}
-                <div className='listinstruction'>Aperte 'Enter' para aumentar a lista</div>
+            <div className={editMode?'listinstruction':'displaynone listinstruction'}>Aperte 'Enter' para aumentar a lista</div>
             </div>
         </div>
         <DropdownMenu editMode={editMode} startEdit={startEdit} viewMode={viewMode}

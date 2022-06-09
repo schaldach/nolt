@@ -1,14 +1,11 @@
 import React, { useState } from "react"
-import NecessaryData from "./smallercomponents/NecessaryData";
 import ListAnotation from "./smallercomponents/ListAnotation"
 
 function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
     const[allLists,addList] = useState([])
-    const[needData,requestD] = useState(false)
     const[latestId, addId] = useState(0)
 
     function finishAnotation(listsize){
-        requestD(false)
         let newLists = [...allLists]
         let contentArray = []
         for(let i=0; i<listsize; i++){
@@ -43,12 +40,11 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
 
     return (
         <div className={visualnote+' displayanotations'}>
-            <button className='addanotation' onClick={() => requestD(true)}>+</button>
+            <button className='addanotation' onClick={() => finishAnotation(1)}>+</button>
             {allLists.map(list =>
                 <ListAnotation list={list} onDelete={onDelete} onEdit={onEdit}
                 key={list.id} title={list.title} content={list.content}/>
             )}
-            <NecessaryData size='list' requestD={requestD} onFinish={finishAnotation} visualclass={needData?'':'displaynone'}/>
         </div>
     )
 }

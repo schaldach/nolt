@@ -1,11 +1,16 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 function ListItem({index, text, editMode, itemEdit, itemFocus, handleTextFocus, changeFocus}) {
     const searchInput = useRef(null)
 
-    if(itemFocus==index){
-        searchInput.current.focus()
-    }
+    useEffect(() => {
+        if(itemFocus===index){
+            searchInput.current.focus()
+            let v = searchInput.current.value
+            searchInput.current.value = ''
+            searchInput.current.value = v
+        }
+    }, [itemFocus])
 
     return(
         <div>
