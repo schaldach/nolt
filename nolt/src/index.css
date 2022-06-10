@@ -133,16 +133,20 @@ main{
   border: none;
 }
 .darkmode:hover{
-  border: solid 2px #8E2DE2;
+  border: solid 2px var(--color4);
 }
 .darkanimation{
-  border: solid 2px #8E2DE2;
-  animation: pulse 0.75s;
+  border: solid 2px var(--color4);
+  animation: pulse 0.7s;
   box-shadow: 0 0 0 1.2em transparent;
+}
+.darkicon{
+  width: 5vh;
+  height: 5vh;
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 #8E2DE2; }
+  0% { box-shadow: 0 0 0 0 var(--color4); }
 }
 
 .homebutton{
@@ -429,19 +433,11 @@ input, textarea{
   background-color: #e61e1e;
 }
 
-.editimg{
-  background-image: url("pencil.jpg");
+.dropdownsvg{
+  width: 3vh;
+  height: 3vh;
 }
-.viewimg{
-  background-image: url("eyeicon.jpg");
-}
-.greenbutton{
-  background-color: var(--color3);
-}
-.dropdownbutton{
-  background-image: url("three-bars-icon-28.jpg");
-  background-blend-mode: lighten;
-}
+
 .wholething:hover .dropdownbutton{
   background-color: var(--color4);
 }
