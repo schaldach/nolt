@@ -43,7 +43,7 @@ function ListAnotation({title, content, onEdit, list, onDelete}) {
                 text={item.text} changeFocus={changeFocus} handleTextFocus={handleTextFocus} 
                 itemFocus={currentItemFocus}></ListItem>
             )}
-            <div className={editMode?'listinstruction':'displaynone listinstruction'}>Aperte 'Enter' para aumentar a lista</div>
+            <div className={editMode?'listinstruction anotcontentwarning':'displaynone'}>Aperte 'Enter' para aumentar a lista ou ir para o próximo item</div>
             </div>
         </div>
         <DropdownMenu editMode={editMode} startEdit={startEdit} viewMode={viewMode}

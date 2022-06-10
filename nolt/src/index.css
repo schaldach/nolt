@@ -7,7 +7,6 @@
   --color3: #50cdff;
   --color4: #0AA1DD;
   --color5: #2155CD;
-  --color6: #40139b;
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --font3: 'Inter', sans-serif;
@@ -16,10 +15,9 @@
   --color1: #ffffff;
   --color2p: #212426;
   --color2s: #2C2F33;
-  --color3: #ac48da;
+  --color3: #af45e0;
   --color4: #8E2DE2;
-  --color5: #4A00E0;
-  --color6: #40139b;
+  --color5: #3e087c;
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --font3: 'Inter', sans-serif;
@@ -73,18 +71,15 @@ body, html{
 .contentselected{
   border-color: var(--color4);
 }
-
-.contentselection:hover .dropdowns{
-  display: flex;
-  flex-direction: column;
-}
-
 .dropdowns{
   padding-top: 1.5vh;
   display: none;
   position: absolute;
 }
-
+.contentselection:hover .dropdowns{
+  display: flex;
+  flex-direction: column;
+}
 .dropdownitem{
   border: solid;
   border-width: 0px 0px 1px 0px;
@@ -207,53 +202,33 @@ main{
   background-color: var(--color5);
 }
 
-.displayanotations .wholething:nth-child(even){
+.wholething:nth-child(even){
   transform: rotate(2deg);
   top: -3px;
   position: relative;
 }
-.displayanotations .wholething:nth-child(3n){
+.wholething:nth-child(3n){
   transform: rotate(-2deg);
   top: 3px;
   position: relative;
 }
-.displayanotations .wholething:nth-child(5n){
+.wholething:nth-child(5n){
   transform: rotate(1deg);
   top: -2px;
   position: relative;
 }
-.displayanotations .wholething:hover{
+.wholething:hover{
   top: 0px;
   transform: scale(1.1);
   position: relative;
   z-index: 1;
   transition: 0.45s ease;
 }
-.displayanotations .view:nth-child(1n){
+.view:nth-child(1n){
   top: 0px;
   transform: scale(1.1);
   position: relative;
   z-index: 2;
-}
-
-img{
-  width: 7vh;
-  height: 7vh;
-}
-
-.necessarydata{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--color2p);
-  border-radius: 20px;
-  color: var(--color1);
-  width: 30vh;
-  height: 40vh;
-  border: solid;
-  border-width: 1px;
-  border-color: var(--color1);
 }
 
 .confirmbuttons{
@@ -265,13 +240,10 @@ img{
   color: #ffffff;
   cursor: pointer;
 }
-.confirmbuttons:hover{
-  background-color: var(--color6);
-}
 
 .displayanotations{
   margin-top: 3vh;
-  gap: 2.25vw;
+  gap: 2.3vw;
   display: flex;
   flex-wrap: wrap;
 }
@@ -325,18 +297,23 @@ input, textarea{
   overflow: auto;
   height: 35vh;
 }
+.anotcontentwarning{
+  word-break: break-word;
+}
 
+.functionbutton:hover{
+  background-color: #e6e6e6;
+}
 .functionbutton{
   color: #000000;
   background: none;
   border: none;
   background: none;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 4vh;
-  width: 4vh;
-  font-size: 3vh;
-  background-blend-mode: darken;
-  background-size: cover;
 }
 .deletebutton:hover{
   background-color: #e61e1e;
@@ -394,11 +371,6 @@ input, textarea{
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
 }
-.littlelink:hover{
-  background-color: var(--color5);
-  border-color: var(--color6);
-}
-
 .linkdata{
   border-width: 2px;
   font-size: 2vh;
@@ -434,12 +406,13 @@ input, textarea{
 }
 
 .dropdownsvg{
-  width: 3vh;
-  height: 3vh;
+  height: 3.25vh;
+  width: 3.25vh;
 }
 
 .wholething:hover .dropdownbutton{
-  background-color: var(--color4);
+  background-color: var(--color3);
+  color: #ffffff;
 }
 .functionality{
   display: flex;
@@ -460,9 +433,13 @@ input, textarea{
   display: flex;
   gap: 10px;
 }
-.wholething .menuview{
+.menuview{
   height: 16vh;
   animation: none !important;  
+}
+.menuview .dropdownbutton{
+  background-color: var(--color3);
+  color: #ffffff;
 }
 
 .listinstruction{
