@@ -1,6 +1,5 @@
 import React from "react"
 import SecondTitle from "./smallcomponents/SecondTitle"
-import SectionDescription from "./smallcomponents/SectionDescription";
 
 function Home({visualclass, notesNumbers, onPageChange}) {
     function textToWrite(){
@@ -18,7 +17,9 @@ function Home({visualclass, notesNumbers, onPageChange}) {
     return(
         <div className={visualclass+'home'}>
             <SecondTitle titlecontent='Home'/>
-            <SectionDescription paragraph={textToWrite()}/>
+            <div className="secondtext">
+                {textToWrite()}
+            </div>
             <button onClick={() => onPageChange('notetypes')} className='homebutton'>Leve-me para lá →</button>
         </div>
     )
