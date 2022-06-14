@@ -236,9 +236,12 @@ main{
   border: none;
   color: var(--color2p);
   font-family: var(--font3);
-  background-color: var(--color5);
+  background-color: var(--color4);
   color: #ffffff;
   cursor: pointer;
+}
+.confirmbuttons:hover{
+  background-color: var(--color5);
 }
 
 .displayanotations{
@@ -323,6 +326,7 @@ input, textarea{
 }
 
 .linkbutton{
+  cursor: pointer;
   max-width: fit-content;
   padding: 0 2vw;
   font-size: 5vh;
@@ -343,13 +347,7 @@ input, textarea{
 .bothbuttons{
   display: flex;
   justify-content: center;
-  gap: 15px;
-}
-
-.requestingdata{
-  text-align: center;
-  font-family: var(--font3);
-  color: #ffffff;
+  gap: 3px;
 }
 
 .listarea::-webkit-scrollbar {
@@ -363,48 +361,53 @@ input, textarea{
 }
 
 .littlelink{
-  background-color: var(--color4);
-  color: #ffffff;
-  font-size: 5vh;
+  display: flex;
+  background-color: #ffffff;
+  border: solid var(--color4) 2px;
+  font-size: 3.5vh;
   font-family: var(--font3);
   cursor: pointer;
-  text-decoration: none;
-  padding: 0 2vw;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
+  border-radius: 12px
 }
-.linkdata{
-  border-width: 2px;
-  font-size: 2vh;
-  width: 30vh;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 5px 0;
-}
-.linkdata:hover{
+.littlelink:hover{
   background-color: var(--color4);
 }
-
-.linkdisplay{
-  border-radius: 15px;
-  border: solid 2px var(--color5);
-  display: flex;
-  gap: 0px;
+.littlelink:hover .deletelinkbutton{
+  background-color: var(--color4);
+  color: #ffffff
 }
-
+.littlelink:hover .linktext{
+  color: #ffffff
+}
+.linktext{
+  padding: 0.5vw;
+  text-decoration: none;
+  color: var(--color4);
+}
 .deletelinkbutton{
-  border-top-right-radius: 13px;
-  border-bottom-right-radius: 13px;
+  height: 100%;
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
   border: none;
-  font-size: 5vh;
-  color: #000000;
-  background-color: #ffffff;
   cursor: pointer;
+  color: #e61e1e;
+  background-color: #ffffff;
+  outline: none;
 }
 .deletelinkbutton:hover{
   color: #ffffff;
-  background-color: #e61e1e;
+  background-color: #e61e1e !important;
+}
+.requestdata{
+  padding: 0.5vw;
+  background-color: var(--color3);
+  gap: 10px;
+  border: none;
+  cursor: auto;
+}
+.requestdata:hover{
+  background-color: var(--color3);
 }
 
 .dropdownsvg{

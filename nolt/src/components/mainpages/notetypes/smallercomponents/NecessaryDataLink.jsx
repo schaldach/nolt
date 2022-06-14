@@ -5,8 +5,7 @@ function NecessaryDataLink({visualclass, onFinish, requestD}) {
     const [linkContent, changeLinkContent] = useState('')
 
     return (
-        <div className={visualclass+' littlelink linkdata'}>
-            <div className='requestingdata'>Preencha as informações sobre o seu link:</div>
+        <div className={visualclass+' littlelink requestdata'}>
             <input type='text'
             onInput={e => changeLinkName(e.target.value)} placeholder='Nome do Link'/>
             <input type='text' 
