@@ -32,6 +32,13 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
         addList(newLists)
     }
 
+    function favorite(list, status){
+        let newLists = allLists.filter(lists => lists.id!==list.id)
+        if(status){newLists.unshift(list)}
+        else{newLists.push(list)}
+        addList(newLists)
+    }
+
     function onDelete(listId){
         let newLists = allLists.filter(lists => lists.id!==listId)
         onNoteRemoved()
@@ -42,7 +49,7 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
         <div className={visualnote+' displayanotations'}>
             <button className='addanotation' onClick={() => finishAnotation(1)}>+</button>
             {allLists.map(list =>
-                <ListAnotation list={list} onDelete={onDelete} onEdit={onEdit}
+                <ListAnotation favorite={favorite} list={list} onDelete={onDelete} onEdit={onEdit}
                 key={list.id} title={list.title} content={list.content}/>
             )}
         </div>

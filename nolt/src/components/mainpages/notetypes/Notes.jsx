@@ -25,6 +25,13 @@ function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
         addNote(newNotes)
     }
 
+    function favorite(note, status){
+        let newNotes = allNotes.filter(notes => notes.id!==note.id)
+        if(status){newNotes.unshift(note)}
+        else{newNotes.push(note)}
+        addNote(newNotes)
+    }
+
     function onDelete(noteId){
         let newNotes = allNotes.filter(notes => notes.id!==noteId)
         onNoteRemoved()
@@ -35,8 +42,8 @@ function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
         <div className={visualnote+' displayanotations'}>
             <button className='addanotation' onClick={addAnotation}>+</button>
             {allNotes.map(note => 
-                <Anotation note={note} onDelete={onDelete} onEdit={onEdit} key={note.id} 
-                title={note.title} content={note.content}></Anotation>
+                <Anotation favorite={favorite} note={note} onDelete={onDelete} onEdit={onEdit} 
+                key={note.id} title={note.title} content={note.content}/>
             )}
         </div>
     )

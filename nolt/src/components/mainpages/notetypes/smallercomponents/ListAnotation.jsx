@@ -1,11 +1,16 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import ListItem from "./ListItem";
 import DropdownMenu from "./DropdownMenu"
 
-function ListAnotation({ title, content, onEdit, list, onDelete }) {
+function ListAnotation({ title, content, onEdit, list, onDelete, favorite }) {
     const [editMode, startEdit] = useState(true)
     const [viewMode, startView] = useState(false)
+    const [favstatus, startFavorite] = useState(false)
     const [currentItemFocus, changeFocus] = useState(-1)
+
+    useEffect(() => {
+        favorite(list, favstatus)
+    }, [favstatus])
 
     function itemEdit(text, id) {
         let newContent = [...content]
@@ -46,8 +51,8 @@ function ListAnotation({ title, content, onEdit, list, onDelete }) {
                     <div className={editMode ? 'listinstruction anotcontentwarning' : 'displaynone'}>Aperte 'Enter' para aumentar a lista ou ir para o próximo item</div>
                 </div>
             </div>
-            <DropdownMenu editMode={editMode} startEdit={startEdit} viewMode={viewMode}
-            startView={startView} onDelete={() => onDelete(list.id)} />
+            <DropdownMenu editMode={editMode} startEdit={startEdit} viewMode={viewMode} favstatus={favstatus}
+            startView={startView} onDelete={() => onDelete(list.id)} onFavorite={startFavorite}/>
         </div>
     )
 }
