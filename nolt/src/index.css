@@ -360,6 +360,13 @@ input, textarea{
   background-color: var(--color5);
 }
 
+.linkimage{
+  width: 5vh;
+  height: 5vh;
+  align-self: center;
+  justify-self: center;
+  margin-left: 7px;
+}
 .littlelink{
   display: flex;
   background-color: #ffffff;
@@ -382,6 +389,7 @@ input, textarea{
 .linktext{
   padding: 0.5vw;
   text-decoration: none;
+  min-width: fit-content;
   color: var(--color4);
 }
 .deletelinkbutton{
