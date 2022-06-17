@@ -126,12 +126,10 @@ main{
   background-color: var(--color2p);
   cursor: pointer;
   border: none;
-}
-.darkmode:hover{
+  border-radius: 5vh;
   border: solid 2px var(--color4);
 }
 .darkanimation{
-  border: solid 2px var(--color4);
   animation: pulse 0.7s;
   box-shadow: 0 0 0 1.2em transparent;
 }
