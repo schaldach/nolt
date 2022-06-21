@@ -127,7 +127,13 @@ main{
   cursor: pointer;
   border: none;
   border-radius: 5vh;
+  width: 10vh;
   border: solid 2px var(--color4);
+  color: var(--color4);
+}
+.darkmode:hover{
+  background-color: var(--color4);
+  color: var(--color2p);
 }
 .darkanimation{
   animation: pulse 0.7s;
