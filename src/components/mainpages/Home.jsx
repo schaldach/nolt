@@ -20,7 +20,7 @@ function Home({visualclass, notesNumbers, onPageChange}) {
             <div className="secondtext">
                 {textToWrite()}
             </div>
-            <button onClick={() => onPageChange('notetypes')} className='homebutton'>Leve-me para lá →</button>
+            <button onClick={() => onPageChange('notetypes')} className='homebutton'></button>
         </div>
     )
 }

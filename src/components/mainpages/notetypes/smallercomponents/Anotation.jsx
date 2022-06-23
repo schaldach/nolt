@@ -23,7 +23,7 @@ function Anotation({title, content, onEdit, note, onDelete, favorite}) {
         <div className={editMode?'anot editting':'anot'}>
             <div>
                 <div className={!editMode?'anottitle':'displaynone anottitle'}>{title}</div>
-                <input onKeyDown={(e) => handleTextFocus(e)} autoFocus className={editMode?'anottitle':'displaynone anottitle'} type='text' 
+                <input onKeyDown={(e) => handleTextFocus(e)} className={editMode?'anottitle':'displaynone anottitle'} type='text' 
                 value={title} onInput={e => onEdit(e.target.value, content, note)} placeholder='Título'/>
             </div>
             <div>
