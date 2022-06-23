@@ -338,7 +338,7 @@ input, textarea{
 .linkbutton{
   cursor: pointer;
   max-width: fit-content;
-  padding: 0 2vw;
+  padding: 0 3vw;
   font-size: 5vh;
   border: dashed var(--color4);
   border-radius: 15px;
@@ -379,6 +379,8 @@ input, textarea{
 }
 .littlelink{
   display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #ffffff;
   border: solid var(--color4) 2px;
   font-size: 3.5vh;
