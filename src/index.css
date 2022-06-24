@@ -254,7 +254,7 @@ main{
 
 .displayanotations{
   margin-top: 3vh;
-  gap: 2.3vw;
+  gap: 2.5vw;
   display: flex;
   flex-wrap: wrap;
 }
@@ -507,7 +507,10 @@ button{
   display: none;
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1200px){
+  input, textarea, .anotcontent, .anottitle{
+    font-size: 16px !important;
+  }
   .navbar{
     display: flex;
     flex-direction: column;
@@ -523,6 +526,7 @@ button{
   }
   .navbar:hover .sections{
     display: flex;
+    gap: 3vh;
     flex-direction: column;
   }
   .navbar:hover .responsiveImg{
@@ -552,6 +556,7 @@ button{
   }
   .displayanotations{
     justify-content: center;
+    gap: 4vh;
   }
 }
 
