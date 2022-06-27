@@ -11,7 +11,12 @@ function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
     }, [])
 
     async function fetchNotes(){
-        
+        const { data, count } = await supabase
+            .from('notas')
+            .select('*', { count: 'exact' })
+        console.log(count)
+        onNoteAdded('notas', count)
+        addNote(data)
     }
 
     function addAnotation(){

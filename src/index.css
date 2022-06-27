@@ -508,9 +508,6 @@ button{
 }
 
 @media screen and (max-width: 1200px){
-  input, textarea, .anotcontent, .anottitle{
-    font-size: 16px !important;
-  }
   .navbar{
     display: flex;
     flex-direction: column;
