@@ -17,8 +17,9 @@ function ListItem({ index, text, editMode, itemEdit, itemFocus, handleTextFocus,
             return 'displaynone'
         }
         if(complete){
-            return 'greentext'
+            return 'greentext listitem'
         }
+        else{return 'listitem'}
     }
 
     return (

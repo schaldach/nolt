@@ -302,7 +302,7 @@ input, textarea{
 }
 
 .anotcontent{
-  word-break: break-all;
+  white-space: initial;
   background-color: #ffffff;
   font-family: var(--font2);
   font-size: clamp(8px,2.5vh,15px);
@@ -471,6 +471,10 @@ input, textarea{
   color: #000000;
   user-select: none;
   font-size: 1.6vh;
+}
+
+.listitem{
+  word-break: break-word;
 }
 
 @keyframes growDown {
