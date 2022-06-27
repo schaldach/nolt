@@ -302,7 +302,7 @@ input, textarea{
 }
 
 .anotcontent{
-  white-space: initial;
+  white-space: normal;
   background-color: #ffffff;
   font-family: var(--font2);
   font-size: clamp(8px,2.5vh,15px);
