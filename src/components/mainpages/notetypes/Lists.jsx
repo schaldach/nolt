@@ -16,16 +16,9 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
 
     function finishAnotation(listsize){
         let newLists = [...allLists]
-        let contentArray = []
-        for(let i=0; i<listsize; i++){
-            contentArray.push({
-                text: `${i+1}. `,
-                id: i,
-            })
-        }
         newLists.push({
             title: '',
-            content: [...contentArray],
+            content: [{text: '1. ', id: 0, complete:false}],
             id: latestId,
         })
         addId(latestId+1)

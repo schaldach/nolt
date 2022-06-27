@@ -12,10 +12,11 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite }) {
         favorite(list, favstatus)
     }, [favstatus])
 
-    function itemEdit(text, id) {
+    function itemEdit(text, id, complete) {
         let newContent = [...content]
         const index = newContent.findIndex(el => el.id === id)
         newContent[index].text = text
+        newContent[index].complete = complete
         onEdit(title, newContent, list)
     }
 
@@ -26,7 +27,8 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite }) {
                 let newContent = [...content]
                 newContent.push({
                     text: `${content.length + 1}. `,
-                    id: content.length
+                    id: content.length,
+                    complete: false
                 })
                 onEdit(title, newContent, list)
             }
@@ -46,7 +48,7 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite }) {
                     {content.map(item =>
                         <ListItem itemEdit={itemEdit} index={item.id} key={item.id} editMode={editMode}
                             text={item.text} changeFocus={changeFocus} handleTextFocus={handleTextFocus}
-                            itemFocus={currentItemFocus}></ListItem>
+                            itemFocus={currentItemFocus} complete={item.complete}></ListItem>
                     )}
                     <div className={editMode ? 'listinstruction anotcontentwarning' : 'displaynone'}>Aperte 'Enter' para aumentar a lista ou ir para o próximo item</div>
                 </div>

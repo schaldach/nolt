@@ -507,6 +507,10 @@ button{
   display: none;
 }
 
+.bluebackground{
+  background-color: var(--color3);
+}
+
 @media screen and (max-width: 1200px){
   .navbar{
     display: flex;
