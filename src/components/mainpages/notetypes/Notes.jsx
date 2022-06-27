@@ -1,9 +1,18 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import { supabase } from "./SupaBaseClient"
 import Anotation from "./smallercomponents/Anotation"
 
 function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
     const[allNotes,addNote] = useState([])
     const[latestId,addId] = useState(0)
+
+    useEffect(() => {
+        fetchNotes()
+    }, [])
+
+    async function fetchNotes(){
+        
+    }
 
     function addAnotation(){
         let newNotes = [...allNotes]

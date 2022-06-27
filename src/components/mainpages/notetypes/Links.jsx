@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import { supabase } from "./SupaBaseClient"
 import NecessaryDataLink from "./smallercomponents/NecessaryDataLink";
 import SmallerAnotation from "./smallercomponents/SmallerAnotation"
 
@@ -6,6 +7,14 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
     const[allLinks,addLink] = useState([])
     const[needData,requestD] = useState(false)
     const[latestId, addId] = useState(0)
+
+    useEffect(() => {
+        fetchLinks()
+    }, [])
+
+    async function fetchLinks(){
+        
+    }
 
     function finishAnotation(name, href){
         requestD(false)

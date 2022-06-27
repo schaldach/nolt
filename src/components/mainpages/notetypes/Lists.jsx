@@ -1,10 +1,19 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import { supabase } from "./SupaBaseClient"
 import ListAnotation from "./smallercomponents/ListAnotation"
 
 function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
     const[allLists,addList] = useState([])
     const[latestId, addId] = useState(0)
-    // test
+    
+    useEffect(() => {
+        fetchLists()
+    }, [])
+
+    async function fetchLists(){
+        
+    }
+
     function finishAnotation(listsize){
         let newLists = [...allLists]
         let contentArray = []
