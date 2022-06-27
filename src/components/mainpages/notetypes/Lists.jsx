@@ -4,7 +4,7 @@ import ListAnotation from "./smallercomponents/ListAnotation"
 
 function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
     const[allLists,addList] = useState([])
-    const[latestId, addId] = useState(0)
+    const[latestId, addId] = useState(1)
     
     useEffect(() => {
         fetchLists()

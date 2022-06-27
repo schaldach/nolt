@@ -6,7 +6,7 @@ import SmallerAnotation from "./smallercomponents/SmallerAnotation"
 function Links({visualnote, onNoteAdded, onNoteRemoved}) {
     const[allLinks,addLink] = useState([])
     const[needData,requestD] = useState(false)
-    const[latestId, addId] = useState(0)
+    const[latestId, addId] = useState(1)
 
     useEffect(() => {
         fetchLinks()

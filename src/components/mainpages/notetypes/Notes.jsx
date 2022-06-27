@@ -4,7 +4,7 @@ import Anotation from "./smallercomponents/Anotation"
 
 function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
     const[allNotes,addNote] = useState([])
-    const[latestId,addId] = useState(0)
+    const[latestId,addId] = useState(1)
 
     useEffect(() => {
         fetchNotes()
@@ -16,6 +16,7 @@ function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
             .select('*', { count: 'exact' })
         console.log(count)
         onNoteAdded('notas', count)
+        addId(1+count)
         addNote(data)
     }
 
