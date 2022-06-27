@@ -53,7 +53,7 @@ function App() {
     changeNotesNumbers(prevState => {
       return {
         ...prevState,
-        [type]: number
+        [type]: prevState[type]+number
       }
     })
 }
