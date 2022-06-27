@@ -28,7 +28,7 @@ function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
         })
         addId(latestId+1)
         addNote(newNotes)
-        onNoteAdded()
+        onNoteAdded('notas', 1)
     }
 
     function onEdit(title,content,note){
