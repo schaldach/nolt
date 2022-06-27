@@ -13,7 +13,13 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
     }, [])
 
     async function fetchLinks(){
-        
+        const { data, count } = await supabase
+            .from('links')
+            .select('*', { count: 'exact' })
+        console.log(count)
+        onNoteAdded('links', count)
+        addId(1+count)
+        addLink(data)
     }
 
     function finishAnotation(name, href){
@@ -26,7 +32,7 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
         })
         addId(latestId+1)
         addLink(newLinks)
-        onNoteAdded()
+        onNoteAdded('links', 1)
     }
 
     function onDelete(linkId){

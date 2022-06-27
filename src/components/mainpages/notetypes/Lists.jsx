@@ -14,7 +14,7 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
         
     }
 
-    function finishAnotation(listsize){
+    function finishAnotation(){
         let newLists = [...allLists]
         newLists.push({
             title: '',
@@ -23,7 +23,7 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
         })
         addId(latestId+1)
         addList(newLists)
-        onNoteAdded()
+        onNoteAdded('listas', 1)
     }
 
     function onEdit(title,content,list){

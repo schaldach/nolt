@@ -50,9 +50,12 @@ function App() {
   }
 
   function addNote(type, number){
-    let newNotes = JSON.parse(JSON.stringify(notesNumbers))
-    newNotes[type] += number
-    changeNotesNumbers(newNotes)
+    changeNotesNumbers(prevState => {
+      return {
+        ...prevState,
+        [type]: number
+      }
+    })
 }
 
   function manageShownNote(){
