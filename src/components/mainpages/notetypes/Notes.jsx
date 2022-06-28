@@ -16,25 +16,28 @@ function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
             .select('*', { count: 'exact' })
         console.log(count)
         onNoteAdded('notas', count)
-        addId(1+count)
+        addId(1+data[data.length-1].id)
         addNote(data)
     }
 
-    function addAnotation(){
-        let newNotes = [...allNotes]
-        newNotes.push({
-            title: '',
-            content: '',
-            id: latestId
-        })
+    async function addAnotation(){
+        let newNote = {title: '', content: '', id: latestId}
+        const { data } = await supabase
+            .from('notas')
+            .insert([newNote])
+            .single()
+        addNote([...allNotes, newNote])
         addId(latestId+1)
-        addNote(newNotes)
         onNoteAdded('notas', 1)
     }
 
-    function onEdit(title,content,note){
+    async function onEdit(title,content,note){
         let newNotes = [...allNotes]
         const index = newNotes.indexOf(note)
+        const { data } = await supabase
+            .from('notas')
+            .update({ title:title, content:content })
+            .match({ id: note.id})
         newNotes[index].title = title
         newNotes[index].content = content
         addNote(newNotes)
@@ -47,8 +50,12 @@ function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
         addNote(newNotes)
     }
 
-    function onDelete(noteId){
+    async function onDelete(noteId){
         let newNotes = allNotes.filter(notes => notes.id!==noteId)
+        const { data } = await supabase
+            .from('notas')
+            .delete()
+            .match({ id: noteId })
         onNoteRemoved()
         addNote(newNotes)
     }

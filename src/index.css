@@ -52,7 +52,7 @@ body, html{
 .sections{
   display: flex;
   justify-content: center;
-  gap: 8vw;
+  gap: 7.5vw;
 }
 
 .navbar-select{
