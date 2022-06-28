@@ -16,8 +16,8 @@ function NavBar({onPageChange, onNoteChange, pagesVisible, currentNote, darkMode
             </svg>
             <div className='sections'>
                 <div className={manageShown('home')} onClick={() => onPageChange('home')}>Home</div>
-                <div className={manageShown('notetypes')+' contentselection'} onClick={() => onPageChange('notetypes')}>
-                    <div className='dropbutton'>{currentNote}</div>
+                <div className='contentselection' onClick={() => onPageChange('notetypes')}>
+                    <div className={manageShown('notetypes')+' dropbutton'}>{currentNote}</div>
                     <div className='dropdowns'>
                         <button className='dropdownitem' onClick={() => onNoteChange('notas')} 
                         value='notes'>Notas</button>
