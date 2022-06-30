@@ -6,7 +6,7 @@ import Notes from "./notetypes/Notes"
 
 function NoteTypes({visualclass, visualnote, onNoteAdded, currentNote}) {
     function manageNote(noteReference){
-        let classes = visualnote[noteReference]?'megawrapper':'displaynone'
+        let classes = visualnote[noteReference]?'displayanotationswrapper':'displaynone'
         return classes
     }
 

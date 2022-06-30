@@ -624,7 +624,7 @@ input, textarea{
     justify-content: center;
     gap: 4vh;
   }
-  .megawrapper{
+  .displayanotationswrapper{
     text-align: center;
     display: flex;
     flex-direction: column;
