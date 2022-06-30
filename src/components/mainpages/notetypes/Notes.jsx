@@ -3,6 +3,7 @@ import { supabase } from "./SupaBaseClient"
 import Anotation from "./smallercomponents/Anotation"
 
 function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
+    const [animation, startAnimation] = useState(false)
     const[allNotes,addNote] = useState([])
     const[latestId,addId] = useState(1)
 
@@ -54,9 +55,16 @@ function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
         addNote(newNotes)
     }
 
+    function pulseAnimation() {
+        startAnimation(true)
+        saveNotes()
+    }
+
     return (
         <div className={visualnote}>
-            <button className='savebutton' onClick={saveNotes}>Salvar Notas</button>
+            <div className={animation?'panimation wrapdiv':'wrapdiv'} onAnimationEnd={() => startAnimation(false)}>
+                <button className='savebutton' onClick={pulseAnimation}>Salvar Notas</button>
+            </div>
             <div className='displayanotations'>
                 <button className='addanotation' onClick={addAnotation}>+</button>
                 {allNotes.map(note => 

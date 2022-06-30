@@ -4,6 +4,7 @@ import NecessaryDataLink from "./smallercomponents/NecessaryDataLink";
 import SmallerAnotation from "./smallercomponents/SmallerAnotation"
 
 function Links({visualnote, onNoteAdded, onNoteRemoved}) {
+    const [animation, startAnimation] = useState(false)
     const[allLinks,addLink] = useState([])
     const[needData,requestD] = useState(false)
     const[latestId, addId] = useState(1)
@@ -42,9 +43,16 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
         addLink(newLinks)
     }
 
+    function pulseAnimation() {
+        saveLinks()
+        startAnimation(true)
+    }
+
     return (
         <div className={visualnote}>
-            <button className='savebutton' onClick={saveLinks}>Salvar Links</button>
+            <div className={animation?'panimation wrapdiv':'wrapdiv'} onAnimationEnd={() => startAnimation(false)}>
+                <button className='savebutton'onClick={pulseAnimation}>Salvar Links</button>
+            </div>
             <div className='displayanotations'>
                 <button className='linkbutton' onClick={() => requestD(true)}>+</button>
                 {allLinks.map(link =>
