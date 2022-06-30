@@ -5,7 +5,6 @@ import Anotation from "./smallercomponents/Anotation"
 function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
     const [animation, startAnimation] = useState(false)
     const[allNotes,addNote] = useState([])
-    const[latestId,addId] = useState(1)
 
     useEffect(() => {
         fetchNotes()
@@ -17,7 +16,6 @@ function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
             .select('*', { count: 'exact' })
         console.log(count)
         onNoteAdded('notas', count)
-        addId(1+data[data.length-1].id)
         addNote(data)
     }
 
@@ -28,9 +26,8 @@ function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
     }
 
     function addAnotation(){
-        let newNote = {title: '', content: '', id: latestId}
+        let newNote = {title: '', content: '', id: Math.floor(Math.random()*1000000000)}
         addNote([...allNotes, newNote])
-        addId(latestId+1)
         onNoteAdded('notas', 1)
     }
 

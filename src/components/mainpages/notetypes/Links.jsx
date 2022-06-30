@@ -7,7 +7,6 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
     const [animation, startAnimation] = useState(false)
     const[allLinks,addLink] = useState([])
     const[needData,requestD] = useState(false)
-    const[latestId, addId] = useState(1)
 
     useEffect(() => {
         fetchLinks()
@@ -19,7 +18,6 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
             .select('*', { count: 'exact' })
         console.log(count)
         onNoteAdded('links', count)
-        addId(50)
         addLink(data)
     }
 
@@ -31,8 +29,7 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
 
     function finishAnotation(name, href){
         requestD(false)
-        let newLink = {href: href, name: name, id: latestId}
-        addId(latestId+1)
+        let newLink = {href: href, name: name, id: Math.floor(Math.random()*1000000000)}
         addLink([...allLinks, newLink])
         onNoteAdded('links', 1)
     }

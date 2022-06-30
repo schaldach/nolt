@@ -599,9 +599,6 @@ input, textarea{
     justify-content: center;
     align-items: center;
   }
-  .navbar-select:hover{
-    color: var(--color1);
-  }
   .dark-wrapper{
     display: flex;
     justify-content: center;

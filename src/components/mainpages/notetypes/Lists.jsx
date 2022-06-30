@@ -4,7 +4,6 @@ import ListAnotation from "./smallercomponents/ListAnotation"
 
 function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
     const[allLists,addList] = useState([])
-    const[latestId, addId] = useState(1)
     
     useEffect(() => {
         fetchLists()
@@ -15,14 +14,12 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
     }
 
     function finishAnotation(){
-        let newLists = [...allLists]
-        newLists.push({
+        let newList = {
             title: '',
             content: [{text: '1. ', id: 0, complete:false}],
-            id: latestId,
-        })
-        addId(latestId+1)
-        addList(newLists)
+            id: Math.floor(Math.random()*1000000000),
+        }
+        addList([...allLists, newList])
         onNoteAdded('listas', 1)
     }
 
