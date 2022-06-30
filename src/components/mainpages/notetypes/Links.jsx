@@ -18,28 +18,20 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
             .select('*', { count: 'exact' })
         console.log(count)
         onNoteAdded('links', count)
-        addId(1+data[data.length-1].id)
+        addId(50)
         addLink(data)
     }
 
-    async function finishAnotation(name, href){
+    function finishAnotation(name, href){
         requestD(false)
         let newLink = {href: href, name: name, id: latestId}
-        const { data } = await supabase
-            .from('links')
-            .insert([newLink])
-            .single()
         addId(latestId+1)
         addLink([...allLinks, newLink])
         onNoteAdded('links', 1)
     }
 
-    async function onDelete(linkId){
+    function onDelete(linkId){
         let newLinks = allLinks.filter(links => links.id!==linkId)
-        const { data } = await supabase
-            .from('links')
-            .delete()
-            .match({id:linkId})
         onNoteRemoved()
         addLink(newLinks)
     }

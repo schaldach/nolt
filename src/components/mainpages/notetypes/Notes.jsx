@@ -20,24 +20,16 @@ function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
         addNote(data)
     }
 
-    async function addAnotation(){
+    function addAnotation(){
         let newNote = {title: '', content: '', id: latestId}
-        const { data } = await supabase
-            .from('notas')
-            .insert([newNote])
-            .single()
         addNote([...allNotes, newNote])
         addId(latestId+1)
         onNoteAdded('notas', 1)
     }
 
-    async function onEdit(title,content,note){
+    function onEdit(title,content,note){
         let newNotes = [...allNotes]
         const index = newNotes.indexOf(note)
-        const { data } = await supabase
-            .from('notas')
-            .update({ title:title, content:content })
-            .match({ id: note.id})
         newNotes[index].title = title
         newNotes[index].content = content
         addNote(newNotes)
@@ -50,12 +42,8 @@ function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
         addNote(newNotes)
     }
 
-    async function onDelete(noteId){
+    function onDelete(noteId){
         let newNotes = allNotes.filter(notes => notes.id!==noteId)
-        const { data } = await supabase
-            .from('notas')
-            .delete()
-            .match({ id: noteId })
         onNoteRemoved()
         addNote(newNotes)
     }
