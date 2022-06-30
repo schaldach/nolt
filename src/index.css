@@ -91,7 +91,7 @@ body, html{
   flex-direction: column;
 }
 .dropbutton{
-  padding-bottom: 5px;
+  padding-bottom: 6px;
 }
 .dropdownitem{
   border: solid;
@@ -504,10 +504,6 @@ input, textarea{
   }
 }
 
-button{
-  outline: none;
-}
-
 .greentext{
   background-color: var(--color3);
   color: #ffffff;
@@ -566,6 +562,9 @@ button{
     position: relative;
     padding-top: 1vh;
   }
+  .dropbutton{
+    padding-bottom: 0px;
+  }
   .homebutton:before{
     content: "Leve-me lá →";
   }
@@ -576,6 +575,47 @@ button{
     justify-content: center;
     gap: 4vh;
   }
+}
+
+.savebutton{
+  font-family: var(--font1);
+  margin: 2vh 0;
+  font-size: 3vh;
+  border: solid 2px var(--color4);
+  background-color: var(--color2s);
+  color: var(--color1);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.savebutton:hover{
+  animation: wave 2s infinite;
+}
+
+@keyframes wave{
+  0%{
+    box-shadow: inset 0 0 0 0 var(--color4);
+  }
+  49%{
+    background-color: var(--color2s);
+    box-shadow: inset 8em 0 0 0 var(--color4);
+    color: var(--color2s);
+  }
+  50%{
+    background-color: var(--color4);
+    box-shadow: inset 0 0 0 0 var(--color2s);
+  }
+  99%{
+    box-shadow: inset 8em 0 0 0 var(--color2s);
+    background-color: var(--color4);
+    color: var(--color1);
+  }
+  100%{
+    background-color: var(--color2s);
+  }
+}
+
+button{
+  outline: none;
 }
 
 input,textarea,button,select,a, div {

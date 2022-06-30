@@ -22,6 +22,12 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
         addLink(data)
     }
 
+    async function saveLinks(){
+        const { data } = await supabase
+            .from('links')
+            .upsert(allLinks)
+    }
+
     function finishAnotation(name, href){
         requestD(false)
         let newLink = {href: href, name: name, id: latestId}
@@ -37,12 +43,15 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
     }
 
     return (
-        <div className={visualnote+' displayanotations'}>
-            <button className='linkbutton' onClick={() => requestD(true)}>+</button>
-            {allLinks.map(link =>
-            <SmallerAnotation onDelete={onDelete} key={link.id} id={link.id} linkname={link.name} linkcontent={link.href}></SmallerAnotation>
-            )}
-            <NecessaryDataLink size='link' requestD={requestD} onFinish={finishAnotation} visualclass={needData?'':'displaynone'}/>
+        <div className={visualnote}>
+            <button className='savebutton' onClick={saveLinks}>Salvar Links</button>
+            <div className='displayanotations'>
+                <button className='linkbutton' onClick={() => requestD(true)}>+</button>
+                {allLinks.map(link =>
+                <SmallerAnotation onDelete={onDelete} key={link.id} id={link.id} linkname={link.name} linkcontent={link.href}></SmallerAnotation>
+                )}
+                <NecessaryDataLink size='link' requestD={requestD} onFinish={finishAnotation} visualclass={needData?'':'displaynone'}/>
+            </div>
         </div>
     )
 }

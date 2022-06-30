@@ -20,6 +20,12 @@ function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
         addNote(data)
     }
 
+    async function saveNotes(){
+        const { data } = await supabase
+            .from('notas')
+            .upsert(allNotes)
+    }
+
     function addAnotation(){
         let newNote = {title: '', content: '', id: latestId}
         addNote([...allNotes, newNote])
@@ -49,12 +55,15 @@ function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
     }
 
     return (
-        <div className={visualnote+' displayanotations'}>
-            <button className='addanotation' onClick={addAnotation}>+</button>
-            {allNotes.map(note => 
-                <Anotation favorite={favorite} note={note} onDelete={onDelete} onEdit={onEdit} 
-                key={note.id} title={note.title} content={note.content}/>
-            )}
+        <div className={visualnote}>
+            <button className='savebutton' onClick={saveNotes}>Salvar Notas</button>
+            <div className='displayanotations'>
+                <button className='addanotation' onClick={addAnotation}>+</button>
+                {allNotes.map(note => 
+                    <Anotation favorite={favorite} note={note} onDelete={onDelete} onEdit={onEdit} 
+                    key={note.id} title={note.title} content={note.content}/>
+                )}
+            </div>
         </div>
     )
 }
