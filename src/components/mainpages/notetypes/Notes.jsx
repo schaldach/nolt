@@ -2,36 +2,46 @@ import React, { useState, useEffect } from "react"
 import { supabase } from "./SupaBaseClient"
 import Anotation from "./smallercomponents/Anotation"
 
-function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
+function Notes({ visualnote, onNoteAdded, onNoteRemoved }) {
     const [animation, startAnimation] = useState(false)
-    const[allNotes,addNote] = useState([])
+    const [allNotes, addNote] = useState([])
 
     useEffect(() => {
-        fetchNotes()
+        syncNotes()
     }, [])
 
-    async function fetchNotes(){
-        const { data, count } = await supabase
+    async function syncNotes() {
+        let oldNotes = []
+        let newNotes = []
+        allNotes.forEach(note => {
+            if(note.isNew){
+                newNotes.push({
+                    title: note.title,
+                    content: note.content
+                })
+            }
+            else{oldNotes.push(note)}
+        })
+        console.log(newNotes)
+        const bla = await supabase
             .from('notas')
-            .select('*', { count: 'exact' })
-        console.log(count)
-        onNoteAdded('notas', count)
-        addNote(data)
+            .upsert(newNotes, oldNotes)
+            .then( async () => {
+                const { data, count } = await supabase
+                    .from('notas')
+                    .select('*', { count: 'exact' })
+                onNoteAdded('notas', count)
+                addNote(data)
+            }, (resp)=>{console.log(resp)})
     }
 
-    async function saveNotes(){
-        const { data } = await supabase
-            .from('notas')
-            .upsert(allNotes)
-    }
-
-    function addAnotation(){
-        let newNote = {title: '', content: '', id: Math.floor(Math.random()*1000000000)}
+    function addAnotation() {
+        let newNote = { title: '', content: '', id: Math.floor(Math.random() * 1000000000), isNew:true}
         addNote([...allNotes, newNote])
         onNoteAdded('notas', 1)
     }
 
-    function onEdit(title,content,note){
+    function onEdit(title, content, note) {
         let newNotes = [...allNotes]
         const index = newNotes.indexOf(note)
         newNotes[index].title = title
@@ -39,38 +49,38 @@ function Notes({visualnote, onNoteAdded, onNoteRemoved}) {
         addNote(newNotes)
     }
 
-    function favorite(note, status){
-        let newNotes = allNotes.filter(notes => notes.id!==note.id)
-        if(status){newNotes.unshift(note)}
-        else{newNotes.push(note)}
+    function favorite(note, status) {
+        let newNotes = allNotes.filter(notes => notes.id !== note.id)
+        if (status) { newNotes.unshift(note) }
+        else { newNotes.push(note) }
         addNote(newNotes)
     }
 
-    async function onDelete(noteId){
-        let newNotes = allNotes.filter(notes => notes.id!==noteId)
+    async function onDelete(noteId) {
+        let newNotes = allNotes.filter(notes => notes.id !== noteId)
         const { data } = await supabase
             .from('notas')
             .delete()
-            .match({id:noteId})
+            .match({ id: noteId })
         onNoteRemoved()
         addNote(newNotes)
     }
 
     function pulseAnimation() {
         startAnimation(true)
-        saveNotes()
+        syncNotes()
     }
 
     return (
         <div className={visualnote}>
-            <div className={animation?'panimation wrapdiv':'wrapdiv'} onAnimationEnd={() => startAnimation(false)}>
+            <div className={animation ? 'panimation wrapdiv' : 'wrapdiv'} onAnimationEnd={() => startAnimation(false)}>
                 <button className='savebutton' onClick={pulseAnimation}>Salvar Notas</button>
             </div>
             <div className='displayanotations'>
                 <button className='addanotation' onClick={addAnotation}>+</button>
-                {allNotes.map(note => 
-                    <Anotation favorite={favorite} note={note} onDelete={onDelete} onEdit={onEdit} 
-                    key={note.id} title={note.title} content={note.content}/>
+                {allNotes.map(note =>
+                    <Anotation favorite={favorite} note={note} onDelete={onDelete} onEdit={onEdit}
+                        key={note.id} title={note.title} content={note.content} />
                 )}
             </div>
         </div>
