@@ -489,6 +489,12 @@ input, textarea{
   word-break: break-word;
 }
 
+.status{
+  font-family: var(--font3);
+  display: flex;
+  align-items: center;
+}
+
 @keyframes growDown {
   0% {
     height: 4vh;
@@ -538,6 +544,8 @@ input, textarea{
 }
 
 .wrapdiv{
+  display: flex;
+  gap: 30px;
   margin: 2.5vh 0;
   box-shadow: none;
   width: fit-content;
@@ -622,11 +630,21 @@ input, textarea{
     gap: 4vh;
   }
   .displayanotationswrapper{
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+}
+
+.conectionsvg{
+  height: 5vh;
+  width: 5vh;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 button{

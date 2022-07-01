@@ -67,7 +67,6 @@ function App() {
       }
     }
     changeCurrentNote(newNote)
-    console.log('manage called!')
   }
 
   useEffect(() => manageShownNote(), [notesVisible])
