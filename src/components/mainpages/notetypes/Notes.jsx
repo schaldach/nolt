@@ -69,11 +69,15 @@ function Notes({ visualnote, onNoteAdded, onNoteRemoved }) {
     }
 
     async function onDelete(noteId) {
+        conectionMade(2)
         let newNotes = allNotes.filter(notes => notes.id !== noteId)
-        const { data } = await supabase
+        const eba = await supabase
             .from('notas')
             .delete()
             .match({ id: noteId })
+            .then( () => {
+                conectionMade(0)
+            })
         onNoteRemoved()
         addNote(newNotes)
     }
