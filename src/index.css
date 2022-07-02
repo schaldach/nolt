@@ -493,6 +493,9 @@ input, textarea{
   font-family: var(--font3);
   display: flex;
   align-items: center;
+  gap: 5px;
+  color: var(--color1);
+  font-size: 2vh;
 }
 
 @keyframes growDown {
@@ -530,8 +533,8 @@ input, textarea{
 }
 
 .savebutton{
+  height: fit-content;
   font-family: var(--font1);
-  height: 5vh;
   font-size: 3vh;
   border: solid 2px var(--color4);
   background-color: var(--color2s);
@@ -540,7 +543,7 @@ input, textarea{
   cursor: pointer;
 }
 .savebutton:hover{
-  animation: wave 1.75s infinite;
+  animation: wave 1.5s infinite;
 }
 
 .wrapdiv{
@@ -549,12 +552,18 @@ input, textarea{
   margin: 2.5vh 0;
   box-shadow: none;
   width: fit-content;
-  height: 5vh;
+  height: fit-content;
   border-radius: 11px;
 }
 .panimation{
   animation: pulse 0.8s;
   box-shadow: 0 0 0 1.75em transparent 
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 @keyframes wave{
@@ -634,17 +643,31 @@ input, textarea{
     flex-direction: column;
     align-items: center;
   }
+  .wrapdiv{
+    margin: 2.5vh 0 1vh 0;
+  }
+  .flex{
+    gap: 0px;
+    flex-direction: column;
+  }
+}
+
+.rotating{
+  animation: rotation 0.75s infinite;
+}
+
+@keyframes rotation{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
 }
 
 .conectionsvg{
   height: 5vh;
   width: 5vh;
-}
-
-.flex{
-  display: flex;
-  align-items: center;
-  gap: 15px;
 }
 
 button{
