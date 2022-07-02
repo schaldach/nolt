@@ -26,17 +26,17 @@ function Notes({ visualnote, onNoteAdded, onNoteRemoved }) {
         })
         const bla = await supabase
             .from('notas')
-            .upsert(newNotes)
+            .upsert(oldNotes)
             .then( async () => {
                 const bla = await supabase
                     .from('notas')
-                    .upsert(oldNotes)
+                    .upsert(newNotes)
             })
             .then( async () => {
                 const { data, count } = await supabase
                     .from('notas')
                     .select('*', { count: 'exact' })
-                onNoteAdded('notas', count)
+                onNoteAdded('notas', count, true)
                 addNote(data)
             })
             .then( () => {
@@ -46,7 +46,7 @@ function Notes({ visualnote, onNoteAdded, onNoteRemoved }) {
     }
 
     function addAnotation() {
-        let newNote = { title: '', content: '', id: Math.floor(Math.random() * 1000000000), isNew:true}
+        let newNote = { title: '', content: '', id: Math.floor(Math.random() * 9999999999), isNew:true}
         addNote([...allNotes, newNote])
         onNoteAdded('notas', 1)
         conectionMade(1)

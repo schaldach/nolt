@@ -49,11 +49,11 @@ function App() {
     return classes
   }
 
-  function addNote(type, number){
+  function addNote(type, number, priority){
     changeNotesNumbers(prevState => {
       return {
         ...prevState,
-        [type]: prevState[type]+number
+        [type]: priority?number:prevState[type]+number
       }
     })
 }

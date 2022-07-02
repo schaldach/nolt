@@ -186,7 +186,7 @@ main{
 
 .secondtext{
   font-family: var(--font3);
-  font-size: clamp(10px,4vh,20px);
+  font-size: 3vh;
   color: var(--color1);
   margin: 3vh 0;
 }
@@ -650,6 +650,10 @@ input, textarea{
   .flex{
     gap: 0px;
     flex-direction: column;
+  }
+  input, textarea{
+    touch-action: none;
+    font-size: 16px;
   }
 }
 

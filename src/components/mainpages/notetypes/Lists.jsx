@@ -17,7 +17,7 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
         let newList = {
             title: '',
             content: [{text: '1. ', id: 0, complete:false}],
-            id: Math.floor(Math.random()*1000000000),
+            id: Math.floor(Math.random()*9999999999),
         }
         addList([...allLists, newList])
         onNoteAdded('listas', 1)
