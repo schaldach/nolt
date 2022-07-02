@@ -24,17 +24,21 @@ function Notes({ visualnote, onNoteAdded, onNoteRemoved }) {
             }
             else{oldNotes.push(note)}
         })
-        console.log(newNotes)
         const bla = await supabase
             .from('notas')
-            .upsert([...newNotes, ...oldNotes])
+            .upsert(newNotes)
+            .then( async () => {
+                const bla = await supabase
+                    .from('notas')
+                    .upsert(oldNotes)
+            })
             .then( async () => {
                 const { data, count } = await supabase
                     .from('notas')
                     .select('*', { count: 'exact' })
                 onNoteAdded('notas', count)
                 addNote(data)
-            }, (resp)=>{console.log(resp)})
+            })
             .then( () => {
                 conectionMade(0)
                 console.log('eba')
