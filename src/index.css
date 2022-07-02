@@ -636,6 +636,7 @@ input, textarea{
   }
   .displayanotations{
     justify-content: center;
+    margin-top: 2vh;
     gap: 4vh;
   }
   .displayanotationswrapper{
