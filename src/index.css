@@ -636,7 +636,7 @@ input, textarea{
   }
   .displayanotations{
     justify-content: center;
-    margin-top: 2.5vh;
+    margin-top: 1vh;
     gap: 4vh;
   }
   .displayanotationswrapper{
@@ -654,6 +654,12 @@ input, textarea{
   .anotcontent, .anottitle{
     touch-action: none;
     font-size: 16px !important;
+  }
+  .wholething:hover{
+    transform: scale(1);
+  }
+  .view:nth-child(1n){
+    transform: scale(1);
   }
 }
 
