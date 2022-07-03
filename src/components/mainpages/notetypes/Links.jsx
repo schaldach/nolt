@@ -14,12 +14,30 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
     }, [])
 
     async function syncLinks(){
-        const { data, count } = await supabase
+        conectionMade(2)
+        let newLinks = []
+        allLinks.forEach(link => {
+            if(link.isNew){
+                newLinks.push({
+                    href: link.href,
+                    name: link.name
+                })
+            }
+        })
+        const bla = await supabase
             .from('links')
-            .select('*', { count: 'exact' })
-        console.log(count)
-        onNoteAdded('links', count, true)
-        addLink(data)
+            .upsert(newLinks)
+            .then( async () => {
+                const { data, count } = await supabase
+                    .from('links')
+                    .select('*', { count: 'exact' })
+                onNoteAdded('links', count, true)
+                addLink(data)
+            })
+            .then( () => {
+                conectionMade(0)
+                console.log('eba')
+            })
     }
 
     function finishAnotation(name, href){
@@ -27,6 +45,7 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
         let newLink = {href: href, name: name, id: Math.floor(Math.random()*9999999999), isNew:true}
         addLink([...allLinks, newLink])
         onNoteAdded('links', 1)
+        conectionMade(1)
     }
 
     async function onDelete(linkId){
@@ -76,7 +95,11 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
                 </div>
             </div>
             <div className='displayanotations'>
-                <button className='linkbutton' onClick={() => requestD(true)}>+</button>
+                <button className='linkbutton' onClick={() => requestD(true)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="addsvglink" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                </button>
                 {allLinks.map(link =>
                 <SmallerAnotation onDelete={onDelete} key={link.id} id={link.id} linkname={link.name} linkcontent={link.href}></SmallerAnotation>
                 )}
