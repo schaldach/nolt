@@ -74,6 +74,7 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
     }
 
     async function onDelete(listId){
+        let lastconection = sucessAnimation
         conectionMade(2)
         let newLists = allLists.filter(lists => lists.id!==listId)
         const eba = await supabase
@@ -81,7 +82,7 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
             .delete()
             .match({ id: listId })
             .then( () => {
-                conectionMade(0)
+                conectionMade(lastconection)
             })
         onNoteRemoved()
         addList(newLists)

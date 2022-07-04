@@ -49,6 +49,7 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
     }
 
     async function onDelete(linkId){
+        let lastconection = sucessAnimation
         conectionMade(2)
         let newLinks = allLinks.filter(links => links.id!==linkId)
         const eba = await supabase
@@ -56,7 +57,7 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
             .delete()
             .match({ id: linkId })
             .then( () => {
-                conectionMade(0)
+                conectionMade(lastconection)
             })
         onNoteRemoved()
         addLink(newLinks)
