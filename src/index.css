@@ -637,9 +637,6 @@ input, textarea{
   .dropbutton{
     padding-bottom: 0px;
   }
-  .homebutton:before{
-    content: "Leve-me lá →";
-  }
   .titlesecond{
     text-align: center;
   }
@@ -657,8 +654,8 @@ input, textarea{
     margin: 2.5vh 0 1vh 0;
   }
   .flex{
-    gap: 0px;
-    flex-direction: column;
+    gap: 10px;
+    flex-direction: row;
   }
   .anotcontent, .anottitle{
     touch-action: none;
@@ -670,6 +667,16 @@ input, textarea{
     transform: scale(1);
   }
 }
+@media screen and (max-width: 768px){
+  .flex{
+    gap: 0px;
+    flex-direction: column;
+  }
+  .homebutton:before{
+    content: "Leve-me lá →";
+  }
+}
+
 
 .rotating{
   animation: rotation 0.75s infinite;
