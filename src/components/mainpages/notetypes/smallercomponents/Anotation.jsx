@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react"
 import DropdownMenu from "./DropdownMenu"
 
 function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite}) {
-    const[editMode, startEdit] = useState(true)
+    const[editMode, startEdit] = useState(note.isNew)
     const[viewMode, startView] = useState(false)
     const searchInput = useRef(null)
 
