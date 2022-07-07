@@ -1,15 +1,10 @@
 import React, { useState, useRef, useEffect } from "react"
 import DropdownMenu from "./DropdownMenu"
 
-function Anotation({title, content, onEdit, note, onDelete, favorite}) {
+function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite}) {
     const[editMode, startEdit] = useState(true)
     const[viewMode, startView] = useState(false)
-    const[favstatus, startFavorite] = useState(false)
     const searchInput = useRef(null)
-
-    useEffect(() => {
-        favorite(note, favstatus)
-    }, [favstatus])
 
     function handleTextFocus(e){
         if(e.key==='Enter'){
@@ -32,8 +27,8 @@ function Anotation({title, content, onEdit, note, onDelete, favorite}) {
                 value={content} onInput={e => onEdit(title, e.target.value, note)} placeholder='Conteúdo'/>
             </div>
         </div>
-        <DropdownMenu editMode={editMode} startEdit={startEdit} viewMode={viewMode} favstatus={favstatus}
-        startView={startView} onDelete={() => onDelete(note.id)} onFavorite={startFavorite}/>
+        <DropdownMenu editMode={editMode} startEdit={startEdit} viewMode={viewMode} favstatus={favorite}
+        startView={startView} onDelete={() => onDelete(note.id)} onFavorite={onFavorite}/>
         </div>
     )
 }

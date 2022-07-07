@@ -61,10 +61,9 @@ function Notes({ visualnote, onNoteAdded, onNoteRemoved }) {
         conectionMade(1)
     }
 
-    function favorite(note, status) {
-        let newNotes = allNotes.filter(notes => notes.id !== note.id)
-        if (status) { newNotes.unshift(note) }
-        else { newNotes.push(note) }
+    function favorite(note) {
+        let newNotes = [...allNotes]
+        const index = newNotes.indexOf(note)
         addNote(newNotes)
     }
 
