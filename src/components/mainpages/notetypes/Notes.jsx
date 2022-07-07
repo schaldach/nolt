@@ -66,6 +66,7 @@ function Notes({ visualnote, onNoteAdded, onNoteRemoved }) {
         const index = newNotes.indexOf(note)
         newNotes[index].favorite = !newNotes[index].favorite
         addNote(newNotes)
+        conectionMade(1)
     }
 
     async function onDelete(noteId) {
