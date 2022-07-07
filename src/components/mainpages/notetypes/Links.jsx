@@ -42,7 +42,7 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
 
     function finishAnotation(name, href){
         requestD(false)
-        let newLink = {href: href, name: name, id: Math.floor(Math.random()*9999999999), isNew:true}
+        let newLink = {href: href, name: name, id: Math.floor(Math.random()*9999999999), isNew:true, favorite:false}
         addLink([...allLinks, newLink])
         onNoteAdded('links', 1)
         conectionMade(1)

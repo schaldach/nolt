@@ -46,7 +46,7 @@ function Notes({ visualnote, onNoteAdded, onNoteRemoved }) {
     }
 
     function addAnotation() {
-        let newNote = { title: '', content: '', id: Math.floor(Math.random() * 9999999999), isNew:true}
+        let newNote = { title: '', content: '', id: Math.floor(Math.random() * 9999999999), isNew:true, favorite:false}
         addNote([...allNotes, newNote])
         onNoteAdded('notas', 1)
         conectionMade(1)

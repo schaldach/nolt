@@ -50,7 +50,8 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
             title: '',
             content: [{text: '1. ', id: 0, complete:false}],
             id: Math.floor(Math.random()*9999999999),
-            isNew: true
+            isNew: true,
+            favorite:false
         }
         addList([...allLists, newList])
         onNoteAdded('listas', 1)
