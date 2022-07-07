@@ -61,9 +61,10 @@ function Notes({ visualnote, onNoteAdded, onNoteRemoved }) {
         conectionMade(1)
     }
 
-    function favorite(note) {
+    function onFavorite(note) {
         let newNotes = [...allNotes]
         const index = newNotes.indexOf(note)
+        newNotes[index].favorite = !newNotes[index].favorite
         addNote(newNotes)
     }
 
@@ -121,7 +122,7 @@ function Notes({ visualnote, onNoteAdded, onNoteRemoved }) {
                     </svg>
                 </button>
                 {allNotes.map(note =>
-                    <Anotation favorite={favorite} note={note} onDelete={onDelete} onEdit={onEdit}
+                    <Anotation onFavorite={onFavorite} favorite={note.favorite} note={note} onDelete={onDelete} onEdit={onEdit}
                         key={note.id} title={note.title} content={note.content} />
                 )}
             </div>

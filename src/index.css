@@ -552,7 +552,7 @@ input, textarea{
   cursor: pointer;
 }
 .savebutton:hover{
-  animation: wave 1.5s infinite;
+  animation: wave 1.3s infinite;
 }
 
 .wrapdiv{
@@ -577,19 +577,19 @@ input, textarea{
 
 @keyframes wave{
   0%{
-    box-shadow: inset 0.09px 0 0 0.09px var(--color4);
+    box-shadow: inset 0.09px 0 var(--color4);
   }
   49%{
     background-color: var(--color2s);
-    box-shadow: inset 8em 0 0 0 var(--color4);
+    box-shadow: inset 8em 0 var(--color4);
     color: var(--color2s);
   }
   50%{
     background-color: var(--color4);
-    box-shadow: inset 0.09px 0 0 0.09px var(--color2s);
+    box-shadow: inset 0.09px 0 var(--color2s);
   }
   99%{
-    box-shadow: inset 8em 0 0 0 var(--color2s);
+    box-shadow: inset 8em 0 var(--color2s);
     background-color: var(--color4);
     color: var(--color1);
   }
