@@ -4,19 +4,14 @@ import { supabase } from "./notetypes/SupaBaseClient"
 function Auth() {
     async function login() {
         const { user } = await supabase.auth.signIn({provider: 'google'})
-        .then( async () => {
-        const eba = await supabase
-            .from('profiles')
-            .upsert({username:'', id:user.id, bio:''})
-        })
     }
     return (
         <div className="login">
             <div className="loginbox">
                 <div className="titulo">Nolt</div>
                 <div className="logintext">Login</div>
-                <button className="loginbutton logintext" onClick={login}>Fazer login com Google</button>
-                <div></div>
+                <button className="loginbutton logintext" onClick={login}>
+                <div className="google"></div></button>
             </div>
         </div>
     )

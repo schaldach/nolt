@@ -15,6 +15,7 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
 
     async function syncLinks(){
         const user = supabase.auth.user()
+        if(!user){return}
         conectionMade(2)
         let newLinks = []
         let oldLinks = []

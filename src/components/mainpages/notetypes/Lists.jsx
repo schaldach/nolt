@@ -13,6 +13,7 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
 
     async function syncLists(){
         const user = supabase.auth.user()
+        if(!user){return}
         conectionMade(2)
         let oldLists = []
         let newLists = []

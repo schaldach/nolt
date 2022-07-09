@@ -12,6 +12,7 @@ function Profile({visualclass, performAuth}) {
 
     async function getProfile(){
         const user = supabase.auth.user()
+        if(!user){return}
         const { data } = await supabase
             .from('profiles')
             .select('*')

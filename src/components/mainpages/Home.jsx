@@ -18,6 +18,7 @@ function Home({visualclass, notesNumbers, onPageChange}) {
 
     async function syncFavorites(){
         const user = supabase.auth.user()
+        if(!user){return}
         const { data } = await supabase
             .from('notas')
             .select('*')

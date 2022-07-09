@@ -41,13 +41,18 @@ body, html{
 .loginbox{
   padding: 5vh 0;
   height: 65vh;
-  width: 30vw;
+  width: 37.5vw;
   border-radius: 10px;
   box-shadow: 7px 7px var(--color5);
   background-color: var(--color2p);
   display: flex;
   flex-direction: column;
-  gap: 5vh;
+  justify-content: center;
+  align-items: center;
+  gap: 4vh;
+}
+.loginbox .titulo{
+  font-size: 10vh;
 }
 .logintext{
   font-size: 4vh;
@@ -55,7 +60,30 @@ body, html{
 }
 .loginbutton{
   display: flex;
-  gap: 10px
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color2p);
+  outline: none;
+  border: none;
+  width: fit-content;
+  padding: 15px;
+  margin-top: 2.5vh;
+  box-shadow: 0px 0px 10px 10px #efefef;
+  gap: 10px;
+  cursor: pointer;
+}
+.loginbutton::before{
+  content: 'Entrar com Google';
+}
+.loginbutton:hover{
+  background-color: #efefef;
+  box-shadow: none;
+}
+.google{
+  background: url("googlelogo.png");
+  background-size: cover;
+  width: 4vh;
+  height: 4vh;
 }
 
 .navbar{
@@ -723,6 +751,9 @@ input, textarea{
   .view:nth-child(1n){
     transform: scale(1);
   }
+  .loginbox{
+    width: 57.5vw;
+  }
 }
 @media screen and (max-width: 768px){
   .flex{
@@ -731,6 +762,9 @@ input, textarea{
   }
   .homebutton:before{
     content: "Leve-me lá →";
+  }
+  .loginbox{
+    width: 77.5vw;
   }
 }
 

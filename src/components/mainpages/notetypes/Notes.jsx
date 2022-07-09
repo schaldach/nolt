@@ -13,6 +13,7 @@ function Notes({ visualnote, onNoteAdded, onNoteRemoved }) {
 
     async function syncNotes() {
         const user = supabase.auth.user()
+        if(!user){return}
         conectionMade(2)
         let oldNotes = []
         let newNotes = []

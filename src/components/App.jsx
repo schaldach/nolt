@@ -73,11 +73,11 @@ function App() {
   }
 
   useEffect(() => manageShownNote(), [notesVisible])
-  useEffect(() => login())
+  useEffect(() => login(), [])
 
   function login(){
     const user = supabase.auth.user()
-    if(user){performAuth(true)}
+    if(user!==null&&user!==undefined){performAuth(true)}
   }
 
   return (
