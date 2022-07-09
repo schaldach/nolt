@@ -33,10 +33,7 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
                     .select('*', { count: 'exact' })
                 onNoteAdded('links', count, true)
                 addLink(data)
-            })
-            .then( () => {
                 conectionMade(0)
-                console.log('eba')
             })
     }
 

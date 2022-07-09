@@ -53,6 +53,10 @@ body, html{
   font-size: 4vh;
   font-family: var(--font3);
 }
+.loginbutton{
+  display: flex;
+  gap: 10px
+}
 
 .navbar{
   display: grid;

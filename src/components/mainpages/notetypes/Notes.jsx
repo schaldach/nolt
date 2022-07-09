@@ -38,10 +38,7 @@ function Notes({ visualnote, onNoteAdded, onNoteRemoved }) {
                     .select('*', { count: 'exact' })
                 onNoteAdded('notas', count, true)
                 addNote(data)
-            })
-            .then( () => {
                 conectionMade(0)
-                console.log('eba')
             })
     }
 

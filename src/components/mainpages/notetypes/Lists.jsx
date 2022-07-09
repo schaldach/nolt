@@ -38,10 +38,7 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
                     .select('*', { count: 'exact' })
                 onNoteAdded('listas', count, true)
                 addList(data)
-            })
-            .then( () => {
                 conectionMade(0)
-                console.log('eba')
             })
     }
 
