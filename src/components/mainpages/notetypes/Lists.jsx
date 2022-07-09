@@ -12,6 +12,7 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
     }, [])
 
     async function syncLists(){
+        const user = supabase.auth.user()
         conectionMade(2)
         let oldLists = []
         let newLists = []
@@ -19,7 +20,8 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
             if(list.isNew){
                 newLists.push({
                     title: list.title,
-                    content: list.content
+                    content: list.content,
+                    userid: user.id
                 })
             }
             else{oldLists.push(list)}
@@ -33,9 +35,11 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved}) {
                     .upsert(newLists)
             })
             .then( async () => {
+                const user = supabase.auth.user()
                 const { data, count } = await supabase
                     .from('listas')
                     .select('*', { count: 'exact' })
+                    .eq('userid', user.id)
                 onNoteAdded('listas', count, true)
                 addList(data)
                 conectionMade(0)

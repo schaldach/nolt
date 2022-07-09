@@ -12,6 +12,7 @@ function Notes({ visualnote, onNoteAdded, onNoteRemoved }) {
     }, [])
 
     async function syncNotes() {
+        const user = supabase.auth.user()
         conectionMade(2)
         let oldNotes = []
         let newNotes = []
@@ -19,7 +20,8 @@ function Notes({ visualnote, onNoteAdded, onNoteRemoved }) {
             if(note.isNew){
                 newNotes.push({
                     title: note.title,
-                    content: note.content
+                    content: note.content,
+                    userid: user.id
                 })
             }
             else{oldNotes.push(note)}
@@ -33,9 +35,11 @@ function Notes({ visualnote, onNoteAdded, onNoteRemoved }) {
                     .upsert(newNotes)
             })
             .then( async () => {
+                const user = supabase.auth.user()
                 const { data, count } = await supabase
                     .from('notas')
                     .select('*', { count: 'exact' })
+                    .eq('userid', user.id)
                 onNoteAdded('notas', count, true)
                 addNote(data)
                 conectionMade(0)

@@ -14,23 +14,34 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
     }, [])
 
     async function syncLinks(){
+        const user = supabase.auth.user()
         conectionMade(2)
         let newLinks = []
+        let oldLinks = []
         allLinks.forEach(link => {
             if(link.isNew){
                 newLinks.push({
                     href: link.href,
-                    name: link.name
+                    name: link.name,
+                    userid: user.id
                 })
             }
+            else{oldLinks.push(link)}
         })
         const bla = await supabase
             .from('links')
             .upsert(newLinks)
             .then( async () => {
+                const eba = await supabase
+                    .from('links')
+                    .upsert(oldLinks)
+            })
+            .then( async () => {
+                const user = supabase.auth.user()
                 const { data, count } = await supabase
                     .from('links')
                     .select('*', { count: 'exact' })
+                    .eq('userid', user.id)
                 onNoteAdded('links', count, true)
                 addLink(data)
                 conectionMade(0)

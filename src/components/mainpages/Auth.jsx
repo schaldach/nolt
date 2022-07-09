@@ -1,12 +1,15 @@
 import React from "react";
 import { supabase } from "./notetypes/SupaBaseClient"
 
-function Auth({performAuth}) {
+function Auth() {
     async function login() {
-        const { user, session, error } = await supabase.auth.signIn({
-          provider: 'google',
+        const { user } = await supabase.auth.signIn({provider: 'google'})
+        .then( async () => {
+        const eba = await supabase
+            .from('profiles')
+            .upsert({username:'', id:user.id, bio:''})
         })
-      }
+    }
     return (
         <div className="login">
             <div className="loginbox">

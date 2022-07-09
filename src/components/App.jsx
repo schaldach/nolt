@@ -83,7 +83,7 @@ function App() {
   return (
     <>
     <div className={logged?'displaynone':''}>
-      <Auth performAuth={performAuth}></Auth>
+      <Auth></Auth>
     </div>
     <div className={logged?'':'displaynone'} data-theme={darkMode?'dark':'light'}>
       <NavBar darkMode={darkMode} setDarkMode={setDarkMode} currentNote={currentNote} notesVisible={notesVisible} pagesVisible={pagesVisible} onPageChange={changePage} onNoteChange={changeNoteType}/>

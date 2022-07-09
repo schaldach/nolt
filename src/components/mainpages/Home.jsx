@@ -17,10 +17,12 @@ function Home({visualclass, notesNumbers, onPageChange}) {
     }, [])
 
     async function syncFavorites(){
+        const user = supabase.auth.user()
         const { data } = await supabase
             .from('notas')
             .select('*')
             .is('favorite', true)
+            .eq('userid', user.id)
         addNotes(data)
     }
 
