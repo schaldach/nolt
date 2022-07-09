@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import Contact from './mainpages/Contact.jsx'
+import Profile from './mainpages/Profile.jsx'
 import Home from './mainpages/Home.jsx'
 import NavBar from './mainpages/NavBar.jsx'
 import NoteTypes from './mainpages/NoteTypes.jsx'
 import PageFooter from './mainpages/PageFooter.jsx'
 import ProjectDesc from './mainpages/ProjectDesc.jsx'
+import Auth from './mainpages/Auth.jsx'
+import { supabase } from './mainpages/notetypes/SupaBaseClient'
 
 function App() {
+  const[logged, performAuth] = useState(false)
   const[darkMode, setDarkMode] = useState(false)
   const[pagesVisible, setPages] = useState({
     home: true,
     notetypes: false,
     project: false,
-    contact: false,
+    profile: false,
   })
   const[notesVisible, setNoteType] = useState({
     notas: true,
@@ -70,18 +73,29 @@ function App() {
   }
 
   useEffect(() => manageShownNote(), [notesVisible])
+  useEffect(() => login())
+
+  function login(){
+    const user = supabase.auth.user()
+    if(user){performAuth(true)}
+  }
 
   return (
-    <div data-theme={darkMode?'dark':'light'}>
+    <>
+    <div className={logged?'displaynone':''}>
+      <Auth performAuth={performAuth}></Auth>
+    </div>
+    <div className={logged?'':'displaynone'} data-theme={darkMode?'dark':'light'}>
       <NavBar darkMode={darkMode} setDarkMode={setDarkMode} currentNote={currentNote} notesVisible={notesVisible} pagesVisible={pagesVisible} onPageChange={changePage} onNoteChange={changeNoteType}/>
       <main>
         <Home onPageChange={changePage} notesNumbers={notesNumbers} visualclass={manageDisplay('home')}/>
         <NoteTypes currentNote={currentNote} onNoteAdded={addNote} manageShownNote={manageShownNote} visualnote={notesVisible} visualclass={manageDisplay('notetypes')}/>
         <ProjectDesc visualclass={manageDisplay('project')}/>
-        <Contact visualclass={manageDisplay('contact')}/>
+        <Profile visualclass={manageDisplay('profile')} performAuth={performAuth}/>
       </main>
       <PageFooter/>
     </div>
+    </>
   )
 }
 

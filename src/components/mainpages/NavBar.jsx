@@ -28,7 +28,7 @@ function NavBar({onPageChange, onNoteChange, pagesVisible, currentNote, darkMode
                     </div>
                 </div>
                 <div className={manageShown('project')} onClick={() => onPageChange('project')}>Projeto</div>
-                <div className={manageShown('contact')} onClick={() => onPageChange('contact')}>Contato</div>
+                <div className={manageShown('profile')} onClick={() => onPageChange('profile')}>Perfil</div>
                 <div className='dark-wrapper'><DarkModeButton setDarkMode={setDarkMode} darkMode={darkMode}/></div>
             </div>
         </div>
