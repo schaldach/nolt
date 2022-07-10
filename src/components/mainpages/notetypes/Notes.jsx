@@ -2,18 +2,18 @@ import React, { useState, useEffect } from "react"
 import { supabase } from "./SupaBaseClient"
 import Anotation from "./smallercomponents/Anotation"
 
-function Notes({ visualnote, onNoteAdded, onNoteRemoved }) {
+function Notes({ visualnote, onNoteAdded, onNoteRemoved, logged }) {
     const [animation, startAnimation] = useState(false)
     const [allNotes, addNote] = useState([])
     const [sucessAnimation, conectionMade] = useState(0)
 
     useEffect(() => {
         syncNotes()
-    }, [])
+    }, [logged])
 
     async function syncNotes() {
         const user = supabase.auth.user()
-        if(!user){return}
+        if(!user||!logged){return}
         console.log(user)
         conectionMade(2)
         let oldNotes = []

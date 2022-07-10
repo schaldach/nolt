@@ -4,7 +4,7 @@ import Links from "./notetypes/Links"
 import Lists from "./notetypes/Lists"
 import Notes from "./notetypes/Notes"
 
-function NoteTypes({visualclass, visualnote, onNoteAdded, currentNote}) {
+function NoteTypes({visualclass, visualnote, onNoteAdded, currentNote, logged}) {
     function manageNote(noteReference){
         let classes = visualnote[noteReference]?'displayanotationswrapper':'displaynone'
         return classes
@@ -13,11 +13,11 @@ function NoteTypes({visualclass, visualnote, onNoteAdded, currentNote}) {
     return (
         <div className={visualclass}>
             <SecondTitle titlecontent='Anotações' extra={'/'+currentNote}/>
-            <Notes onNoteRemoved={() => onNoteAdded('notas', -1)} 
+            <Notes logged={logged} onNoteRemoved={() => onNoteAdded('notas', -1)} 
             onNoteAdded={onNoteAdded} visualnote={manageNote('notas')}/>
-            <Links onNoteRemoved={() => onNoteAdded('links', -1)} 
+            <Links logged={logged} onNoteRemoved={() => onNoteAdded('links', -1)} 
             onNoteAdded={onNoteAdded} visualnote={manageNote('links')}/>
-            <Lists onNoteRemoved={() => onNoteAdded('listas', -1)} 
+            <Lists logged={logged} onNoteRemoved={() => onNoteAdded('listas', -1)} 
             onNoteAdded={onNoteAdded} visualnote={manageNote('listas')}/>
         </div>
     )

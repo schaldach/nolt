@@ -3,7 +3,7 @@ import { supabase } from "./SupaBaseClient"
 import NecessaryDataLink from "./smallercomponents/NecessaryDataLink";
 import SmallerAnotation from "./smallercomponents/SmallerAnotation"
 
-function Links({visualnote, onNoteAdded, onNoteRemoved}) {
+function Links({visualnote, onNoteAdded, onNoteRemoved, logged}) {
     const [animation, startAnimation] = useState(false)
     const[allLinks,addLink] = useState([])
     const [sucessAnimation, conectionMade] = useState(0)
@@ -11,11 +11,11 @@ function Links({visualnote, onNoteAdded, onNoteRemoved}) {
 
     useEffect(() => {
         syncLinks()
-    }, [])
+    }, [logged])
 
     async function syncLinks(){
         const user = supabase.auth.user()
-        if(!user){return}
+        if(!user||!logged){return}
         conectionMade(2)
         let newLinks = []
         let oldLinks = []
