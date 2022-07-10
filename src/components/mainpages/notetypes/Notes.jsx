@@ -14,7 +14,6 @@ function Notes({ visualnote, onNoteAdded, onNoteRemoved, logged }) {
     async function syncNotes() {
         const user = supabase.auth.user()
         if(!user||!logged){return}
-        console.log(user)
         conectionMade(2)
         let oldNotes = []
         let newNotes = []

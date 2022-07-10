@@ -3,15 +3,15 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { supabase } from "./notetypes/SupaBaseClient"
 
-function Auth({setUser}) {
+function Auth({setUser, performAuth}) {
     const [login, changeMode] = useState(true)
     const [error, throwError] = useState(false)
     const [currentEmail, updateEmail] = useState('')
     const [currentPassword, updatePassword] = useState('')
 
-    useEffect(() => {
-        throwError(false)
-    }, [login])
+    useEffect(() => {throwError(false)}, [login])
+    useEffect(() => {throwError(true)}, [performAuth])
+    useEffect(() => {throwError(false)}, [])
 
     async function signin() {
         const { data } = await supabase
@@ -75,7 +75,9 @@ function Auth({setUser}) {
                 <button className={login?"loginbutton logintext":'displaynone'} onClick={signin}>Fazer Login</button>
                 <button className={login?'displaynone':"loginbutton logintext"} onClick={signup}>Fazer Cadastro</button>
                 <div className="loginerror logintext">{errortext()}</div>
-                <button className="loginchange" onClick={() => changeMode(!login)}>{login?'Ainda não tenho uma conta':'Já tenho uma conta'}</button>
+                <div className="loginchangewrapper">{login?'Não possui uma conta?':'Já tem uma conta?'}
+                    <button className="loginchange" onClick={() => changeMode(!login)}>{login?'Cadastro':'Login'}</button>                
+                </div>
             </div>
         </div>
     )
