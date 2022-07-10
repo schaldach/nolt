@@ -18,7 +18,7 @@ function Profile({visualclass, performAuth}) {
             .select('*')
             .eq('id', user.id)
             .single()
-        setUsername(user.id)
+        setUsername(data.id)
     }
 
     async function logout() {
