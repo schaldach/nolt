@@ -43,8 +43,8 @@ body, html{
   height: 65vh;
   width: 37.5vw;
   border-radius: 10px;
-  box-shadow: 7px 7px var(--color4);
-  background-color: var(--color2p);
+  box-shadow: 7px 7px var(--color3);
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,6 +53,7 @@ body, html{
 }
 .loginbox .titulo{
   font-size: 10vh;
+  color: #000000;
 }
 .loginbox input{
   width: 75%;
@@ -81,19 +82,16 @@ body, html{
   outline: none;
   border: none;
   width: fit-content;
-  background-color: var(--color2p);
-  border: solid var(--color2p);
-  border-width: 0 0 2px 0;
+  background-color: #ffffff;
   cursor: pointer;
   color: var(--color4);
-  margin-top: 2px;
   font-family: var(--font3);
   font-size: 2.5vh;
   display: flex;
   align-items: center;
 }
 .loginchange:hover{
-  border-color: var(--color4);
+  color: var(--color5);
 }
 .loginbutton{
   display: flex;

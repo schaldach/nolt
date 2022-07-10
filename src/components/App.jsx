@@ -13,7 +13,7 @@ function App() {
   const[loginrequest, reqlog] = useState(null)
   const[user, setUser] = useState(null)
   const[errorMessage, throwError] = useState(false)
-  const[darkMode, setDarkMode] = useState(false)
+  const[darkMode, setDarkMode] = useState(true)
   const[pagesVisible, setPages] = useState({
     home: true,
     notetypes: false,
@@ -80,7 +80,6 @@ function App() {
     async function fetch(){
       const user = supabase.auth.user()
       if(!user){ 
-        performAuth(false)
         throwError(true)
         return
       }
@@ -98,11 +97,11 @@ function App() {
   useEffect(() => {throwError(false)}, [])
 
   return (
-    <>
+    <div data-theme={darkMode?'dark':'light'}>
     <div className={logged?'displaynone':''}>
       <Auth errorMessage={errorMessage} throwError={throwError} reqlog={reqlog}></Auth>
     </div>
-    <div className={logged?'':'displaynone'} data-theme={darkMode?'dark':'light'}>
+    <div className={logged?'':'displaynone'}>
       <NavBar darkMode={darkMode} setDarkMode={setDarkMode} currentNote={currentNote} notesVisible={notesVisible} pagesVisible={pagesVisible} onPageChange={changePage} onNoteChange={changeNoteType}/>
       <main>
         <Home user={user} onPageChange={changePage} notesNumbers={notesNumbers} visualclass={manageDisplay('home')}/>
@@ -112,7 +111,7 @@ function App() {
       </main>
       <PageFooter/>
     </div>
-    </>
+    </div>
   )
 }
 

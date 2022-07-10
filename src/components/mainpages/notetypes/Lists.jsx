@@ -68,11 +68,12 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved, user}) {
         conectionMade(1)
     }
 
-    function favorite(list, status){
-        let newLists = allLists.filter(lists => lists.id!==list.id)
-        if(status){newLists.unshift(list)}
-        else{newLists.push(list)}
+    function onFavorite(list){
+        let newLists = [...allLists]
+        const index = newLists.indexOf(list)
+        newLists[index].favorite = !newLists[index].favorite
         addList(newLists)
+        conectionMade(1)
     }
 
     async function onDelete(listId){
@@ -129,7 +130,7 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved, user}) {
                     </svg>
                 </button>
                 {allLists.map(list =>
-                    <ListAnotation favorite={favorite} list={list} onDelete={onDelete} onEdit={onEdit}
+                    <ListAnotation onFavorite={onFavorite} favorite={list.favorite} list={list} onDelete={onDelete} onEdit={onEdit}
                     key={list.id} title={list.title} content={list.content}/>
                 )}
             </div>

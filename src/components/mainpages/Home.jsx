@@ -14,16 +14,22 @@ function Home({visualclass, notesNumbers, onPageChange, user}) {
 
     useEffect(()=> {
         syncFavorites()
-    }, [])
+    }, [user])
 
-    async function syncFavorites(){
-        if(!user){return}
+    async function syncNotetype(notetype){
         const { data } = await supabase
-            .from('notas')
+            .from(notetype)
             .select('*')
             .is('favorite', true)
             .eq('userid', user.id)
-        addNotes(data)
+        return(data)
+    }
+
+    async function syncFavorites(){
+        if(!user){return}
+        addNotes(await syncNotetype('notas'))
+        addLists(await syncNotetype('listas'))
+        addLinks(await syncNotetype('links'))
     }
 
     function textToWrite(){
