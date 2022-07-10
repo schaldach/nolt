@@ -1,10 +1,12 @@
 import React from "react";
 import { supabase } from "./notetypes/SupaBaseClient"
 
-function Auth() {
+function Auth({reqlog}) {
     async function login() {
-        const { user } = await supabase.auth.signIn({provider: 'google'})
+        const { user } = supabase.auth.signIn({provider: 'google'})
+        reqlog(true)
     }
+
     return (
         <div className="login">
             <div className="loginbox">

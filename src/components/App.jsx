@@ -9,6 +9,7 @@ import Auth from './mainpages/Auth.jsx'
 import { supabase } from './mainpages/notetypes/SupaBaseClient'
 
 function App() {
+  const[loginrequest, reqlog] = useState(false)
   const[logged, performAuth] = useState(false)
   const[darkMode, setDarkMode] = useState(false)
   const[pagesVisible, setPages] = useState({
@@ -28,6 +29,23 @@ function App() {
     listas: 0,
     links: 0,
   })
+  const [user, setUser] = useState()
+
+  useEffect(() => {
+    const session = supabase.auth.session()
+    setUser(session?.user ?? null)
+
+    const { data: listener } = supabase.auth.onAuthStateChange(
+      async (session) => {
+        setUser(session?.user ?? null)
+      }
+    )
+
+    return () => {
+      listener?.unsubscribe()
+    }
+  }, [loginrequest])
+
 
   function changePage(pageReference){
     let newPages = JSON.parse(JSON.stringify(pagesVisible))
@@ -73,17 +91,12 @@ function App() {
   }
 
   useEffect(() => manageShownNote(), [notesVisible])
-  useEffect(() => login(), [])
-
-  function login(){
-    const user = supabase.auth.user()
-    if(user!==null&&user!==undefined){performAuth(true)}
-  }
+  useEffect(() => performAuth(true), [user])
 
   return (
     <>
     <div className={logged?'displaynone':''}>
-      <Auth></Auth>
+      <Auth reqlog={reqlog}></Auth>
     </div>
     <div className={logged?'':'displaynone'} data-theme={darkMode?'dark':'light'}>
       <NavBar darkMode={darkMode} setDarkMode={setDarkMode} currentNote={currentNote} notesVisible={notesVisible} pagesVisible={pagesVisible} onPageChange={changePage} onNoteChange={changeNoteType}/>
