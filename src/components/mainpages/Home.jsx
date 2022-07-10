@@ -7,7 +7,7 @@ import FavoriteNote from "./smallcomponents/FavoriteNote"
 import FavoriteList from "./smallcomponents/FavoriteList"
 import FavoriteLink from "./smallcomponents/FavoriteLink"
 
-function Home({visualclass, notesNumbers, onPageChange, logged}) {
+function Home({visualclass, notesNumbers, onPageChange, user}) {
     const [favoriteNotes, addNotes] = useState([])
     const [favoriteLists, addLists] = useState([])
     const [favoriteLinks, addLinks] = useState([])
@@ -17,8 +17,7 @@ function Home({visualclass, notesNumbers, onPageChange, logged}) {
     }, [])
 
     async function syncFavorites(){
-        const user = supabase.auth.user()
-        if(!user||!logged){return}
+        if(!user){return}
         const { data } = await supabase
             .from('notas')
             .select('*')
@@ -42,6 +41,7 @@ function Home({visualclass, notesNumbers, onPageChange, logged}) {
     return(
         <div className={visualclass+'home'}>
             <SecondTitle titlecontent='Home'/>
+            <div className="secondtext">{user?`Bem vindo ${user.username}!`:''}</div>
             <div className="secondtext">
                 {textToWrite()}
             </div>

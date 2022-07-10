@@ -3,61 +3,36 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { supabase } from "./notetypes/SupaBaseClient"
 
-function Auth({setUser, performAuth}) {
+function Auth({reqlog, errorMessage, throwError}) {
     const [login, changeMode] = useState(true)
-    const [error, throwError] = useState(false)
     const [currentEmail, updateEmail] = useState('')
     const [currentPassword, updatePassword] = useState('')
 
-    useEffect(() => {throwError(false)}, [login])
-    useEffect(() => {throwError(true)}, [performAuth])
-    useEffect(() => {throwError(false)}, [])
+    useEffect(() => {throwError(false)}, [currentEmail, currentPassword, login])
 
     async function signin() {
-        const { data } = await supabase
-            .from('profiles')
-            .select('*')
-            .eq('email', currentEmail)
-            .single()
-        if(!data){
-            throwError(true)
-            return
-        }
-        if(data.email===currentEmail){
-            const { error } = supabase.auth.signIn({
-                email: currentEmail,
-                password: currentPassword,
-            })
-            .then(() => {
-                if(error){throwError(true)}
-                else{setUser(Math.random())}
-            })
-        }
-        else{throwError(true)}
+        const { error } = supabase.auth.signIn({
+            email: currentEmail,
+            password: currentPassword,
+        })
+        .then(() => {
+            reqlog(Math.random())
+        })
     }
 
     async function signup() {
-        const { data } = await supabase
-            .from('profiles')
-            .select('*')
-            .eq('email', currentEmail)
-            .single()
-        if(!data&&currentPassword&&currentEmail){
-            const { error } = supabase.auth.signUp({
-                email: currentEmail,
-                password: currentPassword,
-            })
-            .then(() => {
-                if(error){throwError(true)}
-                else{setUser(Math.random())}
-            })
-        }
-        else{throwError(true)}
+        const { error } = supabase.auth.signUp({
+            email: currentEmail,
+            password: currentPassword,
+        })
+        .then(() => {
+            reqlog(Math.random())
+        })
     }
 
     function errortext(){
-        let text = ''
-        if(error){
+        let text
+        if(errorMessage){
             if(login){text = 'Usuário e/ou senha inválidos.'}
             else{text = 'Os dados não são válidos.'}
         }

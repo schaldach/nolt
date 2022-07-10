@@ -3,25 +3,16 @@ import SecondTitle from "./smallcomponents/SecondTitle"
 import { supabase } from "./notetypes/SupaBaseClient"
 import { useState } from "react"
 
-function Profile({visualclass, performAuth, logged}) {
+function Profile({visualclass, performAuth, user}) {
     const [username, setUsername] = useState(null)
 
     useEffect(() => {
         getProfile()
-    }, [logged])
+    }, [user])
 
     async function getProfile(){
-        const user =  supabase.auth.user()
-        if(!user||!logged){
-            performAuth(false)
-            return
-        }
-        const { data } = await supabase
-            .from('profiles')
-            .select('*')
-            .eq('id', user.id)
-            .single()
-        setUsername(data.username)
+        if(!user){return}
+        setUsername(user.username)
     }
 
     async function logout() {
