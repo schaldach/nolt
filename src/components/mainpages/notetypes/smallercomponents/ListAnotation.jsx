@@ -3,7 +3,7 @@ import ListItem from "./ListItem";
 import DropdownMenu from "./DropdownMenu"
 
 function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFavorite }) {
-    const [editMode, startEdit] = useState(true)
+    const [editMode, startEdit] = useState(list.isNew)
     const [viewMode, startView] = useState(false)
     const [currentItemFocus, changeFocus] = useState(-1)
 
