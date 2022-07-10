@@ -78,17 +78,17 @@ function App() {
   useEffect(() => manageShownNote(), [notesVisible])
   useEffect(() => {
     async function fetch(){
-      const user = supabase.auth.user()
-      if(!user){ 
+      const newUser = supabase.auth.user()
+      if(!newUser){ 
         throwError(true)
         return
       }
-      console.log(user)
+      console.log(newUser)
       performAuth(true)
       const { data } = await supabase
         .from('profiles')
         .select('*')
-        .eq('id', user.id)
+        .eq('id', newUser.id)
         .single()
       setUser(data)
     }
