@@ -12,7 +12,7 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved, logged}) {
     }, [logged])
 
     async function syncLists(){
-        const user = supabase.auth.user()
+        const user =  supabase.auth.user()
         if(!user||!logged){return}
         conectionMade(2)
         let oldLists = []

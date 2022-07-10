@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { supabase } from "./notetypes/SupaBaseClient"
 
-function Auth({performAuth}) {
+function Auth({setUser}) {
     const [login, changeMode] = useState(true)
     const [error, throwError] = useState(false)
     const [currentEmail, updateEmail] = useState('')
@@ -14,14 +14,26 @@ function Auth({performAuth}) {
     }, [login])
 
     async function signin() {
-        const { user } = supabase.auth.signIn({
-            email: currentEmail,
-            password: currentPassword,
-        })
-        .then(() => {
-            if(user){performAuth(true)}
-            else{throwError(true)}
-        })
+        const { data } = await supabase
+            .from('profiles')
+            .select('*')
+            .eq('email', currentEmail)
+            .single()
+        if(!data){
+            throwError(true)
+            return
+        }
+        if(data.email===currentEmail){
+            const { error } = supabase.auth.signIn({
+                email: currentEmail,
+                password: currentPassword,
+            })
+            .then(() => {
+                if(error){throwError(true)}
+                else{setUser(Math.random())}
+            })
+        }
+        else{throwError(true)}
     }
 
     async function signup() {
@@ -29,12 +41,16 @@ function Auth({performAuth}) {
             .from('profiles')
             .select('*')
             .eq('email', currentEmail)
-        if(!data){
-            const { user } = supabase.auth.signUp({
+            .single()
+        if(!data&&currentPassword&&currentEmail){
+            const { error } = supabase.auth.signUp({
                 email: currentEmail,
                 password: currentPassword,
             })
-            if(user){performAuth(true)}
+            .then(() => {
+                if(error){throwError(true)}
+                else{setUser(Math.random())}
+            })
         }
         else{throwError(true)}
     }
@@ -42,8 +58,8 @@ function Auth({performAuth}) {
     function errortext(){
         let text = ''
         if(error){
-            if(login){text = 'Esta conta não existe.'}
-            else{text = 'Esta conta já existe.'}
+            if(login){text = 'Usuário e/ou senha inválidos.'}
+            else{text = 'Os dados não são válidos.'}
         }
         else{text = ''}
         return text

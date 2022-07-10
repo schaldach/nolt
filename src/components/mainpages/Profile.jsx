@@ -11,14 +11,14 @@ function Profile({visualclass, performAuth, logged}) {
     }, [logged])
 
     async function getProfile(){
-        const user = supabase.auth.user()
+        const user =  supabase.auth.user()
         if(!user||!logged){return}
         const { data } = await supabase
             .from('profiles')
             .select('*')
             .eq('id', user.id)
             .single()
-        setUsername(data.id)
+        setUsername(data.username)
     }
 
     async function logout() {

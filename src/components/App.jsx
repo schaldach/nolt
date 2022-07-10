@@ -6,10 +6,10 @@ import NoteTypes from './mainpages/NoteTypes.jsx'
 import PageFooter from './mainpages/PageFooter.jsx'
 import ProjectDesc from './mainpages/ProjectDesc.jsx'
 import Auth from './mainpages/Auth.jsx'
-import { supabase } from './mainpages/notetypes/SupaBaseClient'
 
 function App() {
   const[logged, performAuth] = useState(false)
+  const[user, setUser] = useState(null)
   const[darkMode, setDarkMode] = useState(false)
   const[pagesVisible, setPages] = useState({
     home: true,
@@ -73,16 +73,17 @@ function App() {
   }
 
   useEffect(() => manageShownNote(), [notesVisible])
+  useEffect(() => {performAuth(true)}, [user])
 
   return (
     <>
     <div className={logged?'displaynone':''}>
-      <Auth performAuth={performAuth}></Auth>
+      <Auth setUser={setUser}></Auth>
     </div>
     <div className={logged?'':'displaynone'} data-theme={darkMode?'dark':'light'}>
       <NavBar darkMode={darkMode} setDarkMode={setDarkMode} currentNote={currentNote} notesVisible={notesVisible} pagesVisible={pagesVisible} onPageChange={changePage} onNoteChange={changeNoteType}/>
       <main>
-        <Home onPageChange={changePage} notesNumbers={notesNumbers} visualclass={manageDisplay('home')}/>
+        <Home logged={logged} onPageChange={changePage} notesNumbers={notesNumbers} visualclass={manageDisplay('home')}/>
         <NoteTypes logged={logged} currentNote={currentNote} onNoteAdded={addNote} manageShownNote={manageShownNote} visualnote={notesVisible} visualclass={manageDisplay('notetypes')}/>
         <ProjectDesc visualclass={manageDisplay('project')}/>
         <Profile logged={logged} visualclass={manageDisplay('profile')} performAuth={performAuth}/>
