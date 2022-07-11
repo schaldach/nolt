@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { supabase } from "./SupaBaseClient"
 import Anotation from "./smallercomponents/Anotation"
 
-function Notes({ visualnote, onNoteAdded, onNoteRemoved, user }) {
+function Notes({ visualnote, onNoteAdded, onNoteRemoved, user, reqsync }) {
     const [animation, startAnimation] = useState(false)
     const [allNotes, addNote] = useState([])
     const [sucessAnimation, conectionMade] = useState(0)
@@ -43,6 +43,7 @@ function Notes({ visualnote, onNoteAdded, onNoteRemoved, user }) {
                 onNoteAdded('notas', count, true)
                 addNote(data)
                 conectionMade(0)
+                reqsync(Math.random())
             })
     }
 

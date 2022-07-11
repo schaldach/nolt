@@ -3,7 +3,7 @@ import { supabase } from "./SupaBaseClient"
 import NecessaryDataLink from "./smallercomponents/NecessaryDataLink";
 import SmallerAnotation from "./smallercomponents/SmallerAnotation"
 
-function Links({visualnote, onNoteAdded, onNoteRemoved, user}) {
+function Links({visualnote, onNoteAdded, onNoteRemoved, user, reqsync}) {
     const [animation, startAnimation] = useState(false)
     const[allLinks,addLink] = useState([])
     const [sucessAnimation, conectionMade] = useState(0)
@@ -45,6 +45,7 @@ function Links({visualnote, onNoteAdded, onNoteRemoved, user}) {
                 onNoteAdded('links', count, true)
                 addLink(data)
                 conectionMade(0)
+                reqsync(Math.random())
             })
     }
 

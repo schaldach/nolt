@@ -41,7 +41,7 @@ body, html{
 .loginbox{
   padding: 5vh 0;
   height: 65vh;
-  width: 37.5vw;
+  width: 40vw;
   border-radius: 10px;
   box-shadow: 7px 7px var(--color3);
   background-color: #ffffff;
@@ -55,7 +55,8 @@ body, html{
   font-size: 10vh;
   color: #000000;
 }
-.loginbox input{
+.loginbox .divinput{
+  display: flex;
   width: 75%;
   border: solid 2px var(--color4);
   padding: 2vh 1vh;
@@ -88,6 +89,7 @@ body, html{
   font-family: var(--font3);
   font-size: 2.5vh;
   display: flex;
+  flex-direction: row;
   align-items: center;
 }
 .loginchange:hover{
@@ -690,23 +692,24 @@ input, textarea{
 
 @keyframes wave{
   0%{
-    box-shadow: inset 0.09px 0 var(--color4);
+    box-shadow: inset 0px 0px var(--color4);
   }
   49%{
     background-color: var(--color2s);
-    box-shadow: inset 8em 0 var(--color4);
+    box-shadow: inset 8em 0px var(--color4);
     color: var(--color2s);
   }
   50%{
     background-color: var(--color4);
-    box-shadow: inset 0.09px 0 var(--color2s);
+    box-shadow: inset 0px 0px var(--color2s);
   }
   99%{
-    box-shadow: inset 8em 0 var(--color2s);
+    box-shadow: inset 8em 0px var(--color2s);
     background-color: var(--color4);
     color: var(--color1);
   }
   100%{
+    box-shadow: none;
     background-color: var(--color2s);
   }
 }
@@ -750,21 +753,6 @@ input, textarea{
   .dropbutton{
     padding-bottom: 0px;
   }
-  .titlesecond{
-    text-align: center;
-  }
-  .displayanotations{
-    justify-content: center;
-    gap: 4vh;
-  }
-  .displayanotationswrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .wrapdiv{
-    margin: 2.5vh 0 1vh 0;
-  }
   .flex{
     gap: 10px;
     flex-direction: row;
@@ -779,7 +767,10 @@ input, textarea{
     transform: scale(1);
   }
   .loginbox{
-    width: 57.5vw;
+    width: 60vw;
+  }
+  .loginchangewrapper{
+    flex-direction: column;
   }
 }
 @media screen and (max-width: 768px){
@@ -791,7 +782,22 @@ input, textarea{
     content: "Leve-me lá →";
   }
   .loginbox{
-    width: 77.5vw;
+    width: 85vw;
+  }
+  .displayanotationswrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .wrapdiv{
+    margin: 2.5vh 0 1vh 0;
+  }
+  .titlesecond{
+    text-align: center;
+  }
+  .displayanotations{
+    justify-content: center;
+    gap: 4vh;
   }
 }
 

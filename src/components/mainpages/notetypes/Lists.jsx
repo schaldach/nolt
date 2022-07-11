@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { supabase } from "./SupaBaseClient"
 import ListAnotation from "./smallercomponents/ListAnotation"
 
-function Lists({visualnote, onNoteAdded, onNoteRemoved, user}) {
+function Lists({visualnote, onNoteAdded, onNoteRemoved, user, reqsync}) {
     const [animation, startAnimation] = useState(false)
     const[allLists,addList] = useState([])
     const [sucessAnimation, conectionMade] = useState(0)
@@ -43,6 +43,7 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved, user}) {
                 onNoteAdded('listas', count, true)
                 addList(data)
                 conectionMade(0)
+                reqsync(Math.random())
             })
     }
 

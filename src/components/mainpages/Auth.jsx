@@ -7,6 +7,7 @@ function Auth({reqlog, errorMessage, throwError}) {
     const [login, changeMode] = useState(true)
     const [currentEmail, updateEmail] = useState('')
     const [currentPassword, updatePassword] = useState('')
+    const [passwordVisible, setVisible] = useState(false)
 
     useEffect(() => {throwError(false)}, [currentEmail, currentPassword, login])
 
@@ -45,8 +46,11 @@ function Auth({reqlog, errorMessage, throwError}) {
             <div className="loginbox">
                 <div className="titulo">nolt</div>
                 <div className="logintext">{login?'Login':'Cadastro'}</div>
-                <input onInput={e => updateEmail(e.target.value)} value={currentEmail} placeholder='Email'></input>
-                <input onInput={e => updatePassword(e.target.value)} value={currentPassword} placeholder='Senha'></input>
+                <div className="divinput"><input type='text' onInput={e => updateEmail(e.target.value)} value={currentEmail} placeholder='Email'></input></div>
+                <div className="divinput">
+                    <input type={passwordVisible?'text':'password'} onInput={e => updatePassword(e.target.value)} value={currentPassword} placeholder='Senha'></input>
+                    <button onClick={() => setVisible(!passwordVisible)}></button>
+                </div>
                 <button className={login?"loginbutton logintext":'displaynone'} onClick={signin}>Fazer Login</button>
                 <button className={login?'displaynone':"loginbutton logintext"} onClick={signup}>Fazer Cadastro</button>
                 <div className="loginerror logintext">{errortext()}</div>

@@ -13,7 +13,8 @@ function App() {
   const[loginrequest, reqlog] = useState(null)
   const[user, setUser] = useState(null)
   const[errorMessage, throwError] = useState(false)
-  const[darkMode, setDarkMode] = useState(true)
+  const[syncrequest,reqsync] = useState(null)
+  const[darkMode, setDarkMode] = useState(false)
   const[pagesVisible, setPages] = useState({
     home: true,
     notetypes: false,
@@ -104,8 +105,8 @@ function App() {
     <div className={logged?'':'displaynone'}>
       <NavBar darkMode={darkMode} setDarkMode={setDarkMode} currentNote={currentNote} notesVisible={notesVisible} pagesVisible={pagesVisible} onPageChange={changePage} onNoteChange={changeNoteType}/>
       <main>
-        <Home user={user} onPageChange={changePage} notesNumbers={notesNumbers} visualclass={manageDisplay('home')}/>
-        <NoteTypes user={user} currentNote={currentNote} onNoteAdded={addNote} manageShownNote={manageShownNote} visualnote={notesVisible} visualclass={manageDisplay('notetypes')}/>
+        <Home syncrequest={syncrequest} user={user} onPageChange={changePage} notesNumbers={notesNumbers} visualclass={manageDisplay('home')}/>
+        <NoteTypes reqsync={reqsync} user={user} currentNote={currentNote} onNoteAdded={addNote} manageShownNote={manageShownNote} visualnote={notesVisible} visualclass={manageDisplay('notetypes')}/>
         <ProjectDesc visualclass={manageDisplay('project')}/>
         <Profile user={user} visualclass={manageDisplay('profile')} performAuth={performAuth}/>
       </main>
