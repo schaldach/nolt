@@ -55,6 +55,15 @@ body, html{
   font-size: 10vh;
   color: #000000;
 }
+.divinput button{
+  outline: none;
+  background-color: #ffffff;
+  border: none;
+}
+.loginsvg{
+  width: 4.25vh;
+  height: 4.25vh;
+}
 .loginbox .divinput{
   display: flex;
   width: 75%;
