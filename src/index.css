@@ -60,6 +60,9 @@ body, html{
   background-color: #ffffff;
   border: none;
 }
+.divinput input{
+  font-size: 2.2vh;
+}
 .loginsvg{
   width: 4.25vh;
   height: 4.25vh;
