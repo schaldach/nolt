@@ -8,6 +8,7 @@ function Links({visualnote, onNoteAdded, onNoteRemoved, user, reqsync}) {
     const[allLinks,addLink] = useState([])
     const [sucessAnimation, conectionMade] = useState(0)
     const[needData,requestD] = useState(false)
+    const [clickable, setClick] = useState(true)
 
     useEffect(() => {
         syncLinks()

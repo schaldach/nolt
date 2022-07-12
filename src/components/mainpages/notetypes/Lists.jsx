@@ -4,8 +4,9 @@ import ListAnotation from "./smallercomponents/ListAnotation"
 
 function Lists({visualnote, onNoteAdded, onNoteRemoved, user, reqsync}) {
     const [animation, startAnimation] = useState(false)
-    const[allLists,addList] = useState([])
+    const [allLists, addList] = useState([])
     const [sucessAnimation, conectionMade] = useState(0)
+    const [clickable, setClick] = useState(true)
     
     useEffect(() => {
         syncLists()
@@ -13,6 +14,8 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved, user, reqsync}) {
 
     async function syncLists(){
         if(!user){return}
+        if(!clickable){return}
+        setClick(false)
         conectionMade(2)
         let oldLists = []
         let newLists = []
@@ -44,6 +47,7 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved, user, reqsync}) {
                 addList(data)
                 conectionMade(0)
                 reqsync(Math.random())
+                setClick(true)
             })
     }
 

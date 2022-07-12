@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react"
 import { supabase } from "./SupaBaseClient"
 import Anotation from "./smallercomponents/Anotation"
 
-function Notes({ visualnote, onNoteAdded, onNoteRemoved, user, reqsync }) {
+function Notes({visualnote, onNoteAdded, onNoteRemoved, user, reqsync}) {
     const [animation, startAnimation] = useState(false)
     const [allNotes, addNote] = useState([])
     const [sucessAnimation, conectionMade] = useState(0)
+    const [clickable, setClick] = useState(true)
 
     useEffect(() => {
         syncNotes()
@@ -13,6 +14,8 @@ function Notes({ visualnote, onNoteAdded, onNoteRemoved, user, reqsync }) {
 
     async function syncNotes() {
         if(!user){return}
+        if(!clickable){return}
+        setClick(false)
         conectionMade(2)
         let oldNotes = []
         let newNotes = []
@@ -44,6 +47,7 @@ function Notes({ visualnote, onNoteAdded, onNoteRemoved, user, reqsync }) {
                 addNote(data)
                 conectionMade(0)
                 reqsync(Math.random())
+                setClick(true)
             })
     }
 

@@ -92,6 +92,7 @@ function App() {
         .eq('id', newUser.id)
         .single()
       setUser(data)
+      console.log(data)
     }
     fetch()
   }, [loginrequest])

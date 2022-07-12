@@ -5,6 +5,8 @@ import { useState } from "react"
 
 function Profile({visualclass, performAuth, user}) {
     const [username, setUsername] = useState(null)
+    const [bio, setBio] = useState(null)
+    const [email, setEmail] = useState(null)
 
     useEffect(() => {
         getProfile()
@@ -13,6 +15,8 @@ function Profile({visualclass, performAuth, user}) {
     async function getProfile(){
         if(!user){return}
         setUsername(user.username)
+        setBio(user.bio)
+        setEmail(user.email)
     }
 
     async function logout() {
@@ -23,12 +27,12 @@ function Profile({visualclass, performAuth, user}) {
     return (
         <div className={visualclass}>
             <SecondTitle titlecontent='Perfil'/>
-            <div className="secondtext">Alterar informações sobre o perfil</div>
-            <div>
-                <div>{'Nome: '+username}</div>
-                <input placeholder="Novo nome"></input><button>Atualizar</button>
+            <div className="secondtext">
+                <div>{username}</div>
+                <div>{bio}</div>
+                <div>{email}</div>
             </div>
-            <button className="logoutbutton" onClick={logout}>Logout</button>
+            <button className="loginbutton logintext" onClick={logout}>Logout</button>
         </div>
     )
 }
