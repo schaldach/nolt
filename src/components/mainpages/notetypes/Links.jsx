@@ -72,6 +72,14 @@ function Links({visualnote, onNoteAdded, onNoteRemoved, user, reqsync}) {
         addLink(newLinks)
     }
 
+    function onFavorite(link){
+        let newLinks = [...allLinks]
+        const index = newLinks.indexOf(link)
+        newLinks[index].favorite = !newLinks[index].favorite
+        addLink(newLinks)
+        conectionMade(1)
+    }
+
     function pulseAnimation() {
         syncLinks()
         startAnimation(true)
@@ -111,7 +119,8 @@ function Links({visualnote, onNoteAdded, onNoteRemoved, user, reqsync}) {
                     </svg>
                 </button>
                 {allLinks.map(link =>
-                <SmallerAnotation onDelete={onDelete} key={link.id} id={link.id} linkname={link.name} linkcontent={link.href}></SmallerAnotation>
+                <SmallerAnotation onDelete={onDelete} key={link.id} id={link.id} link={link} 
+                linkname={link.name} linkcontent={link.href} onFavorite={onFavorite} favorite={link.favorite}></SmallerAnotation>
                 )}
                 <NecessaryDataLink size='link' requestD={requestD} onFinish={finishAnotation} visualclass={needData?'':'displaynone'}/>
             </div>

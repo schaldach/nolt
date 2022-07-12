@@ -323,23 +323,19 @@ main{
 .wholething:nth-child(even){
   transform: rotate(2deg);
   top: -3px;
-  position: relative;
 }
 .wholething:nth-child(3n){
   transform: rotate(-2deg);
   top: 3px;
-  position: relative;
 }
 .wholething:nth-child(5n){
   transform: rotate(1deg);
   top: -2px;
-  position: relative;
 }
 .wholething:hover{
   top: 0px;
   transform: scale(1.15);
   transition: 0.2s ease;
-  position: relative;
   z-index: 2;
 }
 .favanot:hover{
@@ -496,6 +492,32 @@ input, textarea{
   background-color: var(--color5);
 }
 
+.wholelink{
+  display: flex;
+  position: relative;
+}
+.outermenu{
+  border: solid var(--color4);
+  border-width: 2px 2px 2px 0;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.favoritelink{
+  outline: none;
+  border:none;
+  background-color: var(--color2s);
+  color: var(--color4);
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+.favoritelink:hover{
+  background-color: var(--color4);
+  color: var(--color2s);
+}
 .linkimage{
   width: 4vh;
   height: 4vh;
@@ -512,7 +534,11 @@ input, textarea{
   font-size: 3.5vh;
   font-family: var(--font3);
   cursor: pointer;
-  border-radius: 12px
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px; 
+}
+.wholeborder{
+  border-radius: 12px;
 }
 .littlelink:hover{
   background-color: var(--color4);
@@ -533,8 +559,6 @@ input, textarea{
 .deletelinkbutton{
   height: 100%;
   width: 100%;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
   border: none;
   cursor: pointer;
   color: #e61e1e;
@@ -566,6 +590,7 @@ input, textarea{
   color: #ffffff;
 }
 .functionality{
+  width: fit-content;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -581,6 +606,7 @@ input, textarea{
   transform-origin: top center;
 }
 .wholething{
+  position: relative;
   display: flex;
   gap: 10px;
 }
@@ -671,7 +697,7 @@ input, textarea{
 }
 .panimation{
   animation: pulse 0.8s;
-  box-shadow: 0 0 0 1.75em transparent 
+  box-shadow: 0px 0px 0px 1.75em transparent 
 }
 
 .flex{
@@ -705,24 +731,23 @@ input, textarea{
 
 @keyframes wave{
   0%{
-    box-shadow: inset 0px 0px var(--color4);
+    box-shadow: inset 1px 0px var(--color4);
   }
   49%{
     background-color: var(--color2s);
-    box-shadow: inset 8em 0px var(--color4);
+    box-shadow: inset 7em 0px var(--color4);
     color: var(--color2s);
   }
   50%{
     background-color: var(--color4);
-    box-shadow: inset 0px 0px var(--color2s);
+    box-shadow: inset 1px 0px var(--color2s);
   }
   99%{
-    box-shadow: inset 8em 0px var(--color2s);
+    box-shadow: inset 7em 0px var(--color2s);
     background-color: var(--color4);
     color: var(--color1);
   }
   100%{
-    box-shadow: none;
     background-color: var(--color2s);
   }
 }
