@@ -838,6 +838,10 @@ input, textarea{
     justify-content: center;
     gap: 4vh;
   }
+  .justifycenter{
+    display: flex;
+    justify-content: center;
+  }
 }
 
 

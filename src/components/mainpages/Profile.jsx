@@ -32,7 +32,7 @@ function Profile({visualclass, performAuth, user}) {
                 <div>{bio}</div>
                 <div>{email}</div>
             </div>
-            <button className="loginbutton logintext" onClick={logout}>Logout</button>
+            <div className="justifycenter"><button className="loginbutton logintext" onClick={logout}>Logout</button></div>
         </div>
     )
 }
