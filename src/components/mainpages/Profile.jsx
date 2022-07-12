@@ -28,9 +28,9 @@ function Profile({visualclass, performAuth, user}) {
         <div className={visualclass}>
             <SecondTitle titlecontent='Perfil'/>
             <div className="secondtext">
-                <div>{username}</div>
+                <div>Usuário: {username}</div>
+                <div>Email: {email}</div>
                 <div>{bio}</div>
-                <div>{email}</div>
             </div>
             <div className="justifycenter"><button className="loginbutton logintext" onClick={logout}>Logout</button></div>
         </div>
