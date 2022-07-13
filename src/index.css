@@ -563,11 +563,11 @@ input, textarea{
   border: none;
   cursor: pointer;
   color: #e61e1e;
-  background-color: #ffffff;
+  background-color: var(--color2s);
   outline: none;
 }
 .deletelinkbutton:hover{
-  color: #ffffff;
+  color: var(--color2s);
   background-color: #e61e1e !important;
 }
 .requestdata{
