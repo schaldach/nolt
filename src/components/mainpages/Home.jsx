@@ -47,10 +47,7 @@ function Home({visualclass, notesNumbers, onPageChange, user, syncrequest}) {
     return(
         <div className={visualclass+'home'}>
             <SecondTitle titlecontent='Home'/>
-            <div className="secondtext">{user?`Bem vindo ${user.username}!`:''}</div>
-            <div className="secondtext">
-                {textToWrite()}
-            </div>
+            <div className="secondtext">{user?`Bem vindo ${user.username}!`:''}<br/><br/>{textToWrite()}</div>
             <button onClick={() => onPageChange('notetypes')} className='homebutton'></button>
             <div className='favtitle'>Notas 
             <svg xmlns="http://www.w3.org/2000/svg" className='dropdownsvg' viewBox="0 0 20 20" fill="var(--color3)">
