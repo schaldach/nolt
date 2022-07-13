@@ -24,6 +24,7 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved, user, reqsync}) {
                 newLists.push({
                     title: list.title,
                     content: list.content,
+                    favorite: list.favorite,
                     userid: user.id
                 })
             }

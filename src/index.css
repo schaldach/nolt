@@ -285,7 +285,7 @@ main{
 .secondtext{
   font-family: var(--font3);
   font-size: 3vh;
-  word-break: break-all;
+  word-wrap: break-word;
   color: var(--color1);
   margin: 3vh 0;
 }
@@ -422,7 +422,7 @@ input, textarea{
 
 .anotcontent{
   white-space: normal;
-  word-break: break-all;
+  word-wrap: break-word;
   background-color: #ffffff;
   font-family: var(--font2);
   font-size: 2.25vh;
@@ -430,7 +430,7 @@ input, textarea{
   height: 35vh;
 }
 .anotcontentwarning{
-  word-break: break-word;
+  word-wrap: break-word;
 }
 
 .functionbutton:hover{
@@ -627,7 +627,7 @@ input, textarea{
 }
 
 .listitem{
-  word-break: break-word;
+  word-wrap: break-word;
 }
 
 .status{
@@ -684,7 +684,8 @@ input, textarea{
   cursor: pointer;
 }
 .savebutton:hover{
-  animation: wave 1.3s infinite;
+  background-color: var(--color4);
+  color: var(--color2s);
 }
 
 .wrapdiv{
@@ -728,29 +729,6 @@ input, textarea{
   display: flex;
   align-items: center;
   color: var(--color1);
-}
-
-@keyframes wave{
-  0%{
-    box-shadow: inset 1px 0px var(--color4);
-  }
-  49%{
-    background-color: var(--color2s);
-    box-shadow: inset 7em 0px var(--color4);
-    color: var(--color2s);
-  }
-  50%{
-    background-color: var(--color4);
-    box-shadow: inset 1px 0px var(--color2s);
-  }
-  99%{
-    box-shadow: inset 7em 0px var(--color2s);
-    background-color: var(--color4);
-    color: var(--color1);
-  }
-  100%{
-    background-color: var(--color2s);
-  }
 }
 
 @media screen and (max-width: 1200px){

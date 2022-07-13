@@ -24,6 +24,7 @@ function Notes({visualnote, onNoteAdded, onNoteRemoved, user, reqsync}) {
                 newNotes.push({
                     title: note.title,
                     content: note.content,
+                    favorite: note.favorite,
                     userid: user.id
                 })
             }

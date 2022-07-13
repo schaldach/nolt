@@ -16,6 +16,8 @@ function Links({visualnote, onNoteAdded, onNoteRemoved, user, reqsync}) {
 
     async function syncLinks(){
         if(!user){return}
+        if(!clickable){return}
+        setClick(false)
         conectionMade(2)
         let newLinks = []
         let oldLinks = []
@@ -24,6 +26,7 @@ function Links({visualnote, onNoteAdded, onNoteRemoved, user, reqsync}) {
                 newLinks.push({
                     href: link.href,
                     name: link.name,
+                    favorite: link.favorite,
                     userid: user.id
                 })
             }
@@ -47,6 +50,7 @@ function Links({visualnote, onNoteAdded, onNoteRemoved, user, reqsync}) {
                 addLink(data)
                 conectionMade(0)
                 reqsync(Math.random())
+                setClick(true)
             })
     }
 
