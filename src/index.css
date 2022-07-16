@@ -373,6 +373,7 @@ main{
 
 .addanotation{
   width: 30vh;
+  margin: 0 2vh;
   height: 40vh;
   font-family: var(--font1);
   color: var(--color4);
@@ -731,6 +732,32 @@ input, textarea{
 }
 
 @media screen and (max-width: 1200px){
+  .wholething:hover{
+    transform: scale(1);
+  }
+  .view:nth-child(1n){
+    transform: scale(1);
+  }
+  .loginbox{
+    width: 60vw;
+  }
+  .displayanotationswrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .titlesecond{
+    text-align: center;
+  }
+  .displayanotations{
+    justify-content: center;
+    gap: 4vh;
+  }
+}
+@media screen and (max-width: 768px){
+  .loginchangewrapper{
+    flex-direction: column;
+  }
   .navbar{
     display: flex;
     flex-direction: column;
@@ -771,27 +798,6 @@ input, textarea{
     padding-top: 1vh;
   }
   .flex{
-    gap: 10px;
-    flex-direction: row;
-  }
-  .anotcontent, .anottitle{
-    touch-action: none;
-  }
-  .wholething:hover{
-    transform: scale(1);
-  }
-  .view:nth-child(1n){
-    transform: scale(1);
-  }
-  .loginbox{
-    width: 60vw;
-  }
-  .loginchangewrapper{
-    flex-direction: column;
-  }
-}
-@media screen and (max-width: 768px){
-  .flex{
     gap: 0px;
     flex-direction: column;
   }
@@ -801,27 +807,14 @@ input, textarea{
   .loginbox{
     width: 85vw;
   }
-  .displayanotationswrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
   .wrapdiv{
     margin: 2.5vh 0 1vh 0;
-  }
-  .titlesecond{
-    text-align: center;
-  }
-  .displayanotations{
-    justify-content: center;
-    gap: 4vh;
   }
   .justifycenter{
     display: flex;
     justify-content: center;
   }
 }
-
 
 .rotating{
   animation: rotation 0.75s infinite;
