@@ -282,11 +282,13 @@ main{
 }
 
 .secondtext{
+  margin: 3vh 0;
+}
+.secondtext, .secondtext input{
   font-family: var(--font3);
   font-size: 3vh;
   word-wrap: break-word;
   color: var(--color1);
-  margin: 3vh 0;
 }
 
 .home{
@@ -812,7 +814,8 @@ input, textarea{
   }
   .justifycenter{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -850,4 +853,32 @@ input,textarea,button,select,a, div {
 
 .displaynone{
   display: none;
+}
+
+.userdata div{
+  display: flex;
+}
+.useredit{
+  background-color: var(--color5);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
+  width: fit-content;
+  color: #ffffff;
+  font-family: var(--font3);
+  font-size: 3vh;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.useredit:hover{
+  background-color: var(--color4);
+}
+
+.editprofilebuttons{
+  display: flex;
+  gap: 15px;
+  align-items: center;
 }

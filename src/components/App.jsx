@@ -95,7 +95,7 @@ function App() {
       console.log(data)
     }
     fetch()
-  }, [loginrequest])
+  }, [loginrequest, reqsync])
   useEffect(() => {throwError(false)}, [])
 
   return (
@@ -109,7 +109,7 @@ function App() {
         <Home syncrequest={syncrequest} user={user} onPageChange={changePage} notesNumbers={notesNumbers} visualclass={manageDisplay('home')}/>
         <NoteTypes reqsync={reqsync} user={user} currentNote={currentNote} onNoteAdded={addNote} manageShownNote={manageShownNote} visualnote={notesVisible} visualclass={manageDisplay('notetypes')}/>
         <ProjectDesc visualclass={manageDisplay('project')}/>
-        <Profile user={user} visualclass={manageDisplay('profile')} performAuth={performAuth}/>
+        <Profile reqsync={reqsync} user={user} visualclass={manageDisplay('profile')} performAuth={performAuth}/>
       </main>
       <PageFooter/>
     </div>
