@@ -95,7 +95,7 @@ function App() {
       console.log(data)
     }
     fetch()
-  }, [loginrequest, reqsync])
+  }, [loginrequest, syncrequest])
   useEffect(() => {throwError(false)}, [])
 
   return (
