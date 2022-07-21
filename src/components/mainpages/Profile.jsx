@@ -3,7 +3,7 @@ import SecondTitle from "./smallcomponents/SecondTitle"
 import { supabase } from "./notetypes/SupaBaseClient"
 import { useState } from "react"
 
-function Profile({visualclass, performAuth, user, reqsync}) {
+function Profile({visualclass, performAuth, user, requpd}) {
     const [username, setUsername] = useState('')
     const [bio, setBio] = useState('')
     const [email, setEmail] = useState('')
@@ -34,7 +34,7 @@ function Profile({visualclass, performAuth, user, reqsync}) {
             .match({'email':user.email})
             .then(() => {
                 setConnection(0)
-                reqsync(Math.random())
+                requpd(Math.random())
             })
     }
 

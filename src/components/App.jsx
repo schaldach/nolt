@@ -14,6 +14,7 @@ function App() {
   const[user, setUser] = useState(null)
   const[errorMessage, throwError] = useState(false)
   const[syncrequest,reqsync] = useState(null)
+  const[updaterequest, requpd] = useState(null)
   const[darkMode, setDarkMode] = useState(false)
   const[pagesVisible, setPages] = useState({
     home: true,
@@ -95,7 +96,7 @@ function App() {
       console.log(data)
     }
     fetch()
-  }, [loginrequest, syncrequest])
+  }, [loginrequest, updaterequest])
   useEffect(() => {throwError(false)}, [])
 
   return (
@@ -109,7 +110,7 @@ function App() {
         <Home syncrequest={syncrequest} user={user} onPageChange={changePage} notesNumbers={notesNumbers} visualclass={manageDisplay('home')}/>
         <NoteTypes reqsync={reqsync} user={user} currentNote={currentNote} onNoteAdded={addNote} manageShownNote={manageShownNote} visualnote={notesVisible} visualclass={manageDisplay('notetypes')}/>
         <ProjectDesc visualclass={manageDisplay('project')}/>
-        <Profile reqsync={reqsync} user={user} visualclass={manageDisplay('profile')} performAuth={performAuth}/>
+        <Profile requpd={requpd} user={user} visualclass={manageDisplay('profile')} performAuth={performAuth}/>
       </main>
       <PageFooter/>
     </div>
