@@ -292,8 +292,9 @@ main{
 }
 .secondtext input{
   background-color: var(--color2s);
-  border: solid 1px;
+  border: solid 2px;
   border-color: var(--color4);
+  width: 50vh;
 }
 
 .home{
@@ -859,6 +860,12 @@ input,textarea,button,select,a, div {
 
 .displaynone{
   display: none;
+}
+
+.userdata{
+  display: flex;
+  flex-direction: column;
+  gap: 10px
 }
 
 .userdata div{
