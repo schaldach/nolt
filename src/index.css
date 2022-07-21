@@ -290,6 +290,11 @@ main{
   word-wrap: break-word;
   color: var(--color1);
 }
+.secondtext input{
+  background-color: var(--color2s);
+  border: solid 1px;
+  border-color: var(--color4);
+}
 
 .home{
   display: flex;
@@ -816,6 +821,7 @@ input, textarea{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
 }
 
@@ -859,7 +865,7 @@ input,textarea,button,select,a, div {
   display: flex;
 }
 .useredit{
-  background-color: var(--color5);
+  background-color: var(--color4);
   border: none;
   outline: none;
   cursor: pointer;
@@ -874,7 +880,7 @@ input,textarea,button,select,a, div {
   align-items: center;
 }
 .useredit:hover{
-  background-color: var(--color4);
+  background-color: var(--color5);
 }
 
 .editprofilebuttons{
