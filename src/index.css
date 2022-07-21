@@ -830,6 +830,9 @@ input, textarea{
   .secondtext input{
     width: 100%;
   }
+  .editprofilebuttons{
+    justify-content: center;
+  }
 }
 
 .rotating{
@@ -898,6 +901,6 @@ input,textarea,button,select,a, div {
 
 .editprofilebuttons{
   display: flex;
-  gap: 15px;
+  gap: 5px;
   align-items: center;
 }
