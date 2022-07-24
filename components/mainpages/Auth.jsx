@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { supabase } from "./notetypes/SupaBaseClient"
+import { supabase } from "../../utils/supabaseClient"
 
 function Auth({reqlog, errorMessage, throwError}) {
     const [login, changeMode] = useState(true)

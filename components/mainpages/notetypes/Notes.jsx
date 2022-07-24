@@ -1,127 +1,121 @@
 import React, { useState, useEffect } from "react"
-import { supabase } from "./SupaBaseClient"
-import ListAnotation from "./smallercomponents/ListAnotation"
+import { supabase } from "../../../utils/supabaseClient"
+import Anotation from "./smallercomponents/Anotation"
 
-function Lists({visualnote, onNoteAdded, onNoteRemoved, user, reqsync}) {
+function Notes({visualnote, onNoteAdded, onNoteRemoved, user, reqsync}) {
     const [animation, startAnimation] = useState(false)
-    const [allLists, addList] = useState([])
+    const [allNotes, addNote] = useState([])
     const [sucessAnimation, conectionMade] = useState(0)
     const [clickable, setClick] = useState(true)
-    
+
     useEffect(() => {
-        syncLists()
+        syncNotes()
     }, [user])
 
-    async function syncLists(){
+    async function syncNotes() {
         if(!user){return}
         if(!clickable){return}
         setClick(false)
         conectionMade(2)
-        let oldLists = []
-        let newLists = []
-        allLists.forEach(list => {
-            if(list.isNew){
-                newLists.push({
-                    title: list.title,
-                    content: list.content,
-                    favorite: list.favorite,
+        let oldNotes = []
+        let newNotes = []
+        allNotes.forEach(note => {
+            if(note.isNew){
+                newNotes.push({
+                    title: note.title,
+                    content: note.content,
+                    favorite: note.favorite,
                     userid: user.id
                 })
             }
-            else{oldLists.push(list)}
+            else{oldNotes.push(note)}
         })
         const bla = await supabase
-            .from('listas')
-            .upsert(oldLists)
+            .from('notas')
+            .upsert(oldNotes)
             .then( async () => {
                 const bla = await supabase
-                    .from('listas')
-                    .upsert(newLists)
+                    .from('notas')
+                    .upsert(newNotes)
             })
             .then( async () => {
                 const user = supabase.auth.user()
                 const { data, count } = await supabase
-                    .from('listas')
+                    .from('notas')
                     .select('*', { count: 'exact' })
                     .eq('userid', user.id)
-                onNoteAdded('listas', count, true)
-                addList(data)
+                onNoteAdded('notas', count, true)
+                addNote(data)
                 conectionMade(0)
                 reqsync(Math.random())
                 setClick(true)
             })
     }
 
-    function finishAnotation(){
-        let newList = {
-            title: '',
-            content: [{text: '1. ', id: 0, complete:false}],
-            id: Math.floor(Math.random()*9999999999),
-            isNew: true,
-            favorite:false
-        }
-        addList([...allLists, newList])
-        onNoteAdded('listas', 1)
+    function addAnotation() {
+        let newNote = { title: '', content: '', id: Math.floor(Math.random() * 9999999999), isNew:true, favorite:false}
+        addNote([...allNotes, newNote])
+        onNoteAdded('notas', 1)
         conectionMade(1)
     }
 
-    function onEdit(title,content,list){
-        const index = allLists.indexOf(list)
-        let newLists = [...allLists]
-        newLists[index].content = content
-        newLists[index].title = title
-        addList(newLists)
+    function onEdit(title, content, note) {
+        let newNotes = [...allNotes]
+        const index = newNotes.indexOf(note)
+        newNotes[index].title = title
+        newNotes[index].content = content
+        addNote(newNotes)
         conectionMade(1)
     }
 
-    function onFavorite(list){
-        let newLists = [...allLists]
-        const index = newLists.indexOf(list)
-        newLists[index].favorite = !newLists[index].favorite
-        addList(newLists)
+    function onFavorite(note) {
+        let newNotes = [...allNotes]
+        const index = newNotes.indexOf(note)
+        newNotes[index].favorite = !newNotes[index].favorite
+        addNote(newNotes)
         conectionMade(1)
     }
 
-    async function onDelete(listId){
+    async function onDelete(noteId) {
         let lastconection = sucessAnimation
         conectionMade(2)
-        let newLists = allLists.filter(lists => lists.id!==listId)
+        let newNotes = allNotes.filter(notes => notes.id !== noteId)
         const eba = await supabase
-            .from('listas')
+            .from('notas')
             .delete()
-            .match({ id: listId })
+            .match({ id: noteId })
             .then( () => {
                 conectionMade(lastconection)
             })
         onNoteRemoved()
-        addList(newLists)
+        addNote(newNotes)
     }
 
     function pulseAnimation() {
         startAnimation(true)
-        syncLists()
+        syncNotes()
     }
 
     return (
         <div className={visualnote}>
             <div className='flex'>
                 <div className={animation ? 'panimation wrapdiv' : 'wrapdiv'} onAnimationEnd={() => startAnimation(false)}>
-                    <button className='savebutton' onClick={pulseAnimation}>Salvar Listas</button>
+                    <button className='savebutton' onClick={pulseAnimation}>Salvar Notas</button>
                 </div>
                 <div>
-                    <div className={sucessAnimation==0?'status':'displaynone'}>
+                    <div className={sucessAnimation===0?'status':'displaynone'}>
                         <svg xmlns="http://www.w3.org/2000/svg" className='conectionsvg' fill="none" viewBox="0 0 24 24" stroke="#2e856e" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                         Os dados estão sincronizados.
                     </div>
-                    <div className={sucessAnimation==1?'status':'displaynone'}>
+                    <div className={sucessAnimation===1?'status':'displaynone'}>
                         <svg xmlns="http://www.w3.org/2000/svg" className='conectionsvg' fill="none" viewBox="0 0 24 24" stroke="#e61e1e" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                         Os dados não estão sincronizados.
                     </div>
-                    <div className={sucessAnimation==2?'status':'displaynone'}>
+                    <div className={sucessAnimation===2?'status':'displaynone'}>
                         <svg xmlns="http://www.w3.org/2000/svg" className='conectionsvg rotating' fill="none" viewBox="0 0 24 24" stroke="var(--color1)" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                         </svg>
@@ -130,18 +124,18 @@ function Lists({visualnote, onNoteAdded, onNoteRemoved, user, reqsync}) {
                 </div>
             </div>
             <div className='displayanotations'>
-                <button className='addanotation' onClick={() => finishAnotation(1)}>
+                <button className='addanotation' onClick={addAnotation}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="addsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
                     </svg>
                 </button>
-                {allLists.map(list =>
-                    <ListAnotation onFavorite={onFavorite} favorite={list.favorite} list={list} onDelete={onDelete} onEdit={onEdit}
-                    key={list.id} title={list.title} content={list.content}/>
+                {allNotes.map(note =>
+                    <Anotation onFavorite={onFavorite} favorite={note.favorite} note={note} onDelete={onDelete} onEdit={onEdit}
+                        key={note.id} title={note.title} content={note.content} />
                 )}
             </div>
         </div>
     )
 }
 
-export default Lists;
+export default Notes;
