@@ -6,7 +6,7 @@ import NoteTypes from './mainpages/NoteTypes.jsx'
 import PageFooter from './mainpages/PageFooter.jsx'
 import ProjectDesc from './mainpages/ProjectDesc.jsx'
 import Auth from './mainpages/Auth.jsx'
-import { supabase } from './mainpages/notetypes/SupaBaseClient'
+import { supabase } from '../utils/supabaseClient'
 
 function App() {
   const[logged, performAuth] = useState(false)

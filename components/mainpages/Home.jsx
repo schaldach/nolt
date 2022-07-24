@@ -1,7 +1,7 @@
 import React from "react"
 import { useEffect } from "react"
 import SecondTitle from "./smallcomponents/SecondTitle"
-import { supabase } from "./notetypes/SupaBaseClient"
+import { supabase } from "../../utils/supabaseClient"
 import { useState } from "react"
 import FavoriteNote from "./smallcomponents/FavoriteNote"
 import FavoriteList from "./smallcomponents/FavoriteList"

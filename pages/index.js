@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import App from '../components/App.jsx'
 
 export default function Home() {
   return (
@@ -6,7 +7,7 @@ export default function Home() {
       <Head>
         <title>Nolt</title>
       </Head>
-      <div>Nolt</div>
+      <App></App>
     </>
   )
 }

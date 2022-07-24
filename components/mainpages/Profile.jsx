@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import SecondTitle from "./smallcomponents/SecondTitle"
-import { supabase } from "./notetypes/SupaBaseClient"
+import { supabase } from "../../utils/supabaseClient"
 import { useState } from "react"
 
 function Profile({visualclass, performAuth, user, requpd}) {

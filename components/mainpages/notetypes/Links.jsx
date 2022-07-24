@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { supabase } from "./SupaBaseClient"
+import { supabase } from "../../../utils/supabaseClient"
 import NecessaryDataLink from "./smallercomponents/NecessaryDataLink";
 import SmallerAnotation from "./smallercomponents/SmallerAnotation"
 

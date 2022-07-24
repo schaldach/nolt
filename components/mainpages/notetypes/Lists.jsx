@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { supabase } from "./SupaBaseClient"
+import { supabase } from "../../../utils/supabaseClient"
 import ListAnotation from "./smallercomponents/ListAnotation"
 
 function Lists({visualnote, onNoteAdded, onNoteRemoved, user, reqsync}) {
