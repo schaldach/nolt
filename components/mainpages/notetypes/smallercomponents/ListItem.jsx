@@ -10,7 +10,7 @@ function ListItem({ index, text, editMode, itemEdit, itemFocus, handleTextFocus,
             searchInput.current.value = ''
             searchInput.current.value = v
         }
-    }, [itemFocus])
+    }, [itemFocus, index])
 
     function divClass(){
         if(editMode){
