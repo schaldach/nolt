@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Router from "next/router";
 import {supabase} from '../utils/supabaseClient'
-import Auth from './auth'
 import NavBar from '../components/NavBar'
 import PageFooter from '../components/PageFooter'
 import '../styles/index.css'
@@ -20,10 +19,7 @@ function MyApp({ Component, pageProps }) {
         Router.push('/auth')
         return
       }
-      const {pathname} = Router
-      if(pathname == '/auth'){
-        Router.push('/home')
-      }
+      Router.push('/home')
       const { data } = await supabase
         .from('profiles')
         .select('*')

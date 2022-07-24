@@ -2,6 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/links": "pages/links.js",
-  "/project": "pages/project.js"
+  "/project": "pages/project.js",
+  "/home": "pages/home.js",
+  "/notas": "pages/notas.js",
+  "/profile": "pages/profile.js"
 }
