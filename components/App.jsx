@@ -77,7 +77,7 @@ function App() {
     changeCurrentNote(newNote)
   }
 
-  useEffect(() => manageShownNote(), [notesVisible])
+  useEffect(() => {manageShownNote()}, [notesVisible])
   useEffect(() => {
     async function fetch(){
       const newUser = supabase.auth.user()
@@ -108,7 +108,7 @@ function App() {
       <NavBar darkMode={darkMode} setDarkMode={setDarkMode} currentNote={currentNote} notesVisible={notesVisible} pagesVisible={pagesVisible} onPageChange={changePage} onNoteChange={changeNoteType}/>
       <main>
         <Home syncrequest={syncrequest} user={user} onPageChange={changePage} notesNumbers={notesNumbers} visualclass={manageDisplay('home')}/>
-        <NoteTypes reqsync={reqsync} user={user} currentNote={currentNote} onNoteAdded={addNote} manageShownNote={manageShownNote} visualnote={notesVisible} visualclass={manageDisplay('notetypes')}/>
+        <NoteTypes reqsync={reqsync} user={user} currentNote={currentNote} onNoteAdded={addNote} visualnote={notesVisible} visualclass={manageDisplay('notetypes')}/>
         <ProjectDesc visualclass={manageDisplay('project')}/>
         <Profile requpd={requpd} user={user} visualclass={manageDisplay('profile')} performAuth={performAuth}/>
       </main>
