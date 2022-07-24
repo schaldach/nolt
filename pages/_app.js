@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { Router } from 'next/router'
 import {supabase} from '../utils/supabaseClient'
 import Auth from '.'
 import NavBar from '../components/NavBar'
@@ -16,8 +17,10 @@ function MyApp({ Component, pageProps }) {
       const newUser = supabase.auth.user()
       if(!newUser){ 
         throwError(true)
+        Router.push('/auth')
         return
       }
+      Router.push('/home')
       const { data } = await supabase
         .from('profiles')
         .select('*')
