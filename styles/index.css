@@ -152,12 +152,24 @@ body, html{
   justify-content: center;
   gap: 7.5vw;
 }
+.navbarwrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.navbarwrapper:hover .dropdowns, .dropdowns:hover{
+  display: flex;
+  flex-direction: column;
+  top: 10vh;
+}
 
 .navbarsvg{
   width: 5.5vh;
   height: 5.5vh;
 }
 .navbar-select{
+  padding: 2vh;
   color: var(--color1);
   border-style: solid;
   border-width: 0px 0px 3px 0px;
@@ -180,15 +192,10 @@ body, html{
   user-select: none;
 }
 .dropdowns{
-  padding-top: 7.5vh;
+  position: absolute;
   display: none;
   text-align: center;
-  position: absolute;
   z-index: 3;
-}
-.contentselection:hover .dropdowns{
-  display: flex;
-  flex-direction: column;
 }
 .dropdownitem{
   border: solid;

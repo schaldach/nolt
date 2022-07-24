@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import { Router } from 'next/router'
+import Router from "next/router";
 import {supabase} from '../utils/supabaseClient'
-import Auth from '.'
+import Auth from './auth'
 import NavBar from '../components/NavBar'
 import PageFooter from '../components/PageFooter'
 import '../styles/index.css'
@@ -20,14 +20,16 @@ function MyApp({ Component, pageProps }) {
         Router.push('/auth')
         return
       }
-      Router.push('/home')
+      const {pathname} = Router
+      if(pathname == '/auth'){
+        Router.push('/home')
+      }
       const { data } = await supabase
         .from('profiles')
         .select('*')
         .eq('id', newUser.id)
         .single()
       setUser(data)
-      console.log(data)
     }
     fetch()
   }, [loginrequest])
@@ -35,16 +37,15 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => throwError(false), [])
 
   if(!user){
-    return <Auth reqlog={reqlog} errorMessage={errorMessage} throwError={throwError}/>
+    return <Component reqlog={reqlog} errorMessage={errorMessage} throwError={throwError}/>
   }
-  else{
-    return(
-    <>
-      <NavBar darkMode={darkMode} setDarkMode={setDarkMode}/>
-      <Component reqlog={reqlog} errorMessage={errorMessage} throwError={throwError} {...pageProps} />
-      <PageFooter/>
-    </>)
-  }
+  return(
+  <>
+    <NavBar darkMode={darkMode} setDarkMode={setDarkMode}/>
+    <Component reqlog={reqlog} errorMessage={errorMessage} throwError={throwError} user={user} {...pageProps} />
+    <PageFooter/>
+  </>
+  )
 }
 
 export default MyApp

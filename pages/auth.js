@@ -60,7 +60,9 @@ function Auth({throwError, reqlog, errorMessage}) {
                 <Link href='/home'>
                   <button className={login?"loginbutton logintext":'displaynone'} onClick={signin}>Fazer Login</button>
                 </Link>
+                <Link href='/home'>
                 <button className={login?'displaynone':"loginbutton logintext"} onClick={signup}>Fazer Cadastro</button>
+                </Link>
                 <div className="loginerror logintext">{errortext()}</div>
                 <div className="loginchangewrapper">{login?'Não possui uma conta?':'Já tem uma conta?'}
                     <button className="loginchange" onClick={() => changeMode(!login)}>{login?'Cadastro':'Login'}</button>                
