@@ -1,27 +1,29 @@
 import React from "react"
 import { useEffect } from "react"
 import SecondTitle from "../components/SecondTitle"
-import { supabase } from "./notetypes/SupaBaseClient"
+import { supabase } from "../utils/supabaseClient"
 import { useState } from "react"
-import FavoriteNote from "./smallcomponents/FavoriteNote"
-import FavoriteList from "./smallcomponents/FavoriteList"
-import FavoriteLink from "./smallcomponents/FavoriteLink"
+import FavoriteNote from "../components/SimpleAnotation"
+import FavoriteList from "../components/SimpleList"
+import FavoriteLink from "../components/SimpleLink"
 
-function Home({notesNumbers, onPageChange, user, syncrequest}) {
+function Home({onPageChange, user, syncrequest}) {
     const [favoriteNotes, addNotes] = useState([])
     const [favoriteLists, addLists] = useState([])
     const [favoriteLinks, addLinks] = useState([])
+    const [allNumbers, setNumbers] = useState({notas:0,listas:0,links:0})
 
     useEffect(()=> {
         syncFavorites()
     }, [user, syncrequest])
 
     async function syncNotetype(notetype){
-        const { data } = await supabase
+        const { data, count } = await supabase
             .from(notetype)
-            .select('*')
-            .is('favorite', true)
+            .select('*', {count: 'exact'})
             .eq('userid', user.id)
+        setNumbers(prevState => {return{...prevState, [notetype]:count}})
+        console.log(count)
         return(data)
     }
 
@@ -34,9 +36,9 @@ function Home({notesNumbers, onPageChange, user, syncrequest}) {
 
     function textToWrite(){
         let text
-        if(notesNumbers['notas']+notesNumbers['listas']+notesNumbers['links']){
-            text = `Você possui ${notesNumbers['notas']} Notas, ${notesNumbers['listas']} Listas e
-            ${notesNumbers['links']} Links. Aproveite como quiser!`
+        if(allNumbers.notas+allNumbers.listas+allNumbers.links){
+            text = `Você possui ${allNumbers.notas} Notas, ${allNumbers.listas} Listas e
+            ${allNumbers.links} Links. Aproveite como quiser!`
         }
         else{
             text = 'Parece que você ainda não possui anotações. Deseja começar a utilizar o site?'
@@ -56,7 +58,7 @@ function Home({notesNumbers, onPageChange, user, syncrequest}) {
             </div>
                 <div className='displayanotations displayfavorites'>
                 {favoriteNotes.map(note => 
-                <FavoriteNote key={Math.random()} title={note.title} content={note.content}/>
+                note.favorite?<FavoriteNote key={Math.random()} title={note.title} content={note.content}/>:''
                 )}
                 <div className='empty'>{!favoriteNotes.length?'Não há notas favoritas.':''}</div>
             </div>
@@ -67,7 +69,7 @@ function Home({notesNumbers, onPageChange, user, syncrequest}) {
             </div>
                 <div className='displayanotations displayfavorites'>
                 {favoriteLists.map(list => 
-                <FavoriteList key={Math.random()} title={list.title} content={list.content}/>
+                list.favorite?<FavoriteList key={Math.random()} title={list.title} content={list.content}/>:''
                 )}
                 <div className='empty'>{!favoriteLists.length?'Não há listas favoritas.':''}</div>
             </div>
@@ -78,7 +80,7 @@ function Home({notesNumbers, onPageChange, user, syncrequest}) {
             </div>
                 <div className='displayanotations displayfavorites'>
                 {favoriteLinks.map(link => 
-                <FavoriteLink key={Math.random()} name={link.name} href={link.href}/>
+                link.favorite?<FavoriteLink key={Math.random()} name={link.name} href={link.href}/>:''
                 )}
                 <div className='empty'>{!favoriteLinks.length?'Não há links favoritos.':''}</div>
             </div>

@@ -11,6 +11,8 @@ function MyApp({ Component, pageProps }) {
   const[loginrequest, reqlog] = useState(null)
   const[errorMessage, throwError] = useState(false)
   const[darkMode, setDarkMode] = useState(false)
+  const[syncrequest,reqsync] = useState(null)
+  const[updaterequest, requpd] = useState(null)
 
   useEffect(() => {
     async function fetch(){
@@ -29,7 +31,7 @@ function MyApp({ Component, pageProps }) {
       setUser(data)
     }
     fetch()
-  }, [loginrequest])
+  }, [loginrequest, updaterequest])
 
   useEffect(() => throwError(false), [])
 
@@ -42,7 +44,10 @@ function MyApp({ Component, pageProps }) {
       <title>Nolt</title>
     </Head>
     <NavBar darkMode={darkMode} setDarkMode={setDarkMode}/>
-    <Component reqlog={reqlog} errorMessage={errorMessage} throwError={throwError} user={user} {...pageProps} />
+    <main>
+      <Component requpd={requpd} syncrequest={syncrequest} reqsync={reqsync} reqlog={reqlog} 
+      errorMessage={errorMessage} throwError={throwError} user={user} {...pageProps} />
+    </main>
     <PageFooter/>
   </div>
   )
