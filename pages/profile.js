@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import SecondTitle from "../components/SecondTitle"
-import { supabase } from "../utils/SupaBaseClient"
+import { supabase } from "../utils/supabaseClient"
 import { useState } from "react"
 import Router from 'next/router'
 
