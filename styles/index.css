@@ -801,6 +801,7 @@ input, textarea{
     display: none;
   }
   .navbar-select{
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -813,7 +814,7 @@ input, textarea{
   }
   .dropdowns{
     position: relative;
-    padding-top: 1vh;
+    top: 1vh;
   }
   .flex{
     gap: 0px;

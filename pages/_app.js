@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Router from "next/router";
+import Head from 'next/head'
 import {supabase} from '../utils/supabaseClient'
 import NavBar from '../components/NavBar'
 import PageFooter from '../components/PageFooter'
@@ -36,11 +37,14 @@ function MyApp({ Component, pageProps }) {
     return <Component reqlog={reqlog} errorMessage={errorMessage} throwError={throwError}/>
   }
   return(
-  <>
+  <div data-theme={darkMode?'dark':'light'}>
+    <Head>
+      <title>Nolt</title>
+    </Head>
     <NavBar darkMode={darkMode} setDarkMode={setDarkMode}/>
     <Component reqlog={reqlog} errorMessage={errorMessage} throwError={throwError} user={user} {...pageProps} />
     <PageFooter/>
-  </>
+  </div>
   )
 }
 
