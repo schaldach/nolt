@@ -168,14 +168,11 @@ body, html{
   width: 5.5vh;
   height: 5.5vh;
 }
-.navbarsvg2{
-  width: 5vh;
-  height: 5vh;
-}
 .navbar-select{
   align-items: center;
   display: flex;
-  padding: 1vh;
+  gap: 0;
+  padding: 0.75vh;
   color: var(--color1);
   border-style: solid;
   border-width: 0px 0px 3px 0px;
@@ -819,6 +816,8 @@ input, textarea{
   }
   .dropdowns{
     position: relative;
+  }
+  .navbarwrapper:hover .dropdowns, .dropdows:hover{
     top: 1vh;
   }
   .flex{
