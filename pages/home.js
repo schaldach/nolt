@@ -8,7 +8,7 @@ import FavoriteNote from "../components/SimpleAnotation"
 import FavoriteList from "../components/SimpleList"
 import FavoriteLink from "../components/SimpleLink"
 
-function Home({onPageChange, user, syncrequest}) {
+function Home({user, syncrequest}) {
     const [favoriteNotes, addNotes] = useState([])
     const [favoriteLists, addLists] = useState([])
     const [favoriteLinks, addLinks] = useState([])
