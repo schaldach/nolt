@@ -11,8 +11,15 @@ function MyApp({ Component, pageProps }) {
   const[loginrequest, reqlog] = useState(null)
   const[errorMessage, throwError] = useState(false)
   const[darkMode, setDarkMode] = useState(false)
+  const[settable, releaseLocalStorage] = useState(false)
   const[syncrequest,reqsync] = useState(null)
   const[updaterequest, requpd] = useState(null)
+
+  useEffect(() => {
+    let storedDarkMode = JSON.parse(localStorage.getItem('dark'))
+    setDarkMode(storedDarkMode)
+    releaseLocalStorage(true)
+  }, [])
 
   useEffect(() => {
     async function fetch(){
@@ -34,9 +41,17 @@ function MyApp({ Component, pageProps }) {
   }, [loginrequest, updaterequest])
 
   useEffect(() => throwError(false), [])
+  useEffect(() => {
+    if(settable)
+    localStorage.setItem('dark', JSON.stringify(darkMode))
+  }, [darkMode])
 
   if(!user){
-    return <Component reqlog={reqlog} errorMessage={errorMessage} throwError={throwError}/>
+    return(
+    <div data-theme={darkMode?'dark':'light'}>
+      <Component reqlog={reqlog} errorMessage={errorMessage} throwError={throwError}/>
+    </div> 
+    )
   }
   return(
   <div data-theme={darkMode?'dark':'light'}>

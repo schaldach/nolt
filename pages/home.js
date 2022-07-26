@@ -24,7 +24,6 @@ function Home({user, syncrequest}) {
             .select('*', {count: 'exact'})
             .eq('userid', user.id)
         setNumbers(prevState => {return{...prevState, [notetype]:count}})
-        console.log(count)
         return(data)
     }
 
