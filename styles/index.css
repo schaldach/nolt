@@ -605,8 +605,12 @@ input, textarea{
   width: 3.25vh;
 }
 
+.dropdownbutton{
+  width: 4vh;
+  height: 4vh;
+}
 .wholething:hover .dropdownbutton{
-  background-color: var(--color3);
+  background-color: var(--color4);
   color: #ffffff;
 }
 .functionality{
@@ -640,7 +644,7 @@ input, textarea{
 }
 
 .listinstruction{
-  color: #000000;
+  color: #696969;
   user-select: none;
   font-size: 1.6vh;
 }
