@@ -601,13 +601,10 @@ input, textarea{
 
 .functionality{
   width: fit-content;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   flex-wrap: wrap;
   height: 4vh;
-  gap: 0;
-  padding: 0;
-  margin: 0;
   border: solid var(--color4);
   border-width: 2px;
   overflow: hidden;
@@ -619,7 +616,6 @@ input, textarea{
   width: 100%;
 }
 .wholething:hover .functionality{
-  width: fit-content;
   height: 20vh;
   animation: growDown 0.45s linear;
   transform-origin: top center;
