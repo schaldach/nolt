@@ -620,6 +620,7 @@ input, textarea{
   height: 20vh;
   animation: growDown 0.45s linear;
   transform-origin: top center;
+  overflow: visible;
 }
 .functionbutton:hover{
   background-color: #e6e6e6;
@@ -664,15 +665,19 @@ input, textarea{
 @keyframes growDown {
   0% {
     height: 4vh;
+    overflow: hidden;
   }
   50% {
     height: 12vh;
+    overflow: hidden;
   }
   80% {
     height: 24vh;
+    overflow: hidden;
   }
   100% {
     height: 20vh;
+    overflow: visible;
   }
 }
 
