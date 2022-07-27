@@ -10,7 +10,7 @@ function Notes({user, reqsync}) {
     const [sucessAnimation, conectionMade] = useState(0)
     const [clickable, setClick] = useState(true)
 
-    useInterval(() => {syncNotes(allNotes)},15000)
+    useInterval(() => {syncNotes(allNotes)},30000)
 
     useEffect(() => {
         syncNotes(allNotes)
