@@ -640,7 +640,6 @@ input, textarea{
   height: 20vh;
   animation: none !important;  
 }
-.drop
 .menuview .dropdownbutton{
   background-color: var(--color4);
   color: #ffffff;
