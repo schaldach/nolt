@@ -601,7 +601,7 @@ input, textarea{
   flex-direction: column;
   flex-wrap: wrap;
   margin: 0;
-  padding: 0;
+  padding-top: -1px;
   height: 4vh;
   border: solid var(--color4);
   border-width: 2px;
@@ -616,7 +616,6 @@ input, textarea{
   border: solid var(--color4);
   border-width: 1px;
   display: inline-block;
-  margin-top: -1px;
 }
 .wholething:hover .functionality{
   height: 20vh;
@@ -647,7 +646,6 @@ input, textarea{
   border: solid var(--color4);
   border-width: 1px;
   display: inline-block;
-  margin-top: -1px;
 }
 
 .listinstruction{
