@@ -605,6 +605,7 @@ input, textarea{
   flex-direction: column;
   flex-wrap: wrap;
   height: 4vh;
+  gap: 0;
   padding: 0;
   margin: 0;
   border: solid var(--color4);
@@ -616,7 +617,6 @@ input, textarea{
   background-color: var(--color4);
   color: #ffffff;
   width: 100%;
-  height: 100%;
 }
 .wholething:hover .functionality{
   width: fit-content;
