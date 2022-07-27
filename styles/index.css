@@ -152,12 +152,34 @@ body, html{
   justify-content: center;
   gap: 7.5vw;
 }
-
+.navbarwrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.navbarwrapper:hover .dropdowns, .dropdowns:hover{
+  display: flex;
+  flex-direction: column;
+  top: 6.5vh;
+  padding-top: 1vh;
+}
+.absolutesvg{
+  position: absolute;
+  left: 7vh;
+  width: 3vh;
+  height: 3vh;
+}
 .navbarsvg{
   width: 5.5vh;
   height: 5.5vh;
 }
 .navbar-select{
+  align-items: center;
+  display: flex;
+  gap: 0;
+  padding: 0.25vh;
   color: var(--color1);
   border-style: solid;
   border-width: 0px 0px 3px 0px;
@@ -174,21 +196,15 @@ body, html{
 }
 .contentselection{
   display: flex;
-  flex-direction: column;
   align-items: center;
   cursor: pointer;
   user-select: none;
 }
 .dropdowns{
-  padding-top: 7.5vh;
+  position: absolute;
   display: none;
   text-align: center;
-  position: absolute;
   z-index: 3;
-}
-.contentselection:hover .dropdowns{
-  display: flex;
-  flex-direction: column;
 }
 .dropdownitem{
   border: solid;
@@ -784,7 +800,7 @@ input, textarea{
   }
   .navbar:hover .sections{
     display: flex;
-    gap: 3vh;
+    gap: 2vh;
     flex-direction: column;
   }
   .navbar:hover .dark-wrapper{
@@ -794,6 +810,7 @@ input, textarea{
     display: none;
   }
   .navbar-select{
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -804,9 +821,18 @@ input, textarea{
     justify-content: center;
     align-items: center;
   }
+  .absolutesvg{
+    position: absolute;
+    left: 5.5vh;
+  }
   .dropdowns{
     position: relative;
-    padding-top: 1vh;
+  }
+  .navbarwrapper:hover .dropdowns{
+    top: 0vh;
+  }
+  .navbarwrapper:hover .navbar-select .absolutesvg{
+    left: 9vh;
   }
   .flex{
     gap: 0px;
