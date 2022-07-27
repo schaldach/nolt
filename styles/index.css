@@ -598,6 +598,8 @@ input, textarea{
 .functionality{
   width: fit-content;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
   margin: 0;
@@ -674,6 +676,8 @@ input, textarea{
   0% {
     height: 4vh;
     overflow: hidden;
+    align-items: unset;
+    justify-content: unset;
   }
   50% {
     height: 12vh;
@@ -686,6 +690,8 @@ input, textarea{
   100% {
     height: 20vh;
     overflow: visible;
+    align-items: unset;
+    justify-content: unset;
   }
 }
 
@@ -769,7 +775,7 @@ input, textarea{
   color: var(--color1);
 }
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 768px){
   .wholething:hover{
     transform: scale(1);
   }
@@ -791,8 +797,6 @@ input, textarea{
     justify-content: center;
     gap: 4vh;
   }
-}
-@media screen and (max-width: 768px){
   .loginchangewrapper{
     flex-direction: column;
   }
