@@ -594,6 +594,9 @@ input, textarea{
   height: 3.4vh;
   width: 3.4vh;
 }
+.favanot:hover{
+  transform: scale(1.1);
+}
 
 .functionality{
   width: fit-content;
