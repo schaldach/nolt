@@ -9,6 +9,7 @@ function Notes({user, reqsync}) {
     const [allNotes, addNote] = useState([])
     const [sucessAnimation, conectionMade] = useState(0)
     const [clickable, setClick] = useState(true)
+    const [changed, setChange] = useState(true)
 
     useInterval(() => {syncNotes(allNotes)},30000)
 
@@ -17,8 +18,7 @@ function Notes({user, reqsync}) {
     }, [user])
 
     async function syncNotes(notes) {
-        if(!user){return}
-        if(!clickable){return}
+        if(!user||!clickable||!changed){return}
         setClick(false)
         conectionMade(2)
         let oldNotes = []
@@ -51,16 +51,19 @@ function Notes({user, reqsync}) {
                 conectionMade(0)
                 reqsync(Math.random())
                 setClick(true)
+                setChange(false)
             })
     }
 
     function addAnotation() {
+        setChange(true)
         let newNote = { title: '', content: '', id: Math.floor(Math.random() * 9999999999), isNew:true, favorite:false}
         addNote([...allNotes, newNote])
         conectionMade(1)
     }
 
     function onEdit(title, content, note) {
+        setChange(true)
         let newNotes = [...allNotes]
         const index = newNotes.indexOf(note)
         newNotes[index].title = title
@@ -70,6 +73,7 @@ function Notes({user, reqsync}) {
     }
 
     function onFavorite(note) {
+        setChange(true)
         let newNotes = [...allNotes]
         const index = newNotes.indexOf(note)
         newNotes[index].favorite = !newNotes[index].favorite

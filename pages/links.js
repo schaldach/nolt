@@ -11,6 +11,7 @@ function Links({user, reqsync}) {
     const [sucessAnimation, conectionMade] = useState(0)
     const [needData,requestD] = useState(false)
     const [clickable, setClick] = useState(true)
+    const [changed, setChange] = useState(true)
 
     useInterval(() => {syncLinks(allLinks)},30000)
 
@@ -19,8 +20,7 @@ function Links({user, reqsync}) {
     }, [user])
 
     async function syncLinks(links){
-        if(!user){return}
-        if(!clickable){return}
+        if(!user||!clickable||!changed){return}
         setClick(false)
         conectionMade(2)
         let newLinks = []
@@ -53,10 +53,12 @@ function Links({user, reqsync}) {
                 conectionMade(0)
                 reqsync(Math.random())
                 setClick(true)
+                setChange(false)
             })
     }
 
     function finishAnotation(name, href){
+        setChange(true)
         requestD(false)
         let newLink = {href: href, name: name, id: Math.floor(Math.random()*9999999999), isNew:true, favorite:false}
         addLink([...allLinks, newLink])
@@ -78,6 +80,7 @@ function Links({user, reqsync}) {
     }
 
     function onFavorite(link){
+        setChange(true)
         let newLinks = [...allLinks]
         const index = newLinks.indexOf(link)
         newLinks[index].favorite = !newLinks[index].favorite

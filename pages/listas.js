@@ -9,6 +9,7 @@ function Lists({user, reqsync}) {
     const [allLists, addList] = useState([])
     const [sucessAnimation, conectionMade] = useState(0)
     const [clickable, setClick] = useState(true)
+    const [changed, setChange] = useState(true)
 
     useInterval(() => {syncLists(allLists)},30000)
     
@@ -17,8 +18,7 @@ function Lists({user, reqsync}) {
     }, [user])
 
     async function syncLists(lists){
-        if(!user){return}
-        if(!clickable){return}
+        if(!user||!clickable||!changed){return}
         setClick(false)
         conectionMade(2)
         let oldLists = []
@@ -51,10 +51,12 @@ function Lists({user, reqsync}) {
                 conectionMade(0)
                 reqsync(Math.random())
                 setClick(true)
+                setChange(false)
             })
     }
 
-    function finishAnotation(){
+    function addAnotation(){
+        setChange(true)
         let newList = {
             title: '',
             content: [{text: '1. ', id: 0, complete:false}],
@@ -67,6 +69,7 @@ function Lists({user, reqsync}) {
     }
 
     function onEdit(title,content,list){
+        setChange(true)
         const index = allLists.indexOf(list)
         let newLists = [...allLists]
         newLists[index].content = content
@@ -76,6 +79,7 @@ function Lists({user, reqsync}) {
     }
 
     function onFavorite(list){
+        setChange(true)
         let newLists = [...allLists]
         const index = newLists.indexOf(list)
         newLists[index].favorite = !newLists[index].favorite
@@ -131,7 +135,7 @@ function Lists({user, reqsync}) {
                 </div>
             </div>
             <div className='displayanotations'>
-                <button className='addanotation' onClick={() => finishAnotation(1)}>
+                <button className='addanotation' onClick={addAnotation}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="addsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
                     </svg>
