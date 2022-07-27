@@ -352,18 +352,14 @@ main{
   top: -2px;
 }
 .wholething:hover{
-  top: 0px;
-  transform: scale(1.15);
+  top: 0;
+  transform: scale(1.1);
   transition: 0.2s ease;
   z-index: 2;
 }
-.favanot:hover{
-  transform: scale(1.05);
-}
 .view:nth-child(1n){
-  top: 0px;
-  transform: scale(1.15);
-  position: relative;
+  top: 0;
+  transform: scale(1.1);
   z-index: 1;
 }
 
@@ -414,8 +410,8 @@ main{
   height: 7.5vh;
 }
 .addsvglink{
-  width: 4vh;
-  height: 4vh;
+  width: 3vh;
+  height: 3vh;
 }
 
 input, textarea{
