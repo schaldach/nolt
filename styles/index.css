@@ -301,16 +301,11 @@ main{
   margin: 3vh 0;
 }
 .secondtext, .secondtext input{
+  background-color: var(--color2s);
   font-family: var(--font3);
   font-size: 3vh;
   word-wrap: break-word;
   color: var(--color1);
-}
-.secondtext input{
-  background-color: var(--color2s);
-  border: solid 2px;
-  border-color: var(--color4);
-  width: 50%;
 }
 
 .home{
@@ -756,9 +751,6 @@ input, textarea{
 }
 
 @media screen and (max-width: 1200px){
-  .secondtext input{
-    width: 80%;
-  }
   .wholething:hover{
     transform: scale(1);
   }
