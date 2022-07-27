@@ -628,6 +628,7 @@ input, textarea{
   height: 20vh;
   animation: growDown 0.45s linear;
   transform-origin: top center;
+  background-color: var(--color4);
 }
 .wholething{
   position: relative;
@@ -637,9 +638,10 @@ input, textarea{
 .menuview{
   height: 20vh;
   animation: none !important;  
+  background-color: var(--color4);
 }
 .menuview .dropdownbutton{
-  background-color: var(--color3);
+  background-color: var(--color4);
   color: #ffffff;
 }
 
