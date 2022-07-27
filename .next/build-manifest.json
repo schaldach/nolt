@@ -25,16 +25,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/home": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/home.js"
-    ],
-    "/links": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/links.js"
-    ],
     "/listas": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -44,16 +34,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/notas.js"
-    ],
-    "/profile": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/profile.js"
-    ],
-    "/project": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/project.js"
     ]
   },
   "ampFirstPages": []
