@@ -618,6 +618,7 @@ input, textarea{
   border: solid var(--color4);
   border-width: 1px;
   display: inline-block;
+  margin-bottom: 1px;
 }
 .wholething:hover .functionality{
   height: 20vh;
@@ -649,6 +650,7 @@ input, textarea{
   border: solid var(--color4);
   border-width: 1px;
   display: inline-block;
+  margin-bottom: 1px;
 }
 
 .listinstruction{
