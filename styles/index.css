@@ -604,6 +604,8 @@ input, textarea{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
   height: 4vh;
   border: solid var(--color4);
   border-width: 2px;
@@ -618,13 +620,11 @@ input, textarea{
   border: solid var(--color4);
   border-width: 1px;
   display: inline-block;
-  padding-bottom: 1px;
 }
 .wholething:hover .functionality{
   height: 20vh;
   animation: growDown 0.45s linear;
   transform-origin: top center;
-  overflow: visible;
 }
 .functionbutton:hover{
   background-color: #e6e6e6;
@@ -650,7 +650,6 @@ input, textarea{
   border: solid var(--color4);
   border-width: 1px;
   display: inline-block;
-  padding-bottom: 1px;
 }
 
 .listinstruction{
