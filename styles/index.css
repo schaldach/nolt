@@ -595,8 +595,8 @@ input, textarea{
 }
 
 .dropdownsvg{
-  height: 3.25vh;
-  width: 3.25vh;
+  height: 3.4vh;
+  width: 3.4vh;
 }
 
 .functionality{
@@ -616,7 +616,7 @@ input, textarea{
   width: 100%;
   box-sizing: border-box;
   border: solid var(--color4);
-  border-width: 1px;
+  border-width: 3px;
 }
 .wholething:hover .functionality{
   height: 20vh;
@@ -646,7 +646,7 @@ input, textarea{
   width: 100%;
   box-sizing: border-box;
   border: solid var(--color4);
-  border-width: 1px;
+  border-width: 3px;
 }
 
 .listinstruction{
