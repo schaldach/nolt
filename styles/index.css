@@ -615,6 +615,8 @@ input, textarea{
   color: #ffffff;
   width: 100%;
   box-sizing: border-box;
+  border: solid var(--color4);
+  border-width: 1px;
 }
 .wholething:hover .functionality{
   height: 20vh;
@@ -638,9 +640,14 @@ input, textarea{
   height: 20vh;
   animation: none !important;  
 }
+.drop
 .menuview .dropdownbutton{
   background-color: var(--color4);
   color: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
+  border: solid var(--color4);
+  border-width: 1px;
 }
 
 .listinstruction{
