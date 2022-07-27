@@ -32,7 +32,7 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
     }
 
     return (
-        <div className={viewMode ? 'wholething view' : 'wholething'} onDoubleClick={() => startEdit(!editMode)}>
+        <div className={viewMode ? 'wholething view' : 'wholething'}>
             <div className="displaymodes">
             <svg xmlns="http://www.w3.org/2000/svg" className={editMode?'modesvg':'displaynone'} viewBox="0 0 20 20" fill="var(--color3)">
                 <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
