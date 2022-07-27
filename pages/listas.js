@@ -2,25 +2,28 @@ import React, { useState, useEffect } from "react"
 import { supabase } from "../utils/supabaseClient"
 import ListAnotation from "../components/ListAnotation"
 import SecondTitle from "../components/SecondTitle"
+import useInterval from "../components/UseInterval"
 
 function Lists({user, reqsync}) {
     const [animation, startAnimation] = useState(false)
     const [allLists, addList] = useState([])
     const [sucessAnimation, conectionMade] = useState(0)
     const [clickable, setClick] = useState(true)
+
+    useInterval(() => {syncLists(allLists)},10000)
     
     useEffect(() => {
-        syncLists()
+        syncLists(allLists)
     }, [user])
 
-    async function syncLists(){
+    async function syncLists(lists){
         if(!user){return}
         if(!clickable){return}
         setClick(false)
         conectionMade(2)
         let oldLists = []
         let newLists = []
-        allLists.forEach(list => {
+        lists.forEach(list => {
             if(list.isNew){
                 newLists.push({
                     title: list.title,
@@ -40,7 +43,6 @@ function Lists({user, reqsync}) {
                     .upsert(newLists)
             })
             .then( async () => {
-                const user = supabase.auth.user()
                 const { data, count } = await supabase
                     .from('listas')
                     .select('*', { count: 'exact' })
@@ -97,7 +99,7 @@ function Lists({user, reqsync}) {
 
     function pulseAnimation() {
         startAnimation(true)
-        syncLists()
+        syncLists(allLists)
     }
 
     return (

@@ -22,6 +22,11 @@ function MyApp({ Component, pageProps }) {
   }, [])
 
   useEffect(() => {
+    if(settable)
+    localStorage.setItem('dark', JSON.stringify(darkMode))
+  }, [darkMode])
+
+  useEffect(() => {
     async function fetch(){
       const newUser = supabase.auth.user()
       if(!newUser){ 
@@ -41,10 +46,6 @@ function MyApp({ Component, pageProps }) {
   }, [loginrequest, updaterequest])
 
   useEffect(() => throwError(false), [])
-  useEffect(() => {
-    if(settable)
-    localStorage.setItem('dark', JSON.stringify(darkMode))
-  }, [darkMode])
 
   if(!user){
     return(

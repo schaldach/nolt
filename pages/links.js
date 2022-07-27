@@ -3,26 +3,29 @@ import { supabase } from "../utils/supabaseClient"
 import NecessaryDataLink from "../components/NecessaryData";
 import SmallerAnotation from "../components/LinkAnotation"
 import SecondTitle from "../components/SecondTitle"
+import useInterval from "../components/UseInterval"
 
 function Links({user, reqsync}) {
     const [animation, startAnimation] = useState(false)
-    const[allLinks,addLink] = useState([])
+    const [allLinks,addLink] = useState([])
     const [sucessAnimation, conectionMade] = useState(0)
-    const[needData,requestD] = useState(false)
+    const [needData,requestD] = useState(false)
     const [clickable, setClick] = useState(true)
 
+    useInterval(() => {syncLinks(allLinks)},10000)
+
     useEffect(() => {
-        syncLinks()
+        syncLinks(allLinks)
     }, [user])
 
-    async function syncLinks(){
+    async function syncLinks(links){
         if(!user){return}
         if(!clickable){return}
         setClick(false)
         conectionMade(2)
         let newLinks = []
         let oldLinks = []
-        allLinks.forEach(link => {
+        links.forEach(link => {
             if(link.isNew){
                 newLinks.push({
                     href: link.href,
@@ -42,7 +45,6 @@ function Links({user, reqsync}) {
                     .upsert(oldLinks)
             })
             .then( async () => {
-                const user = supabase.auth.user()
                 const { data, count } = await supabase
                     .from('links')
                     .select('*', { count: 'exact' })
@@ -84,7 +86,7 @@ function Links({user, reqsync}) {
     }
 
     function pulseAnimation() {
-        syncLinks()
+        syncLinks(allLinks)
         startAnimation(true)
     }
 

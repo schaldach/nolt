@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { supabase } from "../utils/supabaseClient"
 import Anotation from "../components/Anotation"
 import SecondTitle from "../components/SecondTitle"
+import useInterval from "../components/UseInterval"
 
 function Notes({user, reqsync}) {
     const [animation, startAnimation] = useState(false)
@@ -9,18 +10,20 @@ function Notes({user, reqsync}) {
     const [sucessAnimation, conectionMade] = useState(0)
     const [clickable, setClick] = useState(true)
 
+    useInterval(() => {syncNotes(allNotes)},10000)
+
     useEffect(() => {
-        syncNotes()
+        syncNotes(allNotes)
     }, [user])
 
-    async function syncNotes() {
+    async function syncNotes(notes) {
         if(!user){return}
         if(!clickable){return}
         setClick(false)
         conectionMade(2)
         let oldNotes = []
         let newNotes = []
-        allNotes.forEach(note => {
+        notes.forEach(note => {
             if(note.isNew){
                 newNotes.push({
                     title: note.title,
@@ -40,7 +43,6 @@ function Notes({user, reqsync}) {
                     .upsert(newNotes)
             })
             .then( async () => {
-                const user = supabase.auth.user()
                 const { data } = await supabase
                     .from('notas')
                     .select('*')
@@ -91,7 +93,7 @@ function Notes({user, reqsync}) {
 
     function pulseAnimation() {
         startAnimation(true)
-        syncNotes()
+        syncNotes(allNotes)
     }
 
     return (
