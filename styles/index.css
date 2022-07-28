@@ -620,13 +620,14 @@ svg{
 .wholething:hover .dropdownbutton{
   background-color: var(--color4);
   color: #ffffff;
-  width: calc(100% + 4px);
+  width: calc(100% + 2px);
   box-sizing: border-box;
   border: solid var(--color4);
   border-width: 1px;
   margin-top: -1px;
 }
 .wholething:hover .functionality{
+  justify-content: center;
   overflow: visible;
   height: calc(20vh - 1px);
   animation: growDown 0.375s linear;
@@ -645,6 +646,7 @@ svg{
   gap: 10px;
 }
 .menuview{
+  justify-content: center;
   overflow: visible;
   height: calc(20vh - 1px);
   animation: none !important;  
@@ -652,7 +654,7 @@ svg{
 .menuview .dropdownbutton{
   background-color: var(--color4);
   color: #ffffff;
-  width: calc(100% + 4px);
+  width: calc(100% + 2px);
   box-sizing: border-box;
   border: solid var(--color4);
   border-width: 1px;
