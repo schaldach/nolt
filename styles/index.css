@@ -359,7 +359,7 @@ main{
 }
 .view:nth-child(1n){
   top: 0;
-  transform: scale(1.1);
+  transform: scale(1.125);
   z-index: 1;
 }
 
@@ -905,10 +905,6 @@ input,textarea,button,select,a, div {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-.displaynone{
-  display: none;
-}
-
 .userdata{
   display: flex;
   flex-direction: column;
@@ -941,4 +937,14 @@ input,textarea,button,select,a, div {
   display: flex;
   gap: 5px;
   align-items: center;
+}
+
+.loginsvg{
+  width: 5.5vh;
+  height: 5.5vh;
+  margin-left: 1.5vh;
+}
+
+.displaynone{
+  display: none;
 }
