@@ -11,7 +11,7 @@ function Notes({user, reqsync}) {
     const [clickable, setClick] = useState(true)
     const [changed, setChange] = useState(true)
 
-    useInterval(() => {syncNotes(allNotes)},30000)
+    useInterval(() => {syncNotes(allNotes)},20000)
 
     useEffect(() => {
         syncNotes(allNotes)

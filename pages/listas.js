@@ -11,7 +11,7 @@ function Lists({user, reqsync}) {
     const [clickable, setClick] = useState(true)
     const [changed, setChange] = useState(true)
 
-    useInterval(() => {syncLists(allLists)},30000)
+    useInterval(() => {syncLists(allLists)},20000)
     
     useEffect(() => {
         syncLists(allLists)
