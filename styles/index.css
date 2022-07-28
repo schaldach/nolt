@@ -645,6 +645,7 @@ svg{
   gap: 10px;
 }
 .menuview{
+  overflow: visible;
   height: calc(20vh - 1px);
   animation: none !important;  
 }
@@ -655,7 +656,6 @@ svg{
   box-sizing: border-box;
   border: solid var(--color4);
   border-width: 1px;
-  display: inline-block;
   margin-top: -1px;
 }
 
