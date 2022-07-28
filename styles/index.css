@@ -296,6 +296,9 @@ main{
   box-shadow: inset 11em 0 0 0 var(--color4);
   color: #ffffff;
 }
+.homebutton::before{
+  content: 'Leve-me para lá';
+}
 
 .secondtext{
   margin: 3vh 0;
@@ -773,6 +776,9 @@ input, textarea{
 }
 
 @media screen and (max-width: 768px){
+  .homebutton::before{
+    content: 'Leve-me lá';
+  }
   .wholething:hover{
     transform: scale(1);
   }
