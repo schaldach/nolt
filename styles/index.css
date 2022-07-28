@@ -452,7 +452,7 @@ input, textarea{
 }
 
 .functionbutton{
-  background-color: #ffffff;
+  background: none;
   color: #000000;
   border: none;
   cursor: pointer;
