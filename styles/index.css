@@ -623,8 +623,8 @@ input, textarea{
 }
 .wholething:hover .functionality{
   overflow: visible;
-  height: 20vh;
-  animation: growDown 0.45s linear;
+  height: calc(20vh - 1px);
+  animation: growDown 0.375s linear;
   transform-origin: top center;
 }
 .functionbutton:hover{
@@ -640,7 +640,7 @@ input, textarea{
   gap: 10px;
 }
 .menuview{
-  height: 20vh;
+  height: calc(20vh - 1px);
   animation: none !important;  
 }
 .menuview .dropdownbutton{
