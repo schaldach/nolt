@@ -282,7 +282,7 @@ main{
   color: var(--color4);
   font-family: var(--font2);
   font-weight: bold;
-  font-size: 4.5vh;
+  font-size: 4.25vh;
   border: solid;
   border-color: var(--color4);
   cursor: pointer;
