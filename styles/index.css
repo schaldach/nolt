@@ -293,7 +293,7 @@ main{
   transition: 0.65s;
 }
 .homebutton:hover{
-  box-shadow: inset 12em 0 0 0 var(--color4);
+  box-shadow: inset 11em 0 0 0 var(--color4);
   color: #ffffff;
 }
 
