@@ -627,7 +627,7 @@ svg{
   margin-top: -1px;
 }
 .wholething:hover .functionality{
-  justify-content: center;
+  align-items: center;
   overflow: visible;
   height: calc(20vh - 1px);
   animation: growDown 0.375s linear;
@@ -646,7 +646,7 @@ svg{
   gap: 10px;
 }
 .menuview{
-  justify-content: center;
+  align-items: center;
   overflow: visible;
   height: calc(20vh - 1px);
   animation: none !important;  
