@@ -17,8 +17,8 @@ function Notes({user, reqsync}) {
         syncNotes(allNotes)
     }, [user])
 
-    async function syncNotes(notes) {
-        if(!user||!clickable||!changed){return}
+    async function syncNotes(notes, click) {
+        if(!user||!clickable||(!changed&&!click)){return}
         setClick(false)
         conectionMade(2)
         let oldNotes = []
@@ -97,7 +97,7 @@ function Notes({user, reqsync}) {
 
     function pulseAnimation() {
         startAnimation(true)
-        syncNotes(allNotes)
+        syncNotes(allNotes, true)
     }
 
     return (

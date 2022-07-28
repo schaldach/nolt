@@ -19,8 +19,8 @@ function Links({user, reqsync}) {
         syncLinks(allLinks)
     }, [user])
 
-    async function syncLinks(links){
-        if(!user||!clickable||!changed){return}
+    async function syncLinks(links, click){
+        if(!user||!clickable||(!changed&&!click)){return}
         setClick(false)
         conectionMade(2)
         let newLinks = []
@@ -89,7 +89,7 @@ function Links({user, reqsync}) {
     }
 
     function pulseAnimation() {
-        syncLinks(allLinks)
+        syncLinks(allLinks, true)
         startAnimation(true)
     }
 

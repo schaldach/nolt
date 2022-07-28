@@ -17,8 +17,8 @@ function Lists({user, reqsync}) {
         syncLists(allLists)
     }, [user])
 
-    async function syncLists(lists){
-        if(!user||!clickable||!changed){return}
+    async function syncLists(lists, click){
+        if(!user||!clickable||(!changed&&!click)){return}
         setClick(false)
         conectionMade(2)
         let oldLists = []
@@ -103,7 +103,7 @@ function Lists({user, reqsync}) {
 
     function pulseAnimation() {
         startAnimation(true)
-        syncLists(allLists)
+        syncLists(allLists, true)
     }
 
     return (
