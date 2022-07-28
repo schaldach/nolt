@@ -275,6 +275,9 @@ main{
 }
 
 .homebutton{
+  justify-content: center;
+  align-items: center;
+  display: flex;
   background: var(--color2s);
   color: var(--color4);
   font-family: var(--font2);
@@ -290,11 +293,8 @@ main{
   transition: 0.65s;
 }
 .homebutton:hover{
-  box-shadow: inset 10em 0 0 0 var(--color4);
+  box-shadow: inset 12em 0 0 0 var(--color4);
   color: #ffffff;
-}
-.homebutton:before{
-  content: "Leve-me para lá →";
 }
 
 .secondtext{
@@ -849,9 +849,6 @@ input, textarea{
   .flex{
     gap: 0px;
     flex-direction: column;
-  }
-  .homebutton:before{
-    content: "Leve-me lá →";
   }
   .loginbox{
     width: 85vw;

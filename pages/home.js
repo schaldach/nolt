@@ -51,7 +51,11 @@ function Home({user, syncrequest}) {
             <SecondTitle titlecontent='Home'/>
             <div className="secondtext">{user?`Bem vindo ${user.username}!`:''}<br/><br/>{textToWrite()}</div>
             <Link href={'/notas'}>
-            <button className='homebutton'></button>
+            <button className='homebutton'>Leve-me para lá 
+            <svg xmlns="http://www.w3.org/2000/svg" className="loginsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+            </button>
             </Link>
             <div className='favtitle'>Notas 
             <svg xmlns="http://www.w3.org/2000/svg" className='dropdownsvg' viewBox="0 0 20 20" fill="var(--color3)">
