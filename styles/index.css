@@ -589,7 +589,7 @@ input, textarea{
 .requestdata{
   padding: 2vh;
   overflow: hidden;
-  border-radius: 5px;
+  border-radius: 12px;
   background-color: var(--color4);
   gap: 10px;
   border: none;
