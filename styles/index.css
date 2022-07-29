@@ -589,6 +589,7 @@ input, textarea{
   color: var(--color4);
 }
 .deletelinkbutton{
+  padding: 0px 10px;
   height: 100%;
   width: 100%;
   border: none;
