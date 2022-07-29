@@ -639,7 +639,7 @@ svg{
 }
 .wholething:hover .dropdownbutton{
   border: solid var(--color4);
-  border-width: 0px 1px 0px 1px;
+  border-width: 0px 2px 0px 2px;
   background-color: var(--color4);
   color: #ffffff;
   margin-top: -1px;
