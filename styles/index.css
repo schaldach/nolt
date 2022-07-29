@@ -473,8 +473,7 @@ input, textarea{
   align-items: center;
   cursor: pointer;
   max-width: fit-content;
-  padding: 0 3vw;
-  font-size: 5vh;
+  padding: 0.75vh 3vh;
   border: dashed var(--color4);
   border-radius: 15px;
   color: var(--color4);
