@@ -1,9 +1,9 @@
-function ActionPopup({deleteType, initialTime}) {
+function ActionPopup({noteType, deleteType}) {
     function LoadBar(){
     }
     return (
         <div className={deleteType?'red popup':'green popup'}>
-            <div>{`Nota ${deleteType?'deletada':'adicionada'}.`}</div>
+            <div>{`${noteType} ${deleteType?'deletada':'adicionada'}.`}</div>
             <div className="progressbar"><div className="dynamicbar"></div></div>
         </div>
     );
