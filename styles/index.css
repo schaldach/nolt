@@ -627,10 +627,10 @@ svg{
   width: 30px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   flex-wrap: wrap;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  gap: 0px;
+  padding: 0px;
   height: 25px;
   border: solid var(--color4);
   border-width: 2px;
