@@ -825,7 +825,7 @@ svg{
 .wrapdiv{
   display: flex;
   gap: 30px;
-  margin: 2.5vh 0;
+  margin: 1.5vh 0 1vh 0;
   box-shadow: none;
   width: fit-content;
   height: fit-content;
@@ -948,9 +948,7 @@ svg{
   .loginbox{
     width: 85vw;
   }
-  .wrapdiv{
-    margin: 2.5vh 0 1vh 0;
-  }
+
   .justifycenter{
     display: flex;
     flex-direction: column;
