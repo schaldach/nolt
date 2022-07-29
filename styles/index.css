@@ -373,8 +373,8 @@ main{
 .confirmbuttons{
   border-radius: 5px;
   border: none;
-  color: var(--color2p);
-  font-family: var(--font3);
+  font-family: var(--font1);
+  font-size: 1.5vh;
   background-color: var(--color4);
   color: #ffffff;
   cursor: pointer;
@@ -586,14 +586,13 @@ input, textarea{
   background-color: #e61e1e !important;
 }
 .requestdata{
-  padding: 1vw;
-  background-color: var(--color3);
+  padding: 1vh;
+  overflow: hidden;
+  border-radius: 0px;
+  background-color: var(--color4);
   gap: 10px;
   border: none;
   cursor: auto;
-}
-.requestdata:hover{
-  background-color: var(--color3);
 }
 
 svg{
@@ -730,8 +729,14 @@ svg{
 .cancelbutton{
   background-color: #e61e1e;
 }
+.cancelbutton:hover{
+  background-color: #ad1212;
+}
 .confirmbutton{
   background-color: var(--color4);
+}
+.confirmbutton:hover{
+  background-color: var(--color5);
 }
 .securitybox{
   box-shadow: 4px 4px 4px  rgba(80, 80, 80, 0.25);
