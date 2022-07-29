@@ -25,10 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/listas": [
+    "/home": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/listas.js"
+      "static/chunks/pages/home.js"
     ],
     "/notas": [
       "static/chunks/webpack.js",
