@@ -611,6 +611,7 @@ svg{
   width: 30px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
