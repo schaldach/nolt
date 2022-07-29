@@ -675,7 +675,7 @@ svg{
   font-size: 1.8vh;
   display: flex;
   align-items: center;
-  width: 100%;
+  width: fit-content;
   font-family: var(--font3);
   gap: 10px;
   outline: none;
@@ -692,7 +692,7 @@ svg{
 }
 .infobox{
   background-color: var(--color4);
-  width: fit-content;
+  width: 100%;
   border: var(--color5) solid 2px;
   padding: 5px;
   border-radius: 5px;
