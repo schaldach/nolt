@@ -374,7 +374,7 @@ main{
   border-radius: 5px;
   border: none;
   font-family: var(--font1);
-  font-size: 1.5vh;
+  font-size: 2.5vh;
   background-color: var(--color4);
   border: 2px solid var(--color5);
   color: #ffffff;
@@ -587,9 +587,9 @@ input, textarea{
   background-color: #e61e1e !important;
 }
 .requestdata{
-  padding: 1vh;
+  padding: 2vh;
   overflow: hidden;
-  border-radius: 0px;
+  border-radius: 5px;
   background-color: var(--color4);
   gap: 10px;
   border: none;
