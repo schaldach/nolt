@@ -289,7 +289,7 @@ main{
   cursor: pointer;
   align-self: center;
   max-width: fit-content;
-  margin-top: 3vh;
+  margin: 3vh 0;
   box-shadow: none;
   transition: 0.65s;
 }
