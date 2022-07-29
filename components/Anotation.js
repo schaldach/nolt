@@ -1,9 +1,11 @@
 import React, { useState, useRef } from "react"
 import DropdownMenu from "./DropdownMenu"
+import SecurityBox from "./SecurityBox"
 
 function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite}) {
     const[editMode, startEdit] = useState(note.isNew)
     const[viewMode, startView] = useState(false)
+    const[boxVisible, setBox] = useState(false)
     const searchInput = useRef(null)
 
     function handleTextFocus(e){
@@ -14,6 +16,7 @@ function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite
     }
 
     return (
+        <>
         <div className={viewMode?'wholething view':'wholething'}>
         <div className="displaymodes">
             <svg xmlns="http://www.w3.org/2000/svg" className={editMode?'modesvg':'displaynone'} viewBox="0 0 20 20" fill="var(--color3)">
@@ -41,8 +44,10 @@ function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite
             </div>
         </div>
         <DropdownMenu editMode={editMode} onEdit={() => startEdit(!editMode)} viewMode={viewMode} favorite={favorite} 
-        onFavorite={() => onFavorite(note)} onView={() => startView(!viewMode)} onDelete={() => onDelete(note.id)}/>
+        onFavorite={() => onFavorite(note)} onView={() => startView(!viewMode)} onDelete={() => setBox(true)}/>
         </div>
+        <SecurityBox onDelete={() => onDelete(note.id)} onCancel={() => setBox(false)} boxVisible={boxVisible}/>
+        </>
     )
 }
 
