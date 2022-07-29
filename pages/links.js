@@ -13,7 +13,7 @@ function Links({user, reqsync}) {
     const [clickable, setClick] = useState(true)
     const [changed, setChange] = useState(true)
 
-    useInterval(() => {syncLinks(allLinks)},20000)
+    useInterval(() => {syncLinks(allLinks)},10000)
 
     useEffect(() => {
         syncLinks(allLinks)
@@ -49,7 +49,9 @@ function Links({user, reqsync}) {
                     .from('links')
                     .select('*', { count: 'exact' })
                     .eq('userid', user.id)
-                addLink(data)
+                let formattedData = data
+                formattedData.sort((a,b) => {return a.id-b.id})
+                addLink(formattedData)
                 conectionMade(0)
                 reqsync(Math.random())
                 setClick(true)

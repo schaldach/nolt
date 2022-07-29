@@ -31,10 +31,14 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
             }
             changeFocus(currentItemFocus + 1)
         }
+        if(currentItemFocus === -1){return}
         if (e.key === 'Backspace'&&!content[currentItemFocus].text) {
             e.preventDefault()
             let newContent = [...content]
             newContent.splice(currentItemFocus,1)
+            for(let i=currentItemFocus; i<newContent.length; i++){
+                newContent[i].id = i
+            }
             onEdit(title, newContent, list)
             changeFocus(currentItemFocus - 1)
         }

@@ -11,7 +11,7 @@ function Notes({user, reqsync}) {
     const [clickable, setClick] = useState(true)
     const [changed, setChange] = useState(true)
 
-    useInterval(() => {syncNotes(allNotes)},20000)
+    useInterval(() => {syncNotes(allNotes)},10000)
 
     useEffect(() => {
         syncNotes(allNotes)
@@ -47,7 +47,9 @@ function Notes({user, reqsync}) {
                     .from('notas')
                     .select('*')
                     .eq('userid', user.id)
-                addNote(data)
+                let formattedData = data
+                formattedData.sort((a,b) => {return a.id-b.id})
+                addNote(formattedData)
                 conectionMade(0)
                 reqsync(Math.random())
                 setClick(true)
