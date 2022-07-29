@@ -852,6 +852,11 @@ svg{
   gap: 3px;
 }
 
+button, input{
+  margin: 0px;
+  padding: 0px;
+}
+
 .modesvg{
   height: 2.5vh;
   width: 2.5vh;
