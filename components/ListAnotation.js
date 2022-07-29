@@ -31,6 +31,13 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
             }
             changeFocus(currentItemFocus + 1)
         }
+        if (e.key === 'Backspace'&&!content[currentItemFocus].text) {
+            e.preventDefault()
+            let newContent = [...content]
+            newContent.splice(currentItemFocus,1)
+            onEdit(title, newContent, list)
+            changeFocus(currentItemFocus - 1)
+        }
     }
 
     return (
@@ -61,7 +68,8 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
                             text={item.text} changeFocus={changeFocus} handleTextFocus={handleTextFocus}
                             itemFocus={currentItemFocus} complete={item.complete}></ListItem>
                     )}
-                    <div className={editMode ? 'listinstruction anotcontentwarning' : 'displaynone'}>Aperte Enter para aumentar a lista ou ir para o próximo item</div>
+                    <div className={editMode ? 'listinstruction anotcontentwarning' : 'displaynone'}>Enter irá aumentar a lista 
+                    ou ir para o próximo item<br/>Backspace em um item vazio irá removê-lo</div>
                 </div>
             </div>
             <DropdownMenu editMode={editMode} onEdit={() => startEdit(!editMode)} viewMode={viewMode} favorite={favorite} 
