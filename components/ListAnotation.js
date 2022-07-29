@@ -5,6 +5,7 @@ import DropdownMenu from "./DropdownMenu"
 function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFavorite }) {
     const [editMode, startEdit] = useState(list.isNew)
     const [viewMode, startView] = useState(false)
+    const [boxVisible, setBox] = useState(false)
     const [currentItemFocus, changeFocus] = useState(-1)
 
     function itemEdit(text, id, complete) {
@@ -32,6 +33,7 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
     }
 
     return (
+        <>
         <div className={viewMode ? 'wholething view' : 'wholething'}>
             <div className="displaymodes">
             <svg xmlns="http://www.w3.org/2000/svg" className={editMode?'modesvg':'displaynone'} viewBox="0 0 20 20" fill="var(--color3)">
@@ -62,8 +64,10 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
                 </div>
             </div>
             <DropdownMenu editMode={editMode} onEdit={() => startEdit(!editMode)} viewMode={viewMode} favorite={favorite} 
-            onFavorite={() => onFavorite(list)} onView={() => startView(!viewMode)} onDelete={() => onDelete(list.id)}/>
+            onFavorite={() => onFavorite(list)} onView={() => startView(!viewMode)} onDelete={() => setBox(true)}/>
         </div>
+        <SecurityBox onDelete={() => onDelete(list.id)} onCancel={() => setBox(false)} boxVisible={boxVisible}/>
+        </>
     )
 }
 

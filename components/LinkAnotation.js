@@ -1,7 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 
 function LinkAnotation({linkcontent, linkname, onDelete, id, favorite, onFavorite, link}) {
+    const[boxVisible, setBox] = useState(false)
     return (
+        <>
         <div className="wholelink">
             <div className="displaymodes">
                 <svg xmlns="http://www.w3.org/2000/svg" className={favorite?'modesvg':'displaynone'} viewBox="0 0 20 20" fill="var(--color3)">
@@ -13,7 +15,7 @@ function LinkAnotation({linkcontent, linkname, onDelete, id, favorite, onFavorit
                 <a className='linktext' href={linkcontent} target='_blank' rel='noreferrer'>{linkname}</a>
             </div>
             <div className="outermenu">
-                <button onClick={() => onDelete(id)} className='deletelinkbutton'>
+                <button onClick={() => setBox(true)} className='deletelinkbutton'>
                     <svg xmlns="http://www.w3.org/2000/svg" className="dropdownsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -25,6 +27,8 @@ function LinkAnotation({linkcontent, linkname, onDelete, id, favorite, onFavorit
                 </button>
             </div>
         </div>
+        <SecurityBox onDelete={() => onDelete(id)} onCancel={() => setBox(false)} boxVisible={boxVisible}/>
+        </>
     )
 }
 
