@@ -894,7 +894,7 @@ svg{
     text-align: center;
   }
   .infobutton{
-    justify-self: center;
+    width: 100%;
     justify-content: center;
     flex-direction: column;
   }
