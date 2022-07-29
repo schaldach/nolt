@@ -639,6 +639,7 @@ svg{
 }
 .wholething:hover .dropdownbutton{
   width: 32px;
+  margin-left: -1px;
   background-color: var(--color4);
   color: #ffffff;
   margin-top: -1px;
@@ -668,6 +669,7 @@ svg{
 }
 .menuview .dropdownbutton{
   width: 32px;
+  margin-left: -1px;
   margin-top: -1px;
   background-color: var(--color4);
   color: #ffffff;
