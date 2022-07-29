@@ -537,6 +537,7 @@ input, textarea{
   overflow: hidden;
 }
 .favoritelink{
+  padding: 0px 5px;
   outline: none;
   border:none;
   background-color: var(--color2s);
@@ -582,7 +583,7 @@ input, textarea{
   color: #ffffff
 }
 .linktext{
-  padding: 0.5vw;
+  padding: 5px;
   text-decoration: none;
   min-width: fit-content;
   color: var(--color4);
