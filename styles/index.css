@@ -376,6 +376,7 @@ main{
   font-family: var(--font1);
   font-size: 1.5vh;
   background-color: var(--color4);
+  border: 2px solid var(--color5);
   color: #ffffff;
   cursor: pointer;
 }
