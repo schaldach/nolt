@@ -465,7 +465,7 @@ input, textarea{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: auto;
+  width: 30px;
   height: 25px;
 }
 .deletebutton{
@@ -600,8 +600,8 @@ svg{
   overflow: visible;
 }
 .dropdownsvg{
-  height: 18px;
-  width: 18px;
+  height: 20px;
+  width: 20px;
 }
 .favanot:hover{
   transform: scale(1.05);
