@@ -34,6 +34,14 @@ function Home({user, syncrequest}) {
         addLinks(await syncNotetype('links'))
     }
 
+    function areThereFavorites(anotations){
+        let value = false
+        anotations.forEach(anotation => {
+            if(anotation.favorite){value = true}
+        })
+        return value
+    }
+
     function textToWrite(){
         let text
         if(allNumbers.notas+allNumbers.listas+allNumbers.links){
@@ -66,7 +74,7 @@ function Home({user, syncrequest}) {
                 {favoriteNotes.map(note => 
                 note.favorite?<FavoriteNote key={Math.random()} title={note.title} content={note.content}/>:''
                 )}
-                <div className='empty'>{!favoriteNotes.length?'Não há notas favoritas.':''}</div>
+                <div className='empty'>{areThereFavorites(favoriteNotes)?'':'Não há notas favoritas.'}</div>
             </div>
             <div className='favtitle'>Listas 
             <svg xmlns="http://www.w3.org/2000/svg" className='dropdownsvg' viewBox="0 0 20 20" fill="var(--color3)">
@@ -77,7 +85,7 @@ function Home({user, syncrequest}) {
                 {favoriteLists.map(list => 
                 list.favorite?<FavoriteList key={Math.random()} title={list.title} content={list.content}/>:''
                 )}
-                <div className='empty'>{!favoriteLists.length?'Não há listas favoritas.':''}</div>
+                <div className='empty'>{areThereFavorites(favoriteLists)?'':'Não há listas favoritas.'}</div>
             </div>
             <div className='favtitle'>Links 
             <svg xmlns="http://www.w3.org/2000/svg" className='dropdownsvg' viewBox="0 0 20 20" fill="var(--color3)">
@@ -88,7 +96,7 @@ function Home({user, syncrequest}) {
                 {favoriteLinks.map(link => 
                 link.favorite?<FavoriteLink key={Math.random()} name={link.name} href={link.href}/>:''
                 )}
-                <div className='empty'>{!favoriteLinks.length?'Não há links favoritos.':''}</div>
+                <div className='empty'>{areThereFavorites(favoriteLinks)?'':'Não há links favoritos.'}</div>
             </div>
         </div>
     )
