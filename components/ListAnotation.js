@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import ListItem from "./ListItem";
 import DropdownMenu from "./DropdownMenu"
+import SecurityBox from "./SecurityBox";
 
 function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFavorite }) {
     const [editMode, startEdit] = useState(list.isNew)

@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import SecurityBox from "./SecurityBox";
 
 function LinkAnotation({linkcontent, linkname, onDelete, id, favorite, onFavorite, link}) {
     const[boxVisible, setBox] = useState(false)
