@@ -347,12 +347,12 @@ main{
   top: -3px;
 }
 .wholething:nth-child(3n){
-  transform: rotate(-2deg);
-  top: 3px;
-}
-.wholething:nth-child(5n){
   transform: rotate(1deg);
   top: -2px;
+}
+.wholething:nth-child(5n){
+  transform: rotate(-2deg);
+  top: 3px;
 }
 .wholething:nth-child(7n){
   transform: rotate(-1deg);
