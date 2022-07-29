@@ -32,8 +32,6 @@ body, html{
 
 button, input{
   outline: none;
-  margin: 0px;
-  padding: 0px;
 }
 
 input,textarea,button,select,a, div {
