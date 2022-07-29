@@ -600,15 +600,15 @@ svg{
   overflow: visible;
 }
 .dropdownsvg{
-  height: 3vh;
-  width: 3vh;
+  height: 3.25vh;
+  width: 3.25vh;
 }
 .favanot:hover{
   transform: scale(1.05);
 }
 
 .functionality{
-  width: 4.5vh;
+  width: 4.75vh;
   display: flex;
   flex-direction: column;
   align-items: center;
