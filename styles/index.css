@@ -286,6 +286,7 @@ main{
 }
 
 .homebutton{
+  padding: 0px 4px;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -821,7 +822,7 @@ svg{
 }
 
 .savebutton{
-  padding: 5px;
+  padding: 2px 4px;
   height: fit-content;
   font-family: var(--font1);
   font-size: 3vh;
