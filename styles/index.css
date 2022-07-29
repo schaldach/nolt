@@ -537,7 +537,7 @@ input, textarea{
   overflow: hidden;
 }
 .favoritelink{
-  padding: 0px 10px;
+  padding: 0px 5px;
   outline: none;
   border:none;
   background-color: var(--color2s);
@@ -589,7 +589,7 @@ input, textarea{
   color: var(--color4);
 }
 .deletelinkbutton{
-  padding: 0px 10px;
+  padding: 0px 5px;
   height: 100%;
   width: 100%;
   border: none;
