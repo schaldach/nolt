@@ -640,10 +640,11 @@ svg{
 .wholething:hover .dropdownbutton{
   background-color: var(--color4);
   color: #ffffff;
+  margin-top: -1px;
 }
 .wholething:hover .functionality{
   overflow: visible;
-  height: 125px;
+  height: 124px;
   animation: growDown 0.375s linear;
   transform-origin: top center;
 }
@@ -661,10 +662,11 @@ svg{
 }
 .menuview{
   overflow: visible;
-  height: 125px;
+  height: 124px;
   animation: none !important;  
 }
 .menuview .dropdownbutton{
+  margin-top: -1px;
   background-color: var(--color4);
   color: #ffffff;
 }
@@ -796,12 +798,15 @@ svg{
   50% {
     height: 75px;
   }
+  79%{
+    overflow: hidden;
+  }
   80% {
     height: 150px;
+    overflow: visible;
   }
   100% {
-    height: 125px;
-    overflow: hidden;
+    height: 124px;
   }
 }
 
