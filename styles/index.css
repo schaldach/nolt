@@ -342,6 +342,22 @@ main{
   background-color: var(--color5);
 }
 
+.wholething:nth-child(even){
+  transform: rotate(-3deg);
+  top: 3px;
+}
+.wholething:nth-child(3n){
+  transform: rotate(3deg);
+  top: -3px;
+}
+.wholething:nth-child(4n){
+  transform: rotate(2deg);
+  top: -2px;
+}
+.wholething:nth-child(5n){
+  transform: rotate(-2deg);
+  top: 2px;
+}
 .wholething:hover{
   top: 0;
   transform: scale(1);
@@ -444,6 +460,7 @@ input, textarea{
   background: none;
   color: #000000;
   border: none;
+  outline: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
