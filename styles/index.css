@@ -32,6 +32,8 @@ body, html{
 
 button, input{
   outline: none;
+  margin: 0px;
+  padding: 0px;
 }
 
 input,textarea,button,select,a, div {
@@ -819,6 +821,7 @@ svg{
 }
 
 .savebutton{
+  padding: 5px;
   height: fit-content;
   font-family: var(--font1);
   font-size: 3vh;
