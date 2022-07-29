@@ -354,6 +354,10 @@ main{
   transform: rotate(1deg);
   top: -2px;
 }
+.wholething:nth-child(7n){
+  transform: rotate(-1deg);
+  top: 2px;
+}
 .wholething:hover{
   top: 0;
   transform: scale(1.15);
