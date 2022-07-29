@@ -670,7 +670,39 @@ svg{
   word-wrap: break-word;
 }
 
+.infobutton{
+  margin-top: 2vh;
+  font-size: 1.8vh;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-family: var(--font3);
+  gap: 10px;
+  outline: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color1);
+}
+.infobutton:hover{
+  color: var(--color4);
+}
+.infobutton:hover .infobox{
+  display: flex;
+}
+.infobox{
+  background-color: var(--color4);
+  width: fit-content;
+  border: var(--color5) solid 2px;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: left;
+  color: #ffffff !important;
+  display: none;
+}
+
 .status{
+  user-select: none;
   font-family: var(--font3);
   display: flex;
   align-items: center;
@@ -798,6 +830,10 @@ svg{
   }
   .titlesecond{
     text-align: center;
+  }
+  .infobutton{
+    justify-content: center;
+    flex-direction: column;
   }
   .displayanotations{
     justify-content: center;
