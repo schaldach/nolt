@@ -41,32 +41,61 @@ input,textarea,button,select,a, div {
 }
 
 .landingpage{
+  border: none;
   background-color: var(--color5);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
-  gap: 30px;
+  overflow-x: hidden;
+  padding-bottom: 10vh;
+  min-height: 90vh;
 }
 .landingpage .titulo{
   font-size: 15vh;
 }
 .upperlanding{
   width: 80vw;
-  padding: 6vh 10vw 10vh 10vw;  
+  padding: 4vh 10vw 10vh 10vw;  
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
   align-items: center;
 }
+.landingsvg{
+  color: #ffffff;
+  width: 150px;
+  height: 150px;
+}
+.landingtext{
+  font-family: var(--font1);
+  color: #ffffff;
+  font-size: 6vh;
+  font-weight: bold;
+}
+.landinggrid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.minor{
+  font-size: 3.5vh;
+  font-weight: normal;
+}
+.landingflex{
+  margin: 5vh 0;
+  display: flex;
+}
+.landinghalf{
+  text-align: left;
+  width: 50%;
+}
 .landingbutton{
-  margin-top: 20px;
   font-family: var(--font1);
   color: #ffffff;
   font-size: 5vh;
-  background: linear-gradient(to right, var(--color3), var(--color4));
+  background-color: var(--color4);
   border: none;
   border-radius: 30px;
   width: fit-content;
@@ -74,13 +103,22 @@ input,textarea,button,select,a, div {
   cursor: pointer;
 }
 .landingbutton:hover{
-  background: var(--color5);
+  background-color: var(--color5);
+}
+.tutorial{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80vw;
+  padding: 4vw 10vw;
 }
 .subtitle{
   color: var(--color1);
   font-family: var(--font1);
   font-size: 4vh;
 }
+
 .login{
   background-color: var(--color5);
   height: 100vh;
@@ -203,9 +241,6 @@ input,textarea,button,select,a, div {
 }
 
 .titulo{
-  display: flex;
-  flex-direction: column;
-  gap: 0px;
   font-family: var(--font2);
   color: var(--color1);
   font-size: 8vh;
