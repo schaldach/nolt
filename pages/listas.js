@@ -12,13 +12,13 @@ function Lists({user, reqsync}) {
     const [clickable, setClick] = useState(true)
     const [changed, setChange] = useState(true)
 
-    useInterval(() => {syncLists(allLists)},10000)
+    useInterval(() => {syncLists(allLists)},5000)
     
     useEffect(() => {
         syncLists(allLists)
     }, [user])
 
-    async function syncLists(lists, click){
+    async function syncLists(lists, click, auto){
         if(!user||!clickable||(!changed&&!click)){return}
         setClick(false)
         conectionMade(2)
@@ -50,7 +50,7 @@ function Lists({user, reqsync}) {
                     .eq('userid', user.id)
                 let formattedData = data
                 formattedData.sort((a,b) => {return a.id-b.id})
-                addList(formattedData)
+                if(!auto){addList(formattedData)}
                 conectionMade(0)
                 reqsync(Math.random())
                 setClick(true)

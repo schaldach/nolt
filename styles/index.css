@@ -95,13 +95,12 @@ input,textarea,button,select,a, div {
   color: #e61e1e;
 }
 .loginchangewrapper{
-  font-size: 2.5vh;
+  font-size: 2vh;
   font-family: var(--font3);
   display: flex;
   gap: 5px;
   align-items: center;
   justify-content: center;
-  margin-top: 1.5vh;
 }
 .loginchange{
   outline: none;
@@ -111,7 +110,7 @@ input,textarea,button,select,a, div {
   cursor: pointer;
   color: var(--color4);
   font-family: var(--font3);
-  font-size: 2.5vh;
+  font-size: 2vh;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -920,9 +919,6 @@ svg{
     justify-content: center;
     gap: 4vh;
   }
-  .loginchangewrapper{
-    flex-direction: column;
-  }
   .navbar{
     display: flex;
     flex-direction: column;
@@ -1003,7 +999,7 @@ svg{
     transform: rotate(0deg);
   }
   100%{
-    transform: rotate(359deg);
+    transform: rotate(-360deg);
   }
 }
 
@@ -1028,6 +1024,7 @@ svg{
   display: flex;
 }
 .useredit{
+  padding: 8px;
   background-color: var(--color4);
   border: none;
   outline: none;
@@ -1060,4 +1057,16 @@ svg{
 
 .displaynone{
   display: none;
+}
+
+.loadingscreen{
+  flex-direction: column;
+  color: #ffffff;
+  font-family: var(--font1);
+  gap: 15px;
+}
+
+.loadingsvg{
+  width: 15vh;
+  height: 15vh;
 }
