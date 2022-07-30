@@ -8,7 +8,7 @@ import FavoriteNote from "../components/SimpleAnotation"
 import FavoriteList from "../components/SimpleList"
 import FavoriteLink from "../components/SimpleLink"
 
-function Home({user, syncrequest}) {
+function Home({user}) {
     const [favoriteNotes, addNotes] = useState([])
     const [favoriteLists, addLists] = useState([])
     const [favoriteLinks, addLinks] = useState([])
@@ -16,7 +16,7 @@ function Home({user, syncrequest}) {
 
     useEffect(()=> {
         syncFavorites()
-    }, [user, syncrequest])
+    }, [user])
 
     async function syncNotetype(notetype){
         const { data, count } = await supabase

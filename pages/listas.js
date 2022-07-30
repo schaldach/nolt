@@ -5,14 +5,14 @@ import SecondTitle from "../components/SecondTitle"
 import useInterval from "../components/UseInterval"
 import InfoBox from "../components/InfoBox"
 
-function Lists({user, reqsync}) {
+function Lists({user}) {
     const [animation, startAnimation] = useState(false)
     const [allLists, addList] = useState([])
     const [sucessAnimation, conectionMade] = useState(0)
     const [clickable, setClick] = useState(true)
     const [changed, setChange] = useState(true)
 
-    useInterval(() => {syncLists(allLists)},5000)
+    useInterval(() => {syncLists(allLists, false, true)},5000)
     
     useEffect(() => {
         syncLists(allLists)
@@ -44,15 +44,18 @@ function Lists({user, reqsync}) {
                     .upsert(newLists)
             })
             .then( async () => {
-                const { data } = await supabase
-                    .from('listas')
-                    .select('*')
-                    .eq('userid', user.id)
-                let formattedData = data
-                formattedData.sort((a,b) => {return a.id-b.id})
-                if(!auto){addList(formattedData)}
+                let anyNew = false
+                allLists.forEach(list => {if(list.isNew){anyNew=true}})
+                if(!auto||anyNew){
+                    const { data } = await supabase
+                        .from('listas')
+                        .select('*')
+                        .eq('userid', user.id)
+                    let formattedData = data
+                    formattedData.sort((a,b) => {return a.id-b.id})
+                    addList(formattedData)
+                }
                 conectionMade(0)
-                reqsync(Math.random())
                 setClick(true)
                 setChange(false)
             })

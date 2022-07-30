@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { supabase } from "../utils/supabaseClient"
 
-function Auth({throwError, reqlog, errorMessage}) {
+function Auth({throwError, reqlog, errorMessage, setProject}) {
     const [login, changeMode] = useState(true)
     const [currentEmail, updateEmail] = useState('')
     const [currentPassword, updatePassword] = useState('')
@@ -45,10 +45,13 @@ function Auth({throwError, reqlog, errorMessage}) {
     return (
         <div className="login">
             <div className="loginbox">
-                <div className="titulo">nolt</div>
+                <div className='titulo'>
+                <div>nolt</div>
+                <Link href='/'><div onClick={() => setProject(true)} className="loginlink">Ir à Página inicial</div></Link>
+                </div>
                 <div className="logintext">{login?'Login':'Cadastro'}</div>
                 <div className="divinput"><input type='text' onInput={e => updateEmail(e.target.value)} value={currentEmail} placeholder='Email'></input></div>
-                <div className="divinput">
+                <div className="divinput minorpadding">
                     <input type={passwordVisible?'text':'password'} onInput={e => updatePassword(e.target.value)} value={currentPassword} placeholder='Senha'></input>
                     <button onClick={() => setVisible(!passwordVisible)}>
                         <svg xmlns="http://www.w3.org/2000/svg" className='loginsvg' viewBox="0 0 20 20" fill={passwordVisible?'var(--color4)':'#000000'}>

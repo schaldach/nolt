@@ -40,6 +40,47 @@ input,textarea,button,select,a, div {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
+.landingpage{
+  background-color: var(--color5);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  gap: 30px;
+}
+.landingpage .titulo{
+  font-size: 15vh;
+}
+.upperlanding{
+  width: 80vw;
+  padding: 6vh 10vw 10vh 10vw;  
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+.landingbutton{
+  margin-top: 20px;
+  font-family: var(--font1);
+  color: #ffffff;
+  font-size: 5vh;
+  background: linear-gradient(to right, var(--color3), var(--color4));
+  border: none;
+  border-radius: 30px;
+  width: fit-content;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+.landingbutton:hover{
+  background: var(--color5);
+}
+.subtitle{
+  color: var(--color1);
+  font-family: var(--font1);
+  font-size: 4vh;
+}
 .login{
   background-color: var(--color5);
   height: 100vh;
@@ -50,7 +91,7 @@ input,textarea,button,select,a, div {
   text-align: center;
 }
 .loginbox{
-  padding: 5vh 0;
+  padding: 4vh 0 6vh 0;
   height: 65vh;
   width: 40vw;
   border-radius: 10px;
@@ -71,13 +112,12 @@ input,textarea,button,select,a, div {
   outline: none;
   background-color: #ffffff;
   border: none;
-}
-.divinput input{
-  font-size: 2.2vh;
+  width: fit-content;
+  height: fit-content;
 }
 .loginsvg{
-  width: 4.25vh;
-  height: 4.25vh;
+  width: 2.5vh;
+  height: 2.5vh;
 }
 .loginbox .divinput{
   display: flex;
@@ -85,6 +125,9 @@ input,textarea,button,select,a, div {
   border: solid 2px var(--color4);
   padding: 2vh 1vh;
   font-size: 2.5vh;
+}
+.loginbox .minorpadding{
+  padding: 1vh;
 }
 .logintext{
   font-size: 4vh;
@@ -148,8 +191,21 @@ input,textarea,button,select,a, div {
   align-items: center;
   background: var(--color2p);
 }
+.loginlink{
+  font-family: var(--font3);
+  color: var(--color4);
+  font-weight: normal;
+  cursor: pointer;
+  font-size: 2vh;
+}
+.loginlink:hover{
+  color: var(--color5);
+}
 
 .titulo{
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
   font-family: var(--font2);
   color: var(--color1);
   font-size: 8vh;
@@ -254,9 +310,17 @@ main{
   bottom: 0;
   left: 0;
   height: 3vh;
+  gap: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.footerlink{
+  color: var(--color3);
+  cursor: pointer;
+}
+.footerlink:hover{
+  color: var(--color4);
 }
 
 .darkmode{

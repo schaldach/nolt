@@ -12,8 +12,7 @@ function MyApp({ Component, pageProps }) {
   const[errorMessage, throwError] = useState(false)
   const[darkMode, setDarkMode] = useState(false)
   const[settable, releaseLocalStorage] = useState(false)
-  const[syncrequest,reqsync] = useState(null)
-  const[updaterequest, requpd] = useState(null)
+  const[project, setProject] = useState(false)
 
   useEffect(() => {
     let storedDarkMode = JSON.parse(localStorage.getItem('dark'))
@@ -28,13 +27,16 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     async function fetch(){
+      const router = Router
+      let {pathname} = router
+      if(pathname==='/'){setProject(true)}
       const newUser = supabase.auth.user()
       if(!newUser){ 
         throwError(true)
-        Router.push('/auth')
+        if(pathname!=='/'){Router.push('/auth')}
         return
       }
-      Router.push('/home')
+      if(pathname!=='/'){Router.push('/home')}
       const { data } = await supabase
         .from('profiles')
         .select('*')
@@ -43,14 +45,12 @@ function MyApp({ Component, pageProps }) {
       setUser(data)
     }
     fetch()
-  }, [loginrequest, updaterequest])
+  }, [loginrequest])
 
-  useEffect(() => throwError(false), [])
-
-  if(!user){
+  if(!user||project){
     return(
     <div data-theme={darkMode?'dark':'light'}>
-      <Component reqlog={reqlog} errorMessage={errorMessage} throwError={throwError}/>
+      <Component user={user} setProject={setProject} reqlog={reqlog} errorMessage={errorMessage} throwError={throwError}/>
     </div> 
     )
   }
@@ -61,10 +61,9 @@ function MyApp({ Component, pageProps }) {
     </Head>
     <NavBar darkMode={darkMode} setDarkMode={setDarkMode}/>
     <main>
-      <Component requpd={requpd} syncrequest={syncrequest} reqsync={reqsync} reqlog={reqlog} 
-      errorMessage={errorMessage} throwError={throwError} user={user} {...pageProps} />
+      <Component reqlog={reqlog} user={user} {...pageProps} errorMessage={errorMessage} throwError={throwError}/>
     </main>
-    <PageFooter/>
+    <PageFooter setProject={setProject}/>
   </div>
   )
 }

@@ -4,7 +4,7 @@ import { supabase } from "../utils/supabaseClient"
 import { useState } from "react"
 import Router from 'next/router'
 
-function Profile({user, requpd}) {
+function Profile({user, reqlog}) {
     const [username, setUsername] = useState('')
     const [bio, setBio] = useState('')
     const [email, setEmail] = useState('')
@@ -35,15 +35,17 @@ function Profile({user, requpd}) {
             .match({'email':user.email})
             .then(() => {
                 setConnection(0)
-                requpd(Math.random())
+                reqlog(Math.random())
             })
     }
 
     async function logout() {
         const eba = await supabase.auth.signOut()
         .then(() => {
-            requpd(Math.random())
-            Router.reload()
+            Router.push('/auth')
+            .then( async () => {
+                Router.reload()
+            })
         })
     }
     

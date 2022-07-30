@@ -5,20 +5,20 @@ import SecondTitle from "../components/SecondTitle"
 import useInterval from "../components/UseInterval"
 import InfoBox from "../components/InfoBox"
 
-function Notes({user, reqsync}) {
+function Notes({user}) {
     const [animation, startAnimation] = useState(false)
     const [allNotes, addNote] = useState([])
     const [sucessAnimation, conectionMade] = useState(0)
     const [clickable, setClick] = useState(true)
     const [changed, setChange] = useState(true)
 
-    useInterval(() => {syncNotes(allNotes)},5000)
+    useInterval(() => {syncNotes(allNotes, false, true)},5000)
 
     useEffect(() => {
         syncNotes(allNotes)
     }, [user])
 
-    async function syncNotes(notes, click) {
+    async function syncNotes(notes, click, auto) {
         if(!user||!clickable||(!changed&&!click)){return}
         setClick(false)
         conectionMade(2)
@@ -44,15 +44,18 @@ function Notes({user, reqsync}) {
                     .upsert(newNotes)
             })
             .then( async () => {
-                const { data } = await supabase
-                    .from('notas')
-                    .select('*')
-                    .eq('userid', user.id)
-                let formattedData = data
-                formattedData.sort((a,b) => {return a.id-b.id})
-                addNote(formattedData)
+                let anyNew = false
+                allNotes.forEach(note => {if(note.isNew){anyNew=true}})
+                if(!auto||anyNew){
+                    const { data } = await supabase
+                        .from('notas')
+                        .select('*')
+                        .eq('userid', user.id)
+                    let formattedData = data
+                    formattedData.sort((a,b) => {return a.id-b.id})
+                    addNote(formattedData)
+                }
                 conectionMade(0)
-                reqsync(Math.random())
                 setClick(true)
                 setChange(false)
             })

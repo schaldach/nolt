@@ -6,7 +6,7 @@ import SecondTitle from "../components/SecondTitle"
 import useInterval from "../components/UseInterval"
 import InfoBox from "../components/InfoBox"
 
-function Links({user, reqsync}) {
+function Links({user}) {
     const [animation, startAnimation] = useState(false)
     const [allLinks,addLink] = useState([])
     const [sucessAnimation, conectionMade] = useState(0)
@@ -14,7 +14,7 @@ function Links({user, reqsync}) {
     const [clickable, setClick] = useState(true)
     const [changed, setChange] = useState(true)
 
-    useInterval(() => {syncLinks(allLinks)},5000)
+    useInterval(() => {syncLinks(allLinks, false, true)},5000)
 
     useEffect(() => {
         syncLinks(allLinks)
@@ -46,15 +46,18 @@ function Links({user, reqsync}) {
                     .upsert(oldLinks)
             })
             .then( async () => {
-                const { data } = await supabase
-                    .from('links')
-                    .select('*')
-                    .eq('userid', user.id)
-                let formattedData = data
-                formattedData.sort((a,b) => {return a.id-b.id})
-                if(!auto){addLink(formattedData)}
+                let anyNew = false
+                allLinks.forEach(link => {if(link.isNew){anyNew=true}})
+                if(!auto||anyNew){
+                    const { data } = await supabase
+                        .from('links')
+                        .select('*')
+                        .eq('userid', user.id)
+                    let formattedData = data
+                    formattedData.sort((a,b) => {return a.id-b.id})
+                    addLink(formattedData)
+                }
                 conectionMade(0)
-                reqsync(Math.random())
                 setClick(true)
                 setChange(false)
             })
