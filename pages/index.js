@@ -17,7 +17,7 @@ function Project({setProject, user}) {
                 </svg>
                 <div className="landingtext">Como funciona?</div>
                 <div className="landingtext minor">Após criar sua conta, você terá acesso ao site, onde
-                poderá fazer anotações. Elas incluem notas, listas, links e grupos, com o objetivo de
+                poderá fazer anotações.<br/> Elas incluem notas, listas, links e grupos, com o objetivo de
                 ajudar na sua organização pessoal.
                 </div>
                 <div className="landinggrid">

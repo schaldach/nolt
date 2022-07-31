@@ -33,13 +33,13 @@ function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite
         </div>
         <div className={editMode?'anot editting':'anot'}>
             <div>
-                <div className={!editMode?'anottitle':'displaynone anottitle'}>{title}</div>
-                <input onKeyDown={(e) => handleTextFocus(e)} className={editMode?'anottitle':'displaynone anottitle'} type='text' 
+                <div className={!editMode?'anottitle':'displaynone'}>{title}</div>
+                <input onKeyDown={(e) => handleTextFocus(e)} className={editMode?'anottitle':'displaynone'} type='text' 
                 value={title} onInput={e => onEdit(e.target.value, content, note)} placeholder='Título'/>
             </div>
             <div>
-                <div className={!editMode?'anotcontent':'displaynone anotcontent'}>{content}</div>
-                <textarea ref={searchInput} className={editMode?'anotcontent':'displaynone anotcontent'} type='text' 
+                <div className={!editMode?'anotcontent':'displaynone'}>{content}</div>
+                <textarea ref={searchInput} className={editMode?'anotcontent':'displaynone'} type='text' 
                 value={content} onInput={e => onEdit(title, e.target.value, note)} placeholder='Conteúdo'/>
             </div>
         </div>

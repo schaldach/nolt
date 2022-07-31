@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SecondTitle from "../components/SecondTitle";
 import InfoBox from "../components/InfoBox";
+import Group from '../components/Group'
 
 function Groups({user}) {
     const [animation, startAnimation] = useState(false)
@@ -11,6 +12,31 @@ function Groups({user}) {
     const [allNotes, addNote] = useState([])
     const [allLists, addList] = useState([])
     const [allLinks, addLink] = useState([])
+
+    function addGroup(){
+        setChange(true)
+        let newGroup = { title: 'Novo grupo', notes:[], lists:[], links:[], id: Math.floor(Math.random() * 9999999999), isNew:true, favorite:false}
+        setGroups([...allGroups, newGroup])
+        conectionMade(1)
+    }
+
+    function onEdit(group, title){
+        setChange(true)
+        let newGroups = [...allGroups]
+        const index = newGroups.indexOf(group)
+        newGroups[index].title = title
+        setGroups(newGroups)
+        conectionMade(1)
+    }
+
+    function onFavorite(group){
+        setChange(true)
+        let newGroups = [...allGroups]
+        const index = newGroups.indexOf(group)
+        newGroups[index].favorite = !newGroups[index].favorite
+        setGroups(newGroups)
+        conectionMade(1)
+    }
 
     async function syncGroups(groups, click, auto){
 
@@ -53,8 +79,15 @@ function Groups({user}) {
                 </div>
             </div>
             <div className="displaygroups">
-                <button className="addgroup"></button>
-                {allGroups.map(group => {})}
+                <button className="addgroup" onClick={addGroup}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="navbarsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                </button>
+                {allGroups.map(group => {
+                    <Group notes={group.notes} lists={group.lists} links={group.links}
+                    title={group.title} key={Math.random()}/>
+                })}
             </div>
         </div>
     )

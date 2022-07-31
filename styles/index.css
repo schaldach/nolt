@@ -30,7 +30,9 @@ body, html{
   background: var(--color2s);
 }
 
-button, input{
+button, input, textarea{
+  color: inherit;
+  background-color: inherit;
   outline: none;
   margin: 0px;
   padding: 0px;
@@ -89,7 +91,7 @@ a{
 }
 .minor{
   margin: 20px 0;
-  font-size: 3.3vh;
+  font-size: 3vh;
   font-weight: normal;
 }
 .landingflex{
@@ -103,7 +105,7 @@ a{
   color: var(--color1);
 }
 .landinghalf{
-  max-width: 550px;
+  max-width: 650px;
 }
 
 .blacklink{
@@ -183,9 +185,9 @@ a{
   font-family: var(--font1);
 }
 .secondlanding{
-  width: 90vw;
+  width: 95vw;
   gap: 0;
-  padding: 1vh 5vw 3vh 5vw;
+  padding: 1vh 2.5vw 3vh 2.5vw;
 }
 
 .login{
@@ -845,7 +847,7 @@ svg{
 }
 
 .listinstruction{
-  color: #696969;
+  color: #808080;
   user-select: none;
   font-size: 1.6vh;
 }
@@ -1238,6 +1240,35 @@ svg{
   width: 5.5vh;
   height: 5.5vh;
   margin-left: 1.5vh;
+}
+
+.addgroup{
+  margin-top: 1.5vh;
+  width: 100%;
+  border: dashed var(--color4);
+  border-width: 0 0 2px 0;
+  display: flex;
+  background-color: var(--color2s);
+  cursor: pointer;
+  color: var(--color4);
+}
+.addgroup:hover{
+  border-color: var(--color5);
+  color: var(--color5);
+}
+.grouptitle{
+  width: 100%;
+  border: solid var(--color4);
+  border-width: 0 0 2px 0;
+}
+.group{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.specificgroup{
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .displaynone{
