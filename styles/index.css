@@ -394,7 +394,7 @@ a{
 
 .titlesecond{
   text-align: left;
-  font-size: 4.5vh;
+  font-size: 3.8vh;
   font-weight: bold;
   font-family: var(--font1);
   color: var(--color1);
@@ -856,8 +856,7 @@ svg{
 
 .infobutton{
   margin-left: 6px;
-  margin-top: 2vh;
-  width: fit-content;
+  margin-top: 8px;
   font-family: var(--font3);
   outline: none;
   background: none;
@@ -871,14 +870,15 @@ svg{
 .infobutton:hover ~.infobox{
   display: flex;
 }
+
 .infoflex{
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 }
 .infosvg{
-  width: 4vh;
-  height: 4vh;
+  width: 3.75vh;
+  height: 3.75vh;
 }
 .infobox{
   background-color: var(--color4);
@@ -1036,7 +1036,7 @@ svg{
 .wrapdiv{
   display: flex;
   gap: 30px;
-  margin: 1.5vh 0 1vh 0;
+  margin: 2vh 0 1vh 0;
   box-shadow: none;
   width: fit-content;
   height: fit-content;
@@ -1082,6 +1082,9 @@ svg{
   }
   .homebutton::before{
     content: 'Leve-me lá';
+  }
+  .titlesecond{
+    text-align: center;
   }
   .loginbox{
     width: 60vw;

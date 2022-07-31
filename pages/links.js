@@ -47,7 +47,7 @@ function Links({user}) {
             })
             .then( async () => {
                 let anyNew = false
-                allLinks.forEach(link => {if(link.isNew){anyNew=true}})
+                links.forEach(link => {if(link.isNew){anyNew=true}})
                 if(!auto||anyNew){
                     const { data } = await supabase
                         .from('links')

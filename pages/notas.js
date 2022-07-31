@@ -45,7 +45,7 @@ function Notes({user}) {
             })
             .then( async () => {
                 let anyNew = false
-                allNotes.forEach(note => {if(note.isNew){anyNew=true}})
+                notes.forEach(note => {if(note.isNew){anyNew=true}})
                 if(!auto||anyNew){
                     const { data } = await supabase
                         .from('notas')

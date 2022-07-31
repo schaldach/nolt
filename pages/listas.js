@@ -45,7 +45,7 @@ function Lists({user}) {
             })
             .then( async () => {
                 let anyNew = false
-                allLists.forEach(list => {if(list.isNew){anyNew=true}})
+                lists.forEach(list => {if(list.isNew){anyNew=true}})
                 if(!auto||anyNew){
                     const { data } = await supabase
                         .from('listas')
