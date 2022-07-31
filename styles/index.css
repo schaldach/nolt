@@ -40,33 +40,38 @@ input,textarea,button,select,a, div {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
+a{
+  color: inherit;
+}
+
 .landingpage{
   border: none;
-  background-color: var(--color5);
+  background-color: #2155CD;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
-  padding-bottom: 10vh;
-  min-height: 90vh;
+  min-height: 100vh;
 }
 .landingpage .titulo{
-  font-size: 15vh;
+  font-size: 80px;
+  color: #000000;
 }
 .upperlanding{
   width: 80vw;
-  padding: 4vh 10vw 10vh 10vw;  
+  padding: 4vh 10vw;  
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 15px;
   align-items: center;
 }
 .landingsvg{
   color: #ffffff;
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
+  margin: 10px 0;
 }
 .landingtext{
   font-family: var(--font1);
@@ -75,48 +80,106 @@ input,textarea,button,select,a, div {
   font-weight: bold;
 }
 .landinggrid{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  max-width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0 50px 0;
+  gap: 20px;
+  justify-content: center;
 }
 .minor{
+  margin: 20px 0;
   font-size: 3.5vh;
   font-weight: normal;
 }
 .landingflex{
-  margin: 5vh 0;
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+.blacktext{
+  color: #000000;
 }
 .landinghalf{
-  text-align: left;
-  width: 50%;
+  width: 45%;
 }
+
+.blacklink{
+  color: #000000;
+  text-decoration: none;
+}
+.greenlink{
+  color: #34b27b;
+  text-decoration: none;
+}
+.purplelink{
+  color: #390b6d;
+  text-decoration: none;
+}
+.purplelink:hover, .greenlink:hover, .blacklink:hover{
+  text-decoration: underline;
+}
+
 .landingbutton{
   font-family: var(--font1);
   color: #ffffff;
-  font-size: 5vh;
-  background-color: var(--color4);
+  font-size: 6vh;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  background-color: #0AA1DD;
   border: none;
-  border-radius: 30px;
+  border-radius: 50px;
   width: fit-content;
-  padding: 10px 30px;
+  padding: 10px 25px;
   cursor: pointer;
 }
 .landingbutton:hover{
-  background-color: var(--color5);
+  background-color: #2155CD;
 }
+
 .tutorial{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 80vw;
-  padding: 4vw 10vw;
+  max-width: 900px;
+  padding: 1vh 10vw;
 }
 .subtitle{
-  color: var(--color1);
+  color: #000000;
   font-family: var(--font1);
   font-size: 4vh;
+}
+.card{
+  background-color: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  gap: 5px;
+  padding: 15px;
+  width: 300px;
+  height: 150px;
+  align-items: center;
+  border: 2px solid #2155CD;
+}
+.card:hover{
+  transform: scale(1.05);
+  border-color: #50cdff;
+}
+.cardsvg{
+  width: 100px;
+  height: 100px;
+}
+.cardanotation{
+  font-size: 25px;
+  font-family: var(--font1);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.carddescription{
+  font-size: 16px;
+  font-family: var(--font1);
 }
 
 .login{
@@ -165,7 +228,7 @@ input,textarea,button,select,a, div {
   font-size: 2.5vh;
 }
 .loginbox .minorpadding{
-  padding: 1vh;
+  padding: 0.75vh;
 }
 .logintext{
   font-size: 4vh;
@@ -176,8 +239,8 @@ input,textarea,button,select,a, div {
   color: #e61e1e;
 }
 .loginchangewrapper{
-  font-size: 2vh;
-  font-family: var(--font3);
+  font-size: 2.25vh;
+  font-family: var(--font1);
   display: flex;
   gap: 5px;
   align-items: center;
@@ -190,8 +253,8 @@ input,textarea,button,select,a, div {
   background-color: #ffffff;
   cursor: pointer;
   color: var(--color4);
-  font-family: var(--font3);
-  font-size: 2vh;
+  font-family: var(--font1);
+  font-size: 2.25vh;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -230,11 +293,11 @@ input,textarea,button,select,a, div {
   background: var(--color2p);
 }
 .loginlink{
-  font-family: var(--font3);
+  font-family: var(--font1);
   color: var(--color4);
   font-weight: normal;
   cursor: pointer;
-  font-size: 2vh;
+  font-size: 2.25vh;
 }
 .loginlink:hover{
   color: var(--color5);

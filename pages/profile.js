@@ -6,7 +6,6 @@ import Router from 'next/router'
 
 function Profile({user, reqlog}) {
     const [username, setUsername] = useState('')
-    const [bio, setBio] = useState('')
     const [email, setEmail] = useState('')
     const [editMode, startEdit] = useState(false)
     const [connectionStatus, setConnection] = useState(0)
@@ -18,12 +17,11 @@ function Profile({user, reqlog}) {
 
     useEffect(() => {
         setConnection(1)
-    }, [username, bio, email])
+    }, [username, email])
 
     function getProfile(){
         if(!user){return}
         setUsername(user.username)
-        setBio(user.bio)
         setEmail(user.email)
     }
 
@@ -31,7 +29,7 @@ function Profile({user, reqlog}) {
         setConnection(2)
         const eba = await supabase
             .from('profiles')
-            .update({'username':username, 'bio':bio})
+            .update({'username':username})
             .match({'email':user.email})
             .then(() => {
                 setConnection(0)
@@ -55,7 +53,6 @@ function Profile({user, reqlog}) {
             <div className="secondtext userdata">
                 <div>Email: {email}</div>
                 <div>Usuário: {editMode?<input autoFocus value={username} placeholder={'Usuário...'} onInput={e => setUsername(e.target.value)}></input>:username}</div>
-                <div>{editMode?<input value={bio} placeholder={'Biografia...'} onInput={e => setBio(e.target.value)}></input>:bio}</div>
             </div>
             <div className="justifycenter">
                 <div className="editprofilebuttons">
