@@ -65,8 +65,8 @@ function Project({setProject, user}) {
                 </div>
                 <div className="landingfooter">
                     <div className="landingtext minor">Este site foi desenvolvido com&#160;
-                        <span><a className="blacklink" href="https://nextjs.org/" target='_blank'>Next.js</a></span>&#160;e&#160;<span><a className="greenlink" href="https://supabase.com/" target='_blank'>Supabase</a></span>
-                        &#160;por <span><a className="purplelink" href="https://github.com/schaldach" target='_blank'>Gabriel Schaldach Morgado</a></span></div>
+                        <span><a className="blacklink" href="https://nextjs.org/" target='_blank' rel='noreferrer'>Next.js</a></span>&#160;e&#160;<span><a className="greenlink" href="https://supabase.com/" target='_blank' rel='noreferrer'>Supabase</a></span>
+                        &#160;por <span><a className="purplelink" href="https://github.com/schaldach" target='_blank' rel='noreferrer'>Gabriel Schaldach Morgado</a></span></div>
                 </div>
             </div>
         </div>
