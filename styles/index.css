@@ -69,8 +69,8 @@ a{
 }
 .landingsvg{
   color: #ffffff;
-  width: 125px;
-  height: 125px;
+  width: 100px;
+  height: 100px;
   margin: 10px 0;
 }
 .landingtext{
@@ -96,14 +96,14 @@ a{
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 20px;
+  gap: 5px;
   justify-content: center;
 }
 .blacktext{
   color: #000000;
 }
 .landinghalf{
-  width: 45%;
+  max-width: 500px;
 }
 
 .blacklink{
@@ -140,12 +140,12 @@ a{
 }
 
 .tutorial{
+  width: 85vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 900px;
-  padding: 1vh 10vw;
+  padding: 1vh 7.5vw;
 }
 .subtitle{
   color: #000000;
@@ -404,7 +404,7 @@ main{
   background: var(--color5);
   color: #ffffff;
   font-family: var(--font1);
-  font-size: 1.5vh;
+  font-size: 1.4vh;
   bottom: 0;
   left: 0;
   height: 3vh;

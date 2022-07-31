@@ -45,13 +45,23 @@ function Project({setProject, user}) {
                         </svg>
                     </AnotationCard>
                 </div>
-                <div className="upperlanding landingflex">
-                    <div className="landingtext landinghalf minor blacktext">Os seus dados ficarão salvos na sua conta para que você possa acessá-los em qualquer dispositivo
-                    que também esteja logado. 
+                <div className="upperlanding">
+                    <div className="landingflex">
+                        <div className="landingtext landinghalf minor blacktext">Os seus dados ficarão salvos na sua conta para que você possa acessá-los em qualquer dispositivo
+                        que também esteja logado. 
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="landingsvg blacktext" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                        </svg>
                     </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="landingsvg blacktext" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                    </svg>
+                    <div className="landingflex">
+                        <div className="landingtext landinghalf minor blacktext">Ele é totalmente compatível tanto com computadores quanto celulares &#40;responsivo&#41;
+                        para aumentar a flexibilidade de acesso.
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="landingsvg blacktext" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                    </div>
                 </div>
                 <div className="landingfooter">
                     <div className="landingtext minor">Este site foi desenvolvido com&#160;
