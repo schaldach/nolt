@@ -49,7 +49,7 @@ function MyApp({ Component, pageProps }) {
 
   if(!user||project){
     return(
-    <div data-theme={darkMode?'dark':'light'}>
+    <div>
       <Component user={user} setProject={setProject} reqlog={reqlog} errorMessage={errorMessage} throwError={throwError}/>
     </div> 
     )

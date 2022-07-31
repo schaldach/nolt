@@ -114,8 +114,10 @@ function Lists({user}) {
 
     return (
         <div>
+            <div className="infoflex">
             <SecondTitle titlecontent='Anotações' extra='/Listas'/>
             <InfoBox/>
+            </div>
             <div className='flex'>
                 <div className={animation ? 'panimation wrapdiv' : 'wrapdiv'} onAnimationEnd={() => startAnimation(false)}>
                     <button className='savebutton' onClick={pulseAnimation}>Salvar Listas</button>

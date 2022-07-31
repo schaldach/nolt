@@ -101,8 +101,10 @@ function Links({user}) {
 
     return (
         <div>
+            <div className="infoflex">
             <SecondTitle titlecontent='Anotações' extra='/Links'/>
             <InfoBox/>
+            </div>
             <div className='flex'>
                 <div className={animation ? 'panimation wrapdiv' : 'wrapdiv'} onAnimationEnd={() => startAnimation(false)}>
                     <button className='savebutton' onClick={pulseAnimation}>Salvar Links</button>

@@ -108,8 +108,10 @@ function Notes({user}) {
 
     return (
         <div>
+            <div className="infoflex">
             <SecondTitle titlecontent='Anotações' extra='/Notas'/>
             <InfoBox/>
+            </div>
             <div className='flex'>
                 <div className={animation ? 'panimation wrapdiv' : 'wrapdiv'} onAnimationEnd={() => startAnimation(false)}>
                     <button className='savebutton' onClick={pulseAnimation}>Salvar Notas</button>

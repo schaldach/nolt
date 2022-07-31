@@ -46,7 +46,7 @@ a{
 
 .landingpage{
   border: none;
-  background-color: #2155CD;
+  background-color: var(--color5);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -61,14 +61,14 @@ a{
 .upperlanding{
   width: 80vw;
   padding: 4vh 10vw;  
-  background-color: #ffffff;
+  background-color: var(--color2p);
   display: flex;
   flex-direction: column;
   gap: 15px;
   align-items: center;
 }
 .landingsvg{
-  color: #ffffff;
+  color: var(--color2p);
   width: 100px;
   height: 100px;
   margin: 10px 0;
@@ -89,7 +89,7 @@ a{
 }
 .minor{
   margin: 20px 0;
-  font-size: 3.5vh;
+  font-size: 3.3vh;
   font-weight: normal;
 }
 .landingflex{
@@ -100,14 +100,14 @@ a{
   justify-content: center;
 }
 .blacktext{
-  color: #000000;
+  color: var(--color1);
 }
 .landinghalf{
-  max-width: 500px;
+  max-width: 550px;
 }
 
 .blacklink{
-  color: #000000;
+  color: var(--color1);
   text-decoration: none;
 }
 .greenlink{
@@ -128,7 +128,7 @@ a{
   font-size: 6vh;
   margin-top: 20px;
   margin-bottom: 40px;
-  background-color: #0AA1DD;
+  background-color: var(--color4);
   border: none;
   border-radius: 50px;
   width: fit-content;
@@ -136,7 +136,7 @@ a{
   cursor: pointer;
 }
 .landingbutton:hover{
-  background-color: #2155CD;
+  background-color: var(--color5);
 }
 
 .tutorial{
@@ -148,7 +148,7 @@ a{
   padding: 1vh 7.5vw;
 }
 .subtitle{
-  color: #000000;
+  color: var(--color1);
   font-family: var(--font1);
   font-size: 4vh;
 }
@@ -161,11 +161,12 @@ a{
   width: 300px;
   height: 150px;
   align-items: center;
-  border: 2px solid #2155CD;
+  border: 3px solid var(--color5);
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.75);
 }
 .card:hover{
   transform: scale(1.05);
-  border-color: #50cdff;
+  border-color: var(--color4);
 }
 .cardsvg{
   width: 100px;
@@ -180,6 +181,11 @@ a{
 .carddescription{
   font-size: 16px;
   font-family: var(--font1);
+}
+.secondlanding{
+  width: 90vw;
+  gap: 0;
+  padding: 1vh 5vw 3vh 5vw;
 }
 
 .login{
@@ -206,12 +212,12 @@ a{
 }
 .loginbox .titulo{
   font-size: 10vh;
-  color: #000000;
+  color: var(--color1);
 }
 .divinput button{
   cursor: pointer;
   outline: none;
-  background-color: #ffffff;
+  background-color: var(--color2p);
   border: none;
   width: fit-content;
   height: fit-content;
@@ -250,7 +256,7 @@ a{
   outline: none;
   border: none;
   width: fit-content;
-  background-color: #ffffff;
+  background-color: var(--color2p);
   cursor: pointer;
   color: var(--color4);
   font-family: var(--font1);
@@ -412,6 +418,9 @@ main{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.foot::before{
+  content: 'Desenvolvido por Schaldach com Next.js e Supabase';
 }
 .footerlink{
   color: var(--color3);
@@ -613,14 +622,16 @@ input, textarea{
   font-weight: bold;
   overflow: hidden;
   text-overflow: ellipsis;
-  background-color: #ffffff;
+  background-color: var(--color2p);
+  color: var(--color1);
   font-family: var(--font2);
 }
 
 .anotcontent{
   white-space: normal;
   word-wrap: break-word;
-  background-color: #ffffff;
+  background-color: var(--color2p);
+  color: var(--color1);
   font-family: var(--font2);
   font-size: 2.25vh;
   overflow: auto;
@@ -701,7 +712,7 @@ input, textarea{
   padding: 0px 5px;
   outline: none;
   border:none;
-  background-color: var(--color2s);
+  background-color: var(--color2p);
   color: var(--color4);
   cursor: pointer;
   height: 100%;
@@ -709,7 +720,7 @@ input, textarea{
 }
 .favoritelink:hover{
   background-color: var(--color4);
-  color: var(--color2s);
+  color: var(--color2p);
 }
 .linkimage{
   width: 4vh;
@@ -722,7 +733,8 @@ input, textarea{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: var(--color2p);
+  color: var(--color1);
   border: solid var(--color4) 2px;
   font-size: 3.5vh;
   font-family: var(--font3);
@@ -735,10 +747,6 @@ input, textarea{
 }
 .littlelink:hover{
   background-color: var(--color4);
-}
-.littlelink:hover .deletelinkbutton{
-  background-color: var(--color4);
-  color: #ffffff
 }
 .littlelink:hover .linktext{
   color: #ffffff
@@ -756,11 +764,11 @@ input, textarea{
   border: none;
   cursor: pointer;
   color: #e61e1e;
-  background-color: var(--color2s);
+  background-color: var(--color2p);
   outline: none;
 }
 .deletelinkbutton:hover{
-  color: var(--color2s);
+  color: var(--color2p);
   background-color: #e61e1e !important;
 }
 .requestdata{
@@ -847,13 +855,10 @@ svg{
 }
 
 .infobutton{
+  margin-left: 6px;
   margin-top: 2vh;
-  font-size: 1.8vh;
-  display: flex;
-  align-items: center;
   width: fit-content;
   font-family: var(--font3);
-  gap: 10px;
   outline: none;
   background: none;
   border: none;
@@ -863,18 +868,32 @@ svg{
 .infobutton:hover{
   color: var(--color4);
 }
-.infobutton:hover .infobox{
+.infobutton:hover ~.infobox{
   display: flex;
+}
+.infoflex{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.infosvg{
+  width: 4vh;
+  height: 4vh;
 }
 .infobox{
   background-color: var(--color4);
-  width: 100%;
+  width: fit-content;
   border: var(--color5) solid 2px;
+  font-family: var(--font3);
+  font-size: 1.8vh;
   padding: 5px;
   border-radius: 5px;
   text-align: left;
   color: #ffffff !important;
   display: none;
+}
+.totalwidth{
+  width: 100%;
 }
 .securitysvg{
   height: 75px;
@@ -1058,6 +1077,9 @@ svg{
 }
 
 @media screen and (max-width: 768px){
+  .foot::before{
+    content: 'Desenvolvido por Schaldach';
+  }
   .homebutton::before{
     content: 'Leve-me lá';
   }
@@ -1069,13 +1091,11 @@ svg{
     flex-direction: column;
     align-items: center;
   }
-  .titlesecond{
-    text-align: center;
-  }
-  .infobutton{
-    width: 100%;
+  .infoflex{
     justify-content: center;
-    flex-direction: column;
+  }
+  .totalwidth{
+    width: 0;
   }
   .displayanotations{
     justify-content: center;
@@ -1219,16 +1239,4 @@ svg{
 
 .displaynone{
   display: none;
-}
-
-.loadingscreen{
-  flex-direction: column;
-  color: #ffffff;
-  font-family: var(--font1);
-  gap: 15px;
-}
-
-.loadingsvg{
-  width: 15vh;
-  height: 15vh;
 }
