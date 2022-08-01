@@ -12,6 +12,7 @@ function Home({user}) {
     const [favoriteNotes, addNotes] = useState([])
     const [favoriteLists, addLists] = useState([])
     const [favoriteLinks, addLinks] = useState([])
+    const [showType, changeShow] = useState('anotations')
     const [allNumbers, setNumbers] = useState({notas:0,listas:0,links:0})
 
     useEffect(()=> {

@@ -1,12 +1,18 @@
 import SimpleAnotation from "./SimpleAnotation";
 import SimpleList from "./SimpleList";
 import SimpleLink from "./SimpleLink";
+import PreviewNotes from "./PreviewNotes"
+import PreviewLists from "./PreviewLists";
+import PreviewLinks from "./PreviewLinks";
 import SecurityBox from '../components/SecurityBox'
 import { useState } from "react";
 
-function Group({notes, lists, links, title, onEdit, group, onFavorite, favorite, onDelete}) {
+function Group({allNotes, allLists, allLinks, notes, lists, links, title, onEdit, group, onFavorite, favorite, onDelete}) {
     const [editMode, setEdit] = useState(group.isNew)
     const [boxVisible, setBox] = useState(false)
+    const [notesBox, showNotes] = useState(false)
+    const [listsBox, showLists] = useState(false)
+    const [linksBox, showLinks] = useState(false)
 
     return (
         <>
@@ -32,20 +38,38 @@ function Group({notes, lists, links, title, onEdit, group, onFavorite, favorite,
                 </button>
             </div>
             <div className="specificgroup">
+                <button className={editMode?'addanotation':'displaynone'} onClick={() => showNotes(true)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="addsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                </button>
                 {notes.map(note => 
                     <SimpleAnotation key={note.id} title={note.title} content={note.content}/>
                 )}
             </div>
+            <PreviewNotes notesBox={notesBox} allNotes={allNotes} showNotes={showNotes}/>
             <div className="specificgroup">
+                <button className={editMode?'addanotation':'displaynone'} onClick={() => showLists(true)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="addsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                </button>
                 {lists.map(list => 
                     <SimpleList key={list.id} title={list.title} content={list.content}/>
                 )}
             </div>
+            <PreviewLists listsBox={listsBox} allLists={allLists} showLists={showLists}/>
             <div className="specificgroup">
+                <button className={editMode?'linkbutton':'displaynone'} onClick={() => showLinks(true)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="addsvglink" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                </button>
                 {links.map(link => 
                     <SimpleLink key={link.id} href={link.href} name={link.name}/>
                 )}
             </div>
+            <PreviewLinks linksBox={linksBox} allLinks={allLinks} showLinks={showLinks}/>
             <div className='empty'>{notes.length+lists.length+links.length?'':'O grupo está vazio...'}</div>
         </div>
         <SecurityBox onDelete={onDelete} onCancel={() => setBox(false)} boxVisible={boxVisible}/>

@@ -35,17 +35,20 @@ function Groups({user}) {
 
     function addGroup(){
         setChange(true)
-        let newGroup = { title: '', notes:[106,107], lists:[], links:[], id: Math.floor(Math.random() * 9999999999), isNew:true, favorite:false}
+        let newGroup = { title: '', notes:[106,107], lists:[19], links:[10], id: Math.floor(Math.random() * 9999999999), isNew:true, favorite:false}
         setGroups([...allGroups, newGroup])
         conectionMade(1)
         console.log(allGroups)
     }
 
-    function onEdit(group, title){
+    function onEdit(group, title, notes, lists, links){
         setChange(true)
         let newGroups = [...allGroups]
         const index = newGroups.indexOf(group)
         newGroups[index].title = title
+        newGroups[index].notes = notes
+        newGroups[index].lists = lists
+        newGroups[index].links = links
         setGroups(newGroups)
         conectionMade(1)
     }
@@ -112,8 +115,12 @@ function Groups({user}) {
                     </svg>
                 </button>
                 {allGroups.map(group => 
-                    <Group notes={allNotes.filter(note => group['notes'].indexOf(note.id)!==-1)} lists={group.lists} favorite={group.favorite} links={group.links}
-                    title={group.title} key={group.id} group={group} onDelete={() => onDelete(group.id)} onFavorite={() => onFavorite(group)} onEdit={onEdit}/>
+                    <Group allNotes={allNotes} allLists={allLists} allLinks={allLinks} 
+                    notes={allNotes.filter(note => group['notes'].indexOf(note.id)!==-1)} 
+                    lists={allLists.filter(list => group['lists'].indexOf(list.id)!==-1)}
+                    links={allLinks.filter(link => group['links'].indexOf(link.id)!==-1)}
+                    favorite={group.favorite} title={group.title} key={group.id} group={group} 
+                    onDelete={() => onDelete(group.id)} onFavorite={() => onFavorite(group)} onEdit={onEdit}/>
                 )}
             </div>
         </div>
