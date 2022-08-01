@@ -32,19 +32,19 @@ function Group({notes, lists, links, title, onEdit, group, onFavorite, favorite,
                 </button>
             </div>
             <div className="specificgroup">
-                {notes.map(note => {
+                {notes.map(note => 
                     <SimpleAnotation title={note.title} content={note.content}/>
-                })}
+                )}
             </div>
             <div className="specificgroup">
-                {lists.map(list => {
+                {lists.map(list => 
                     <SimpleList title={list.title} content={list.content}/>
-                })}
+                )}
             </div>
             <div className="specificgroup">
-                {links.map(link => {
+                {links.map(link => 
                     <SimpleLink href={link.href} name={link.name}/>
-                })}
+                )}
             </div>
             <div className='empty'>{notes.length+lists.length+links.length?'':'O grupo está vazio...'}</div>
         </div>

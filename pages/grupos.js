@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { supabase } from "../utils/supabaseClient"
 import SecondTitle from "../components/SecondTitle";
 import InfoBox from "../components/InfoBox";
 import Group from '../components/Group'
@@ -13,9 +14,28 @@ function Groups({user}) {
     const [allLists, addList] = useState([])
     const [allLinks, addLink] = useState([])
 
+    useEffect(()=> {
+        syncAnotations()
+    }, [user])
+
+    async function syncNotetype(notetype){
+        const { data } = await supabase
+            .from(notetype)
+            .select('*')
+            .eq('userid', user.id)
+        return(data)
+    }
+
+    async function syncAnotations(){
+        if(!user){return}
+        addNote(await syncNotetype('notas'))
+        addList(await syncNotetype('listas'))
+        addLink(await syncNotetype('links'))
+    }
+
     function addGroup(){
         setChange(true)
-        let newGroup = { title: '', notes:[], lists:[], links:[], id: Math.floor(Math.random() * 9999999999), isNew:true, favorite:false}
+        let newGroup = { title: '', notes:[106,107], lists:[], links:[], id: Math.floor(Math.random() * 9999999999), isNew:true, favorite:false}
         setGroups([...allGroups, newGroup])
         conectionMade(1)
         console.log(allGroups)
@@ -46,7 +66,7 @@ function Groups({user}) {
     }
 
     async function syncGroups(groups, click, auto){
-
+        console.log(allNotes)
     }
 
     function pulseAnimation() {
@@ -57,7 +77,7 @@ function Groups({user}) {
     return (
         <div>
             <div className="infoflex">
-            <SecondTitle titlecontent='Anotações' extra='/Grupos'/>
+            <SecondTitle titlecontent='Grupos'/>
             <InfoBox/>
             </div>
             <div className='flex'>
@@ -92,7 +112,7 @@ function Groups({user}) {
                     </svg>
                 </button>
                 {allGroups.map(group => 
-                    <Group notes={group.notes} lists={group.lists} favorite={group.favorite} links={group.links}
+                    <Group notes={allNotes.filter(note => group['notes'].indexOf(note.id)!==-1)} lists={group.lists} favorite={group.favorite} links={group.links}
                     title={group.title} key={group.id} group={group} onDelete={() => onDelete(group.id)} onFavorite={() => onFavorite(group)} onEdit={onEdit}/>
                 )}
             </div>
