@@ -816,6 +816,7 @@ svg{
   margin-top: -1px;
 }
 .wholething:hover .functionality{
+  flex-wrap: nowrap;
   overflow: visible;
   height: 124px;
   animation: growDown 0.375s linear;
@@ -834,6 +835,7 @@ svg{
   gap: 10px;
 }
 .menuview{
+  flex-wrap: nowrap;
   overflow: visible;
   height: 124px;
   animation: none !important;  
@@ -979,6 +981,7 @@ svg{
 @keyframes growDown {
   0% {
     height: 25px;
+    flex-wrap: wrap;
     overflow: hidden;
   }
   50% {
@@ -986,10 +989,12 @@ svg{
   }
   79%{
     overflow: hidden;
+    flex-wrap: wrap;
   }
   80% {
     height: 150px;
     overflow: visible;
+    flex-wrap: nowrap;
   }
   100% {
     height: 124px;
