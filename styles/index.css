@@ -947,7 +947,7 @@ svg{
   color: var(--color1);
   width: 300px;
   height: 200px;
-  border-radius: 5px;
+  border-radius: 10px;
   font-family: var(--font1);
   font-size: 16px;
 }
@@ -1296,9 +1296,11 @@ svg{
   gap: 5px;
 }
 .specificgroup{
+  gap: 1.5vw;
   display: flex;
   flex-wrap: wrap;
 }
+
 
 .displaynone{
   display: none;
