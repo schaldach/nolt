@@ -15,9 +15,10 @@ function Groups({user}) {
 
     function addGroup(){
         setChange(true)
-        let newGroup = { title: 'Novo grupo', notes:[], lists:[], links:[], id: Math.floor(Math.random() * 9999999999), isNew:true, favorite:false}
+        let newGroup = { title: '', notes:[], lists:[], links:[], id: Math.floor(Math.random() * 9999999999), isNew:true, favorite:false}
         setGroups([...allGroups, newGroup])
         conectionMade(1)
+        console.log(allGroups)
     }
 
     function onEdit(group, title){
@@ -36,6 +37,12 @@ function Groups({user}) {
         newGroups[index].favorite = !newGroups[index].favorite
         setGroups(newGroups)
         conectionMade(1)
+    }
+
+    function onDelete(groupid){
+        let newGroups = [...allGroups]
+        newGroups = newGroups.filter(group => group.id!==groupid)
+        setGroups(newGroups)
     }
 
     async function syncGroups(groups, click, auto){
@@ -84,10 +91,10 @@ function Groups({user}) {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
                     </svg>
                 </button>
-                {allGroups.map(group => {
-                    <Group notes={group.notes} lists={group.lists} links={group.links}
-                    title={group.title} key={Math.random()}/>
-                })}
+                {allGroups.map(group => 
+                    <Group notes={group.notes} lists={group.lists} favorite={group.favorite} links={group.links}
+                    title={group.title} key={group.id} group={group} onDelete={() => onDelete(group.id)} onFavorite={() => onFavorite(group)} onEdit={onEdit}/>
+                )}
             </div>
         </div>
     )
