@@ -816,6 +816,7 @@ svg{
   margin-top: -1px;
 }
 .wholething:hover .functionality{
+  flex-wrap: nowrap;
   overflow: visible;
   height: 124px;
   animation: growDown 0.375s linear;
@@ -834,6 +835,7 @@ svg{
   gap: 10px;
 }
 .menuview{
+  flex-wrap: nowrap;
   overflow: visible;
   height: 124px;
   animation: none !important;  
@@ -979,6 +981,7 @@ svg{
 @keyframes growDown {
   0% {
     height: 25px;
+    flex-wrap: wrap;
     overflow: hidden;
   }
   50% {
@@ -986,10 +989,12 @@ svg{
   }
   79%{
     overflow: hidden;
+    flex-wrap: wrap;
   }
   80% {
     height: 150px;
     overflow: visible;
+    flex-wrap: nowrap;
   }
   100% {
     height: 124px;
@@ -1248,6 +1253,7 @@ svg{
   border: dashed var(--color4);
   border-width: 0 0 2px 0;
   display: flex;
+  justify-content: center;
   background-color: var(--color2s);
   cursor: pointer;
   color: var(--color4);
@@ -1257,11 +1263,34 @@ svg{
   color: var(--color5);
 }
 .grouptitle{
+  display: flex;
+  gap: 10px;
+  font-family: var(--font2);
+  font-weight: bold;
+  font-size: 3vh;
+  background-color: var(--color2s);
+  color: var(--color1);
   width: 100%;
   border: solid var(--color4);
   border-width: 0 0 2px 0;
 }
+.titleinput{
+  width: 200px;
+  overflow: hidden;
+  font-weight: bold;
+  font-size: 3vh;
+}
+.grouptitle button{
+  border: solid var(--color2s);
+  border-width: 2px 2px 0 2px;
+  cursor: pointer;
+}
+.grouptitle button:hover{
+  border-color: var(--color4);
+}
 .group{
+  margin-top: 3vh;
+  background-color: var(--color2s);
   display: flex;
   flex-direction: column;
   gap: 5px;
