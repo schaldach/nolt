@@ -5,7 +5,7 @@ function PreviewLinks({allLinks, showLinks, linksBox}) {
     return (
         <PreviewBox isShown={linksBox} exit={() => showLinks(false)}>
             {allLinks.map(link => 
-                <SimpleLink name={link.name} href={link.href}></SimpleLink>
+                <SimpleLink key={link.id} id={link.id} name={link.name} href={link.href}></SimpleLink>
             )}
         </PreviewBox>
     );

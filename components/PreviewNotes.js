@@ -5,7 +5,7 @@ function PreviewNotes({allNotes, showNotes, notesBox}) {
     return (
         <PreviewBox isShown={notesBox} exit={() => showNotes(false)}>
             {allNotes.map(note => 
-                <SimpleAnotation content={note.content} title={note.title}></SimpleAnotation>
+                <SimpleAnotation key={note.id} id={note.id} content={note.content} title={note.title}></SimpleAnotation>
             )}
         </PreviewBox>
     );

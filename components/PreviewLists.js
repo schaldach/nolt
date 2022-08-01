@@ -5,7 +5,7 @@ function PreviewLists({allLists, showLists, listsBox}) {
     return (
         <PreviewBox isShown={listsBox} exit={() => showLists(false)}>
             {allLists.map(list => 
-                <SimpleList content={list.content} title={list.title}></SimpleList>
+                <SimpleList key={list.id} id={list.id} content={list.content} title={list.title}></SimpleList>
             )}
         </PreviewBox>
     );
