@@ -972,7 +972,6 @@ svg{
 }
 
 .status{
-  user-select: none;
   font-family: var(--font3);
   display: flex;
   align-items: center;
@@ -1325,7 +1324,7 @@ svg{
 .previewtitle{
   font-family: var(--font3);
   color: var(--color1);
-  font-size: 4vh;
+  font-size: 3vh;
 }
 .exitpreview{
   position: absolute;
@@ -1339,7 +1338,30 @@ svg{
 .exitpreview:hover{
   color: var(--color5);
 }
-
+.previewnote{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.checkpreview .favanot:hover{
+  transform: scale(1);
+}
+.checkpreview .favanot{
+  filter: blur(1px);
+}
+.checkpreview{
+  transform: scale(0.975);
+}
+.checkpreview:hover{
+  transform: scale(1.025);
+}
+.previewcheckedsvg{
+  position: absolute;
+  width: 15vh;
+  height: 15vh;
+}
 
 .displaynone{
   display: none;
