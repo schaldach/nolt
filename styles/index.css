@@ -1243,6 +1243,10 @@ svg{
   height: 5.5vh;
   margin-left: 1.5vh;
 }
+.modesvg{
+  height: 2.5vh;
+  width: 2.5vh;
+}
 
 .addgroup{
   margin-top: 1.5vh;
