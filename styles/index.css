@@ -560,6 +560,7 @@ main{
   border: none;
   font-family: var(--font1);
   font-size: 2.5vh;
+  padding: 0 5px;
   background-color: var(--color4);
   border: 2px solid var(--color5);
   color: #ffffff;
@@ -774,13 +775,17 @@ input, textarea{
   background-color: #e61e1e !important;
 }
 .requestdata{
-  padding: 2vh;
+  padding: 10px;
   overflow: hidden;
   border-radius: 12px;
   background-color: var(--color4);
   gap: 10px;
   border: none;
   cursor: auto;
+}
+.requestdata input{
+  background-color: #ffffff;
+  padding-left: 3px;
 }
 
 svg{
@@ -1307,7 +1312,7 @@ svg{
   background-color: var(--color2s);
   border: none;
   position: relative;
-  padding: 10px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -1342,6 +1347,10 @@ svg{
 .exitpreview:hover{
   color: var(--color5);
 }
+.previewbox .littlelink{
+  pointer-events: none;
+}
+
 .previewnote{
   position: relative;
   display: flex;
@@ -1352,11 +1361,8 @@ svg{
 .checkpreview .favanot:hover{
   transform: scale(1);
 }
-.checkpreview .favanot{
-  filter: blur(1px);
-}
 .checkpreview{
-  transform: scale(0.975);
+  transform: scale(0.95);
 }
 .checkpreview:hover{
   transform: scale(1.025);
@@ -1365,6 +1371,14 @@ svg{
   position: absolute;
   width: 15vh;
   height: 15vh;
+}
+.previewcheckedsvglink{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+}
+.previewsubtitle{
+  color: var(--color4);
 }
 
 .displaynone{
