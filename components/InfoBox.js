@@ -9,6 +9,7 @@ function InfoBox({successAnimation}) {
         </button>
         <div className="totalwidth"></div>
         <div className='infobox'>Não saia da página caso as anotações não estejam sincronizadas. Elas são salvas automaticamente a cada 5 segundos, caso hajam alterações.</div>
+        <div className="totalwidth"></div>
         <div className={successAnimation===0?'status':'displaynone'}>
             <svg xmlns="http://www.w3.org/2000/svg" className='conectionsvg' fill="none" viewBox="0 0 24 24" stroke="#2e856e" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
