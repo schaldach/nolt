@@ -65,6 +65,14 @@ function Project({setProject, user}) {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                         </svg>
                     </div>
+                    <div className="landingflex">
+                        <div className="landingtext landinghalf minor blacktext">Os seus dados estão protegidos com a política de Row Level Security,
+                        oferecida pelo Supabase para fornecer privacidade à sua conta pessoal.
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="landingsvg blacktext" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
                 </div>
                 <div className="landingfooter">
                     <div className="landingtext minor">Este site foi desenvolvido com&#160;

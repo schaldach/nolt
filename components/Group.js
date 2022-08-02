@@ -38,7 +38,7 @@ function Group({allNotes, allLists, allLinks, notes, lists, links, title, onEdit
                 </button>
             </div>
             <div className="specificgroup">
-                <button className={editMode?'addanotation':'displaynone'} onClick={() => showNotes(true)}>
+                <button className={editMode?'addanotation addbuttongroups':'displaynone'} onClick={() => showNotes(true)}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="addsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
                     </svg>
@@ -47,9 +47,9 @@ function Group({allNotes, allLists, allLinks, notes, lists, links, title, onEdit
                     <SimpleAnotation key={note.id} title={note.title} content={note.content}/>
                 )}
             </div>
-            <PreviewNotes notesBox={notesBox} allNotes={allNotes} showNotes={showNotes}/>
+            <PreviewNotes type='Notas' notesBox={notesBox} allNotes={allNotes} showNotes={showNotes}/>
             <div className="specificgroup">
-                <button className={editMode?'addanotation':'displaynone'} onClick={() => showLists(true)}>
+                <button className={editMode?'addanotation addbuttongroups':'displaynone'} onClick={() => showLists(true)}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="addsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
                     </svg>
@@ -58,7 +58,7 @@ function Group({allNotes, allLists, allLinks, notes, lists, links, title, onEdit
                     <SimpleList key={list.id} title={list.title} content={list.content}/>
                 )}
             </div>
-            <PreviewLists listsBox={listsBox} allLists={allLists} showLists={showLists}/>
+            <PreviewLists type='Listas' listsBox={listsBox} allLists={allLists} showLists={showLists}/>
             <div className="specificgroup">
                 <button className={editMode?'linkbutton':'displaynone'} onClick={() => showLinks(true)}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="addsvglink" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
@@ -69,7 +69,7 @@ function Group({allNotes, allLists, allLinks, notes, lists, links, title, onEdit
                     <SimpleLink key={link.id} href={link.href} name={link.name}/>
                 )}
             </div>
-            <PreviewLinks linksBox={linksBox} allLinks={allLinks} showLinks={showLinks}/>
+            <PreviewLinks type='Links' linksBox={linksBox} allLinks={allLinks} showLinks={showLinks}/>
             <div className='empty'>{notes.length+lists.length+links.length?'':'O grupo está vazio...'}</div>
         </div>
         <SecurityBox onDelete={onDelete} onCancel={() => setBox(false)} boxVisible={boxVisible}/>

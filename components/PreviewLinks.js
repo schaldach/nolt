@@ -1,9 +1,9 @@
 import PreviewBox from "./PreviewBox";
 import SimpleLink from "./SimpleLink";
 
-function PreviewLinks({allLinks, showLinks, linksBox}) {
+function PreviewLinks({allLinks, showLinks, linksBox, type}) {
     return (
-        <PreviewBox isShown={linksBox} exit={() => showLinks(false)}>
+        <PreviewBox type={type} isShown={linksBox} exit={() => showLinks(false)}>
             {allLinks.map(link => 
                 <SimpleLink key={link.id} id={link.id} name={link.name} href={link.href}></SimpleLink>
             )}

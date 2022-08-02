@@ -825,6 +825,9 @@ svg{
 .functionbutton:hover{
   background-color: #e6e6e6;
 }
+.removesvg:hover{
+  background-color: var(--color2s);
+}
 .deletebutton:hover{
   background-color: #e61e1e;
   color: #ffffff;
@@ -1067,11 +1070,6 @@ svg{
   gap: 3px;
 }
 
-.modesvg{
-  height: 2.5vh;
-  width: 2.5vh;
-}
-
 .favtitle{
   font-size: 3.5vh;
   font-family: var(--font1);
@@ -1305,10 +1303,43 @@ svg{
   box-shadow: 4px 4px 4px  rgba(80, 80, 80, 0.25);
   background-color: var(--color2s);
   border: none;
+  position: relative;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: auto;
   border-radius: 20px;
   width: 80vw;
   height: 80vh;
 }
+
+.addbuttongroups{
+  margin: 0;
+}
+.previewflex{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.previewtitle{
+  font-family: var(--font3);
+  color: var(--color1);
+  font-size: 4vh;
+}
+.exitpreview{
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  cursor: pointer;
+  color: var(--color4);
+  background-color: var(--color2s);
+  border: none;
+}
+.exitpreview:hover{
+  color: var(--color5);
+}
+
 
 .displaynone{
   display: none;

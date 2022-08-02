@@ -46,9 +46,9 @@ function Groups({user}) {
         let newGroups = [...allGroups]
         const index = newGroups.indexOf(group)
         newGroups[index].title = title
-        newGroups[index].notes = notes
-        newGroups[index].lists = lists
-        newGroups[index].links = links
+        // newGroups[index]['notes'] = notes
+        // newGroups[index]['lists'] = lists
+        // newGroups[index]['links'] = links
         setGroups(newGroups)
         conectionMade(1)
     }
