@@ -38,6 +38,7 @@ function Notes({user}) {
     }
 
     async function addAnotation() {
+        conectionMade(2)
         setChange(true)
         let newNote = {title: '', content: '', favorite:false, userid: user.id}
         const bla = await supabase

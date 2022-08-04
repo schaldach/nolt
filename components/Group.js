@@ -8,7 +8,7 @@ import SecurityBox from '../components/SecurityBox'
 import { useState } from "react";
 
 function Group({allNotes, allLists, allLinks, notes, lists, links, title, onEdit, group, onFavorite, favorite, onDelete}) {
-    const [editMode, setEdit] = useState(group.isNew)
+    const [editMode, setEdit] = useState(!(notes.length+lists.length+links.length))
     const [boxVisible, setBox] = useState(false)
     const [notesBox, showNotes] = useState(false)
     const [listsBox, showLists] = useState(false)

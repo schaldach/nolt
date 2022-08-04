@@ -38,6 +38,7 @@ function Lists({user}) {
     }
 
     async function addAnotation(){
+        conectionMade(2)
         setChange(true)
         let newList = {title: '', content: [{text: '1. ', id: 0, complete:false}], userid:user.id, favorite:false}
         const bla = await supabase

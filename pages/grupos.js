@@ -2,16 +2,18 @@ import { useState, useEffect } from "react";
 import { supabase } from "../utils/supabaseClient"
 import SecondTitle from "../components/SecondTitle";
 import InfoBox from "../components/InfoBox";
+import useInterval from "../components/UseInterval"
 import Group from '../components/Group'
 
 function Groups({user}) {
     const [allGroups, setGroups] = useState([])
     const [successAnimation, conectionMade] = useState(0)
-    const [clickable, setClick] = useState(true)
-    const [changed, setChange] = useState(true)
+    const [changed, setChange] = useState(false)
     const [allNotes, addNote] = useState([])
     const [allLists, addList] = useState([])
     const [allLinks, addLink] = useState([])
+
+    useInterval(() => {syncGroups(allGroups, true)},3000)
 
     useEffect(()=> {
         syncAnotations()
@@ -27,17 +29,22 @@ function Groups({user}) {
 
     async function syncAnotations(){
         if(!user){return}
+        conectionMade(2)
         addNote(await syncNotetype('notas'))
         addList(await syncNotetype('listas'))
         addLink(await syncNotetype('links'))
+        setGroups(await syncNotetype('grupos'))
+        conectionMade(0)
     }
 
-    function addGroup(){
+    async function addGroup(){
+        conectionMade(2)
         setChange(true)
-        let newGroup = { title: '', notes:[], lists:[], links:[], id: Math.floor(Math.random() * 9999999999), isNew:true, favorite:false}
-        setGroups([...allGroups, newGroup])
-        conectionMade(1)
-        console.log(allGroups)
+        let newGroup = { title: '', notes:[], lists:[], links:[], favorite:false, userid:user.id }
+        const bla = await supabase
+            .from('grupos')
+            .insert([newGroup])
+            .then(() => syncGroups(allGroups))
     }
 
     function onEdit(group, title, notes, lists, links){
@@ -61,14 +68,39 @@ function Groups({user}) {
         conectionMade(1)
     }
 
-    function onDelete(groupid){
-        let newGroups = [...allGroups]
-        newGroups = newGroups.filter(group => group.id!==groupid)
+    async function onDelete(groupId){
+        let lastconection = successAnimation
+        conectionMade(2)
+        let newGroups = allGroups.filter(group => group.id!==groupId)
+        const eba = await supabase
+            .from('grupos')
+            .delete()
+            .match({ id: groupId })
+            .then( () => {
+                conectionMade(lastconection)
+            })
         setGroups(newGroups)
     }
 
-    async function syncGroups(groups, click, auto){
-        console.log(allNotes)
+    async function syncGroups(groups, auto){
+        if(!user||!changed&&auto){return}
+        conectionMade(2)
+        const bla = await supabase
+            .from('grupos')
+            .upsert(groups)
+            .then( async () => {
+                if(!auto){
+                    const { data } = await supabase
+                        .from('grupos')
+                        .select('*')
+                        .eq('userid', user.id)
+                    let formattedData = data
+                    formattedData.sort((a,b) => {return a.id-b.id})
+                    setGroups(formattedData)
+                }
+                conectionMade(0)
+                setChange(false)
+            })
     }
 
     return (

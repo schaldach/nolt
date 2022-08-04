@@ -1019,105 +1019,6 @@ svg{
   color: var(--color1);
 }
 
-@media screen and (max-width: 768px){
-  .foot::before{
-    content: 'Desenvolvido por Schaldach';
-  }
-  .homebutton::before{
-    content: 'Leve-me lá';
-  }
-  .titlesecond{
-    text-align: center;
-  }
-  .loginbox{
-    width: 60vw;
-  }
-  .displayanotationswrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .infoflex{
-    justify-content: center;
-  }
-  .totalwidth{
-    width: 0;
-  }
-  .displayanotations{
-    justify-content: center;
-    gap: 4vh;
-  }
-  .navbar{
-    display: flex;
-    flex-direction: column;
-    overflow: visible;
-    height: fit-content;
-    padding-bottom: 3vh;
-  }
-  .responsiveImg{
-    display: block;
-  }
-  .sections{
-    display: none;
-  }
-  .navbar:hover .sections{
-    display: flex;
-    gap: 2vh;
-    flex-direction: column;
-  }
-  .navbar:hover .dark-wrapper{
-    display: flex;
-  }
-  .navbar:hover .responsiveImg{
-    display: none;
-  }
-  .navbar-select{
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .dark-wrapper{
-    margin-top: 3vh;
-    display: none;
-    justify-content: center;
-    align-items: center;
-  }
-  .absolutesvg{
-    position: absolute;
-    left: 5.5vh;
-  }
-  .dropdowns{
-    position: relative;
-  }
-  .navbarwrapper:hover .dropdowns{
-    top: 0vh;
-  }
-  .navbarwrapper:hover .navbar-select .absolutesvg{
-    left: 9vh;
-  }
-  .flex{
-    gap: 0px;
-    flex-direction: column;
-  }
-  .loginbox{
-    width: 85vw;
-  }
-
-  .justifycenter{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .secondtext input{
-    width: 100%;
-  }
-  .editprofilebuttons{
-    justify-content: center;
-  }
-}
-
 .rotating{
   animation: rotation 0.75s infinite;
 }
@@ -1245,8 +1146,8 @@ svg{
   box-shadow: 4px 4px 4px  rgba(80, 80, 80, 0.25);
   background-color: var(--color2s);
   border: none;
+  padding-top: 10px;
   position: relative;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -1263,8 +1164,12 @@ svg{
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  padding: 0 10px;
 }
 .previewtitle{
+  padding: 0 30px 5px 15px;
+  border: solid var(--color4);
+  border-width: 0 0 2px 0;
   font-family: var(--font3);
   color: var(--color1);
   font-size: 3vh;
@@ -1272,7 +1177,7 @@ svg{
 .exitpreview{
   position: absolute;
   right: 10px;
-  top: 5px;
+  top: 10px;
   cursor: pointer;
   color: var(--color4);
   background-color: var(--color2s);
@@ -1308,11 +1213,115 @@ svg{
 }
 .previewcheckedsvglink{
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
 }
 .previewsubtitle{
   color: var(--color4);
+}
+
+@media screen and (max-width: 768px){
+  .foot::before{
+    content: 'Desenvolvido por Schaldach';
+  }
+  .homebutton::before{
+    content: 'Leve-me lá';
+  }
+  .titlesecond{
+    text-align: center;
+  }
+  .loginbox{
+    width: 60vw;
+  }
+  .displayanotationswrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .infoflex{
+    justify-content: center;
+  }
+  .totalwidth{
+    width: 0;
+  }
+  .displayanotations{
+    justify-content: center;
+    gap: 4vh;
+  }
+  .status{
+    justify-content: center;
+  }
+  .navbar{
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    height: fit-content;
+    padding-bottom: 3vh;
+  }
+  .responsiveImg{
+    display: block;
+  }
+  .sections{
+    display: none;
+  }
+  .navbar:hover .sections{
+    display: flex;
+    gap: 2vh;
+    flex-direction: column;
+  }
+  .navbar:hover .dark-wrapper{
+    display: flex;
+  }
+  .navbar:hover .responsiveImg{
+    display: none;
+  }
+  .navbar-select{
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .dark-wrapper{
+    margin-top: 3vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  .absolutesvg{
+    position: absolute;
+    left: 5.5vh;
+  }
+  .dropdowns{
+    position: relative;
+  }
+  .navbarwrapper:hover .dropdowns{
+    top: 0vh;
+  }
+  .navbarwrapper:hover .navbar-select .absolutesvg{
+    left: 9vh;
+  }
+  .flex{
+    gap: 0px;
+    flex-direction: column;
+  }
+  .loginbox{
+    width: 85vw;
+  }
+  .previewflex{
+    justify-content: center;
+  }
+  .justifycenter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .secondtext input{
+    width: 100%;
+  }
+  .editprofilebuttons{
+    justify-content: center;
+  }
 }
 
 .displaynone{
