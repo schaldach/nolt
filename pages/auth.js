@@ -34,7 +34,7 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
 
     function errortext(){
         let text
-        if(errorMessage){
+        if(errorMessage&&currentEmail||currentPassword){
             if(login){text = 'Usuário e/ou senha inválidos.'}
             else{text = 'Os dados não são válidos.'}
         }

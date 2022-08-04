@@ -3,7 +3,7 @@ import DropdownMenu from "./DropdownMenu"
 import SecurityBox from "./SecurityBox"
 
 function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite}) {
-    const[editMode, startEdit] = useState(note.isNew||!note.content&&!note.title)
+    const[editMode, startEdit] = useState(!content||!title)
     const[viewMode, startView] = useState(false)
     const[boxVisible, setBox] = useState(false)
     const searchInput = useRef(null)

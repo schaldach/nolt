@@ -74,6 +74,14 @@ function Project({setProject, user}) {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                         </svg>
                     </div>
+                    <div className="landingflex">
+                        <div className="landingtext landinghalf minor blacktext">Os seus dados são salvos automaticamente, sem que você precise
+                        se incomodar com carregamentos longos ou anotações não salvas.
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="landingsvg blacktext" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M17 16v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-7a2 2 0 012-2h2m3-4H9a2 2 0 00-2 2v7a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-1m-1 4l-3 3m0 0l-3-3m3 3V3" />
+                        </svg>
+                    </div>
                 </div>
                 <div className="landingfooter">
                     <div className="landingtext minor">Este site foi desenvolvido com&#160;

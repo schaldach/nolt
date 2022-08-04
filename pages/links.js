@@ -7,48 +7,25 @@ import useInterval from "../components/UseInterval"
 import InfoBox from "../components/InfoBox"
 
 function Links({user}) {
-    const [animation, startAnimation] = useState(false)
     const [allLinks,addLink] = useState([])
     const [successAnimation, conectionMade] = useState(0)
     const [needData,requestD] = useState(false)
-    const [clickable, setClick] = useState(true)
     const [changed, setChange] = useState(true)
 
-    useInterval(() => {syncLinks(allLinks, false, true)},5000)
+    useInterval(() => {syncLinks(allLinks, true)},3000)
 
     useEffect(() => {
         syncLinks(allLinks)
     }, [user])
 
-    async function syncLinks(links, click, auto){
-        if(!user||!clickable||(!changed&&!click)){return}
-        setClick(false)
+    async function syncLinks(links, auto){
+        if(!user||!changed&&auto){return}
         conectionMade(2)
-        let newLinks = []
-        let oldLinks = []
-        links.forEach(link => {
-            if(link.isNew){
-                newLinks.push({
-                    href: link.href,
-                    name: link.name,
-                    favorite: link.favorite,
-                    userid: user.id
-                })
-            }
-            else{oldLinks.push(link)}
-        })
         const bla = await supabase
             .from('links')
-            .upsert(newLinks)
+            .upsert(links)
             .then( async () => {
-                const eba = await supabase
-                    .from('links')
-                    .upsert(oldLinks)
-            })
-            .then( async () => {
-                let anyNew = false
-                links.forEach(link => {if(link.isNew){anyNew=true}})
-                if(!auto||anyNew){
+                if(!auto){
                     const { data } = await supabase
                         .from('links')
                         .select('*')
@@ -58,7 +35,6 @@ function Links({user}) {
                     addLink(formattedData)
                 }
                 conectionMade(0)
-                setClick(true)
                 setChange(false)
             })
     }
@@ -66,9 +42,11 @@ function Links({user}) {
     function finishAnotation(name, href){
         setChange(true)
         requestD(false)
-        let newLink = {href: href, name: name, id: Math.floor(Math.random()*9999999999), isNew:true, favorite:false}
-        addLink([...allLinks, newLink])
-        conectionMade(1)
+        let newLink = {href: href, name: name, favorite:false, userid:user.id}
+        const bla = await supabase
+            .from('links')
+            .insert([newLink])
+            .then(() => syncLinks(newLink))
     }
 
     async function onDelete(linkId){
@@ -92,11 +70,6 @@ function Links({user}) {
         newLinks[index].favorite = !newLinks[index].favorite
         addLink(newLinks)
         conectionMade(1)
-    }
-
-    function pulseAnimation() {
-        syncLinks(allLinks, true)
-        startAnimation(true)
     }
 
     return (

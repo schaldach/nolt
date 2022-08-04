@@ -8,44 +8,22 @@ import InfoBox from "../components/InfoBox"
 function Lists({user}) {
     const [allLists, addList] = useState([])
     const [successAnimation, conectionMade] = useState(0)
-    const [clickable, setClick] = useState(true)
     const [changed, setChange] = useState(true)
 
-    useInterval(() => {syncLists(allLists, false, true)},5000)
+    useInterval(() => {syncLists(allLists, true)},3000)
     
     useEffect(() => {
         syncLists(allLists)
     }, [user])
 
-    async function syncLists(lists, click, auto){
-        if(!user||!clickable||(!changed&&!click)){return}
-        setClick(false)
+    async function syncLists(lists, auto){
+        if(!user||!changed&&auto){return}
         conectionMade(2)
-        let oldLists = []
-        let newLists = []
-        lists.forEach(list => {
-            if(list.isNew){
-                newLists.push({
-                    title: list.title,
-                    content: list.content,
-                    favorite: list.favorite,
-                    userid: user.id
-                })
-            }
-            else{oldLists.push(list)}
-        })
         const bla = await supabase
             .from('listas')
-            .upsert(oldLists)
+            .upsert(lists)
             .then( async () => {
-                const bla = await supabase
-                    .from('listas')
-                    .upsert(newLists)
-            })
-            .then( async () => {
-                let anyNew = false
-                lists.forEach(list => {if(list.isNew){anyNew=true}})
-                if(!auto||anyNew){
+                if(!auto){
                     const { data } = await supabase
                         .from('listas')
                         .select('*')
@@ -55,22 +33,17 @@ function Lists({user}) {
                     addList(formattedData)
                 }
                 conectionMade(0)
-                setClick(true)
                 setChange(false)
             })
     }
 
-    function addAnotation(){
+    async function addAnotation(){
         setChange(true)
-        let newList = {
-            title: '',
-            content: [{text: '1. ', id: 0, complete:false}],
-            id: Math.floor(Math.random()*9999999999),
-            isNew: true,
-            favorite:false
-        }
-        addList([...allLists, newList])
-        conectionMade(1)
+        let newList = {title: '', content: [{text: '1. ', id: 0, complete:false}], userid:user.id, favorite:false}
+        const bla = await supabase
+            .from('listas')
+            .insert([newList])
+            .then(() => syncLists(allLists))
     }
 
     function onEdit(title,content,list){

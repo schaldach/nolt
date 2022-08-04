@@ -8,44 +8,22 @@ import InfoBox from "../components/InfoBox"
 function Notes({user}) {
     const [allNotes, addNote] = useState([])
     const [successAnimation, conectionMade] = useState(0)
-    const [clickable, setClick] = useState(true)
     const [changed, setChange] = useState(true)
 
-    useInterval(() => {syncNotes(allNotes, false, true)},5000)
+    useInterval(() => {syncNotes(allNotes, true)},3000)
 
     useEffect(() => {
         syncNotes(allNotes)
     }, [user])
 
-    async function syncNotes(notes, click, auto) {
-        if(!user||!clickable||(!changed&&!click)){return}
-        setClick(false)
+    async function syncNotes(notes, auto) {
+        if(!user||!changed&&auto){return}
         conectionMade(2)
-        let oldNotes = []
-        let newNotes = []
-        notes.forEach(note => {
-            if(note.isNew){
-                newNotes.push({
-                    title: note.title,
-                    content: note.content,
-                    favorite: note.favorite,
-                    userid: user.id
-                })
-            }
-            else{oldNotes.push(note)}
-        })
         const bla = await supabase
             .from('notas')
-            .upsert(oldNotes)
+            .upsert(notes)
             .then( async () => {
-                const bla = await supabase
-                    .from('notas')
-                    .upsert(newNotes)
-            })
-            .then( async () => {
-                let anyNew = false
-                notes.forEach(note => {if(note.isNew){anyNew=true}})
-                if(!auto||anyNew){
+                if(!auto){
                     const { data } = await supabase
                         .from('notas')
                         .select('*')
@@ -55,16 +33,17 @@ function Notes({user}) {
                     addNote(formattedData)
                 }
                 conectionMade(0)
-                setClick(true)
                 setChange(false)
             })
     }
 
-    function addAnotation() {
+    async function addAnotation() {
         setChange(true)
-        let newNote = { title: '', content: '', id: Math.floor(Math.random() * 9999999999), isNew:true, favorite:false}
-        addNote([...allNotes, newNote])
-        conectionMade(1)
+        let newNote = {title: '', content: '', favorite:false, userid: user.id}
+        const bla = await supabase
+            .from('notas')
+            .insert([newNote])
+            .then(() => syncNotes(allNotes))
     }
 
     function onEdit(title, content, note) {

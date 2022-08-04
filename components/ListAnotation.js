@@ -4,7 +4,7 @@ import DropdownMenu from "./DropdownMenu"
 import SecurityBox from "./SecurityBox";
 
 function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFavorite }) {
-    const [editMode, startEdit] = useState(list.isNew)
+    const [editMode, startEdit] = useState(!title)
     const [viewMode, startView] = useState(false)
     const [boxVisible, setBox] = useState(false)
     const [currentItemFocus, changeFocus] = useState(-1)
