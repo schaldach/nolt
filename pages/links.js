@@ -39,7 +39,7 @@ function Links({user}) {
             })
     }
 
-    function finishAnotation(name, href){
+    async function finishAnotation(name, href){
         setChange(true)
         requestD(false)
         let newLink = {href: href, name: name, favorite:false, userid:user.id}
