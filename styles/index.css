@@ -784,8 +784,8 @@ input, textarea{
   cursor: auto;
 }
 .requestdata input{
-  background-color: #ffffff;
   padding-left: 3px;
+  background-color: var(--color2p);
 }
 
 svg{
