@@ -687,17 +687,9 @@ input, textarea{
   justify-content: center;
   gap: 3px;
 }
-
 .listarea::-webkit-scrollbar {
-  width: 5px;
+  width: 0px;
 }
-.listarea::-webkit-scrollbar-thumb{
-  background-color: var(--color4);
-}
-.listarea::-webkit-scrollbar-thumb:hover{
-  background-color: var(--color5);
-}
-
 .wholelink{
   display: flex;
   position: relative;

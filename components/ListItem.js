@@ -4,6 +4,13 @@ function ListItem({ index, text, editMode, itemEdit, itemFocus, handleTextFocus,
     const searchInput = useRef(null)
 
     useEffect(() => {
+        if(editMode){
+            searchInput.current.style.height = 'inherit'
+            searchInput.current.style.height = `${searchInput.current.scrollHeight}px`
+        }
+    })
+
+    useEffect(() => {
         if (itemFocus === index) {
             searchInput.current.focus()
             let v = searchInput.current.value
@@ -25,7 +32,7 @@ function ListItem({ index, text, editMode, itemEdit, itemFocus, handleTextFocus,
     return (
         <div>
             <textarea onFocus={() => changeFocus(index)} onKeyDown={(e) => handleTextFocus(e)}
-                ref={searchInput} className={editMode ? 'listarea' : 'displaynone listarea'} type='text'
+                ref={searchInput} className={editMode ? 'listarea' : 'displaynone'} type='text'
                 value={text} onInput={e => itemEdit(e.target.value, index)} />
             <div className={divClass()}>{text}
             <button className={complete?'functionbutton checksvg':'functionbutton removesvg'} onClick={() => itemEdit(text, index, !complete)}>

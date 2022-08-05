@@ -70,7 +70,7 @@ function Group({allNotes, allLists, allLinks, notes, lists, links, title, onEdit
                     </svg>
                 </button>
             </div>
-            <div className={notes.length||editMode?"specificgroup":'displaynone'}>
+            <div className={notes.length+lists.length||editMode?"specificgroup":'displaynone'}>
                 <button className={editMode?'addanotation addbuttongroups':'displaynone'} onClick={() => showNotes(true)}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="addsvg" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
@@ -82,9 +82,7 @@ function Group({allNotes, allLists, allLinks, notes, lists, links, title, onEdit
                 {notes.map(note => 
                     <SimpleAnotation key={note.id} title={note.title} content={note.content}/>
                 )}
-            </div>
-            <PreviewNotes addNote={addNote} type='Notas' notesBox={notesBox} notes={notes} allNotes={allNotes} showNotes={showNotes}/>
-            <div className={lists.length||editMode?"specificgroup":'displaynone'}>
+                <PreviewNotes addNote={addNote} type='Notas' notesBox={notesBox} notes={notes} allNotes={allNotes} showNotes={showNotes}/>
                 <button className={editMode?'addanotation addbuttongroups':'displaynone'} onClick={() => showLists(true)}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="addsvg" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
