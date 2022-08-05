@@ -546,7 +546,7 @@ main{
 .wholething:hover{
   top: 0;
   transform: scale(1);
-  transition: 0.25s ease;
+  transition: 0.2s ease;
   z-index: 2;
 }
 .view:nth-child(1n){
@@ -847,13 +847,22 @@ svg{
   background-color: var(--color4);
   color: #ffffff;
 }
-
 .listinstruction{
   color: #808080;
   user-select: none;
   font-size: 1.6vh;
 }
 
+.displaycompleted{
+  position: absolute;
+  right: 45px;
+  font-size: 2.125vh;
+  top: -3vh;
+  text-align: right;
+  font-family: var(--font2);
+  font-weight: bold;
+  color: var(--color3);
+}
 .listitem{
   word-wrap: break-word;
 }
@@ -935,6 +944,10 @@ svg{
   color: var(--color1);
   font-size: 2vh;
 }
+.displayanotationsgroups{
+  margin-top: 0;
+  gap: 0;
+}
 
 @keyframes growDown {
   0% {
@@ -1001,14 +1014,7 @@ svg{
 }
 
 .favtitle{
-  font-size: 3.5vh;
-  font-family: var(--font1);
-  font-weight: bold;
   margin: 2vh 0 0 0;
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  color: var(--color1);
 }
 
 .rotating{
@@ -1097,6 +1103,7 @@ svg{
 }
 .grouptitle{
   display: flex;
+  align-items: center;
   gap: 10px;
   font-family: var(--font2);
   font-weight: bold;
@@ -1113,15 +1120,19 @@ svg{
   font-weight: bold;
   font-size: 3vh;
 }
+.grouptitle input, .grouptitle div{
+  width: 100%;
+}
 .grouptitle button{
   border: solid var(--color2s);
-  border-width: 2px 2px 0 2px;
+  border-width: 2px 0 0 0;
   cursor: pointer;
 }
 .grouptitle button:hover{
   border-color: var(--color4);
 }
 .group{
+  width: 100%;
   margin-top: 3vh;
   background-color: var(--color2s);
   display: flex;
@@ -1210,6 +1221,22 @@ svg{
 }
 .previewsubtitle{
   color: var(--color4);
+}
+.displaychoice{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.displaychoice button{
+  color: var(--color1);
+  border: var(--color2s) solid;
+  border-width: 0 0 2px 0;
+  padding: 2px;
+  cursor: pointer;
+}
+.displaychoice .chosenstyle{
+  color: var(--color4);
+  border-color: var(--color4);
 }
 
 @media screen and (max-width: 768px){

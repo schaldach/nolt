@@ -60,6 +60,7 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
             </div>
+            <div className="displaycompleted">{content.filter(item => item.complete).length}/{content.length}</div>
             <div className={editMode ? 'anot editting' : 'anot'}>
                 <div>
                     <div className={!editMode ? 'anottitle' : 'displaynone anottitle'}>{title}</div>
@@ -73,7 +74,7 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
                             itemFocus={currentItemFocus} complete={item.complete}></ListItem>
                     )}
                     <div className={editMode ? 'listinstruction anotcontentwarning' : 'displaynone'}>Enter irá aumentar a lista 
-                    ou ir para o próximo item<br/>Backspace em um item vazio irá removê-lo</div>
+                    ou ir para o próximo item<br/>Backspace em um item vazio irá removê-lo e atualizar os índices</div>
                 </div>
             </div>
             <DropdownMenu editMode={editMode} onEdit={() => startEdit(!editMode)} viewMode={viewMode} favorite={favorite} 
