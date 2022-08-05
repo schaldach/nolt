@@ -47,7 +47,7 @@ function Links({user}) {
         const bla = await supabase
             .from('links')
             .insert([newLink])
-            .then(() => syncLinks(newLink))
+            .then(() => syncLinks(allLinks))
     }
 
     async function onDelete(linkId){

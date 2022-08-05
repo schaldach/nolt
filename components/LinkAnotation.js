@@ -7,7 +7,7 @@ function LinkAnotation({linkcontent, linkname, onDelete, id, favorite, onFavorit
         <>
         <div className="wholelink">
             <div className='littlelink'>
-                <img className='linkimage' src={`http://www.google.com/s2/favicons?sz=64&domain_url=${linkcontent}`} />
+                <img className='linkimage' src={`http://www.google.com/s2/favicons?sz=32&domain_url=${linkcontent}`} />
                 <a className='linktext' href={linkcontent} target='_blank' rel='noreferrer'>{linkname}</a>
             </div>
             <div className="outermenu">
