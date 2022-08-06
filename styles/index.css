@@ -1204,14 +1204,14 @@ svg{
   align-items: center;
   cursor: pointer;
 }
-.checkpreview .favanot:hover{
-  transform: scale(1);
+.previewbox .favlink:hover{
+  transform: scale(1.05);
 }
 .checkpreview{
-  transform: scale(0.95);
+  transform: scale(0.925);
 }
 .checkpreview:hover{
-  transform: scale(1.025);
+  transform: scale(1);
 }
 .previewcheckedsvg{
   position: absolute;
