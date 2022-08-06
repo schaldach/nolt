@@ -1119,7 +1119,6 @@ svg{
   border-width: 0 0 2px 0;
 }
 .titleinput{
-  width: 200px;
   overflow: hidden;
   font-weight: bold;
   font-size: 3vh;
@@ -1141,7 +1140,7 @@ svg{
   background-color: var(--color2s);
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
 }
 .specificgroup{
   gap: 1.5vw;
