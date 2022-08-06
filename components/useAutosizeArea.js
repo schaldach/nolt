@@ -7,7 +7,7 @@ function useAutosizeTextArea(textAreaRef,value,editMode){
       const scrollHeight = textAreaRef.scrollHeight;
       textAreaRef.style.height = scrollHeight + "px";
     }
-  }, [textAreaRef, value]);
+  }, [textAreaRef, value, editMode]);
 };
 
 export default useAutosizeTextArea;
