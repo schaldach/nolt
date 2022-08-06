@@ -150,8 +150,8 @@ function Home({user}) {
                 links={favoriteLinks.filter(link => group['links'].indexOf(link.id)!==-1)}
                 title={group.title} favorite={favorites}/>:''
                 )}
-                <div className={favorites?'empty':'displaynone'}>{areThereFavorites(favoriteGroups)?'':'Não há links favoritos.'}</div>
-                <div className={!favorites?'empty':'displaynone'}>{favoriteGroups.length?'':'Não há links.'}</div>
+                <div className={favorites?'empty':'displaynone'}>{areThereFavorites(favoriteGroups)?'':'Não há grupos favoritos.'}</div>
+                <div className={!favorites?'empty':'displaynone'}>{favoriteGroups.length?'':'Não há grupos.'}</div>
             </div>
             </div>
         </div>
