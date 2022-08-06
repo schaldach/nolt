@@ -1211,7 +1211,7 @@ svg{
   transform: scale(0.925);
 }
 .checkpreview:hover{
-  transform: scale(1);
+  transform: scale(0.975);
 }
 .previewcheckedsvg{
   position: absolute;
