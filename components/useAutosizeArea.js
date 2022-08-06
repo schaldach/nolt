@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
-function useAutosizeTextArea(textAreaRef,value){
+function useAutosizeTextArea(textAreaRef,value,editMode){
   useEffect(() => {
-    if (textAreaRef) {
+    if (textAreaRef&&editMode) {
       textAreaRef.style.height = "0px";
       const scrollHeight = textAreaRef.scrollHeight;
       textAreaRef.style.height = scrollHeight + "px";

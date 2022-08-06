@@ -4,7 +4,7 @@ import useAutosizeTextArea from "./useAutosizeArea";
 function ListItem({ index, text, editMode, itemEdit, itemFocus, handleTextFocus, changeFocus, complete }) {
     const searchInput = useRef(null)
 
-    useAutosizeTextArea(searchInput.current, text);
+    useAutosizeTextArea(searchInput.current, text, editMode);
 
     useEffect(() => {
         if (itemFocus === index) {
@@ -26,7 +26,7 @@ function ListItem({ index, text, editMode, itemEdit, itemFocus, handleTextFocus,
     }
 
     return (
-        <div>
+        <>
             <textarea onFocus={() => changeFocus(index)} onKeyDown={(e) => handleTextFocus(e)}
                 ref={searchInput} className={editMode ? 'listarea' : 'displaynone'} type='text'
                 value={text} onInput={e => itemEdit(e.target.value, index)} />
@@ -40,7 +40,7 @@ function ListItem({ index, text, editMode, itemEdit, itemFocus, handleTextFocus,
                     </svg>
                 </button>
             </div>
-        </div>
+        </>
     );
 }
 
