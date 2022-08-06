@@ -870,9 +870,6 @@ svg{
   width: 4.5vh;
   height: 4.5vh;
 }
-.homecog:hover{
-  color: var(--color4);
-}
 
 .securitysvg{
   height: 75px;
@@ -1242,7 +1239,7 @@ svg{
   cursor: pointer;
 }
 .displaychoice .chosenstyle{
-  border-color: var(--color5);
+  border-color: var(--color4);
 }
 .displaychoice button:hover{
   color: var(--color4);
