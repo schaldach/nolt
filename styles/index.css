@@ -473,7 +473,7 @@ main{
   cursor: pointer;
   align-self: center;
   max-width: fit-content;
-  margin: 3vh 0;
+  margin: 1.5vh 0 3vh 0;
   box-shadow: none;
   transition: 0.65s;
 }
@@ -1196,6 +1196,7 @@ svg{
 .previewbox .littlelink{
   pointer-events: none;
 }
+.homebutton
 
 .previewnote{
   position: relative;

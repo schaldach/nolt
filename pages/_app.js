@@ -21,8 +21,9 @@ function MyApp({ Component, pageProps }) {
   }, [])
 
   useEffect(() => {
-    if(settable)
-    localStorage.setItem('dark', JSON.stringify(darkMode))
+    if(settable){
+      localStorage.setItem('dark', JSON.stringify(darkMode))
+    }
   }, [darkMode])
 
   useEffect(() => {

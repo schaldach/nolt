@@ -17,11 +17,29 @@ function Home({user}) {
     const [configsShown, showConfigs] = useState(false)
     const [showType, changeShow] = useState('anotations')
     const [favorites, setFavorites] = useState(true)
+    const [settable, releaseLocalStorage] = useState(false)
     const [allNumbers, setNumbers] = useState({notas:0,listas:0,links:0, grupos:0})
 
     useEffect(()=> {
         syncFavorites()
     }, [user])
+
+    useEffect(() => {
+        let storedFavorites = JSON.parse(localStorage.getItem('favorites'))
+        let storedType = localStorage.getItem('types')
+        if(storedFavorites===null||storedFavorites===undefined){storedFavorites=favorites}
+        if(storedType===null||storedType===undefined){storedType=showType}
+        setFavorites(storedFavorites)
+        changeShow(storedType)
+        releaseLocalStorage(true)
+    }, [])
+    
+    useEffect(() => {
+        if(settable){
+            localStorage.setItem('favorites', JSON.stringify(favorites))
+            localStorage.setItem('types', showType)
+        }
+    }, [showType, favorites])
 
     async function syncNotetype(notetype){
         const { data, count } = await supabase
