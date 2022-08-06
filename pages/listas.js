@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { supabase } from "../utils/supabaseClient"
 import ListAnotation from "../components/ListAnotation"
 import SecondTitle from "../components/SecondTitle"
-import useInterval from "../components/useInterval"
+import useInterval from "../components/UseInterval"
 import InfoBox from "../components/InfoBox"
 
 function Lists({user}) {

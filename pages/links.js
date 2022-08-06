@@ -3,7 +3,7 @@ import { supabase } from "../utils/supabaseClient"
 import NecessaryDataLink from "../components/NecessaryData";
 import SmallerAnotation from "../components/LinkAnotation"
 import SecondTitle from "../components/SecondTitle"
-import useInterval from "../components/useInterval"
+import useInterval from "../components/UseInterval"
 import InfoBox from "../components/InfoBox"
 
 function Links({user}) {
