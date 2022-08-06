@@ -866,6 +866,13 @@ svg{
 .listitem{
   word-wrap: break-word;
 }
+.homesvg{
+  width: 4.5vh;
+  height: 4.5vh;
+}
+.homecog:hover{
+  color: var(--color4);
+}
 
 .securitysvg{
   height: 75px;

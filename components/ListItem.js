@@ -1,14 +1,10 @@
 import React, { useEffect, useRef } from "react";
+import useAutosizeTextArea from "./useAutosizeArea";
 
 function ListItem({ index, text, editMode, itemEdit, itemFocus, handleTextFocus, changeFocus, complete }) {
     const searchInput = useRef(null)
 
-    useEffect(() => {
-        if(editMode){
-            searchInput.current.style.height = 'inherit'
-            searchInput.current.style.height = `${searchInput.current.scrollHeight}px`
-        }
-    })
+    useAutosizeTextArea(searchInput.current, text);
 
     useEffect(() => {
         if (itemFocus === index) {
