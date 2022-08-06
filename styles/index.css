@@ -1242,8 +1242,10 @@ svg{
   cursor: pointer;
 }
 .displaychoice .chosenstyle{
+  border-color: var(--color5);
+}
+.displaychoice button:hover{
   color: var(--color4);
-  border-color: var(--color4);
 }
 
 @media screen and (max-width: 768px){
