@@ -545,13 +545,13 @@ main{
 }
 .wholething:hover{
   top: 0;
-  transform: scale(1);
+  transform: scale(1) rotate(0deg);
   transition: 0.2s ease;
   z-index: 2;
 }
 .view:nth-child(1n){
   top: 0;
-  transform: scale(1);
+  transform: scale(1.05);
   z-index: 1;
 }
 

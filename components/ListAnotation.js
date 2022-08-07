@@ -38,6 +38,12 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
             newContent.splice(currentItemFocus,1)
             for(let i=currentItemFocus; i<newContent.length; i++){
                 newContent[i].id = i
+                let newTextArray = newContent[i].text.split(' ')
+                if(newTextArray[0] === `${i+2}.`){
+                    newTextArray.shift()
+                    newTextArray.unshift(`${i+1}.`)
+                    newContent[i].text = newTextArray.join(' ')
+                }
             }
             onEdit(title, newContent, list)
             changeFocus(currentItemFocus - 1)
