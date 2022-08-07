@@ -40,7 +40,7 @@ function Notes({user}) {
     async function addAnotation() {
         conectionMade(2)
         setChange(true)
-        let newNote = {title: '', content: '', favorite:false, userid: user.id}
+        let newNote = {title: '', content: '', favorite:false, userid: user.id, calendar:true}
         const bla = await supabase
             .from('notas')
             .insert([newNote])
@@ -62,6 +62,15 @@ function Notes({user}) {
         let newNotes = [...allNotes]
         const index = newNotes.indexOf(note)
         newNotes[index].favorite = !newNotes[index].favorite
+        addNote(newNotes)
+        conectionMade(1)
+    }
+
+    function onCalendar(note){
+        setChange(true)
+        let newNotes = [...allNotes]
+        const index = newNotes.indexOf(note)
+        newNotes[index].calendar = !newNotes[index].calendar
         addNote(newNotes)
         conectionMade(1)
     }
@@ -94,7 +103,7 @@ function Notes({user}) {
                 </button>
                 {allNotes.map(note =>
                     <Anotation onFavorite={onFavorite} favorite={note.favorite} note={note} onDelete={onDelete} onEdit={onEdit}
-                        key={note.id} title={note.title} content={note.content} />
+                       calendar={note.calendar} onCalendar={onCalendar} key={note.id} title={note.title} content={note.content} />
                 )}
             </div>
         </div>
