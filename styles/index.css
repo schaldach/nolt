@@ -46,6 +46,13 @@ a{
   color: inherit;
 }
 
+main{
+  background-color: var(--color2s);
+  padding: 4vh 8vw 10vh 8vw;
+  min-height: 70vh;
+}
+/* 84vh (main, height+padding vertical) + 13vh (navbar, height+border) + 3vh (foot) = 100vh */
+
 .landingpage{
   border: none;
   background-color: var(--color5);
@@ -117,11 +124,12 @@ a{
   text-decoration: none;
 }
 .purplelink{
-  color: #390b6d;
+  color: #430f7e;
   text-decoration: none;
 }
 .purplelink:hover, .greenlink:hover, .blacklink:hover{
   text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 .landingbutton{
@@ -334,7 +342,7 @@ a{
 .navbarwrapper:hover .dropdowns, .dropdowns:hover{
   display: flex;
   flex-direction: column;
-  top: 6.5vh;
+  top: 6.25vh;
   padding-top: 1vh;
 }
 .absolutesvg{
@@ -375,23 +383,29 @@ a{
 .dropdowns{
   position: absolute;
   display: none;
-  text-align: center;
   z-index: 3;
 }
+.dropdownswrapper{
+  overflow: hidden;
+  border-radius: 5px;
+  border: solid var(--color4) 2px;
+}
+.dropdownswrapper button{
+  width: 100%;
+}
 .dropdownitem{
-  border: solid;
-  border-width: 0px 0px 1px 0px;
-  padding: 0px 5px;
-  border-color: var(--color5);
-  background-color: var(--color4);
-  color: #ffffff;
-  font-family: var(--font1);
-  font-size: 4vh;
+  border: none;
+  padding: 4px 10px;
+  background-color: var(--color2p);
+  color: var(--color1);
+  font-family: var(--font2);
+  font-size: 3.25vh;
   text-align: left;
   cursor: pointer;
 }
 .dropdownitem:hover{
-  background-color: var(--color5);
+  background-color: var(--color4);
+  color: #ffffff;
 }
 
 .titlesecond{
@@ -401,12 +415,6 @@ a{
   font-family: var(--font1);
   color: var(--color1);
 }
-main{
-  background-color: var(--color2s);
-  padding: 4vh 10vw 10vh 10vw;
-  min-height: 70vh;
-}
-/* 84vh (main, height+padding vertical) + 13vh (navbar, height+border) + 3vh (foot) = 100vh */
 
 .foot{
   background: var(--color5);
@@ -421,9 +429,6 @@ main{
   align-items: center;
   justify-content: center;
 }
-.foot::before{
-  content: 'Desenvolvido por Schaldach com Next.js e Supabase';
-}
 .footerlink{
   color: var(--color3);
   cursor: pointer;
@@ -436,7 +441,7 @@ main{
   background-color: var(--color2p);
   cursor: pointer;
   border: none;
-  border-radius: 5vh;
+  border-radius: 20px;
   width: 10vh;
   border: solid 2px var(--color4);
   color: var(--color4);
@@ -518,7 +523,7 @@ main{
 }
 
 .anotcontent::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 .anotcontent::-webkit-scrollbar-thumb{
   background-color: var(--color4);
@@ -535,17 +540,17 @@ main{
   transform: rotate(2deg);
   top: -3px;
 }
-.wholething:nth-child(4n){
+.wholething:nth-child(3n+1){
   transform: rotate(-2deg);
   top: -3px;
 }
-.wholething:nth-child(5n){
+.wholething:nth-child(4n){
   transform: rotate(2deg);
   top: 3px;
 }
 .wholething:hover{
   top: 0;
-  transform: scale(1) rotate(0deg);
+  transform: scale(1.05) rotate(0deg);
   transition: 0.15s ease;
   z-index: 2;
 }
@@ -631,8 +636,6 @@ input, textarea{
 }
 
 .anotcontent{
-  white-space: normal;
-  word-wrap: break-word;
   background-color: var(--color2p);
   color: var(--color1);
   font-family: var(--font2);
@@ -863,8 +866,12 @@ svg{
   font-weight: bold;
   color: var(--color3);
 }
-.listitem{
+.listitem, .listarea, .anotcontent{
   word-wrap: break-word;
+  padding: 0 2px;
+}
+.listcontent{
+  padding: 0;
 }
 .homesvg{
   width: 4.5vh;
@@ -1127,12 +1134,18 @@ svg{
   width: 100%;
 }
 .grouptitle button{
-  border: solid var(--color2s);
-  border-width: 2px 0 0 0;
+  border: none;
   cursor: pointer;
+  color: var(--color4);
 }
 .grouptitle button:hover{
-  border-color: var(--color4);
+  color: var(--color5);
+}
+.grouptitle .groupdeletebutton{
+  color: #e61e1e;
+}
+.grouptitle .groupdeletebutton:hover{
+  color: #ad1212;
 }
 .group{
   width: 100%;
@@ -1169,7 +1182,7 @@ svg{
 .previewflex{
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
   padding: 0 10px;
 }
 .previewtitle{
@@ -1245,9 +1258,6 @@ svg{
 }
 
 @media screen and (max-width: 768px){
-  .foot::before{
-    content: 'Desenvolvido por Schaldach';
-  }
   .homebutton::before{
     content: 'Leve-me lá';
   }

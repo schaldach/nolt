@@ -73,7 +73,7 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
                     <input onFocus={() => changeFocus(-1)} onKeyDown={(e) => handleTextFocus(e)} className={editMode ? 'anottitle' : 'displaynone anottitle'} type='text'
                         value={title} onInput={e => onEdit(e.target.value, content, list)} placeholder='Título' />
                 </div>
-                <div className='anotcontent'>
+                <div className='anotcontent listcontent'>
                     {content.map(item =>
                         <ListItem itemEdit={itemEdit} index={item.id} key={item.id} editMode={editMode}
                             text={item.text} changeFocus={changeFocus} handleTextFocus={handleTextFocus}

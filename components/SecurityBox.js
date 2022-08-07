@@ -1,4 +1,8 @@
 function SecurityBox({onDelete, onCancel, boxVisible}) {
+    function actualDelete(){
+        onCancel()
+        onDelete()
+    }
     return (
         <div className={boxVisible?'disabledpage':'displaynone'}>
         <div className="securitybox">
@@ -7,7 +11,7 @@ function SecurityBox({onDelete, onCancel, boxVisible}) {
             </svg>
             <div>Você quer <span className="redtext">deletar</span> esta anotação?</div>
             <div className="minortext">Essa ação não pode ser desfeita.</div>
-            <div className="securitybuttons"><button onClick={onCancel} className="cancelbutton">Cancelar</button><button onClick={onDelete} className="confirmbutton">Confirmar</button></div>
+            <div className="securitybuttons"><button onClick={onCancel} className="cancelbutton">Cancelar</button><button onClick={actualDelete} className="confirmbutton">Confirmar</button></div>
         </div>
         </div>
     );
