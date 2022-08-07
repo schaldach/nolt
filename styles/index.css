@@ -528,20 +528,20 @@ main{
 }
 
 .wholething:nth-child(even){
-  transform: rotate(-3deg);
+  transform: rotate(-2deg);
   top: 3px;
 }
 .wholething:nth-child(3n){
-  transform: rotate(3deg);
+  transform: rotate(2deg);
   top: -3px;
 }
 .wholething:nth-child(4n){
-  transform: rotate(2deg);
-  top: -2px;
+  transform: rotate(-2deg);
+  top: -3px;
 }
 .wholething:nth-child(5n){
-  transform: rotate(-2deg);
-  top: 2px;
+  transform: rotate(2deg);
+  top: 3px;
 }
 .wholething:hover{
   top: 0;
