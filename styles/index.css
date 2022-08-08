@@ -387,6 +387,8 @@ main{
 }
 .dropdownswrapper{
   overflow: hidden;
+  gap: 0;
+  padding: 0;
   border-radius: 5px;
   border: solid var(--color4) 2px;
 }
@@ -395,6 +397,7 @@ main{
 }
 .dropdownitem{
   border: none;
+  margin: 0;
   padding: 4px 10px;
   background-color: var(--color2p);
   color: var(--color1);
@@ -1345,6 +1348,9 @@ svg{
     position: absolute;
     left: 5.5vh;
   }
+  .dropdownswrapper button{
+    width: fit-content;
+  }
   .dropdowns{
     position: relative;
   }
@@ -1352,7 +1358,7 @@ svg{
     top: 0vh;
   }
   .navbarwrapper:hover .navbar-select .absolutesvg{
-    left: 9vh;
+    left: 20vh;
   }
   .flex{
     gap: 0px;
