@@ -1,8 +1,9 @@
 import React, { useState, useRef } from "react"
 import DropdownMenu from "./DropdownMenu"
 import SecurityBox from "./SecurityBox"
+import AnotationDate from "./AnotationDate"
 
-function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite}) {
+function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite, calendar, onCalendar, onSchedule}) {
     const[editMode, startEdit] = useState(!content||!title)
     const[viewMode, startView] = useState(false)
     const[boxVisible, setBox] = useState(false)
@@ -30,6 +31,9 @@ function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite
             <svg xmlns="http://www.w3.org/2000/svg" className={favorite?'modesvg':'displaynone'} viewBox="0 0 20 20" fill="var(--color3)">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" className={calendar?'modesvg':'displaynone'} viewBox="0 0 20 20" fill="var(--color3)">
+                <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+            </svg>
         </div>
         <div className={editMode?'anot editting':'anot'}>
             <div>
@@ -42,9 +46,10 @@ function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite
                 <textarea ref={searchInput} className={editMode?'anotcontent':'displaynone'} type='text' 
                 value={content} onInput={e => onEdit(title, e.target.value, note)} placeholder='Conteúdo'/>
             </div>
+            <AnotationDate calendar={calendar} onSchedule={onSchedule} editMode={editMode}/>
         </div>
         <DropdownMenu editMode={editMode} onEdit={() => startEdit(!editMode)} viewMode={viewMode} favorite={favorite} 
-        onFavorite={() => onFavorite(note)} onView={() => startView(!viewMode)} onDelete={() => setBox(true)}/>
+        calendar={calendar} onCalendar={() => onCalendar(note)} onFavorite={() => onFavorite(note)} onView={() => startView(!viewMode)} onDelete={() => setBox(true)}/>
         </div>
         <SecurityBox onDelete={() => onDelete(note.id)} onCancel={() => setBox(false)} boxVisible={boxVisible}/>
         </>

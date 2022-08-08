@@ -75,6 +75,8 @@ function Notes({user}) {
         conectionMade(1)
     }
 
+    function onSchedule(){}
+
     async function onDelete(noteId) {
         let lastconection = successAnimation
         conectionMade(2)
@@ -103,7 +105,7 @@ function Notes({user}) {
                 </button>
                 {allNotes.map(note =>
                     <Anotation onFavorite={onFavorite} favorite={note.favorite} note={note} onDelete={onDelete} onEdit={onEdit}
-                       calendar={note.calendar} onCalendar={onCalendar} key={note.id} title={note.title} content={note.content} />
+                    onSchedule={onSchedule} calendar={note.calendar} onCalendar={onCalendar} key={note.id} title={note.title} content={note.content} />
                 )}
             </div>
         </div>

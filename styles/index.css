@@ -441,7 +441,7 @@ main{
   background-color: var(--color2p);
   cursor: pointer;
   border: none;
-  border-radius: 20px;
+  border-radius: 50px;
   width: 10vh;
   border: solid 2px var(--color4);
   color: var(--color4);
@@ -1264,6 +1264,19 @@ svg{
   color: var(--color4);
 }
 
+.datebox{
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  border: 2px solid var(--color4);
+  background-color: var(--color2p);
+  color: var(--color1);
+  font-family: var(--font2);
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 5px;
+}
+
 @media screen and (max-width: 768px){
   .homebutton::before{
     content: 'Leve-me lá';
@@ -1368,4 +1381,3 @@ svg{
 .displaynone{
   display: none;
 }
-.greentext{}
