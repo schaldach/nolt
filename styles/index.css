@@ -358,6 +358,7 @@ main{
   align-items: center;
   justify-content: center;
   display: flex;
+  position: relative;
   gap: 0;
   padding: 0.25vh;
   color: var(--color1);
@@ -1363,9 +1364,6 @@ svg{
   }
   .dropdownitem{
     text-align: center;
-  }
-  .navbarwrapper:hover .navbar-select .absolutesvg{
-    left: 21.25vh;
   }
   .flex{
     gap: 0px;
