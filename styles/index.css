@@ -387,6 +387,8 @@ main{
 .dropdownswrapper{
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   flex-basis: min-content;
   overflow: hidden;
   gap: 0;
