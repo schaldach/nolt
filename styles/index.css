@@ -388,7 +388,7 @@ main{
 .dropdownswrapper{
   display: grid;
   grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: 1fr;
+  grid-template-columns: auto;
   place-items: center;
   overflow: hidden;
   gap: 0;
@@ -397,6 +397,7 @@ main{
   border: solid var(--color4) 2px;
 }
 .dropdownswrapper button{
+  height: 100%;
   width: 100%;
 }
 .dropdownitem{
@@ -1354,16 +1355,14 @@ svg{
   }
   .dropdownswrapper{
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
+    grid-template-rows: auto;
   }
   .dropdowns{
     position: relative;
+    top: 0vh;
   }
   .dropdownitem{
     text-align: center;
-  }
-  .navbarwrapper:hover .dropdowns{
-    top: 0vh;
   }
   .navbarwrapper:hover .navbar-select .absolutesvg{
     left: 21.25vh;
