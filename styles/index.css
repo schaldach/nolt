@@ -341,7 +341,6 @@ main{
 }
 .navbarwrapper:hover .dropdowns, .dropdowns:hover{
   display: flex;
-  flex-direction: column;
   top: 6.25vh;
   padding-top: 1vh;
 }
@@ -386,6 +385,9 @@ main{
   z-index: 3;
 }
 .dropdownswrapper{
+  display: flex;
+  flex-direction: column;
+  flex-basis: min-content;
   overflow: hidden;
   gap: 0;
   padding: 0;
@@ -1350,6 +1352,9 @@ svg{
   }
   .dropdownswrapper button{
     width: fit-content;
+  }
+  .dropdownswrapper{
+    flex-direction: row;
   }
   .dropdowns{
     position: relative;
