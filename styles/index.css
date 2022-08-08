@@ -356,6 +356,7 @@ main{
 }
 .navbar-select{
   align-items: center;
+  justify-content: center;
   display: flex;
   gap: 0;
   padding: 0.25vh;
@@ -385,11 +386,10 @@ main{
   z-index: 3;
 }
 .dropdownswrapper{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex-basis: min-content;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: 1fr;
+  place-items: center;
   overflow: hidden;
   gap: 0;
   padding: 0;
@@ -1352,20 +1352,21 @@ svg{
     position: absolute;
     left: 5.5vh;
   }
-  .dropdownswrapper button{
-    width: fit-content;
-  }
   .dropdownswrapper{
-    flex-direction: row;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
   }
   .dropdowns{
     position: relative;
+  }
+  .dropdownitem{
+    text-align: center;
   }
   .navbarwrapper:hover .dropdowns{
     top: 0vh;
   }
   .navbarwrapper:hover .navbar-select .absolutesvg{
-    left: 20vh;
+    left: 21.25vh;
   }
   .flex{
     gap: 0px;
