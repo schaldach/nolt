@@ -1304,9 +1304,7 @@ svg{
 }
 .dateinputs input{
   text-align: center;
-}
-.dateinputs{
-  width: 82.5%;
+  width: 95%;
 }
 
 @media screen and (max-width: 768px){
