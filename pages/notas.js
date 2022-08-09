@@ -29,7 +29,7 @@ function Notes({user}) {
                         .select('*')
                         .eq('userid', user.id)
                     let formattedData = data
-                    formattedData.sort((a,b) => {return a.id-b.id})
+                    formattedData.sort((a,b) => {return new Date(a.date) - new Date(b.date)})
                     addNote(formattedData)
                 }
                 conectionMade(0)
@@ -76,6 +76,7 @@ function Notes({user}) {
     }
 
     function onSchedule(note, date){
+        if(!date){return}
         setChange(true)
         let newNotes = [...allNotes]
         const index = newNotes.indexOf(note)

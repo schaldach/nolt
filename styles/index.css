@@ -201,7 +201,7 @@ main{
 }
 
 .login{
-  background-color: var(--color5);
+  background: linear-gradient(to right, #1b4bbb, #0ea8e6);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -1279,6 +1279,12 @@ svg{
 
 ::-webkit-calendar-picker-indicator {
   filter: invert(var(--calendarfilter));
+  padding: 2px;
+  border: solid var(--color4) 2px;
+  cursor: pointer;
+}
+::-webkit-calendar-picker-indicator:hover {
+  border-color: var(--color5);
 }
 
 .datebox{
@@ -1294,10 +1300,13 @@ svg{
   font-family: var(--font2);
   font-weight: bold;
   border-radius: 20px;
-  padding: 5px;
+  padding: 4px;
 }
-.datebox input{
+.dateinputs input{
   text-align: center;
+}
+.dateinputs{
+  width: 82.5%;
 }
 
 @media screen and (max-width: 768px){

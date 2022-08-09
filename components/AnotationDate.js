@@ -6,6 +6,7 @@ function AnotationDate({calendar, onSchedule, editMode, date, note}) {
     const weekDay = days[currentTime.getDay()]
 
     function convertDate(localdate){
+        if(!localdate){return ''}
         let newDate = new Date(localdate)
         let utcDate = new Date(newDate.getUTCFullYear(), newDate.getUTCMonth(),
             newDate.getUTCDate(), newDate.getUTCHours(),
@@ -17,7 +18,7 @@ function AnotationDate({calendar, onSchedule, editMode, date, note}) {
         <div className={calendar?'datebox':'displaynone'}>
             <div>{`${weekDay}, ${formattedMonthDay}`}</div>
             <div className={editMode?'dateinputs':'displaynone'}>
-            <div><input onInput={e => onSchedule(note, convertDate(e.target.value))} value={formattedDate} type='date'></input></div>
+            <input onInput={e => onSchedule(note, convertDate(e.target.value))} value={formattedDate} type='date'></input>
             </div>
         </div>
     );
