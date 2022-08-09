@@ -1286,6 +1286,7 @@ svg{
   padding: 2px;
   border: solid var(--calendarborder) 2px;
   cursor: pointer;
+  padding-left: 10px;
 }
 ::-webkit-calendar-picker-indicator:hover {
   border-color: var(--calendarborderhover);
@@ -1311,7 +1312,6 @@ svg{
 }
 .datebox input{
   text-align: center;
-  padding-left: 10px;
 }
 
 @media screen and (max-width: 768px){
