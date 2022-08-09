@@ -75,7 +75,14 @@ function Notes({user}) {
         conectionMade(1)
     }
 
-    function onSchedule(){}
+    function onSchedule(note, date){
+        setChange(true)
+        let newNotes = [...allNotes]
+        const index = newNotes.indexOf(note)
+        newNotes[index].date = date
+        addNote(newNotes)
+        conectionMade(1)
+    }
 
     async function onDelete(noteId) {
         let lastconection = successAnimation
@@ -105,7 +112,7 @@ function Notes({user}) {
                 </button>
                 {allNotes.map(note =>
                     <Anotation onFavorite={onFavorite} favorite={note.favorite} note={note} onDelete={onDelete} onEdit={onEdit}
-                    onSchedule={onSchedule} calendar={note.calendar} onCalendar={onCalendar} key={note.id} title={note.title} content={note.content} />
+                    date={note.date} onSchedule={onSchedule} calendar={note.calendar} onCalendar={onCalendar} key={note.id} title={note.title} content={note.content} />
                 )}
             </div>
         </div>

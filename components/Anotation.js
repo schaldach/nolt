@@ -3,7 +3,7 @@ import DropdownMenu from "./DropdownMenu"
 import SecurityBox from "./SecurityBox"
 import AnotationDate from "./AnotationDate"
 
-function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite, calendar, onCalendar, onSchedule}) {
+function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite, calendar, onCalendar, onSchedule, date}) {
     const[editMode, startEdit] = useState(!content||!title)
     const[viewMode, startView] = useState(false)
     const[boxVisible, setBox] = useState(false)
@@ -46,7 +46,7 @@ function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite
                 <textarea ref={searchInput} className={editMode?'anotcontent':'displaynone'} type='text' 
                 value={content} onInput={e => onEdit(title, e.target.value, note)} placeholder='Conteúdo'/>
             </div>
-            <AnotationDate calendar={calendar} onSchedule={onSchedule} editMode={editMode}/>
+            <AnotationDate note={note} date={date} calendar={calendar} onSchedule={onSchedule} editMode={editMode}/>
         </div>
         <DropdownMenu editMode={editMode} onEdit={() => startEdit(!editMode)} viewMode={viewMode} favorite={favorite} 
         calendar={calendar} onCalendar={() => onCalendar(note)} onFavorite={() => onFavorite(note)} onView={() => startView(!viewMode)} onDelete={() => setBox(true)}/>
