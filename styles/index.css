@@ -11,6 +11,8 @@
   --font2: 'Poppins', sans-serif;
   --font3: 'Inter', sans-serif;
   --calendarfilter: 0;
+  --calendarborder: #e61e1e;
+  --calendarborderhover: #ad1212;
 }
 [data-theme='dark'] {
   --color1: #ffffff;
@@ -23,6 +25,8 @@
   --font2: 'Poppins', sans-serif;
   --font3: 'Inter', sans-serif;
   --calendarfilter: 1;
+  --calendarborder: #19e1e1;
+  --calendarborderhover: #52eded;
 }
 
 body, html{
@@ -1280,11 +1284,11 @@ svg{
 ::-webkit-calendar-picker-indicator {
   filter: invert(var(--calendarfilter));
   padding: 2px;
-  border: solid var(--color4) 2px;
+  border: solid var(--calendarborder) 2px;
   cursor: pointer;
 }
 ::-webkit-calendar-picker-indicator:hover {
-  border-color: var(--color5);
+  border-color: var(--calendarborderhover);
 }
 
 .datebox{
