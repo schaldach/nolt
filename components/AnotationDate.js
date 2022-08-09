@@ -17,7 +17,7 @@ function AnotationDate({calendar, onSchedule, editMode, date, note}) {
     return (
         <div className={calendar?'datebox':'displaynone'}>
             <div>{`${weekDay}, ${formattedMonthDay}`}</div>
-            <div className={editMode?'':'displaynone'}>
+            <div className={editMode?'dateinputs':'displaynone'}>
             <input onInput={e => onSchedule(note, convertDate(e.target.value))} value={formattedDate} type='date'></input>
             </div>
         </div>
