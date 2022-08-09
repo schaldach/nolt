@@ -1286,7 +1286,7 @@ svg{
   padding: 2px;
   border: solid var(--calendarborder) 2px;
   cursor: pointer;
-  padding-left: 10px;
+  margin-left: 10px;
 }
 ::-webkit-calendar-picker-indicator:hover {
   border-color: var(--calendarborderhover);
