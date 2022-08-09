@@ -12,7 +12,7 @@ function Links({user}) {
     const [needData,requestD] = useState(false)
     const [changed, setChange] = useState(true)
 
-    useInterval(() => {syncLinks(allLinks, true)},3000)
+    useInterval(() => {syncLinks(allLinks, true)},2500)
 
     useEffect(() => {
         syncLinks(allLinks)

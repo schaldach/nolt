@@ -10,7 +10,7 @@ function Notes({user}) {
     const [successAnimation, conectionMade] = useState(0)
     const [changed, setChange] = useState(true)
 
-    useInterval(() => {syncNotes(allNotes, true)},3000)
+    useInterval(() => {syncNotes(allNotes, true)},2500)
 
     useEffect(() => {
         syncNotes(allNotes)

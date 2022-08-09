@@ -13,7 +13,7 @@ function Groups({user}) {
     const [allLists, addList] = useState([])
     const [allLinks, addLink] = useState([])
 
-    useInterval(() => {syncGroups(allGroups, true)},3000)
+    useInterval(() => {syncGroups(allGroups, true)},2500)
 
     useEffect(()=> {
         syncAnotations()

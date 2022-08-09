@@ -10,7 +10,7 @@ function Lists({user}) {
     const [successAnimation, conectionMade] = useState(0)
     const [changed, setChange] = useState(true)
 
-    useInterval(() => {syncLists(allLists, true)},3000)
+    useInterval(() => {syncLists(allLists, true)},2500)
     
     useEffect(() => {
         syncLists(allLists)
