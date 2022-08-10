@@ -93,7 +93,7 @@ function Group({allNotes, allLists, allLinks, notes, lists, links, title, onEdit
                     </svg>
                 </button>
                 {notes.map(note => 
-                    <SimpleAnotation key={note.id} title={note.title} content={note.content}/>
+                    <SimpleAnotation calendar={note.calendar} date={note.date} key={note.id} title={note.title} content={note.content}/>
                 )}
                 <PreviewNotes addNote={addNote} type='Notas' notesBox={notesBox} notes={notes} allNotes={allNotes} showNotes={showNotes}/>
                 {lists.map(list => 

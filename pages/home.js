@@ -129,7 +129,7 @@ function Home({user}) {
             </div>
                 <div className='displayanotations displayfavorites'>
                 {favoriteNotes.map(note => 
-                note.favorite||!favorites?<FavoriteNote key={Math.random()} title={note.title} content={note.content}/>:''
+                note.favorite||!favorites?<FavoriteNote calendar={note.calendar} date={note.date} key={Math.random()} title={note.title} content={note.content}/>:''
                 )}
                 <div className={favorites?'empty':'displaynone'}>{areThereFavorites(favoriteNotes)?'':'Não há notas favoritas.'}</div>
                 <div className={!favorites?'empty':'displaynone'}>{favoriteNotes.length?'':'Não há notas.'}</div>

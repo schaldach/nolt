@@ -83,7 +83,7 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
                     ou ir para o próximo item<br/>Backspace em um item vazio irá removê-lo e atualizar os índices</div>
                 </div>
             </div>
-            <DropdownMenu editMode={editMode} onEdit={() => startEdit(!editMode)} viewMode={viewMode} favorite={favorite} 
+            <DropdownMenu noCalendar={true} editMode={editMode} onEdit={() => startEdit(!editMode)} viewMode={viewMode} favorite={favorite} 
             onFavorite={() => onFavorite(list)} onView={() => startView(!viewMode)} onDelete={() => setBox(true)}/>
         </div>
         <SecurityBox onDelete={() => onDelete(list.id)} onCancel={() => setBox(false)} boxVisible={boxVisible}/>
