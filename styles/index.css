@@ -809,7 +809,7 @@ svg{
   width: 20px;
 }
 .favanot:hover{
-  transform: scale(1.05);
+  transform: scale(1.025);
 }
 .functionalitywrapper{
   height: fit-content;
@@ -1230,6 +1230,7 @@ svg{
 }
 
 .previewnote{
+  user-select: none;
   position: relative;
   display: flex;
   justify-content: center;
@@ -1276,15 +1277,14 @@ svg{
 .displaychoice button:hover{
   color: var(--color4);
 }
-
-::-webkit-calendar-picker-indicator {
+::-webkit-inner-spin-button,::-webkit-calendar-picker-indicator {
   filter: invert(var(--calendarfilter));
   padding: 2px;
   border: solid var(--calendarborder) 2px;
   cursor: pointer;
   margin-left: 10px;
 }
-::-webkit-calendar-picker-indicator:hover {
+::-webkit-inner-spin-button,::-webkit-calendar-picker-indicator:hover {
   border-color: var(--calendarborderhover);
 }
 

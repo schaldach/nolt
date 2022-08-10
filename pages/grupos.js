@@ -24,6 +24,14 @@ function Groups({user}) {
             .from(notetype)
             .select('*')
             .eq('userid', user.id)
+        data.sort((a,b) => {
+            if(notetype==='notas'){
+                if(!a.calendar&&!b.calendar){return a.id - b.id}
+                if(!a.calendar||!b.calendar){return a.calendar?-1:1}
+                return new Date(a.date) - new Date(b.date)
+            }
+            return a.id-b.id
+        })
         return(data)
     }
 

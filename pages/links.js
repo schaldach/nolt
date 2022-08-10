@@ -30,9 +30,8 @@ function Links({user}) {
                         .from('links')
                         .select('*')
                         .eq('userid', user.id)
-                    let formattedData = data
-                    formattedData.sort((a,b) => {return a.id-b.id})
-                    addLink(formattedData)
+                    data.sort((a,b) => {return a.id-b.id})
+                    addLink(data)
                 }
                 conectionMade(0)
                 setChange(false)

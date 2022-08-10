@@ -46,6 +46,14 @@ function Home({user}) {
             .from(notetype)
             .select('*', {count: 'exact'})
             .eq('userid', user.id)
+        data.sort((a,b) => {
+            if(notetype==='notas'){
+                if(!a.calendar&&!b.calendar){return a.id - b.id}
+                if(!a.calendar||!b.calendar){return a.calendar?-1:1}
+                return new Date(a.date) - new Date(b.date)
+            }
+            return a.id-b.id
+        })
         setNumbers(prevState => {return{...prevState, [notetype]:count}})
         return(data)
     }

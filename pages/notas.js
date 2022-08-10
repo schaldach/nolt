@@ -28,9 +28,12 @@ function Notes({user}) {
                         .from('notas')
                         .select('*')
                         .eq('userid', user.id)
-                    let formattedData = data
-                    formattedData.sort((a,b) => {return new Date(a.date) - new Date(b.date)})
-                    addNote(formattedData)
+                    data.sort((a,b) => {
+                        if(!a.calendar&&!b.calendar){return a.id - b.id}
+                        if(!a.calendar||!b.calendar){return a.calendar?-1:1}
+                        return new Date(a.date) - new Date(b.date)
+                    })
+                    addNote(data)
                 }
                 conectionMade(0)
                 setChange(false)
@@ -40,7 +43,7 @@ function Notes({user}) {
     async function addAnotation() {
         conectionMade(2)
         setChange(true)
-        let newNote = {title: '', content: '', favorite:false, userid: user.id, calendar:true}
+        let newNote = {title: '', content: '', favorite:false, userid: user.id, calendar:false}
         const bla = await supabase
             .from('notas')
             .insert([newNote])
