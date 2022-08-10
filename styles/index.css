@@ -386,7 +386,7 @@ main{
   user-select: none;
 }
 .dropdowns{
-  top: 6.25vh;
+  top: 6.15vh;
   padding-top: 1vh;
   position: absolute;
   display: none;
@@ -1352,9 +1352,10 @@ svg{
     display: none;
   }
   .navbar:hover .sections{
-    display: flex;
-    gap: 2vh;
-    flex-direction: column;
+    display: grid;
+    gap: 2.5vh;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
   }
   .navbar:hover .dark-wrapper{
     display: flex;
@@ -1375,16 +1376,12 @@ svg{
     align-items: center;
   }
   .absolutesvg{
-    position: absolute;
+    transform: rotate(-90deg);
     left: 5.5vh;
   }
-  .dropdownswrapper{
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-  }
   .dropdowns{
-    position: relative;
-    top: 0vh;
+    left: 9vh;
+    top: -7.5vh;
   }
   .dropdownitem{
     text-align: center;
