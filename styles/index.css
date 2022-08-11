@@ -405,7 +405,8 @@ main{
   padding: 0 !important;
   margin: 0;
   border-radius: 5px;
-  border: solid var(--color4) 2px;
+  background-color: var(--color4);
+  padding: 2px;
 }
 .dropdownswrapper button{
   height: 100%;
