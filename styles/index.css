@@ -813,8 +813,8 @@ svg{
   gap: 0;
   padding: 0;
   height: 25px;
-  border: solid var(--color5);
-  border-width: 2px 2px 2px 5px;
+  border: none;
+  padding: 2px 2px 2px 5px;
   overflow: hidden;
   background-color: var(--color5);
 }
@@ -961,7 +961,6 @@ svg{
 
 @keyframes growDown {
   0% {
-    background-color: var(--color2p);
     height: 25px;
     flex-wrap: wrap;
     overflow: hidden;
@@ -971,7 +970,6 @@ svg{
     flex-wrap: wrap;
   }
   100% {
-    background-color: var(--color2p);
     overflow: visible;
     flex-wrap: nowrap;
     height: 137.5px;
@@ -1333,7 +1331,7 @@ svg{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     place-items: center;
-    gap: 5.25vh;
+    gap: 5.5vh;
   }
   .navbar:hover .dark-wrapper{
     display: flex;
