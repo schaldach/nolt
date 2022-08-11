@@ -402,7 +402,6 @@ main{
   place-items: center;
   overflow: hidden;
   gap: 0;
-  padding: 0 !important;
   margin: 0;
   border-radius: 5px;
   background-color: var(--color4);
