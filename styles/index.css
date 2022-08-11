@@ -1333,7 +1333,7 @@ svg{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     place-items: center;
-    gap: 4vh;
+    gap: 4.75vh;
   }
   .navbar:hover .dark-wrapper{
     display: flex;
@@ -1354,7 +1354,7 @@ svg{
     align-items: center;
   }
   .absolutesvg{
-    left: 5.25vh;
+    left: 5vh;
   }
   .dropdownitem{
     text-align: center;
