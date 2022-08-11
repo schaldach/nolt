@@ -397,6 +397,7 @@ main{
 .dropdownswrapper{
   display: grid;
   grid-template-rows: repeat(3, 1fr);
+  place-items: center;
   grid-template-columns: auto;
   place-items: center;
   overflow: hidden;
@@ -551,10 +552,14 @@ main{
 .anotcontent::-webkit-scrollbar-thumb:hover{
   background-color: var(--color5);
 }
-
-.view:nth-child(1n){
-  transform: scale(1.1);
-  z-index: 1;
+.previewbox::-webkit-scrollbar {
+  width: 7px;
+}
+.previewbox::-webkit-scrollbar-thumb{
+  background-color: var(--color4);
+}
+.previewbox::-webkit-scrollbar-thumb:hover{
+  background-color: var(--color5);
 }
 
 .confirmbuttons{
@@ -655,7 +660,7 @@ input, textarea{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 30px;
+  width: 100%;
   height: 25px;
 }
 .deletebutton{
@@ -789,7 +794,7 @@ svg{
   width: 20px;
 }
 .favanot:hover{
-  transform: scale(1.025);
+  transform: scale(1.035);
 }
 .functionalitywrapper{
   height: fit-content;
@@ -804,14 +809,14 @@ svg{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin: 0px;
-  gap: 0px;
-  padding: 0px;
+  margin: 0;
+  gap: 0;
+  padding: 0;
   height: 25px;
   border: solid var(--color5);
   border-width: 2px 2px 2px 5px;
   overflow: hidden;
-  background-color: var(--color2p);
+  background-color: var(--color5);
 }
 .dropdownbutton{
   background-color: var(--color5);
@@ -956,6 +961,7 @@ svg{
 
 @keyframes growDown {
   0% {
+    background-color: var(--color2p);
     height: 25px;
     flex-wrap: wrap;
     overflow: hidden;
@@ -965,6 +971,7 @@ svg{
     flex-wrap: wrap;
   }
   100% {
+    background-color: var(--color2p);
     overflow: visible;
     flex-wrap: nowrap;
     height: 137.5px;
@@ -1323,8 +1330,9 @@ svg{
     display: none;
   }
   .navbar:hover .sections{
-    display: flex;
-    gap: 2.5vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
   }
   .navbar:hover .dark-wrapper{
     display: flex;
