@@ -539,7 +539,7 @@ main{
   box-shadow: 5px 5px 0px var(--color5);
 }
 .editting{
-  box-shadow: 5px 5px 0px var(--color5), 5px 5px 30px var(--color4) ;
+  box-shadow: 5px 5px 0px var(--color5), 5px 5px 25px var(--color4) ;
 }
 
 .anotcontent::-webkit-scrollbar {
