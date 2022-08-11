@@ -403,8 +403,8 @@ main{
   overflow: hidden;
   gap: 0;
   margin: 0;
-  background-color: var(--color4);
-  padding: 2px;
+  border-radius: 5px;
+  border: 2px solid var(--color4);
 }
 .dropdownswrapper button{
   height: 100%;
