@@ -1345,6 +1345,9 @@ svg{
     justify-content: center;
     align-items: center;
   }
+  .dropdownswrapper{
+    padding: 2px;
+  }
   .dark-wrapper{
     margin-top: 3vh;
     display: none;
