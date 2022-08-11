@@ -539,7 +539,7 @@ main{
   box-shadow: 5px 5px 0px var(--color5);
 }
 .editting{
-  box-shadow: 5px 5px 0px var(--color5), 5px 5px 20px var(--color4) ;
+  box-shadow: 5px 5px 0px var(--color5), 5px 5px 25px var(--color4) ;
 }
 
 .anotcontent::-webkit-scrollbar {
@@ -821,8 +821,6 @@ svg{
   background-color: var(--color5);
 }
 .wholething:hover .functionality{
-  flex-wrap: nowrap;
-  overflow: visible;
   height: 100%;
   animation: growDown 0.375s linear;
 }
@@ -838,13 +836,10 @@ svg{
   color: #ffffff;
 }
 .wholething{
-  transition: 0.15s ease;
   position: relative;
   display: flex;
 }
 .menuview{
-  flex-wrap: nowrap;
-  overflow: visible;
   height: 100%;
   animation: none !important;  
 }
@@ -899,6 +894,7 @@ svg{
   border: none;
   border-radius: 15px;
   cursor: pointer;
+  user-select: none;
 }
 .cancelbutton{
   background-color: #e61e1e;
