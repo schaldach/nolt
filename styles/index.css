@@ -13,6 +13,7 @@
   --calendarfilter: 0;
   --calendarborder: #e61e1e;
   --calendarborderhover: #ad1212;
+  --buttonhover: #eeeeee;
 }
 [data-theme='dark'] {
   --color1: #ffffff;
@@ -27,6 +28,7 @@
   --calendarfilter: 1;
   --calendarborder: #19e1e1;
   --calendarborderhover: #52eded;
+  --buttonhover: #2C2F33;
 }
 
 body, html{
@@ -537,7 +539,7 @@ main{
   box-shadow: 5px 5px 0px var(--color5);
 }
 .editting{
-  box-shadow: 5px 5px 15px var(--color4);
+  box-shadow: 5px 5px 0px var(--color5), 5px 5px 20px var(--color4) ;
 }
 
 .anotcontent::-webkit-scrollbar {
@@ -550,30 +552,7 @@ main{
   background-color: var(--color5);
 }
 
-.wholething:nth-child(even){
-  transform: rotate(-2deg);
-  top: 3px;
-}
-.wholething:nth-child(3n){
-  transform: rotate(2deg);
-  top: -3px;
-}
-.wholething:nth-child(3n+1){
-  transform: rotate(-2deg);
-  top: -3px;
-}
-.wholething:nth-child(4n){
-  transform: rotate(2deg);
-  top: 3px;
-}
-.wholething:hover{
-  top: 0;
-  transform: scale(1.025) rotate(0deg);
-  transition: 0.15s ease;
-  z-index: 2;
-}
 .view:nth-child(1n){
-  top: 0;
   transform: scale(1.1);
   z-index: 1;
 }
@@ -667,7 +646,8 @@ input, textarea{
 
 .functionbutton{
   background: none;
-  color: #000000;
+  color: var(--color1);
+  background-color: var(--color2p);
   border: none;
   outline: none;
   cursor: pointer;
@@ -814,7 +794,12 @@ svg{
 .functionalitywrapper{
   height: fit-content;
 }
+.functionbutton:hover{
+  background-color: var(--buttonhover);
+}
 .functionality{
+  position: relative;
+  z-index: 3;
   width: 30px;
   display: flex;
   flex-direction: column;
@@ -823,26 +808,23 @@ svg{
   gap: 0px;
   padding: 0px;
   height: 25px;
-  border: solid var(--color4);
-  border-width: 2px;
+  border: solid var(--color5);
+  border-width: 2px 2px 2px 5px;
   overflow: hidden;
-  background-color: #ffffff;
+  background-color: var(--color2p);
 }
-.wholething:hover .dropdownbutton{
-  width: 32px;
-  margin-left: -1px;
-  background-color: var(--color4);
+.dropdownbutton{
+  background-color: var(--color5);
   color: #ffffff;
-  margin-top: -1px;
+}
+.dropdownbutton:hover{
+  background-color: var(--color5);
 }
 .wholething:hover .functionality{
   flex-wrap: nowrap;
   overflow: visible;
-  height: calc(100% - 1px);
+  height: 100%;
   animation: growDown 0.375s linear;
-}
-.functionbutton:hover{
-  background-color: #e6e6e6;
 }
 .removesvg{
   color: #e61e1e;
@@ -856,22 +838,15 @@ svg{
   color: #ffffff;
 }
 .wholething{
+  transition: 0.15s ease;
   position: relative;
   display: flex;
-  gap: 10px;
 }
 .menuview{
   flex-wrap: nowrap;
   overflow: visible;
-  height: calc(100% - 1px);
+  height: 100%;
   animation: none !important;  
-}
-.menuview .dropdownbutton{
-  width: 32px;
-  margin-left: -1px;
-  margin-top: -1px;
-  background-color: var(--color4);
-  color: #ffffff;
 }
 .listinstruction{
   color: #808080;
@@ -1352,10 +1327,8 @@ svg{
     display: none;
   }
   .navbar:hover .sections{
-    display: grid;
+    display: flex;
     gap: 2.5vh;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
   }
   .navbar:hover .dark-wrapper{
     display: flex;
@@ -1376,12 +1349,7 @@ svg{
     align-items: center;
   }
   .absolutesvg{
-    transform: rotate(-90deg);
     left: 5.5vh;
-  }
-  .dropdowns{
-    left: 9vh;
-    top: -7.5vh;
   }
   .dropdownitem{
     text-align: center;
