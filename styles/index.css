@@ -403,7 +403,6 @@ main{
   overflow: hidden;
   gap: 0;
   margin: 0;
-  border-radius: 5px;
   background-color: var(--color4);
   padding: 2px;
 }
