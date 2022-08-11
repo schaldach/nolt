@@ -810,7 +810,7 @@ svg{
   flex-direction: column;
   flex-wrap: wrap;
   margin: 0;
-  gap: 2px;
+  column-gap: 2px;
   height: 25px;
   border: none;
   padding: 2px 2px 2px 5px;
@@ -826,8 +826,7 @@ svg{
 }
 .wholething:hover .functionality{
   height: 100%;
-  animation: growDown 0.375s linear;
-  gap: 0;
+  animation: growDown 0.4s linear;
 }
 .removesvg{
   color: #e61e1e;
@@ -845,7 +844,6 @@ svg{
   display: flex;
 }
 .menuview{
-  gap: 0;
   height: 100%;
   animation: none !important;  
 }
@@ -962,7 +960,6 @@ svg{
 
 @keyframes growDown {
   0% {
-    gap: 0;
     height: 25px;
     flex-wrap: wrap;
     overflow: hidden;
@@ -970,11 +967,11 @@ svg{
   99% {
     overflow: hidden;
     flex-wrap: wrap;
+    height: 137.5px;
   }
   100% {
     overflow: visible;
     flex-wrap: nowrap;
-    height: 137.5px;
   }
 }
 
