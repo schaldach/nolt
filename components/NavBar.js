@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from "react"
-import Router from 'next/router'
+import React, { useState } from "react"
 import Link from "next/link"
 import DarkModeButton from "./DarkModeButton"
 
 function NavBar({darkMode, setDarkMode}) {
     const [currentNote, changeCurrentNote] = useState('notas')
-    const [currentPage, changeCurrentPage] = useState('/home')
+    const [currentPage, changeCurrentPage] = useState('home')
 
-    useEffect(() => {
-        const router = Router
-        let {pathname} = router
-        changeCurrentPage(pathname)
-    })
+    function dropLink(type){
+        changeCurrentPage(type)
+        changeCurrentNote(type)
+    }
     
     return (
         <div className='navbar'>
@@ -21,7 +19,7 @@ function NavBar({darkMode, setDarkMode}) {
             </svg>
             <div className='sections'>
                 <Link href='/home'>
-                <div onClick={() => changeCurrentPage('home')} className={currentPage==='/home'?'navbar-select contentselected':'navbar-select'}>
+                <div onClick={() => changeCurrentPage('home')} className={currentPage==='home'?'navbar-select contentselected':'navbar-select'}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="navbarsvg" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                     </svg>
@@ -29,8 +27,8 @@ function NavBar({darkMode, setDarkMode}) {
                 </Link>
                 <div className="navbarwrapper">
                 <Link href={'/'+currentNote} >
-                    <div className='contentselection' onClick={() => changeCurrentPage('/'+currentNote)}>
-                        <div className={currentPage==='/notas'||currentPage==='/listas'||currentPage==='/links'?'navbar-select contentselected':'navbar-select'}>
+                    <div className='contentselection' onClick={() => changeCurrentPage(currentNote)}>
+                        <div className={currentPage==='notas'||currentPage==='listas'||currentPage==='links'?'navbar-select contentselected':'navbar-select'}>
                         <svg xmlns="http://www.w3.org/2000/svg" className={currentNote==='notas'?"navbarsvg":"displaynone"} viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
                         </svg>
@@ -49,14 +47,14 @@ function NavBar({darkMode, setDarkMode}) {
                 </Link>
                 <div className='dropdowns'>
                     <div className="dropdownswrapper">
-                    <Link href='/notas'><button onClick={() => changeCurrentNote('notas')} className='dropdownitem'>Notas</button></Link>
-                    <Link href='/listas'><button onClick={() => changeCurrentNote('listas')} className='dropdownitem'>Listas</button></Link>
-                    <Link href='/links'><button onClick={() => changeCurrentNote('links')} className='dropdownitem'>Links</button></Link>
+                    <Link href='/notas'><button onClick={() => dropLink('notas')} className='dropdownitem'>Notas</button></Link>
+                    <Link href='/listas'><button onClick={() => dropLink('listas')} className='dropdownitem'>Listas</button></Link>
+                    <Link href='/links'><button onClick={() => dropLink('links')} className='dropdownitem'>Links</button></Link>
                     </div>
                 </div>
                 </div>
                 <Link href='/grupos'>
-                <div onClick={() => changeCurrentPage('grupos')} className={currentPage==='/grupos'?'navbar-select contentselected':'navbar-select'}>
+                <div onClick={() => changeCurrentPage('grupos')} className={currentPage==='grupos'?'navbar-select contentselected':'navbar-select'}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="navbarsvg" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M3 12v3c0 1.657 3.134 3 7 3s7-1.343 7-3v-3c0 1.657-3.134 3-7 3s-7-1.343-7-3z" />
                         <path d="M3 7v3c0 1.657 3.134 3 7 3s7-1.343 7-3V7c0 1.657-3.134 3-7 3S3 8.657 3 7z" />
@@ -65,7 +63,7 @@ function NavBar({darkMode, setDarkMode}) {
                 </div>
                 </Link>
                 <Link href='/profile'>
-                <div onClick={() => changeCurrentPage('profile')} className={currentPage==='/profile'?'navbar-select contentselected':'navbar-select'}>
+                <div onClick={() => changeCurrentPage('profile')} className={currentPage==='profile'?'navbar-select contentselected':'navbar-select'}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="navbarsvg" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                     </svg>

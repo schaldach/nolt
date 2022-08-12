@@ -3,7 +3,7 @@ import DropdownMenu from "./DropdownMenu"
 import SecurityBox from "./SecurityBox"
 import AnotationDate from "./AnotationDate"
 
-function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite, calendar, onCalendar, onSchedule, date}) {
+function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite, calendar, onCalendar, onSchedule, date, small, onSmall}) {
     const[editMode, startEdit] = useState(!content||!title)
     const[viewMode, startView] = useState(false)
     const[boxVisible, setBox] = useState(false)
@@ -14,6 +14,13 @@ function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite
             e.preventDefault()
             searchInput.current.focus()
         }
+    }
+
+    function anotClass(){
+        let text = 'anot '
+        if(editMode){text+='editting '}
+        if(small){text+='smallanot'}
+        return text 
     }
 
     return (
@@ -34,8 +41,11 @@ function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite
             <svg xmlns="http://www.w3.org/2000/svg" className={calendar?'modesvg':'displaynone'} viewBox="0 0 20 20" fill="var(--color3)">
                 <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
             </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" className={!small?'modesvg':'displaynone'} viewBox="0 0 20 20" fill="var(--color3)">
+                <path fillRule="evenodd" d="M3 4a1 1 0 011-1h4a1 1 0 010 2H6.414l2.293 2.293a1 1 0 01-1.414 1.414L5 6.414V8a1 1 0 01-2 0V4zm9 1a1 1 0 110-2h4a1 1 0 011 1v4a1 1 0 11-2 0V6.414l-2.293 2.293a1 1 0 11-1.414-1.414L13.586 5H12zm-9 7a1 1 0 112 0v1.586l2.293-2.293a1 1 0 011.414 1.414L6.414 15H8a1 1 0 110 2H4a1 1 0 01-1-1v-4zm13-1a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 110-2h1.586l-2.293-2.293a1 1 0 011.414-1.414L15 13.586V12a1 1 0 011-1z" clipRule="evenodd" />
+            </svg>
         </div>
-        <div className={editMode?'anot editting':'anot'}>
+        <div className={anotClass()}>
             <div>
                 <div className={!editMode?'anottitle':'displaynone'}>{title}</div>
                 <input onKeyDown={(e) => handleTextFocus(e)} className={editMode?'anottitle':'displaynone'} type='text' 
@@ -49,7 +59,8 @@ function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite
             <AnotationDate note={note} date={date} calendar={calendar} onSchedule={onSchedule} editMode={editMode}/>
         </div>
         <DropdownMenu editMode={editMode} onEdit={() => startEdit(!editMode)} viewMode={viewMode} favorite={favorite} 
-        calendar={calendar} onCalendar={() => onCalendar(note)} onFavorite={() => onFavorite(note)} onView={() => startView(!viewMode)} onDelete={() => setBox(true)}/>
+        small={small} onSmall={() => onSmall(note)} calendar={calendar} onCalendar={() => onCalendar(note)} 
+        onFavorite={() => onFavorite(note)} onView={() => startView(!viewMode)} onDelete={() => setBox(true)}/>
         </div>
         <SecurityBox onDelete={() => onDelete(note.id)} onCancel={() => setBox(false)} boxVisible={boxVisible}/>
         </>

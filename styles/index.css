@@ -531,15 +531,21 @@ main{
   flex-direction: column;
   gap: 0.5vh;
   background-color: var(--color4);
-  width: 30vh;
-  height: 40vh;
+  width: 185px;
+  height: 250px;
   border: solid;
   border-color: var(--color4);
-  border-width: 1vh 2px 2px 2px;
-  box-shadow: 5px 5px 0px var(--color5);
+  border-width: 6px 2px 2px 2px;
 }
 .editting{
-  box-shadow: 5px 5px 0px var(--color5), 5px 5px 25px var(--color4) ;
+  box-shadow: 0px 0px 25px var(--color4) ;
+}
+.smallanot{
+  width: 135px;
+  height: calc(175px + 2px - 6px);
+}
+.smallanot .anotcontent{
+  height: calc(calc(175px + 2px - 6px) - 5vh)
 }
 
 .anotcontent::-webkit-scrollbar {
@@ -642,7 +648,7 @@ input, textarea{
   font-family: var(--font2);
   font-size: 2.25vh;
   overflow: auto;
-  height: 35vh;
+  height: calc(250px - 5vh)
 }
 .anotcontentwarning{
   word-wrap: break-word;
@@ -812,7 +818,7 @@ svg{
   column-gap: 2px;
   height: 25px;
   border: none;
-  padding: 2px 2px 2px 5px;
+  padding: 2px;
   overflow: hidden;
   background-color: var(--color5);
 }
@@ -966,7 +972,7 @@ svg{
   99% {
     overflow: hidden;
     flex-wrap: wrap;
-    height: 137.5px;
+    height: 162.5px;
   }
   100% {
     overflow: visible;
@@ -1256,7 +1262,6 @@ svg{
   padding: 2px;
   border: solid var(--calendarborder) 2px;
   cursor: pointer;
-  margin-left: 10px;
 }
 ::-webkit-inner-spin-button,::-webkit-calendar-picker-indicator:hover {
   border-color: var(--calendarborderhover);
@@ -1267,6 +1272,8 @@ svg{
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
+  max-width: 125px;
   bottom: 5px;
   left: 5px;
   border: 2px solid var(--color4);
@@ -1274,14 +1281,12 @@ svg{
   color: var(--color1);
   font-family: var(--font2);
   font-weight: bolder;
+  font-size: 2.25vh;
   border-radius: 20px;
   padding: 4px;
 }
 .dateinputs{
-  width: 82.5%;
-}
-.datebox input{
-  text-align: center;
+  max-width: 90%;
 }
 
 @media screen and (max-width: 768px){
@@ -1354,9 +1359,6 @@ svg{
   }
   .absolutesvg{
     left: 5.5vh;
-  }
-  .dropdownitem{
-    text-align: center;
   }
   .flex{
     gap: 0px;
