@@ -609,9 +609,9 @@ main{
   border-radius: 50px;
   position: fixed;
   border: none;
-  width: 7.5vh;
-  height: 7.5vh;
-  bottom: 7.5vh;
+  width: 50px;
+  height: 50px;
+  bottom: calc(3vh + 25px);
   padding: 2vh;
   left: calc(50% - 3.75vh);
   display: flex;
@@ -1036,7 +1036,7 @@ svg{
   }
 }
 
-.conectionsvg{
+.connectionsvg{
   height: 5vh;
   width: 5vh;
 }
