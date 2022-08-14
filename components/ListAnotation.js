@@ -4,7 +4,7 @@ import DropdownMenu from "./DropdownMenu"
 import SecurityBox from "./SecurityBox";
 import DisplayModes from "./DisplayModes";
 
-function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFavorite }) {
+function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFavorite, small, onSmall }) {
     const [editMode, startEdit] = useState(!title)
     const [viewMode, startView] = useState(false)
     const [boxVisible, setBox] = useState(false)
@@ -80,7 +80,7 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
                 </div>
             </div>
             <DropdownMenu noCalendar={true} editMode={editMode} onEdit={() => startEdit(!editMode)} viewMode={viewMode} favorite={favorite} 
-            onFavorite={() => onFavorite(list)} onView={() => startView(!viewMode)} onDelete={() => setBox(true)}/>
+            small={small} onSmall={() => onSmall(list)} onFavorite={() => onFavorite(list)} onView={() => startView(!viewMode)} onDelete={() => setBox(true)}/>
         </div>
         <SecurityBox onDelete={() => onDelete(list.id)} onCancel={() => setBox(false)} boxVisible={boxVisible}/>
         </>

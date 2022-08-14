@@ -66,6 +66,15 @@ function Lists({user}) {
         conectionMade(1)
     }
 
+    function onSmall(list){
+        setChange(true)
+        let newLists = [...allLists]
+        const index = newLists.indexOf(list)
+        newLists[index].small = !newLists[index].small
+        addList(newLists)
+        conectionMade(1)
+    }
+
     async function onDelete(listId){
         let lastconection = successAnimation
         conectionMade(2)
@@ -90,7 +99,7 @@ function Lists({user}) {
                 <AddButton addAnotation={addAnotation}/>
                 {allLists.map(list =>
                     <ListAnotation onFavorite={onFavorite} favorite={list.favorite} list={list} onDelete={onDelete} onEdit={onEdit}
-                    key={list.id} title={list.title} content={list.content}/>
+                    onSmall={onSmall} small={list.small} key={list.id} title={list.title} content={list.content}/>
                 )}
             </div>
         </div>
