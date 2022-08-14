@@ -595,7 +595,7 @@ main{
 .displayanotations{
   margin-top: 3.5vh;
   padding-bottom: 5vh;
-  gap: 2.5vw;
+  gap: 2vw;
   display: flex;
   flex-wrap: wrap;
 }
@@ -611,9 +611,9 @@ main{
   border: none;
   width: 50px;
   height: 50px;
-  bottom: calc(7.5vh - 25px);
+  bottom: calc(3vh + 7.5vh - 25px);
   padding: 2vh;
-  left: calc(50% - 3.75vh);
+  left: calc(50% - 25px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1292,7 +1292,8 @@ svg{
   }
   .displayanotations{
     justify-content: center;
-    gap: 4vh;
+    row-gap: 3.5vh;
+    column-gap: 1vh;
   }
   .status{
     justify-content: center;
@@ -1306,6 +1307,9 @@ svg{
   }
   main{
     padding: 4vh 5vw 8vh 5vw;
+  }
+  .addanotation{
+    bottom: calc(3vh + 6.5vh - 25px);
   }
   .responsiveImg{
     display: block;
