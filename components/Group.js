@@ -75,7 +75,8 @@ function Group({allNotes, allLists, allLinks, notes, lists, links, title, onEdit
                 </button>
             </div>
             <div className={notes.length+lists.length||editMode?"specificgroup":'displaynone'}>
-                <button className={editMode?'addanotation addbuttongroups':'displaynone'} onClick={() => showNotes(true)}>
+                <div className={editMode?"addbuttonswrapper":'displaynone'}>
+                <button className={'addbuttongroups'} onClick={() => showNotes(true)}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="addsvg" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
                     </svg>
@@ -83,7 +84,7 @@ function Group({allNotes, allLists, allLinks, notes, lists, links, title, onEdit
                         <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
                     </svg>
                 </button>
-                <button className={editMode?'addanotation addbuttongroups':'displaynone'} onClick={() => showLists(true)}>
+                <button className={'addbuttongroups'} onClick={() => showLists(true)}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="addsvg" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
                     </svg>
@@ -92,17 +93,18 @@ function Group({allNotes, allLists, allLinks, notes, lists, links, title, onEdit
                         <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
                     </svg>
                 </button>
+                </div>
                 {notes.map(note => 
-                    <SimpleAnotation calendar={note.calendar} date={note.date} key={note.id} title={note.title} content={note.content}/>
+                    <SimpleAnotation small={note.small} calendar={note.calendar} date={note.date} key={note.id} title={note.title} content={note.content}/>
                 )}
                 <PreviewNotes addNote={addNote} type='Notas' notesBox={notesBox} notes={notes} allNotes={allNotes} showNotes={showNotes}/>
                 {lists.map(list => 
-                    <SimpleList key={list.id} title={list.title} content={list.content}/>
+                    <SimpleList small={list.small} key={list.id} title={list.title} content={list.content}/>
                 )}
             </div>
             <PreviewLists addList={addList} type='Listas' listsBox={listsBox} lists={lists} allLists={allLists} showLists={showLists}/>
             <div className={links.length||editMode?"specificgroup":'displaynone'}>
-                <button className={editMode?'linkbutton':'displaynone'} onClick={() => showLinks(true)}>
+                <button className={editMode?'addbuttonlinks':'displaynone'} onClick={() => showLinks(true)}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="addsvglink" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
                     </svg>

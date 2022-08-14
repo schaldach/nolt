@@ -595,7 +595,7 @@ main{
 .displayanotations{
   margin-top: 3.5vh;
   padding-bottom: 5vh;
-  gap: 2vw;
+  gap: 1.5vw;
   display: flex;
   flex-wrap: wrap;
 }
@@ -612,7 +612,7 @@ main{
   width: 50px;
   height: 50px;
   bottom: calc(3vh + 7.5vh - 25px);
-  padding: 15px;
+  padding: 14px;
   left: calc(50% - 25px);
   display: flex;
   align-items: center;
@@ -623,13 +623,10 @@ main{
 .addanotation:hover{
   background-color: var(--color5);
 }
+
 .addsvg{
-  width: 7.5vh;
-  height: 7.5vh;
-}
-.addsvglink{
-  width: 3vh;
-  height: 3vh;
+  width: 45px;
+  height: 45px;
 }
 
 input, textarea{
@@ -794,7 +791,7 @@ svg{
   width: 20px;
 }
 .favanot:hover{
-  transform: scale(1.035);
+  transform: scale(1.05);
 }
 .functionalitywrapper{
   height: fit-content;
@@ -1156,8 +1153,41 @@ svg{
   height: 80vh;
 }
 
+.addbuttonswrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
 .addbuttongroups{
-  margin: 0;
+  position: relative;
+  height: 75px;
+  width: 125px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color2s);
+  border: dashed var(--color4) 2px;
+  border-radius: 25px;
+  cursor: pointer;
+  color: var(--color4);
+}
+.addbuttongroups:hover, .addbuttonlinks:hover{
+  color: var(--color5);
+  border-color: var(--color5);
+}
+.addbuttonlinks{
+  cursor: pointer;
+  width: 100px;
+  height: 45px;
+  border: dashed var(--color4) 2px;
+  color: var(--color4);
+  border-radius: 25px;
+}
+.addsvglink{
+  width: 25px;
+  height: 25px;
 }
 .previewflex{
   display: flex;
@@ -1196,15 +1226,13 @@ svg{
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transform: scale(1);
 }
-.previewbox .favlink:hover{
+.previewnote:hover{
   transform: scale(1.05);
 }
-.checkpreview{
-  transform: scale(0.925);
-}
-.checkpreview:hover{
-  transform: scale(0.975);
+.previewnote .favanot:hover{
+  transform: scale(1);
 }
 .previewcheckedsvg{
   position: absolute;
@@ -1213,8 +1241,8 @@ svg{
 }
 .previewcheckedsvglink{
   position: absolute;
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
 }
 .previewsubtitle{
   color: var(--color4);
@@ -1266,7 +1294,7 @@ svg{
   padding: 4px;
 }
 .dateinputs{
-  max-width: 93.75%;
+  max-width: 82.5%;
 }
 
 @media screen and (max-width: 768px){
@@ -1371,6 +1399,9 @@ svg{
   }
   .userdata div{
     flex-direction: column;
+  }
+  .dateinputs{
+    max-width: 97.5%;
   }
 }
 

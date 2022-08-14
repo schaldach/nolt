@@ -1,8 +1,8 @@
 import SimpleListItem from "./SimpleListItem"
 
-function SimpleList({title, content}) {
+function SimpleList({title, content, small}) {
     return (
-        <div className='anot favanot'>
+        <div className={small?'anot favanot smallanot':'anot favanot'}>
         <div className='anottitle'>{title}</div>
         <div className='anotcontent listcontent'>
             {content.map(item =>

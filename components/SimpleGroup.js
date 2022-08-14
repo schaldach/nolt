@@ -13,10 +13,10 @@ function FavoriteGroup({notes, lists, links, title, favorite}) {
     </div>
     <div className={notes.length+lists.length?"specificgroup":'displaynone'}>
         {notes.map(note => 
-            <SimpleAnotation date={note.date} calendar={note.calendar} key={note.id} title={note.title} content={note.content}/>
+            <SimpleAnotation small={note.small} date={note.date} calendar={note.calendar} key={note.id} title={note.title} content={note.content}/>
         )}
         {lists.map(list => 
-            <SimpleList key={list.id} title={list.title} content={list.content}/>
+            <SimpleList small={list.small} key={list.id} title={list.title} content={list.content}/>
         )}
         </div>
         <div className={links.length?"specificgroup":'displaynone'}>
