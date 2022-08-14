@@ -47,9 +47,9 @@ function NavBar({darkMode, setDarkMode}) {
                 </Link>
                 <div className='dropdowns'>
                     <div className="dropdownswrapper">
-                    <Link href='/notas'><button onClick={() => dropLink('notas')} className='dropdownitem'>Notas</button></Link>
+                    <Link href='/notas'><button onClick={() => dropLink('notas')} className='dropdownitem droptop'>Notas</button></Link>
                     <Link href='/listas'><button onClick={() => dropLink('listas')} className='dropdownitem'>Listas</button></Link>
-                    <Link href='/links'><button onClick={() => dropLink('links')} className='dropdownitem'>Links</button></Link>
+                    <Link href='/links'><button onClick={() => dropLink('links')} className='dropdownitem dropbottom'>Links</button></Link>
                     </div>
                 </div>
                 </div>

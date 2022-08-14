@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Plus+Jakarta+Sans:wght@300&family=Poppins:wght@300&family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Plus+Jakarta+Sans:wght@300&family=Poppins:wght@300&display=swap');
 
 :root{
   --color1: #000000;
@@ -235,24 +235,25 @@ main{
 .divinput button{
   cursor: pointer;
   outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6vh;
+  height: 2.5vh;
   background-color: var(--color2p);
   border: none;
-  width: fit-content;
-  height: fit-content;
 }
-.loginsvg{
-  width: 2.5vh;
-  height: 2.5vh;
+.loginsvg2{
+  width: 4.5vh;
+  height: 4.5vh;
 }
 .loginbox .divinput{
   display: flex;
+  height: 4vh;
   width: 75%;
   border: solid 2px var(--color4);
   padding: 2vh 1vh;
   font-size: 2.5vh;
-}
-.loginbox .minorpadding{
-  padding: 0.75vh;
 }
 .logintext{
   font-size: 4vh;
@@ -405,6 +406,15 @@ main{
   margin: 0;
   padding: 2px;
   background-color: var(--color4);
+  border-radius: 5px;
+}
+.droptop{
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.dropbottom{
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 .dropdownswrapper button{
   height: 100%;
@@ -529,7 +539,7 @@ main{
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.5vh;
+  gap: 3px;
   background-color: var(--color4);
   width: 185px;
   height: 250px;
@@ -545,7 +555,7 @@ main{
   height: calc(175px + 2px - 6px);
 }
 .smallanot .anotcontent{
-  height: calc(calc(175px + 2px - 6px) - 5vh)
+  height: calc(calc(175px + 2px - 6px) - 30px)
 }
 
 .anotcontent::-webkit-scrollbar {
@@ -584,6 +594,7 @@ main{
 
 .displayanotations{
   margin-top: 3.5vh;
+  padding-bottom: 5vh;
   gap: 2.5vw;
   display: flex;
   flex-wrap: wrap;
@@ -593,23 +604,24 @@ main{
 }
 
 .addanotation{
-  width: 30vh;
-  margin: 0 2vh;
-  height: 40vh;
-  font-family: var(--font1);
-  color: var(--color4);
-  background: var(--color2s);
-  border-radius: 20px;
-  border-style: dashed;
-  border-color: var(--color4);
+  color: #ffffff;
+  background: var(--color4);
+  border-radius: 50px;
+  position: fixed;
+  border: none;
+  width: 7.5vh;
+  height: 7.5vh;
+  bottom: 7.5vh;
+  padding: 2vh;
+  left: calc(50% - 3.75vh);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  z-index: 5;
 }
 .addanotation:hover{
-  color: var(--color5);
-  border-color: var(--color5);
+  background-color: var(--color5);
 }
 .addsvg{
   width: 7.5vh;
@@ -632,8 +644,8 @@ input, textarea{
 .anottitle{
   white-space: nowrap;
   padding-left: 2px;
-  height: 4.5vh;
-  font-size: 3vh;
+  height: 27px;
+  font-size: 18px;
   font-weight: bold;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -646,9 +658,9 @@ input, textarea{
   background-color: var(--color2p);
   color: var(--color1);
   font-family: var(--font2);
-  font-size: 2.25vh;
+  font-size: 15px;
   overflow: auto;
-  height: calc(250px - 5vh)
+  height: calc(250px - 30px)
 }
 .anotcontentwarning{
   word-wrap: break-word;
@@ -670,23 +682,6 @@ input, textarea{
 }
 .deletebutton{
   color: #e61e1e;
-}
-
-.linkbutton{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  max-width: fit-content;
-  padding: 0.75vh 3vh;
-  border: dashed var(--color4);
-  border-radius: 15px;
-  color: var(--color4);
-  background: none;
-}
-.linkbutton:hover{
-  border-color: var(--color5);
-  color: var(--color5);
 }
 
 .coloredtext{
@@ -860,7 +855,7 @@ svg{
 
 .displaycompleted{
   position: absolute;
-  right: 45px;
+  right: 35px;
   font-size: 2.125vh;
   top: -3vh;
   text-align: right;
@@ -1097,21 +1092,6 @@ svg{
   width: 2.5vh;
 }
 
-.addgroup{
-  margin-top: 1.5vh;
-  width: 100%;
-  border: dashed var(--color4);
-  border-width: 0 0 2px 0;
-  display: flex;
-  justify-content: center;
-  background-color: var(--color2s);
-  cursor: pointer;
-  color: var(--color4);
-}
-.addgroup:hover{
-  border-color: var(--color5);
-  color: var(--color5);
-}
 .grouptitle{
   display: flex;
   align-items: center;
@@ -1281,7 +1261,7 @@ svg{
   color: var(--color1);
   font-family: var(--font2);
   font-weight: bolder;
-  font-size: 2.25vh;
+  font-size: 15px;
   border-radius: 20px;
   padding: 4px;
 }
