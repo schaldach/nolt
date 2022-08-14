@@ -541,8 +541,8 @@ main{
   flex-direction: column;
   gap: 3px;
   background-color: var(--color4);
-  width: 225px;
-  height: 250px;
+  width: 200px;
+  height: 275px;
   border: solid;
   border-color: var(--color4);
   border-width: 6px 2px 2px 2px;
