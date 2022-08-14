@@ -660,7 +660,7 @@ input, textarea{
   font-family: var(--font2);
   font-size: 15px;
   overflow: auto;
-  height: calc(250px - 30px)
+  height: calc(275px - 30px)
 }
 .anotcontentwarning{
   word-wrap: break-word;
