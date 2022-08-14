@@ -1265,9 +1265,6 @@ svg{
   border-radius: 20px;
   padding: 4px;
 }
-.dateinputs{
-  max-width: 90%;
-}
 
 @media screen and (max-width: 768px){
   .homebutton::before{
