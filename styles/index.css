@@ -1304,6 +1304,9 @@ svg{
     height: fit-content;
     padding-bottom: 3vh;
   }
+  main{
+    padding: 4vh 5vw 8vh 5vw;
+  }
   .responsiveImg{
     display: block;
   }
@@ -1361,6 +1364,9 @@ svg{
   }
   .editprofilebuttons{
     justify-content: center;
+  }
+  .userdata div{
+    flex-direction: column;
   }
 }
 
