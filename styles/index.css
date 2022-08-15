@@ -1226,11 +1226,18 @@ svg{
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transform: scale(1);
+}
+.previewnote:hover{
+  transform: scale(1.05);
+}
+.previewnote .favanot:hover{
+  transform: scale(1);
 }
 .previewcheckedsvg{
   position: absolute;
-  width: 75px;
-  height: 75px;
+  width: 15vh;
+  height: 15vh;
 }
 .previewcheckedsvglink{
   position: absolute;
