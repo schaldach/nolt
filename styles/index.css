@@ -13,7 +13,6 @@
   --calendarfilter: 0;
   --calendarborder: #e61e1e;
   --calendarborderhover: #ad1212;
-  --buttonhover: #eeeeee;
 }
 [data-theme='dark'] {
   --color1: #ffffff;
@@ -28,7 +27,6 @@
   --calendarfilter: 1;
   --calendarborder: #19e1e1;
   --calendarborderhover: #52eded;
-  --buttonhover: #2C2F33;
 }
 
 body, html{
@@ -805,7 +803,7 @@ svg{
   height: fit-content;
 }
 .functionbutton:hover{
-  background-color: var(--buttonhover);
+  background-color: var(--color2s);
 }
 .functionality{
   position: relative;
