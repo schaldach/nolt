@@ -1168,7 +1168,7 @@ svg{
 .addbuttongroups{
   position: relative;
   height: 50px;
-  width: 80px;
+  width: 75px;
   display: flex;
   justify-content: center;
   align-items: center;
