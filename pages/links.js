@@ -85,7 +85,7 @@ function Links({user}) {
                 <SmallerAnotation onDelete={onDelete} key={link.id} id={link.id} link={link} 
                 linkname={link.name} linkcontent={link.href} onFavorite={onFavorite} favorite={link.favorite}></SmallerAnotation>
                 )}
-                <NecessaryDataLink size='link' requestD={requestD} onFinish={finishAnotation} visualclass={needData?'':'displaynone'}/>
+                <NecessaryDataLink requestD={requestD} onFinish={finishAnotation} visualclass={needData?'':'displaynone'}/>
             </div>
         </div>
     )

@@ -580,12 +580,12 @@ main{
 .confirmbuttons{
   border-radius: 5px;
   border: none;
-  font-family: var(--font1);
+  font-family: var(--font3);
   font-size: 2.5vh;
   padding: 0 5px;
-  background-color: var(--color4);
-  border: 2px solid var(--color5);
-  color: #ffffff;
+  background-color: var(--color2p);
+  border: 2px solid var(--color4);
+  color: var(--color4);
   cursor: pointer;
 }
 .confirmbuttons:hover{
@@ -777,11 +777,14 @@ input, textarea{
   background-color: var(--color2p);
   border: solid 2px var(--color5);
   gap: 10px;
-  border: none;
   cursor: auto;
 }
 .requestdata input{
   padding-left: 3px;
+  background-color: var(--color2p);
+  font-family: var(--font3);
+}
+.requestdata:hover{
   background-color: var(--color2p);
 }
 
