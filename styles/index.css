@@ -624,8 +624,8 @@ main{
 }
 
 .addsvg{
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
 }
 
 input, textarea{
@@ -1162,14 +1162,12 @@ svg{
 
 .addbuttonswrapper{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 .addbuttongroups{
   position: relative;
-  height: 60px;
+  height: 50px;
   width: 80px;
   display: flex;
   justify-content: center;
