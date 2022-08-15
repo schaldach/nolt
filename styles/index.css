@@ -589,7 +589,8 @@ main{
   cursor: pointer;
 }
 .confirmbuttons:hover{
-  background-color: var(--color5);
+  color: var(--color5);
+  border-color: var(--color5);
 }
 
 .displayanotations{
@@ -783,6 +784,7 @@ input, textarea{
   padding-left: 3px;
   background-color: var(--color2p);
   font-family: var(--font3);
+  border: solid 2px var(--color5);
 }
 .requestdata:hover{
   background-color: var(--color2p);
