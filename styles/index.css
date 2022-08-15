@@ -706,6 +706,9 @@ input, textarea{
   overflow: hidden;
 }
 .favoritelink{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0px 5px;
   outline: none;
   border:none;
