@@ -717,8 +717,7 @@ input, textarea{
   width: 100%;
 }
 .favoritelink:hover{
-  background-color: var(--color4);
-  color: var(--color2p);
+  color: var(--color5);
 }
 .linkimage{
   width: 4vh;
@@ -756,6 +755,9 @@ input, textarea{
   color: var(--color4);
 }
 .deletelinkbutton{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0px 5px;
   height: 100%;
   width: 100%;
@@ -766,14 +768,14 @@ input, textarea{
   outline: none;
 }
 .deletelinkbutton:hover{
-  color: var(--color2p);
-  background-color: #e61e1e !important;
+  color: #ad1212;
 }
 .requestdata{
   padding: 10px;
   overflow: hidden;
   border-radius: 12px;
-  background-color: var(--color4);
+  background-color: var(--color2p);
+  border: solid 2px var(--color5);
   gap: 10px;
   border: none;
   cursor: auto;
@@ -1042,6 +1044,7 @@ svg{
   color: var(--color1);
   font-size: 2.25vh;
   font-family: var(--font3);
+  margin-top: 1.5vh;
 }
 
 .userdata{

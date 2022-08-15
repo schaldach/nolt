@@ -51,6 +51,9 @@ function MyApp({ Component, pageProps }) {
   if(!user||project){
     return(
     <div>
+      <Head>
+        <title>Nolt</title>
+      </Head>
       <Component user={user} setProject={setProject} reqlog={reqlog} errorMessage={errorMessage} throwError={throwError}/>
     </div> 
     )

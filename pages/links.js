@@ -80,7 +80,7 @@ function Links({user}) {
             <InfoBox successAnimation={successAnimation}/>
             </div>
             <div className='displayanotations'>
-                <AddButton addAnotation={finishAnotation}/>
+                <AddButton addAnotation={() => requestD(true)}/>
                 {allLinks.map(link =>
                 <SmallerAnotation onDelete={onDelete} key={link.id} id={link.id} link={link} 
                 linkname={link.name} linkcontent={link.href} onFavorite={onFavorite} favorite={link.favorite}></SmallerAnotation>
