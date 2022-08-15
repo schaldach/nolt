@@ -624,8 +624,8 @@ main{
 }
 
 .addsvg{
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
 }
 
 input, textarea{
@@ -1169,8 +1169,8 @@ svg{
 }
 .addbuttongroups{
   position: relative;
-  height: 75px;
-  width: 125px;
+  height: 60px;
+  width: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1183,18 +1183,6 @@ svg{
 .addbuttongroups:hover, .addbuttonlinks:hover{
   color: var(--color5);
   border-color: var(--color5);
-}
-.addbuttonlinks{
-  cursor: pointer;
-  width: 100px;
-  height: 45px;
-  border: dashed var(--color4) 2px;
-  color: var(--color4);
-  border-radius: 25px;
-}
-.addsvglink{
-  width: 25px;
-  height: 25px;
 }
 .previewflex{
   display: flex;
