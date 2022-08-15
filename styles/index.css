@@ -1294,7 +1294,7 @@ svg{
   padding: 4px;
 }
 .dateinputs{
-  max-width: 82.5%;
+  max-width: 85%;
 }
 
 @media screen and (max-width: 768px){
@@ -1401,7 +1401,7 @@ svg{
     flex-direction: column;
   }
   .dateinputs{
-    max-width: 97.5%;
+    max-width: 100%;
   }
 }
 
