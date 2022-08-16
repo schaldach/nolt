@@ -107,7 +107,7 @@ function Group({allNotes, allLists, allLinks, notes, lists, links, title, onEdit
                 )}
                 <PreviewNotes addNote={addNote} type='Notas' notesBox={notesBox} notes={notes} allNotes={allNotes} showNotes={showNotes}/>
                 {lists.map(list => 
-                    <SimpleList small={list.small} key={list.id} title={list.title} content={list.content}/>
+                    <SimpleList filtered={list.filtered} small={list.small} key={list.id} title={list.title} content={list.content}/>
                 )}
             </div>
             <PreviewLists addList={addList} type='Listas' listsBox={listsBox} lists={lists} allLists={allLists} showLists={showLists}/>

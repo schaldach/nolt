@@ -16,7 +16,7 @@ function FavoriteGroup({notes, lists, links, title, favorite}) {
             <SimpleAnotation small={note.small} date={note.date} calendar={note.calendar} key={note.id} title={note.title} content={note.content}/>
         )}
         {lists.map(list => 
-            <SimpleList small={list.small} key={list.id} title={list.title} content={list.content}/>
+            <SimpleList filtered={list.filtered} small={list.small} key={list.id} title={list.title} content={list.content}/>
         )}
         </div>
         <div className={links.length?"specificgroup":'displaynone'}>
