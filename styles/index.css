@@ -387,7 +387,7 @@ main{
   user-select: none;
 }
 .dropdowns{
-  top: 6.15vh;
+  top: 6.1vh;
   padding-top: 1vh;
   position: absolute;
   display: none;
@@ -1289,6 +1289,11 @@ svg{
   max-width: 85%;
 }
 
+@media screen and (max-width: 1382px){
+  .dateinputs{
+    max-width: 100%;
+  }
+}
 @media screen and (max-width: 768px){
   .homebutton::before{
     content: 'Leve-me lá';
@@ -1350,7 +1355,6 @@ svg{
     display: none;
   }
   .navbar-select{
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1391,9 +1395,6 @@ svg{
   }
   .userdata div{
     flex-direction: column;
-  }
-  .dateinputs{
-    max-width: 100%;
   }
 }
 

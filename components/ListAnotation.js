@@ -4,7 +4,7 @@ import DropdownMenu from "./DropdownMenu"
 import SecurityBox from "./SecurityBox";
 import DisplayModes from "./DisplayModes";
 
-function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFavorite, small, onSmall }) {
+function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFavorite, small, onSmall, filtered, onFilter }) {
     const [editMode, startEdit] = useState(!title)
     const [viewMode, startView] = useState(false)
     const [boxVisible, setBox] = useState(false)
@@ -61,7 +61,7 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
     return (
         <>
         <div className={viewMode ? 'wholething view' : 'wholething'}>
-            <DisplayModes editMode={editMode} favorite={favorite} viewMode={viewMode} small={small}/>
+            <DisplayModes filtered={filtered} editMode={editMode} favorite={favorite} viewMode={viewMode} small={small}/>
             <div className="displaycompleted">{content.filter(item => item.complete).length}/{content.length}</div>
             <div className={anotClass()}>
                 <div>
@@ -71,16 +71,16 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
                 </div>
                 <div className='anotcontent'>
                     {content.map(item =>
-                        <ListItem itemEdit={itemEdit} index={item.id} key={item.id} editMode={editMode}
+                        !filtered||!item.complete?<ListItem itemEdit={itemEdit} index={item.id} key={item.id} editMode={editMode}
                             text={item.text} changeFocus={changeFocus} handleTextFocus={handleTextFocus}
-                            itemFocus={currentItemFocus} complete={item.complete}></ListItem>
+                            itemFocus={currentItemFocus} complete={item.complete}></ListItem>:''
                     )}
                     <div className={editMode ? 'listinstruction anotcontentwarning' : 'displaynone'}>Enter irá aumentar a lista 
                     ou ir para o próximo item<br/>Backspace em um item vazio irá removê-lo e atualizar os índices</div>
                 </div>
             </div>
             <DropdownMenu noCalendar={true} editMode={editMode} onEdit={() => startEdit(!editMode)} viewMode={viewMode} favorite={favorite} 
-            small={small} onSmall={() => onSmall(list)} onFavorite={() => onFavorite(list)} onView={() => startView(!viewMode)} onDelete={() => setBox(true)}/>
+            onFilter={() => onFilter(list)} filtered={filtered} small={small} onSmall={() => onSmall(list)} onFavorite={() => onFavorite(list)} onView={() => startView(!viewMode)} onDelete={() => setBox(true)}/>
         </div>
         <SecurityBox onDelete={() => onDelete(list.id)} onCancel={() => setBox(false)} boxVisible={boxVisible}/>
         </>

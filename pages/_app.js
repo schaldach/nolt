@@ -30,14 +30,14 @@ function MyApp({ Component, pageProps }) {
     async function fetch(){
       const router = Router
       let {pathname} = router
-      if(pathname==='/'){setProject(true)}
       const newUser = supabase.auth.user()
-      if(!newUser){ 
+      if(!newUser){
+        if(pathname==='/'){setProject(true)}
         throwError(true)
         if(pathname!=='/'){Router.push('/auth')}
         return
       }
-      if(pathname!=='/'){Router.push('/home')}
+      Router.push('/home')
       const { data } = await supabase
         .from('profiles')
         .select('*')
