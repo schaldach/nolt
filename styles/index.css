@@ -654,12 +654,11 @@ input, textarea{
   background-color: var(--color2p);
   color: var(--color1);
   font-family: var(--font2);
-  font-size: 15px;
   overflow: auto;
-  height: calc(275px - 30px)
-}
-.anotcontentwarning{
+  height: calc(275px - 30px);
   word-wrap: break-word;
+  padding: 0 2px;
+  font-size: 15px;
 }
 
 .functionbutton{
@@ -856,7 +855,11 @@ svg{
 .listinstruction{
   color: #808080;
   user-select: none;
-  font-size: 1.6vh;
+  font-size: 10px;
+  word-wrap: break-word;
+}
+.listarea{
+  font-size: 15px;
 }
 
 .displaycompleted{
@@ -868,13 +871,6 @@ svg{
   font-family: var(--font2);
   font-weight: bold;
   color: var(--color3);
-}
-.listitem, .listarea, .anotcontent{
-  word-wrap: break-word;
-  padding: 0 2px;
-}
-.listcontent{
-  padding: 0;
 }
 .homesvg{
   width: 4.5vh;

@@ -30,16 +30,15 @@ function ListItem({ index, text, editMode, itemEdit, itemFocus, handleTextFocus,
             <textarea onFocus={() => changeFocus(index)} onKeyDown={(e) => handleTextFocus(e)}
                 ref={searchInput} className={editMode ? 'listarea' : 'displaynone'} type='text'
                 value={text} onInput={e => itemEdit(e.target.value, index, complete)} />
-            <div className={divClass()}>{text}
-            <button className={complete?'functionbutton checksvg':'functionbutton removesvg'} onClick={() => itemEdit(text, index, !complete)}>
-                    <svg xmlns="http://www.w3.org/2000/svg" className={complete?'dropdownsvg':'displaynone'} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" className={!complete?'dropdownsvg':'displaynone'} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
+            <div className={divClass()}>{text}</div>
+            <button className={complete?'functionbutton checksvg':'functionbutton removesvg'} onClick={() => {if(editMode){itemEdit(text, index, !complete)}}}>
+                <svg xmlns="http://www.w3.org/2000/svg" className={complete?'dropdownsvg':'displaynone'} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" className={!complete?'dropdownsvg':'displaynone'} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
         </>
     );
 }

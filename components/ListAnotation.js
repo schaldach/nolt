@@ -39,11 +39,11 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
             newContent.splice(currentItemFocus,1)
             for(let i=currentItemFocus; i<newContent.length; i++){
                 newContent[i].id = i
-                let newTextArray = newContent[i].text.split(' ')
-                if(newTextArray[0] === `${i+2}.`){
+                let newTextArray = newContent[i].text.split('.')
+                if(newTextArray[0] === `${i+2}`){
                     newTextArray.shift()
-                    newTextArray.unshift(`${i+1}.`)
-                    newContent[i].text = newTextArray.join(' ')
+                    newTextArray.unshift(`${i+1}`)
+                    newContent[i].text = newTextArray.join('.')
                 }
             }
             onEdit(title, newContent, list)
@@ -69,7 +69,7 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
                     <input onFocus={() => changeFocus(-1)} onKeyDown={(e) => handleTextFocus(e)} className={editMode ? 'anottitle' : 'displaynone anottitle'} type='text'
                         value={title} onInput={e => onEdit(e.target.value, content, list)} placeholder='Título' />
                 </div>
-                <div className='anotcontent listcontent'>
+                <div className='anotcontent'>
                     {content.map(item =>
                         <ListItem itemEdit={itemEdit} index={item.id} key={item.id} editMode={editMode}
                             text={item.text} changeFocus={changeFocus} handleTextFocus={handleTextFocus}

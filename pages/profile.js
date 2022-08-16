@@ -51,8 +51,8 @@ function Profile({user, reqlog}) {
         <div>
             <SecondTitle titlecontent='Perfil'/>
             <div className="secondtext userdata">
-                <div>Email: <div>{email}</div></div>
-                <div>Usuário: {editMode?<input autoFocus value={username} placeholder={'Usuário...'} onInput={e => setUsername(e.target.value)}></input>:username}</div>
+                <div>Email:&nbsp;<div>{email}</div></div>
+                <div>Usuário:&nbsp;{editMode?<input autoFocus value={username} placeholder={'Usuário...'} onInput={e => setUsername(e.target.value)}></input>:<div>{username}</div>}</div>
             </div>
             <div className="justifycenter">
                 <div className="editprofilebuttons">
