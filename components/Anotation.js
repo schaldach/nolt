@@ -35,7 +35,7 @@ function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite
                 value={title} onInput={e => onEdit(e.target.value, content, note)} placeholder='Título'/>
             </div>
             <div>
-                <div className={!editMode?'anotcontent':'displaynone'}>{content}</div>
+                <div className={!editMode?'anotcontent':'displaynone'}>{content}<div className={calendar?'calendarspace':''}/></div>
                 <textarea ref={searchInput} className={editMode?'anotcontent':'displaynone'} type='text' 
                 value={content} onInput={e => onEdit(title, e.target.value, note)} placeholder='Conteúdo'/>
             </div>

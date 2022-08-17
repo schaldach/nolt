@@ -10,12 +10,26 @@ function Notes({user}) {
     const [allNotes, addNote] = useState([])
     const [successAnimation, conectionMade] = useState(0)
     const [changed, setChange] = useState(true)
+    const [dateChanged, callChange] = useState(false)
 
     useInterval(() => {syncNotes(allNotes, true)},2500)
 
     useEffect(() => {
         syncNotes(allNotes)
     }, [user])
+
+    useEffect(() => {
+        if(dateChanged){
+            let newNotes = [...allNotes]
+            newNotes.sort((a,b) => {
+                if(!a.calendar&&!b.calendar){return a.id - b.id}
+                if(!a.calendar||!b.calendar){return a.calendar?-1:1}
+                return new Date(a.date) - new Date(b.date)
+            })
+            addNote(newNotes)
+            callChange(false)
+        }
+    }, [dateChanged])
 
     async function syncNotes(notes, auto) {
         if(!user||!changed&&auto){return}
@@ -82,6 +96,7 @@ function Notes({user}) {
     function onSchedule(note, date){
         if(!date){return}
         setChange(true)
+        callChange(true)
         let newNotes = [...allNotes]
         const index = newNotes.indexOf(note)
         newNotes[index].date = date

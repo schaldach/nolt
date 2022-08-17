@@ -11,8 +11,6 @@
   --font2: 'Poppins', sans-serif;
   --font3: 'Inter', sans-serif;
   --calendarfilter: 0;
-  --calendarborder: #e61e1e;
-  --calendarborderhover: #ad1212;
 }
 [data-theme='dark'] {
   --color1: #ffffff;
@@ -25,8 +23,6 @@
   --font2: 'Poppins', sans-serif;
   --font3: 'Inter', sans-serif;
   --calendarfilter: 1;
-  --calendarborder: #19e1e1;
-  --calendarborderhover: #52eded;
 }
 
 body, html{
@@ -1259,12 +1255,7 @@ svg{
 }
 ::-webkit-inner-spin-button,::-webkit-calendar-picker-indicator {
   filter: invert(var(--calendarfilter));
-  padding: 2px;
-  border: solid var(--calendarborder) 2px;
   cursor: pointer;
-}
-::-webkit-inner-spin-button,::-webkit-calendar-picker-indicator:hover {
-  border-color: var(--calendarborderhover);
 }
 
 .datebox{
@@ -1273,9 +1264,9 @@ svg{
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  max-width: 140px;
-  bottom: 5px;
-  left: 5px;
+  max-width: 136px;
+  bottom: 4px;
+  left: 4px;
   border: 2px solid var(--color4);
   background-color: var(--color2p);
   color: var(--color1);
@@ -1285,8 +1276,11 @@ svg{
   border-radius: 20px;
   padding: 4px;
 }
+.calendarspace{
+  height: 40px;
+}
 .dateinputs{
-  max-width: 85%;
+  max-width: 82.5%;
 }
 
 @media screen and (max-width: 1024px){
