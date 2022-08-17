@@ -1289,7 +1289,7 @@ svg{
   max-width: 85%;
 }
 
-@media screen and (max-width: 1382px){
+@media screen and (max-width: 1024px){
   .dateinputs{
     max-width: 100%;
   }
