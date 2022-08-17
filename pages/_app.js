@@ -13,6 +13,38 @@ function MyApp({ Component, pageProps }) {
   const[darkMode, setDarkMode] = useState(false)
   const[settable, releaseLocalStorage] = useState(false)
   const[project, setProject] = useState(false)
+  const [allGroups, setGroups] = useState([])
+  const [allNotes, addNote] = useState([])
+  const [allLists, addList] = useState([])
+  const [allLinks, addLink] = useState([])
+
+  useEffect(()=> {
+    syncAnotations()
+  }, [user])
+
+  async function syncNotetype(notetype){
+    const { data } = await supabase
+        .from(notetype)
+        .select('*')
+        .eq('userid', user.id)
+      data.sort((a,b) => {
+        if(notetype==='notas'){
+            if(!a.calendar&&!b.calendar){return a.id - b.id}
+            if(!a.calendar||!b.calendar){return a.calendar?-1:1}
+            return new Date(a.date) - new Date(b.date)
+        }
+        return a.id-b.id
+    })
+    return(data)
+  }
+
+  async function syncAnotations(){
+    if(!user){return}
+    addNote(await syncNotetype('notas'))
+    addList(await syncNotetype('listas'))
+    addLink(await syncNotetype('links'))
+    setGroups(await syncNotetype('grupos'))
+  }
 
   useEffect(() => {
     let storedDarkMode = JSON.parse(localStorage.getItem('dark'))
@@ -65,7 +97,8 @@ function MyApp({ Component, pageProps }) {
     </Head>
     <NavBar darkMode={darkMode} setDarkMode={setDarkMode}/>
     <main>
-      <Component reqlog={reqlog} user={user} {...pageProps} errorMessage={errorMessage} throwError={throwError}/>
+      <Component addNote={addNote} allNotes={allNotes} addList={addList} allLists={allLists} addLink={addLink} allLinks={allLinks} setGroups={setGroups} allGroups={allGroups}
+      reqlog={reqlog} user={user} {...pageProps} errorMessage={errorMessage} throwError={throwError}/>
     </main>
     <PageFooter setProject={setProject}/>
   </div>

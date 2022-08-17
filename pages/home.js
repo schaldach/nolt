@@ -2,27 +2,17 @@ import React from "react"
 import { useEffect } from "react"
 import SecondTitle from "../components/SecondTitle"
 import Link from 'next/link'
-import { supabase } from "../utils/supabaseClient"
 import { useState } from "react"
 import FavoriteNote from "../components/SimpleAnotation"
 import FavoriteList from "../components/SimpleList"
 import FavoriteLink from "../components/SimpleLink"
 import SimpleGroup from "../components/SimpleGroup"
 
-function Home({user}) {
-    const [favoriteNotes, addNotes] = useState([])
-    const [favoriteLists, addLists] = useState([])
-    const [favoriteLinks, addLinks] = useState([])
-    const [favoriteGroups, addGroups] = useState([])
+function Home({user, allNotes, allLists, allLinks, allGroups}) {
     const [configsShown, showConfigs] = useState(false)
     const [showType, changeShow] = useState('anotations')
     const [favorites, setFavorites] = useState(true)
     const [settable, releaseLocalStorage] = useState(false)
-    const [allNumbers, setNumbers] = useState({notas:0,listas:0,links:0, grupos:0})
-
-    useEffect(()=> {
-        syncFavorites()
-    }, [user])
 
     useEffect(() => {
         let storedFavorites = JSON.parse(localStorage.getItem('favorites'))
@@ -41,31 +31,6 @@ function Home({user}) {
         }
     }, [showType, favorites])
 
-    async function syncNotetype(notetype){
-        const { data, count } = await supabase
-            .from(notetype)
-            .select('*', {count: 'exact'})
-            .eq('userid', user.id)
-        data.sort((a,b) => {
-            if(notetype==='notas'){
-                if(!a.calendar&&!b.calendar){return a.id - b.id}
-                if(!a.calendar||!b.calendar){return a.calendar?-1:1}
-                return new Date(a.date) - new Date(b.date)
-            }
-            return a.id-b.id
-        })
-        setNumbers(prevState => {return{...prevState, [notetype]:count}})
-        return(data)
-    }
-
-    async function syncFavorites(){
-        if(!user){return}
-        addNotes(await syncNotetype('notas'))
-        addLists(await syncNotetype('listas'))
-        addLinks(await syncNotetype('links'))
-        addGroups(await syncNotetype('grupos'))
-    }
-
     function areThereFavorites(anotations){
         let value = false
         anotations.forEach(anotation => {
@@ -76,9 +41,9 @@ function Home({user}) {
 
     function textToWrite(){
         let text
-        if(allNumbers.notas+allNumbers.listas+allNumbers.links+allNumbers.grupos){
-            text = `Você possui ${allNumbers.notas} Nota${allNumbers.notas!==1?'s':''}, ${allNumbers.listas} Lista${allNumbers.listas!==1?'s':''},
-            ${allNumbers.links} Link${allNumbers.links!==1?'s':''} e ${allNumbers.grupos} Grupo${allNumbers.grupos!==1?'s':''}. Aproveite como quiser!`
+        if(allNotes.length+allLists.length+allLinks.length+allGroups.length){
+            text = `Você possui ${allNotes.length} Nota${allNotes.length!==1?'s':''}, ${allLists.length} Lista${allLists.length!==1?'s':''},
+            ${allLinks.length} Link${allLinks.length!==1?'s':''} e ${allGroups.length} Grupo${allGroups.length!==1?'s':''}. Aproveite como quiser!`
         }
         else{
             text = 'Parece que você ainda não possui anotações. Deseja começar a utilizar o site?'
@@ -136,11 +101,11 @@ function Home({user}) {
             </svg>
             </div>
                 <div className='displayanotations displayfavorites'>
-                {favoriteNotes.map(note => 
+                {allNotes.map(note => 
                 note.favorite||!favorites?<FavoriteNote small={note.small} calendar={note.calendar} date={note.date} key={Math.random()} title={note.title} content={note.content}/>:''
                 )}
-                <div className={favorites?'empty':'displaynone'}>{areThereFavorites(favoriteNotes)?'':'Não há notas favoritas.'}</div>
-                <div className={!favorites?'empty':'displaynone'}>{favoriteNotes.length?'':'Não há notas.'}</div>
+                <div className={favorites?'empty':'displaynone'}>{areThereFavorites(allNotes)?'':'Não há notas favoritas.'}</div>
+                <div className={!favorites?'empty':'displaynone'}>{allNotes.length?'':'Não há notas.'}</div>
             </div>
             <div className='grouptitle favtitle'>Listas 
             <svg xmlns="http://www.w3.org/2000/svg" className={favorites?'dropdownsvg':'displaynone'} viewBox="0 0 20 20" fill="var(--color3)">
@@ -148,11 +113,11 @@ function Home({user}) {
             </svg>
             </div>
                 <div className='displayanotations displayfavorites'>
-                {favoriteLists.map(list => 
+                {allLists.map(list => 
                 list.favorite||!favorites?<FavoriteList filtered={list.filtered} small={list.small} key={Math.random()} title={list.title} content={list.content}/>:''
                 )}
-                <div className={favorites?'empty':'displaynone'}>{areThereFavorites(favoriteLists)?'':'Não há listas favoritas.'}</div>
-                <div className={!favorites?'empty':'displaynone'}>{favoriteLists.length?'':'Não há listas.'}</div>
+                <div className={favorites?'empty':'displaynone'}>{areThereFavorites(allLists)?'':'Não há listas favoritas.'}</div>
+                <div className={!favorites?'empty':'displaynone'}>{allLists.length?'':'Não há listas.'}</div>
             </div>
             <div className='grouptitle favtitle'>Links 
             <svg xmlns="http://www.w3.org/2000/svg" className={favorites?'dropdownsvg':'displaynone'} viewBox="0 0 20 20" fill="var(--color3)">
@@ -160,24 +125,24 @@ function Home({user}) {
             </svg>
             </div>
                 <div className='displayanotations displayfavorites'>
-                {favoriteLinks.map(link => 
+                {allLinks.map(link => 
                 link.favorite||!favorites?<FavoriteLink key={Math.random()} name={link.name} href={link.href}/>:''
                 )}
-                <div className={favorites?'empty':'displaynone'}>{areThereFavorites(favoriteLinks)?'':'Não há links favoritos.'}</div>
-                <div className={!favorites?'empty':'displaynone'}>{favoriteLinks.length?'':'Não há links.'}</div>
+                <div className={favorites?'empty':'displaynone'}>{areThereFavorites(allLinks)?'':'Não há links favoritos.'}</div>
+                <div className={!favorites?'empty':'displaynone'}>{allLinks.length?'':'Não há links.'}</div>
             </div>
             </div>
             <div className={showType==='groups'?'':'displaynone'}>
                 <div className='displayanotations displayanotationsgroups'>
-                {favoriteGroups.map(group =>
+                {allGroups.map(group =>
                 group.favorite||!favorites?<SimpleGroup key={Math.random()}
-                notes={favoriteNotes.filter(note => group['notes'].indexOf(note.id)!==-1)} 
-                lists={favoriteLists.filter(list => group['lists'].indexOf(list.id)!==-1)}
-                links={favoriteLinks.filter(link => group['links'].indexOf(link.id)!==-1)}
+                notes={allNotes.filter(note => group['notes'].indexOf(note.id)!==-1)} 
+                lists={allLists.filter(list => group['lists'].indexOf(list.id)!==-1)}
+                links={allLinks.filter(link => group['links'].indexOf(link.id)!==-1)}
                 title={group.title} favorite={favorites}/>:''
                 )}
-                <div className={favorites?'empty':'displaynone'}>{areThereFavorites(favoriteGroups)?'':'Não há grupos favoritos.'}</div>
-                <div className={!favorites?'empty':'displaynone'}>{favoriteGroups.length?'':'Não há grupos.'}</div>
+                <div className={favorites?'empty':'displaynone'}>{areThereFavorites(allGroups)?'':'Não há grupos favoritos.'}</div>
+                <div className={!favorites?'empty':'displaynone'}>{allGroups.length?'':'Não há grupos.'}</div>
             </div>
             </div>
         </div>

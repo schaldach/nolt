@@ -7,17 +7,12 @@ import useInterval from "../components/UseInterval"
 import InfoBox from "../components/InfoBox"
 import AddButton from "../components/AddButton"
 
-function Links({user}) {
-    const [allLinks,addLink] = useState([])
+function Links({user, allLinks, addLink}) {
     const [successAnimation, conectionMade] = useState(0)
     const [needData,requestD] = useState(false)
-    const [changed, setChange] = useState(true)
+    const [changed, setChange] = useState(false)
 
     useInterval(() => {syncLinks(allLinks, true)},2500)
-
-    useEffect(() => {
-        syncLinks(allLinks)
-    }, [user])
 
     async function syncLinks(links, auto){
         if(!user||!changed&&auto){return}

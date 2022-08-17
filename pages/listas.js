@@ -6,16 +6,11 @@ import useInterval from "../components/UseInterval"
 import InfoBox from "../components/InfoBox"
 import AddButton from "../components/AddButton"
 
-function Lists({user}) {
-    const [allLists, addList] = useState([])
+function Lists({user, allLists, addList}) {
     const [successAnimation, conectionMade] = useState(0)
-    const [changed, setChange] = useState(true)
+    const [changed, setChange] = useState(false)
 
     useInterval(() => {syncLists(allLists, true)},2500)
-    
-    useEffect(() => {
-        syncLists(allLists)
-    }, [user])
 
     async function syncLists(lists, auto){
         if(!user||!changed&&auto){return}

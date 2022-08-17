@@ -6,45 +6,11 @@ import useInterval from "../components/UseInterval"
 import Group from '../components/Group'
 import AddButton from "../components/AddButton"
 
-function Groups({user}) {
-    const [allGroups, setGroups] = useState([])
+function Groups({user, allNotes, allLists, allLinks, allGroups, setGroups}) {
     const [successAnimation, conectionMade] = useState(0)
     const [changed, setChange] = useState(false)
-    const [allNotes, addNote] = useState([])
-    const [allLists, addList] = useState([])
-    const [allLinks, addLink] = useState([])
 
     useInterval(() => {syncGroups(allGroups, true)},2500)
-
-    useEffect(()=> {
-        syncAnotations()
-    }, [user])
-
-    async function syncNotetype(notetype){
-        const { data } = await supabase
-            .from(notetype)
-            .select('*')
-            .eq('userid', user.id)
-        data.sort((a,b) => {
-            if(notetype==='notas'){
-                if(!a.calendar&&!b.calendar){return a.id - b.id}
-                if(!a.calendar||!b.calendar){return a.calendar?-1:1}
-                return new Date(a.date) - new Date(b.date)
-            }
-            return a.id-b.id
-        })
-        return(data)
-    }
-
-    async function syncAnotations(){
-        if(!user){return}
-        conectionMade(2)
-        addNote(await syncNotetype('notas'))
-        addList(await syncNotetype('listas'))
-        addLink(await syncNotetype('links'))
-        setGroups(await syncNotetype('grupos'))
-        conectionMade(0)
-    }
 
     async function addGroup(){
         conectionMade(2)
