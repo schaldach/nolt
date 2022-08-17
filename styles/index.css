@@ -552,22 +552,13 @@ main{
   height: calc(calc(175px + 2px - 6px) - 30px)
 }
 
-.anotcontent::-webkit-scrollbar {
+.anotcontent::-webkit-scrollbar, .previewbox::-webkit-scrollbar{
   width: 7px;
 }
-.anotcontent::-webkit-scrollbar-thumb{
+.anotcontent::-webkit-scrollbar-thumb, .previewbox::-webkit-scrollbar-thumb{
   background-color: var(--color4);
 }
-.anotcontent::-webkit-scrollbar-thumb:hover{
-  background-color: var(--color5);
-}
-.previewbox::-webkit-scrollbar {
-  width: 7px;
-}
-.previewbox::-webkit-scrollbar-thumb{
-  background-color: var(--color4);
-}
-.previewbox::-webkit-scrollbar-thumb:hover{
+.anotcontent::-webkit-scrollbar-thumb:hover, .previewbox::-webkit-scrollbar-thumb:hover{
   background-color: var(--color5);
 }
 

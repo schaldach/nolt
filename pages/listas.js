@@ -6,9 +6,10 @@ import useInterval from "../components/UseInterval"
 import InfoBox from "../components/InfoBox"
 import AddButton from "../components/AddButton"
 
-function Lists({user, allLists, addList}) {
+function Lists({user, propLists, addList}) {
     const [successAnimation, conectionMade] = useState(0)
     const [changed, setChange] = useState(false)
+    const allLists = propLists?propLists:[]
 
     useInterval(() => {syncLists(allLists, true)},2500)
 

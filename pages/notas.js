@@ -6,10 +6,11 @@ import useInterval from "../components/UseInterval"
 import InfoBox from "../components/InfoBox"
 import AddButton from "../components/AddButton"
 
-function Notes({user, allNotes, addNote}) {
+function Notes({user, propNotes, addNote}) {
     const [successAnimation, conectionMade] = useState(0)
     const [changed, setChange] = useState(false)
     const [dateChanged, callChange] = useState(false)
+    const allNotes = propNotes?propNotes:[]
 
     useInterval(() => {syncNotes(allNotes, true)},2500)
 

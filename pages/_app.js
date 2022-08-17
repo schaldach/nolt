@@ -97,7 +97,7 @@ function MyApp({ Component, pageProps }) {
     </Head>
     <NavBar darkMode={darkMode} setDarkMode={setDarkMode}/>
     <main>
-      <Component addNote={addNote} allNotes={allNotes} addList={addList} allLists={allLists} addLink={addLink} allLinks={allLinks} setGroups={setGroups} allGroups={allGroups}
+      <Component addNote={addNote} propNotes={allNotes} addList={addList} propLists={allLists} addLink={addLink} propLinks={allLinks} setGroups={setGroups} propGroups={allGroups}
       reqlog={reqlog} user={user} {...pageProps} errorMessage={errorMessage} throwError={throwError}/>
     </main>
     <PageFooter setProject={setProject}/>

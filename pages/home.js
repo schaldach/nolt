@@ -8,11 +8,15 @@ import FavoriteList from "../components/SimpleList"
 import FavoriteLink from "../components/SimpleLink"
 import SimpleGroup from "../components/SimpleGroup"
 
-function Home({user, allNotes, allLists, allLinks, allGroups}) {
+function Home({user, propNotes, propLists, propLinks, propGroups}) {
     const [configsShown, showConfigs] = useState(false)
     const [showType, changeShow] = useState('anotations')
     const [favorites, setFavorites] = useState(true)
     const [settable, releaseLocalStorage] = useState(false)
+    const allNotes = propNotes?propNotes:[]
+    const allLists = propLists?propLists:[]
+    const allLinks = propLinks?propLinks:[]
+    const allGroups = propGroups?propGroups:[]
 
     useEffect(() => {
         let storedFavorites = JSON.parse(localStorage.getItem('favorites'))

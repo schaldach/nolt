@@ -6,9 +6,13 @@ import useInterval from "../components/UseInterval"
 import Group from '../components/Group'
 import AddButton from "../components/AddButton"
 
-function Groups({user, allNotes, allLists, allLinks, allGroups, setGroups}) {
+function Groups({user, propNotes, propLists, propLinks, propGroups, setGroups}) {
     const [successAnimation, conectionMade] = useState(0)
     const [changed, setChange] = useState(false)
+    const allGroups = propGroups?propGroups:[]
+    const allNotes = propNotes
+    const allLists = propLists
+    const allLinks = propLinks
 
     useInterval(() => {syncGroups(allGroups, true)},2500)
 
