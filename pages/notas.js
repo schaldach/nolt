@@ -88,7 +88,7 @@ function Notes({user}) {
         setChange(true)
         let newNotes = [...allNotes]
         const index = newNotes.indexOf(note)
-        if(newNotes[index].calendar){callChange(true)}
+        if(!newNotes[index].calendar){callChange(true)}
         newNotes[index].calendar = !newNotes[index].calendar
         addNote(newNotes)
         conectionMade(1)
