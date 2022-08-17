@@ -1259,8 +1259,8 @@ svg{
   bottom: 4px;
   left: 4px;
   border: 2px solid var(--color4);
-  background-color: var(--color2p);
-  color: var(--color1);
+  background-color: var(--color5);
+  color: #ffffff;
   font-family: var(--font2);
   font-weight: bolder;
   font-size: 15px;
