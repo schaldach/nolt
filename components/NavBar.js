@@ -2,10 +2,7 @@ import React, { useState } from "react"
 import Link from "next/link"
 import DarkModeButton from "./DarkModeButton"
 
-function NavBar({darkMode, setDarkMode}) {
-    const [currentNote, changeCurrentNote] = useState('notas')
-    const [currentPage, changeCurrentPage] = useState('home')
-
+function NavBar({darkMode, setDarkMode, currentNote, changeCurrentNote, currentPage, changeCurrentPage}) {
     function dropLink(type){
         changeCurrentPage(type)
         changeCurrentNote(type)

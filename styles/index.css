@@ -95,7 +95,7 @@ main{
   display: flex;
   flex-wrap: wrap;
   margin: 20px 0 50px 0;
-  gap: 20px;
+  gap: 25px;
   justify-content: center;
 }
 .minor{
@@ -157,7 +157,7 @@ main{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1vh 7.5vw;
+  padding: 4vh 7.5vw 1vh 7.5vw;
 }
 .subtitle{
   color: var(--color1);
@@ -173,12 +173,10 @@ main{
   width: 300px;
   height: 150px;
   align-items: center;
-  border: 3px solid var(--color5);
   box-shadow: 2px 2px 2px rgba(0,0,0,0.75);
 }
 .card:hover{
   transform: scale(1.05);
-  border-color: var(--color4);
 }
 .cardsvg{
   width: 100px;
@@ -197,7 +195,7 @@ main{
 .secondlanding{
   width: 95vw;
   gap: 0;
-  padding: 1vh 2.5vw 3vh 2.5vw;
+  padding: 4vh 2.5vw 3vh 2.5vw;
 }
 
 .login{

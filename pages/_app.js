@@ -17,6 +17,8 @@ function MyApp({ Component, pageProps }) {
   const [allNotes, addNote] = useState([])
   const [allLists, addList] = useState([])
   const [allLinks, addLink] = useState([])
+  const [currentNote, changeCurrentNote] = useState('notas')
+  const [currentPage, changeCurrentPage] = useState('home')
 
   useEffect(()=> {
     syncAnotations()
@@ -95,9 +97,9 @@ function MyApp({ Component, pageProps }) {
     <Head>
       <title>Nolt</title>
     </Head>
-    <NavBar darkMode={darkMode} setDarkMode={setDarkMode}/>
+    <NavBar currentNote={currentNote} currentPage={currentPage} changeCurrentNote={changeCurrentNote} changeCurrentPage={changeCurrentPage} darkMode={darkMode} setDarkMode={setDarkMode}/>
     <main>
-      <Component addNote={addNote} propNotes={allNotes} addList={addList} propLists={allLists} addLink={addLink} propLinks={allLinks} setGroups={setGroups} propGroups={allGroups}
+      <Component currentNote={currentNote} changeCurrentPage={() => changeCurrentPage(currentNote)} addNote={addNote} propNotes={allNotes} addList={addList} propLists={allLists} addLink={addLink} propLinks={allLinks} setGroups={setGroups} propGroups={allGroups}
       reqlog={reqlog} user={user} {...pageProps} errorMessage={errorMessage} throwError={throwError}/>
     </main>
     <PageFooter setProject={setProject}/>
