@@ -301,11 +301,8 @@ main{
 .navbar{
   display: grid;
   justify-items: center;
-  border-style: solid;
-  border-width: 0px 0px 1vh 0px;
-  border-color: var(--color5);
   grid-template-columns: 1.25fr 2fr 1fr;
-  height: 12vh;
+  height: 13vh;
   align-items: center;
   background: var(--color2p);
 }
