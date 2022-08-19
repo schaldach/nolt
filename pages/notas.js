@@ -6,11 +6,12 @@ import useInterval from "../components/UseInterval"
 import InfoBox from "../components/InfoBox"
 import AddButton from "../components/AddButton"
 
-function Notes({user, propNotes, addNote}) {
+function Notes({user, propNotes, addNote, propGroups, setGroups}) {
     const [successAnimation, conectionMade] = useState(0)
     const [changed, setChange] = useState(false)
     const [dateChanged, callChange] = useState(false)
     const allNotes = propNotes?propNotes:[]
+    const allGroups = propGroups
 
     useInterval(() => {syncNotes(allNotes, true)},2500)
 
@@ -110,15 +111,29 @@ function Notes({user, propNotes, addNote}) {
     }
 
     async function onDelete(noteId) {
-        let lastconection = successAnimation
         conectionMade(2)
+        let newGroups = [...allGroups]
+        let groupChanges = false
+        newGroups.forEach(group => {
+            const indexFound = group['notes'].indexOf(noteId)
+            if(indexFound!==-1){
+                groupChanges = true
+                group['notes'].splice(indexFound, 1)
+            }
+        })
+        setGroups(newGroups)
+        if(groupChanges){
+            const eba = await supabase
+                .from('grupos')
+                .upsert(newGroups)
+        }
         let newNotes = allNotes.filter(notes => notes.id !== noteId)
         const eba = await supabase
             .from('notas')
             .delete()
             .match({ id: noteId })
             .then( () => {
-                conectionMade(lastconection)
+                conectionMade(0)
             })
         addNote(newNotes)
     }

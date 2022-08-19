@@ -951,7 +951,7 @@ svg{
   99% {
     overflow: hidden;
     flex-wrap: wrap;
-    height: 162.5px;
+    height: 165px;
   }
   100% {
     overflow: visible;

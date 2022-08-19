@@ -7,11 +7,12 @@ import useInterval from "../components/UseInterval"
 import InfoBox from "../components/InfoBox"
 import AddButton from "../components/AddButton"
 
-function Links({user, propLinks, addLink}) {
+function Links({user, propLinks, addLink, propGroups, setGroups}) {
     const [successAnimation, conectionMade] = useState(0)
     const [needData,requestD] = useState(false)
     const [changed, setChange] = useState(false)
     const allLinks = propLinks?propLinks:[]
+    const allGroups = propGroups
 
     useInterval(() => {syncLinks(allLinks, true)},2500)
 
@@ -47,15 +48,29 @@ function Links({user, propLinks, addLink}) {
     }
 
     async function onDelete(linkId){
-        let lastconection = successAnimation
         conectionMade(2)
+        let newGroups = [...allGroups]
+        let groupChanges = false
+        newGroups.forEach(group => {
+            const indexFound = group['links'].indexOf(linkId)
+            if(indexFound!==-1){
+                groupChanges = true
+                group['links'].splice(indexFound, 1)
+            }
+        })
+        setGroups(newGroups)
+        if(groupChanges){
+            const eba = await supabase
+                .from('grupos')
+                .upsert(newGroups)
+        }
         let newLinks = allLinks.filter(links => links.id!==linkId)
         const eba = await supabase
             .from('links')
             .delete()
             .match({ id: linkId })
             .then( () => {
-                conectionMade(lastconection)
+                conectionMade(0)
             })
         addLink(newLinks)
     }

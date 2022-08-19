@@ -48,7 +48,6 @@ function Groups({user, propNotes, propLists, propLinks, propGroups, setGroups}) 
     }
 
     async function onDelete(groupId){
-        let lastconection = successAnimation
         conectionMade(2)
         let newGroups = allGroups.filter(group => group.id!==groupId)
         const eba = await supabase
@@ -56,7 +55,7 @@ function Groups({user, propNotes, propLists, propLinks, propGroups, setGroups}) 
             .delete()
             .match({ id: groupId })
             .then( () => {
-                conectionMade(lastconection)
+                conectionMade(0)
             })
         setGroups(newGroups)
     }

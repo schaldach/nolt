@@ -3,6 +3,7 @@ function SecurityBox({onDelete, onCancel, boxVisible}) {
         onCancel()
         onDelete()
     }
+    
     return (
         <div className={boxVisible?'disabledpage':'displaynone'}>
         <div className="securitybox">

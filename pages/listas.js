@@ -6,10 +6,11 @@ import useInterval from "../components/UseInterval"
 import InfoBox from "../components/InfoBox"
 import AddButton from "../components/AddButton"
 
-function Lists({user, propLists, addList}) {
+function Lists({user, propLists, addList, propGroups, setGroups}) {
     const [successAnimation, conectionMade] = useState(0)
     const [changed, setChange] = useState(false)
     const allLists = propLists?propLists:[]
+    const allGroups = propGroups
 
     useInterval(() => {syncLists(allLists, true)},2500)
 
@@ -81,15 +82,29 @@ function Lists({user, propLists, addList}) {
     }
 
     async function onDelete(listId){
-        let lastconection = successAnimation
         conectionMade(2)
+        let newGroups = [...allGroups]
+        let groupChanges = false
+        newGroups.forEach(group => {
+            const indexFound = group['lists'].indexOf(listId)
+            if(indexFound!==-1){
+                groupChanges = true
+                group['lists'].splice(indexFound, 1)
+            }
+        })
+        setGroups(newGroups)
+        if(groupChanges){
+            const eba = await supabase
+                .from('grupos')
+                .upsert(newGroups)
+        }
         let newLists = allLists.filter(lists => lists.id!==listId)
         const eba = await supabase
             .from('listas')
             .delete()
             .match({ id: listId })
             .then( () => {
-                conectionMade(lastconection)
+                conectionMade(0)
             })
         addList(newLists)
     }
