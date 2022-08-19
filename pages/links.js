@@ -7,7 +7,7 @@ import useInterval from "../components/UseInterval"
 import InfoBox from "../components/InfoBox"
 import AddButton from "../components/AddButton"
 
-function Links({user, propLinks, addLink, propGroups, setGroups}) {
+function Links({user, propLinks, addLink, propGroups}) {
     const [successAnimation, conectionMade] = useState(0)
     const [needData,requestD] = useState(false)
     const [changed, setChange] = useState(false)
@@ -58,7 +58,6 @@ function Links({user, propLinks, addLink, propGroups, setGroups}) {
                 group['links'].splice(indexFound, 1)
             }
         })
-        setGroups(newGroups)
         if(groupChanges){
             const eba = await supabase
                 .from('grupos')

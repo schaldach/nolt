@@ -6,7 +6,7 @@ import useInterval from "../components/UseInterval"
 import InfoBox from "../components/InfoBox"
 import AddButton from "../components/AddButton"
 
-function Notes({user, propNotes, addNote, propGroups, setGroups}) {
+function Notes({user, propNotes, addNote, propGroups}) {
     const [successAnimation, conectionMade] = useState(0)
     const [changed, setChange] = useState(false)
     const [dateChanged, callChange] = useState(false)
@@ -121,7 +121,6 @@ function Notes({user, propNotes, addNote, propGroups, setGroups}) {
                 group['notes'].splice(indexFound, 1)
             }
         })
-        setGroups(newGroups)
         if(groupChanges){
             const eba = await supabase
                 .from('grupos')

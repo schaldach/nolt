@@ -6,7 +6,7 @@ import useInterval from "../components/UseInterval"
 import InfoBox from "../components/InfoBox"
 import AddButton from "../components/AddButton"
 
-function Lists({user, propLists, addList, propGroups, setGroups}) {
+function Lists({user, propLists, addList, propGroups}) {
     const [successAnimation, conectionMade] = useState(0)
     const [changed, setChange] = useState(false)
     const allLists = propLists?propLists:[]
@@ -92,7 +92,6 @@ function Lists({user, propLists, addList, propGroups, setGroups}) {
                 group['lists'].splice(indexFound, 1)
             }
         })
-        setGroups(newGroups)
         if(groupChanges){
             const eba = await supabase
                 .from('grupos')
