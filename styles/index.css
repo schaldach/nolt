@@ -10,7 +10,6 @@
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --font3: 'Inter', sans-serif;
-  --calendarfilter: 0;
 }
 [data-theme='dark'] {
   --color1: #ffffff;
@@ -22,7 +21,6 @@
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --font3: 'Inter', sans-serif;
-  --calendarfilter: 1;
 }
 
 body, html{
@@ -1240,7 +1238,7 @@ svg{
   color: var(--color4);
 }
 ::-webkit-inner-spin-button,::-webkit-calendar-picker-indicator {
-  filter: invert(var(--calendarfilter));
+  filter: invert(1);
   cursor: pointer;
 }
 
