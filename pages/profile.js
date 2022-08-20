@@ -2,13 +2,17 @@ import React, { useEffect } from "react"
 import SecondTitle from "../components/SecondTitle"
 import { supabase } from "../utils/supabaseClient"
 import { useState } from "react"
+import InfoBox from '../components/InfoBox'
 import Router from 'next/router'
 
 function Profile({user, reqlog}) {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [editMode, startEdit] = useState(false)
-    const [connectionStatus, setConnection] = useState(0)
+    const [successAnimation, setConnection] = useState(0)
+    const [image, setImage] = useState(null)
+
+    const profileUser = user?user:''
 
     useEffect(() => {
         getProfile()
@@ -17,7 +21,7 @@ function Profile({user, reqlog}) {
 
     useEffect(() => {
         setConnection(1)
-    }, [username, email])
+    }, [username, email, image])
 
     function getProfile(){
         if(!user){return}
@@ -27,13 +31,25 @@ function Profile({user, reqlog}) {
 
     async function saveUserChanges(){
         setConnection(2)
+        let avatar_url = user.avatar_url
+        if(image){
+            const {data, error} = await supabase.storage
+                .from('avatars')
+                .upload(`${Date.now()}_${image.name}`, image)
+            if(error){
+                console.log(error)
+            }
+            if(data){
+                avatar_url = data.Key
+            }
+        }
+                
         const eba = await supabase
             .from('profiles')
-            .update({'username':username})
+            .update({'username':username, 'avatar_url':avatar_url})
             .match({'email':user.email})
             .then(() => {
                 setConnection(0)
-                reqlog(Math.random())
             })
     }
 
@@ -51,6 +67,8 @@ function Profile({user, reqlog}) {
         <div>
             <SecondTitle titlecontent='Perfil'/>
             <div className="secondtext userdata">
+                {profileUser.avatar_url?<img src={`https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/${user.avatar_url}`}></img>:<img src="https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/avatars/user_placeholder.png"/>}
+                <input className={editMode?'':'displaynone'} type='file' accept='image/jpeg image/png' onChange={e => setImage(e.target.files[0])}/>
                 <div>Email:&nbsp;<div>{email}</div></div>
                 <div>Usuário:&nbsp;{editMode?<input autoFocus value={username} placeholder={'Usuário...'} onInput={e => setUsername(e.target.value)}></input>:<div>{username}</div>}</div>
             </div>
@@ -66,24 +84,7 @@ function Profile({user, reqlog}) {
                 </svg>
                 </button>
                 <button onClick={saveUserChanges} className={editMode?'useredit':'displaynone'}>Salvar</button>
-                <div className={connectionStatus===0?'status':'displaynone'}>
-                        <svg xmlns="http://www.w3.org/2000/svg" className='conectionsvg' fill="none" viewBox="0 0 24 24" stroke="#2e856e" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Os dados estão sincronizados.
-                    </div>
-                    <div className={connectionStatus===1?'status':'displaynone'}>
-                        <svg xmlns="http://www.w3.org/2000/svg" className='conectionsvg' fill="none" viewBox="0 0 24 24" stroke="#e61e1e" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                        Os dados não estão sincronizados.
-                    </div>
-                    <div className={connectionStatus===2?'status':'displaynone'}>
-                        <svg xmlns="http://www.w3.org/2000/svg" className='conectionsvg rotating' fill="none" viewBox="0 0 24 24" stroke="var(--color1)" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                        </svg>
-                        Atualizando...
-                    </div>
+                <InfoBox successAnimation={successAnimation}/>
                 </div>
                 <button className="loginbutton logintext" onClick={logout}>Logout
                 <svg xmlns="http://www.w3.org/2000/svg" className="loginsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
