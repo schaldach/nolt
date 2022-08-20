@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import useAutosizeTextArea from "./useAutosizeArea";
 
-function ListItem({ index, text, editMode, itemEdit, itemFocus, handleTextFocus, changeFocus, complete }) {
+function ListItem({ index, focusIndex, text, editMode, itemEdit, itemFocus, handleTextFocus, changeFocus, complete }) {
     const searchInput = useRef(null)
 
     useAutosizeTextArea(searchInput.current, text, editMode);
 
     useEffect(() => {
-        if (itemFocus === index) {
+        if (itemFocus === focusIndex) {
             searchInput.current.focus()
             let v = searchInput.current.value
             searchInput.current.value = ''
@@ -27,7 +27,7 @@ function ListItem({ index, text, editMode, itemEdit, itemFocus, handleTextFocus,
 
     return (
         <>
-            <textarea onFocus={() => changeFocus(index)} onKeyDown={(e) => handleTextFocus(e)}
+            <textarea onFocus={() => changeFocus(focusIndex)} onKeyDown={(e) => handleTextFocus(e)}
                 ref={searchInput} className={editMode ? 'listarea' : 'displaynone'} type='text'
                 value={text} onInput={e => itemEdit(e.target.value, index, complete)} />
             <div className={divClass()}>{text}</div>

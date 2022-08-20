@@ -10,6 +10,8 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
     const [boxVisible, setBox] = useState(false)
     const [currentItemFocus, changeFocus] = useState(-1)
 
+    const incompletedItems = content.filter(item=>!item.complete)
+
     function itemEdit(text, id, complete) {
         let newContent = [...content]
         const index = newContent.findIndex(el => el.id === id)
@@ -19,9 +21,11 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
     }
 
     function handleTextFocus(e) {
+        let rightContent = filtered?incompletedItems:content
+        let rightIndex = content.indexOf(rightContent[currentItemFocus])
         if (e.key === 'Enter') {
             e.preventDefault()
-            if (currentItemFocus + 1 === content.length) {
+            if (currentItemFocus + 1 === rightContent.length) {
                 let newContent = [...content]
                 newContent.push({
                     text: `${content.length + 1}. `,
@@ -33,11 +37,11 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
             changeFocus(currentItemFocus + 1)
         }
         if(currentItemFocus === -1){return}
-        if (e.key === 'Backspace'&&!content[currentItemFocus].text) {
+        if (e.key === 'Backspace'&&!rightContent[currentItemFocus].text) {
             e.preventDefault()
             let newContent = [...content]
-            newContent.splice(currentItemFocus,1)
-            for(let i=currentItemFocus; i<newContent.length; i++){
+            newContent.splice(rightIndex,1)
+            for(let i=rightIndex; i<newContent.length; i++){
                 newContent[i].id = i
                 let newTextArray = newContent[i].text.split('.')
                 if(newTextArray[0] === `${i+2}`){
@@ -71,7 +75,7 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
                 </div>
                 <div className='anotcontent'>
                     {content.map(item =>
-                        !filtered||!item.complete?<ListItem itemEdit={itemEdit} index={item.id} key={item.id} editMode={editMode}
+                        !filtered||!item.complete?<ListItem focusIndex={filtered?incompletedItems.indexOf(item):item.id} itemEdit={itemEdit} index={item.id} key={item.id} editMode={editMode}
                             text={item.text} changeFocus={changeFocus} handleTextFocus={handleTextFocus}
                             itemFocus={currentItemFocus} complete={item.complete}></ListItem>:''
                     )}
