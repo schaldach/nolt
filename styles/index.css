@@ -1285,6 +1285,9 @@ svg{
   .homebutton::before{
     content: 'Leve-me lá';
   }
+  .specificgroup{
+    justify-content: center;
+  }
   .titlesecond{
     text-align: center;
   }
