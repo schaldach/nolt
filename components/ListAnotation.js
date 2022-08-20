@@ -75,9 +75,11 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
                 </div>
                 <div className='anotcontent'>
                     {content.map(item =>
-                        !filtered||!item.complete?<ListItem focusIndex={filtered?incompletedItems.indexOf(item):item.id} itemEdit={itemEdit} index={item.id} key={item.id} editMode={editMode}
+                        <div className={!filtered||!item.complete?'':'displaynone'}>
+                        <ListItem focusIndex={filtered?incompletedItems.indexOf(item):item.id} itemEdit={itemEdit} index={item.id} key={item.id} editMode={editMode}
                             text={item.text} changeFocus={changeFocus} handleTextFocus={handleTextFocus}
-                            itemFocus={currentItemFocus} complete={item.complete}></ListItem>:''
+                            itemFocus={currentItemFocus} complete={item.complete}></ListItem>
+                        </div>
                     )}
                     <div className={editMode ? 'listinstruction anotcontentwarning' : 'displaynone'}>Enter irá aumentar a lista 
                     ou ir para o próximo item<br/>Backspace em um item vazio irá removê-lo e atualizar os índices</div>
