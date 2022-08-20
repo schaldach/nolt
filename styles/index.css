@@ -1267,6 +1267,15 @@ svg{
   max-width: 82.5%;
 }
 
+@keyframes disabletouch {
+  0%{
+    pointer-events: none;
+  }
+  100%{
+    pointer-events: all;
+  }
+}
+
 @media screen and (max-width: 1024px){
   .dateinputs{
     max-width: 100%;
@@ -1321,6 +1330,7 @@ svg{
     display: none;
   }
   .navbar:hover .sections{
+    animation: disabletouch 0.5s;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     place-items: center;
@@ -1328,6 +1338,7 @@ svg{
   }
   .navbar:hover .dark-wrapper{
     display: flex;
+    animation: disabletouch 0.5s;
   }
   .navbar:hover .responsiveImg{
     display: none;

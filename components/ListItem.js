@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import useAutosizeTextArea from "./useAutosizeArea";
 
-function ListItem({ index, focusIndex, text, editMode, itemEdit, itemFocus, handleTextFocus, changeFocus, complete }) {
+function ListItem({ index, focusIndex, text, editMode, itemEdit, itemFocus, handleTextFocus, changeFocus, complete, filtered }) {
     const searchInput = useRef(null)
 
-    useAutosizeTextArea(searchInput.current, text, editMode);
+    useAutosizeTextArea(searchInput.current, text, editMode, filtered);
 
     useEffect(() => {
         if (itemFocus === focusIndex) {
