@@ -1266,10 +1266,14 @@ svg{
   max-width: 82.5%;
 }
 
-.userdata img{
+.userdata .imgpicture{
   width: 128px;
   height: 128px;
-  border-radius: 128px;
+  border-radius: 50%;
+  border: 3px solid var(--color1);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 @keyframes disabletouch {
@@ -1392,6 +1396,9 @@ svg{
   }
   .userdata div{
     flex-direction: column;
+  }
+  .addbuttonswrapper{
+    justify-content: center;
   }
 }
 

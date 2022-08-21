@@ -57,7 +57,7 @@ function Profile({user, reqlog}) {
         <div>
             <SecondTitle titlecontent='Perfil'/>
             <div className="secondtext userdata">
-                {profileUser.avatar_url?<img src={`https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/${user.avatar_url}`}></img>:<img src="https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/avatars/user_placeholder.png"/>}
+                {profileUser.avatar_url?<div className="imgpicture" style={{backgroundImage:`url(https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/${user.avatar_url})`}}></div>:<img src="https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/avatars/user_placeholder.png"/>}
                 <input className={editMode?'':'displaynone'} type='file' accept='image/jpeg image/png' onChange={e => setImage(e.target.files[0])}/>
                 <div>Email:&nbsp;<div>{email}</div></div>
                 <div>Usuário:&nbsp;{editMode?<input autoFocus value={username} placeholder={'Usuário...'} onInput={e => setUsername(e.target.value)}></input>:<div>{username}</div>}</div>
