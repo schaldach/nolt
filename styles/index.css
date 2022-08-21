@@ -196,20 +196,18 @@ main{
 }
 
 .login{
-  background: linear-gradient(to right, #1b4bbb, #0ea8e6);
+  background: linear-gradient(to top right, #1b4bbb, #0ea8e6);
   height: 100vh;
   width: 100vw;
   display: flex;
-  justify-content: center;
+  flex-direction: row-reverse;
   align-items: center;
   text-align: center;
 }
 .loginbox{
-  padding: 4vh 0 6vh 0;
-  height: 65vh;
-  width: 40vw;
-  border-radius: 10px;
-  box-shadow: 7px 7px var(--color3);
+  padding: 5vh 0 5vh 0;
+  height: 90vh;
+  width: 50vw;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -379,7 +377,7 @@ main{
   padding-top: 1vh;
   position: absolute;
   display: none;
-  z-index: 3;
+  z-index: 4;
 }
 .dropdownswrapper{
   display: grid;
@@ -594,6 +592,7 @@ main{
   left: calc(50% - 25px);
   display: flex;
   align-items: center;
+  box-sizing: border-box;
   justify-content: center;
   cursor: pointer;
   z-index: 5;
@@ -1266,6 +1265,26 @@ svg{
   max-width: 82.5%;
 }
 
+.imgpicture{
+  border: solid var(--color4);
+  border-width: 2px 0px 2px 2px;
+  width: 256px;
+  height: 256px;
+  background-color: var(--color2p);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  overflow: hidden;
+}
+.wholeimage{
+  display: flex;
+}
+.wholeimage .outermenu{
+  flex-direction: column;
+}
+
 .userdata .imgpicture{
   width: 128px;
   height: 128px;
@@ -1399,6 +1418,9 @@ svg{
   }
   .addbuttonswrapper{
     justify-content: center;
+  }
+  .loginbox{
+    width: 100vw;
   }
 }
 

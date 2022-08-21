@@ -19,7 +19,7 @@ function Groups({user, propNotes, propLists, propLinks, propGroups, setGroups}) 
     async function addGroup(){
         conectionMade(2)
         setChange(true)
-        let newGroup = { title: '', notes:[], lists:[], links:[], favorite:false, userid:user.id }
+        let newGroup = { title: '', notes:[], lists:[], links:[], images:[], favorite:false, userid:user.id }
         const bla = await supabase
             .from('grupos')
             .insert([newGroup])
