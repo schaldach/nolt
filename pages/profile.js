@@ -6,14 +6,12 @@ import InfoBox from '../components/InfoBox'
 import Router from 'next/router'
 
 function Profile({user, reqlog}) {
-    const actualUsername = user.username?user.username:''
-    const email = user.email?user.email:''
-    const [username, setUsername] = useState(actualUsername)
+    const profileUser = user?user:''
+    const email = user?user.email:''
+    const [username, setUsername] = useState(user?user.username:'')
     const [editMode, startEdit] = useState(false)
     const [successAnimation, setConnection] = useState(0)
     const [image, setImage] = useState(null)
-
-    const profileUser = user?user:''
 
     useEffect(() => {
         setConnection(1)
