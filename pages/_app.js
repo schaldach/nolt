@@ -4,6 +4,7 @@ import Head from 'next/head'
 import {supabase} from '../utils/supabaseClient'
 import NavBar from '../components/NavBar'
 import PageFooter from '../components/PageFooter'
+import LoadingPage from '../components/LoadingPage';
 import '../styles/index.css'
 
 function MyApp({ Component, pageProps }) {

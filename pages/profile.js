@@ -5,7 +5,7 @@ import { useState } from "react"
 import InfoBox from '../components/InfoBox'
 import Router from 'next/router'
 
-function Profile({user, reqlog}) {
+function Profile({user}) {
     const profileUser = user?user:''
     const email = user?user.email:''
     const [username, setUsername] = useState(user?user.username:'')
@@ -17,7 +17,13 @@ function Profile({user, reqlog}) {
         if(editMode){
             setConnection(1)
         }
-    }, [username, image])
+    }, [username])
+
+    useEffect(() => {
+        if(image){
+            setConnection(1)
+        }
+    }, [image])
 
     async function saveUserChanges(){
         setConnection(2)
@@ -57,8 +63,16 @@ function Profile({user, reqlog}) {
         <div>
             <SecondTitle titlecontent='Perfil'/>
             <div className="secondtext userdata">
-                {profileUser.avatar_url?<div className="imgpicture" style={{backgroundImage:`url(https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/${user.avatar_url})`}}></div>:<img src="https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/avatars/user_placeholder.png"/>}
-                <input className={editMode?'':'displaynone'} type='file' accept='image/jpeg image/png' onChange={e => setImage(e.target.files[0])}/>
+                <label htmlFor="formId" onChange={e => setImage(e.target.files[0])} className='profilepicwrapper'>
+                    <input id="formId" type='file' accept='image/jpeg image/png' className="displaynone"/>
+                    {profileUser.avatar_url?<div className="imgpicture" style={{backgroundImage:`url(https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/${user.avatar_url})`}}></div>:<div className="imgpicture" style={{backgroundImage:"url(https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/avatars/user_placeholder.png)"}}/>}
+                    <div className="loginpicturewrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="loginpicturesvg" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                        </svg>
+                    </div>
+                </label>
+                <input className='displaynone' type='file' accept='image/jpeg image/png'/>
                 <div>Email:&nbsp;<div>{email}</div></div>
                 <div>Usuário:&nbsp;{editMode?<input autoFocus value={username} placeholder={'Usuário...'} onInput={e => setUsername(e.target.value)}></input>:<div>{username}</div>}</div>
             </div>

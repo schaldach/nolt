@@ -5,11 +5,19 @@ function Project({setProject, user}) {
     return (
         <div className="landingpage">
             <div className="upperlanding">
-                <div className="titulo">nolt</div>
-                <div className="subtitle">Um site feito para organizar todos os tipos de anotações pessoais, em qualquer lugar.</div>
+                <div className="titulo">O site para organizar suas anotações pessoais</div>
+                <div className="subtitle">O Nolt permite que você faça diversos tipos de anotações, que ficam salvos na sua conta e podem ser acessados em qualquer lugar.</div>
+                <div className="landingbuttons">
                 <Link href={user?'/home':'/auth'}>
                     <button className="landingbutton" onClick={() => setProject(false)}>Entrar</button>
                 </Link>
+                <button className="landingbutton otherbutton">Saiba Mais
+                <svg xmlns="http://www.w3.org/2000/svg" className="smalllandingsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
+                </svg>
+                </button>
+                </div>
+                
             </div>
             <div className="tutorial">
                 <div className="landingtext">Como funciona?</div>

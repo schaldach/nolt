@@ -64,17 +64,21 @@ main{
   min-height: 100vh;
 }
 .landingpage .titulo{
-  font-size: 80px;
+  font-size: 6vw;
+  font-weight: bolder;
+  user-select: auto;
   color: #000000;
 }
 .upperlanding{
   width: 80vw;
-  padding: 4vh 10vw;  
+  padding: 4vh 10vw;
+  height: 92vh;
   background-color: var(--color2p);
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 5vh;
   align-items: center;
+  justify-content: center;
 }
 .landingsvg{
   color: var(--color2p);
@@ -133,20 +137,43 @@ main{
 }
 
 .landingbutton{
-  font-family: var(--font1);
+  font-family: var(--font2);
+  font-weight: bold;
   color: #ffffff;
   font-size: 6vh;
   margin-top: 20px;
   margin-bottom: 40px;
   background-color: var(--color4);
   border: none;
-  border-radius: 50px;
+  border-radius: 20px;
   width: fit-content;
-  padding: 10px 25px;
+  padding: 10px 50px;
   cursor: pointer;
 }
 .landingbutton:hover{
   background-color: var(--color5);
+  box-shadow: 5px 5px 15px var(--color4);
+}
+.smalllandingsvg{
+  height: 6vh;
+  width: 6vh;
+}
+.landingbuttons{
+  display: flex;
+  gap: 5vw;
+}
+.otherbutton{
+  box-shadow: 5px 5px 10px #dddddd;
+  background-color: var(--color2p);
+  color: var(--color1);
+  display: flex;
+  align-items: center;
+  cursor: auto;
+  justify-content: center;
+}
+.otherbutton:hover{
+  background-color: var(--color2p);
+  box-shadow: 5px 5px 10px #c9c9c9;
 }
 
 .tutorial{
@@ -160,7 +187,7 @@ main{
 .subtitle{
   color: var(--color1);
   font-family: var(--font1);
-  font-size: 4vh;
+  font-size: 2vw;
 }
 .card{
   background-color: #ffffff;
@@ -200,9 +227,12 @@ main{
   height: 100vh;
   width: 100vw;
   display: flex;
-  flex-direction: row-reverse;
   align-items: center;
   text-align: center;
+}
+.loginimage{
+  width: 50vw;
+  height: 100vh;
 }
 .loginbox{
   padding: 5vh 0 5vh 0;
@@ -1270,6 +1300,7 @@ svg{
 .imgpicture{
   max-width: 275px;
   max-height: 275px;
+  cursor: pointer;
 }
 .wholeimage{
   border-radius: 10px;
@@ -1284,15 +1315,46 @@ svg{
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
+.entireimage{
+  max-width: 90vw;
+  max-height: 90vh;
+}
 
 .userdata .imgpicture{
   width: 128px;
   height: 128px;
-  border-radius: 50%;
-  border: 3px solid var(--color1);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+}
+.profilepicwrapper{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: fit-content;
+  height: fit-content;
+  border: 3px solid var(--color1);
+  overflow: hidden;
+  cursor: pointer;
+}
+.userdata .loginpicturewrapper{
+  position: absolute;
+  background-color: rgba(0,0,0,0.2);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.profilepicwrapper:hover .loginpicturewrapper{
+  display: flex;
+}
+.loginpicturesvg{
+  width: 30px;
+  color: #ffffff;
+  height: 30px;
 }
 
 @keyframes disabletouch {

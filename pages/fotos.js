@@ -25,12 +25,13 @@ function Images({user, propImages, addImage, propGroups}) {
         const {data, error} = await supabase.storage
             .from('images')
             .upload(`${Date.now()}_${currentImage.name}`, currentImage)
-        if(error){
-            console.log(error)
-        }
-        if(data){
-            image_url = data.Key
-        }
+            if(error){
+                console.log(error)
+            }
+            if(data){
+                image_url = data.Key
+            }
+        
         let newImage = {'storageurl':image_url, userid:user.id}
         const eba = await supabase
             .from('images')
