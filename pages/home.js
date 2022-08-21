@@ -7,8 +7,9 @@ import FavoriteNote from "../components/SimpleAnotation"
 import FavoriteList from "../components/SimpleList"
 import FavoriteLink from "../components/SimpleLink"
 import SimpleGroup from "../components/SimpleGroup"
+import SimpleImage from "../components/SimpleImage"
 
-function Home({user, propNotes, propLists, propLinks, propGroups, changeCurrentPage, currentNote}) {
+function Home({user, propNotes, propLists, propLinks, propImages, propGroups, changeCurrentPage, currentNote}) {
     const [configsShown, showConfigs] = useState(false)
     const [showType, changeShow] = useState('anotations')
     const [favorites, setFavorites] = useState(true)
@@ -16,6 +17,7 @@ function Home({user, propNotes, propLists, propLinks, propGroups, changeCurrentP
     const allNotes = propNotes?propNotes:[]
     const allLists = propLists?propLists:[]
     const allLinks = propLinks?propLinks:[]
+    const allImages = propImages?propImages:[]
     const allGroups = propGroups?propGroups:[]
 
     useEffect(() => {
@@ -47,7 +49,7 @@ function Home({user, propNotes, propLists, propLinks, propGroups, changeCurrentP
         let text
         if(allNotes.length+allLists.length+allLinks.length+allGroups.length){
             text = `Você possui ${allNotes.length} Nota${allNotes.length!==1?'s':''}, ${allLists.length} Lista${allLists.length!==1?'s':''},
-            ${allLinks.length} Link${allLinks.length!==1?'s':''} e ${allGroups.length} Grupo${allGroups.length!==1?'s':''}. Aproveite como quiser!`
+            ${allLinks.length} Link${allLinks.length!==1?'s':''}, ${allImages.length} Foto${allImages.length!==1?'s':''} e ${allGroups.length} Grupo${allGroups.length!==1?'s':''}. Aproveite como quiser!`
         }
         else{
             text = 'Parece que você ainda não possui anotações. Deseja começar a utilizar o site?'
@@ -104,7 +106,7 @@ function Home({user, propNotes, propLists, propLinks, propGroups, changeCurrentP
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
             </div>
-                <div className='displayanotations displayfavorites'>
+            <div className='displayanotations displayfavorites'>
                 {allNotes.map(note => 
                 note.favorite||!favorites?<FavoriteNote small={note.small} calendar={note.calendar} date={note.date} key={Math.random()} title={note.title} content={note.content}/>:''
                 )}
@@ -116,7 +118,7 @@ function Home({user, propNotes, propLists, propLinks, propGroups, changeCurrentP
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
             </div>
-                <div className='displayanotations displayfavorites'>
+            <div className='displayanotations displayfavorites'>
                 {allLists.map(list => 
                 list.favorite||!favorites?<FavoriteList filtered={list.filtered} small={list.small} key={Math.random()} title={list.title} content={list.content}/>:''
                 )}
@@ -128,12 +130,24 @@ function Home({user, propNotes, propLists, propLinks, propGroups, changeCurrentP
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
             </div>
-                <div className='displayanotations displayfavorites'>
+            <div className='displayanotations displayfavorites'>
                 {allLinks.map(link => 
                 link.favorite||!favorites?<FavoriteLink key={Math.random()} name={link.name} href={link.href}/>:''
                 )}
                 <div className={favorites?'empty':'displaynone'}>{areThereFavorites(allLinks)?'':'Não há links favoritos.'}</div>
                 <div className={!favorites?'empty':'displaynone'}>{allLinks.length?'':'Não há links.'}</div>
+            </div>
+            <div className='grouptitle favtitle'>Fotos 
+            <svg xmlns="http://www.w3.org/2000/svg" className={favorites?'dropdownsvg':'displaynone'} viewBox="0 0 20 20" fill="var(--color3)">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            </div>
+            <div className='displayanotations displayfavorites displayimgs'>
+                {allImages.map(image => 
+                image.favorite||!favorites?<SimpleImage key={Math.random()} storageurl={image.storageurl}/>:''
+                )}
+                <div className={favorites?'empty':'displaynone'}>{areThereFavorites(allImages)?'':'Não há links favoritos.'}</div>
+                <div className={!favorites?'empty':'displaynone'}>{allImages.length?'':'Não há links.'}</div>   
             </div>
             </div>
             <div className={showType==='groups'?'':'displaynone'}>
@@ -143,6 +157,7 @@ function Home({user, propNotes, propLists, propLinks, propGroups, changeCurrentP
                 notes={allNotes.filter(note => group['notes'].indexOf(note.id)!==-1)} 
                 lists={allLists.filter(list => group['lists'].indexOf(list.id)!==-1)}
                 links={allLinks.filter(link => group['links'].indexOf(link.id)!==-1)}
+                images={allImages.filter(image => group['images'].indexOf(image.id)!==-1)}
                 title={group.title} favorite={favorites}/>:''
                 )}
                 <div className={favorites?'empty':'displaynone'}>{areThereFavorites(allGroups)?'':'Não há grupos favoritos.'}</div>

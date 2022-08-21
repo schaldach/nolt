@@ -13,7 +13,7 @@ function Images({user, propImages, addImage, propGroups}) {
     const allImages = propImages?propImages:[]
     const allGroups = propGroups
 
-    useInterval(() => {syncImages(allImages, true)}, 2500)
+    useInterval(() => {syncImages(allImages, true)}, 2000)
 
     useEffect(() => {
         addAnotation()
@@ -100,7 +100,7 @@ function Images({user, propImages, addImage, propGroups}) {
             <SecondTitle titlecontent='Anotações' extra='/Fotos'/>
             <InfoBox successAnimation={successAnimation}/>
             </div>
-            <div className='displayanotations'>
+            <div className='displayanotations displayimgs'>
                 <AddFileButton setImage={setImage}/>
                 {allImages.map(image =>
                 <ImageAnotation image={image} key={image.id} id={image.id} storageurl={image.storageurl} 

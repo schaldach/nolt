@@ -13,7 +13,7 @@ function Notes({user, propNotes, addNote, propGroups}) {
     const allNotes = propNotes?propNotes:[]
     const allGroups = propGroups
 
-    useInterval(() => {syncNotes(allNotes, true)},2500)
+    useInterval(() => {syncNotes(allNotes, true)},2000)
 
     useEffect(() => {
         if(dateChanged){

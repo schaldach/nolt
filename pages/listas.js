@@ -12,7 +12,7 @@ function Lists({user, propLists, addList, propGroups}) {
     const allLists = propLists?propLists:[]
     const allGroups = propGroups
 
-    useInterval(() => {syncLists(allLists, true)},2500)
+    useInterval(() => {syncLists(allLists, true)},2000)
 
     async function syncLists(lists, auto){
         if(!user||!changed&&auto){return}

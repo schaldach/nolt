@@ -6,7 +6,7 @@ function ImageAnotation({storageurl, favorite, onDelete, id, onFavorite, image})
     return (
         <>
         <div className="wholeimage">
-        <div className="imgpicture" style={{backgroundImage:`url(https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/${storageurl})`}}></div>
+        <img className="imgpicture" src={`https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/${storageurl}`}></img>
         <div className="outermenu">
             <button onClick={() => setBox(true)} className='deletelinkbutton'>
                 <svg xmlns="http://www.w3.org/2000/svg" className="dropdownsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

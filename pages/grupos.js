@@ -6,15 +6,16 @@ import useInterval from "../components/UseInterval"
 import Group from '../components/Group'
 import AddButton from "../components/AddButton"
 
-function Groups({user, propNotes, propLists, propLinks, propGroups, setGroups}) {
+function Groups({user, propNotes, propLists, propLinks, propImages, propGroups, setGroups}) {
     const [successAnimation, conectionMade] = useState(0)
     const [changed, setChange] = useState(false)
     const allGroups = propGroups?propGroups:[]
+    const allImages = propImages
     const allNotes = propNotes
     const allLists = propLists
     const allLinks = propLinks
 
-    useInterval(() => {syncGroups(allGroups, true)},2500)
+    useInterval(() => {syncGroups(allGroups, true)},2000)
 
     async function addGroup(){
         conectionMade(2)
@@ -26,7 +27,7 @@ function Groups({user, propNotes, propLists, propLinks, propGroups, setGroups}) 
             .then(() => syncGroups(allGroups))
     }
 
-    function onEdit(group, title, notes, lists, links){
+    function onEdit(group, title, notes, lists, links, images){
         setChange(true)
         let newGroups = [...allGroups]
         const index = newGroups.indexOf(group)
@@ -34,6 +35,7 @@ function Groups({user, propNotes, propLists, propLinks, propGroups, setGroups}) 
         newGroups[index]['notes'] = notes
         newGroups[index]['lists'] = lists
         newGroups[index]['links'] = links
+        newGroups[index]['images'] = images
         setGroups(newGroups)
         conectionMade(1)
     }
@@ -90,10 +92,11 @@ function Groups({user, propNotes, propLists, propLinks, propGroups, setGroups}) 
             <div className="displaygroups">
                 <AddButton addAnotation={addGroup}/>
                 {allGroups.map(group => 
-                    <Group allNotes={allNotes} allLists={allLists} allLinks={allLinks} 
+                    <Group allNotes={allNotes} allLists={allLists} allLinks={allLinks} allImages={allImages}
                     notes={allNotes.filter(note => group['notes'].indexOf(note.id)!==-1)} 
                     lists={allLists.filter(list => group['lists'].indexOf(list.id)!==-1)}
                     links={allLinks.filter(link => group['links'].indexOf(link.id)!==-1)}
+                    images={allImages.filter(image => group['images'].indexOf(image.id)!==-1)}
                     favorite={group.favorite} title={group.title} key={group.id} group={group} 
                     onDelete={() => onDelete(group.id)} onFavorite={() => onFavorite(group)} onEdit={onEdit}/>
                 )}

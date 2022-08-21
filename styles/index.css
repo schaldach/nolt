@@ -588,7 +588,7 @@ main{
   width: 50px;
   height: 50px;
   bottom: calc(3vh + 7.5vh - 25px);
-  padding: 14px;
+  padding: 13px;
   left: calc(50% - 25px);
   display: flex;
   align-items: center;
@@ -1126,9 +1126,9 @@ svg{
   box-shadow: 4px 4px 4px  rgba(80, 80, 80, 0.25);
   background-color: var(--color2s);
   border: none;
-  padding-top: 10px;
   position: relative;
   display: flex;
+  padding-bottom: 10px;
   flex-direction: column;
   gap: 10px;
   overflow: auto;
@@ -1166,10 +1166,9 @@ svg{
   padding: 0 10px;
 }
 .previewtitle{
-  padding: 0 30px 5px 15px;
-  border: solid var(--color4);
-  border-width: 0 0 2px 0;
+  padding: 10px 30px 10px 15px;
   font-family: var(--font3);
+  background-color: var(--color2p);
   color: var(--color1);
   font-size: 3vh;
 }
@@ -1179,7 +1178,7 @@ svg{
   top: 10px;
   cursor: pointer;
   color: var(--color4);
-  background-color: var(--color2s);
+  background-color: var(--color2p);
   border: none;
 }
 .exitpreview:hover{
@@ -1265,24 +1264,25 @@ svg{
   max-width: 82.5%;
 }
 
+.displayimgs{
+  align-items: flex-start;
+}
 .imgpicture{
-  border: solid var(--color4);
-  border-width: 2px 0px 2px 2px;
-  width: 256px;
-  height: 256px;
-  background-color: var(--color2p);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-  overflow: hidden;
+  max-width: 275px;
+  max-height: 275px;
 }
 .wholeimage{
+  border-radius: 10px;
+  border: solid 2px;
+  border-color: var(--color4);
+  overflow: hidden;
   display: flex;
 }
 .wholeimage .outermenu{
   flex-direction: column;
+  border: none;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 .userdata .imgpicture{

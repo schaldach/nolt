@@ -1,8 +1,9 @@
 import SimpleAnotation from './SimpleAnotation'
 import SimpleLink from './SimpleLink';
 import SimpleList from './SimpleList';
+import SimpleImage from './SimpleImage';
 
-function FavoriteGroup({notes, lists, links, title, favorite}) {
+function FavoriteGroup({notes, lists, links, images, title, favorite}) {
     return (
     <div className="group">
     <div className="grouptitle">
@@ -17,6 +18,9 @@ function FavoriteGroup({notes, lists, links, title, favorite}) {
         )}
         {lists.map(list => 
             <SimpleList filtered={list.filtered} small={list.small} key={list.id} title={list.title} content={list.content}/>
+        )}
+        {images.map(image => 
+            <SimpleImage storageurl={image.storageurl} key={image.id}/>
         )}
         </div>
         <div className={links.length?"specificgroup":'displaynone'}>

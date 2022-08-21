@@ -14,7 +14,7 @@ function Links({user, propLinks, addLink, propGroups}) {
     const allLinks = propLinks?propLinks:[]
     const allGroups = propGroups
 
-    useInterval(() => {syncLinks(allLinks, true)},2500)
+    useInterval(() => {syncLinks(allLinks, true)},2000)
 
     async function syncLinks(links, auto){
         if(!user||!changed&&auto){return}

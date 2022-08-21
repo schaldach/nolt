@@ -4,15 +4,18 @@ import SimpleLink from "./SimpleLink";
 import PreviewNotes from "./PreviewNotes"
 import PreviewLists from "./PreviewLists";
 import PreviewLinks from "./PreviewLinks";
-import SecurityBox from '../components/SecurityBox'
+import SecurityBox from './SecurityBox'
+import SimpleImage from './SimpleImage'
+import PreviewImages from "./PreviewImages";
 import { useState } from "react";
 
-function Group({allNotes, allLists, allLinks, notes, lists, links, title, onEdit, group, onFavorite, favorite, onDelete}) {
+function Group({allNotes, allLists, allLinks, allImages, notes, lists, links, images, title, onEdit, group, onFavorite, favorite, onDelete}) {
     const [editMode, setEdit] = useState(!(notes.length+lists.length+links.length||title))
     const [boxVisible, setBox] = useState(false)
     const [notesBox, showNotes] = useState(false)
     const [listsBox, showLists] = useState(false)
     const [linksBox, showLinks] = useState(false)
+    const [imagesBox, showImages] = useState(false)
 
     function addNote(note){
         let newNotes = [...group['notes']]
@@ -22,7 +25,7 @@ function Group({allNotes, allLists, allLinks, notes, lists, links, title, onEdit
         else{
             newNotes.push(note.id)
         }
-        onEdit(group, title, newNotes, group['lists'], group['links'])
+        onEdit(group, title, newNotes, group['lists'], group['links'], group['images'])
     }
 
     function addList(list){
@@ -33,7 +36,7 @@ function Group({allNotes, allLists, allLinks, notes, lists, links, title, onEdit
         else{
             newLists.push(list.id)
         }
-        onEdit(group, title, group['notes'], newLists, group['links'])
+        onEdit(group, title, group['notes'], newLists, group['links'], group['images'])
     }
 
     function addLink(link){
@@ -44,7 +47,18 @@ function Group({allNotes, allLists, allLinks, notes, lists, links, title, onEdit
         else{
             newLinks.push(link.id)
         }
-        onEdit(group, title, group['notes'], group['lists'], newLinks)
+        onEdit(group, title, group['notes'], group['lists'], newLinks, group['images'])
+    }
+
+    function addImage(image){
+        let newImages = [...group['images']]
+        if(newImages.indexOf(image.id)!==-1){
+            newImages.splice(newImages.indexOf(image.id), 1)
+        }
+        else{
+            newImages.push(image.id)
+        }
+        onEdit(group, title, group['notes'], group['lists'], group['links'], newImages)
     }
 
     return (
@@ -100,22 +114,34 @@ function Group({allNotes, allLists, allLinks, notes, lists, links, title, onEdit
                     <path fillRule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clipRule="evenodd" />
                 </svg>
             </button>
+            <button className='addbuttongroups' onClick={() => showImages(true)}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="addsvg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" className="addsvg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
+                </svg>
+            </button>
             </div>
             <div className={notes.length+lists.length||editMode?"specificgroup":'displaynone'}>
                 {notes.map(note => 
                     <SimpleAnotation small={note.small} calendar={note.calendar} date={note.date} key={note.id} title={note.title} content={note.content}/>
                 )}
-                <PreviewNotes addNote={addNote} type='Notas' notesBox={notesBox} notes={notes} allNotes={allNotes} showNotes={showNotes}/>
                 {lists.map(list => 
                     <SimpleList filtered={list.filtered} small={list.small} key={list.id} title={list.title} content={list.content}/>
                 )}
+                {images.map(image => 
+                    <SimpleImage storageurl={image.storageurl} key={image.id}/>
+                )}
             </div>
-            <PreviewLists addList={addList} type='Listas' listsBox={listsBox} lists={lists} allLists={allLists} showLists={showLists}/>
             <div className={links.length||editMode?"specificgroup":'displaynone'}>
                 {links.map(link => 
                     <SimpleLink key={link.id} href={link.href} name={link.name}/>
                 )}
             </div>
+            <PreviewNotes addNote={addNote} type='Notas' notesBox={notesBox} notes={notes} allNotes={allNotes} showNotes={showNotes}/>
+            <PreviewImages addImage={addImage} type='Fotos' imagesBox={imagesBox} images={images} allImages={allImages} showImages={showImages}/>
+            <PreviewLists addList={addList} type='Listas' listsBox={listsBox} lists={lists} allLists={allLists} showLists={showLists}/>
             <PreviewLinks addLink={addLink} type='Links' linksBox={linksBox} links={links} allLinks={allLinks} showLinks={showLinks}/>
             <div className='empty'>{notes.length+lists.length+links.length||editMode?'':'O grupo está vazio...'}</div>
         </div>
