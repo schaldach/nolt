@@ -14,7 +14,9 @@ function Profile({user, reqlog}) {
     const [image, setImage] = useState(null)
 
     useEffect(() => {
-        setConnection(1)
+        if(editMode){
+            setConnection(1)
+        }
     }, [username, image])
 
     async function saveUserChanges(){
