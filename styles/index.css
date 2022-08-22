@@ -24,6 +24,7 @@
 }
 
 body, html{
+  scroll-padding-top: 12vh;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -64,21 +65,20 @@ main{
   min-height: 100vh;
 }
 .landingpage .titulo{
-  font-size: 6vw;
-  font-weight: bolder;
+  font-size: clamp(100px,10vw,200px);
   user-select: auto;
   color: #000000;
 }
 .upperlanding{
-  width: 80vw;
-  padding: 4vh 10vw;
-  height: 92vh;
+  width: 90vw;
+  padding: 12.5vh 5vw;
+  height: 75vh;
   background-color: var(--color2p);
   display: flex;
   flex-direction: column;
   gap: 5vh;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 .landingsvg{
   color: var(--color2p);
@@ -89,11 +89,10 @@ main{
 .landingtext{
   font-family: var(--font1);
   color: #ffffff;
-  font-size: 6vh;
+  font-size: clamp(30px,7.5vw, 80px);
   font-weight: bold;
 }
 .landinggrid{
-  max-width: 800px;
   display: flex;
   flex-wrap: wrap;
   margin: 20px 0 50px 0;
@@ -101,7 +100,6 @@ main{
   justify-content: center;
 }
 .minor{
-  margin: 20px 0;
   font-size: 3vh;
   font-weight: normal;
 }
@@ -140,14 +138,13 @@ main{
   font-family: var(--font2);
   font-weight: bold;
   color: #ffffff;
-  font-size: 6vh;
-  margin-top: 20px;
-  margin-bottom: 40px;
+  font-size: 5vh;
   background-color: var(--color4);
   border: none;
   border-radius: 20px;
   width: fit-content;
   padding: 10px 50px;
+  box-shadow: 5px 5px 15px var(--color3);
   cursor: pointer;
 }
 .landingbutton:hover{
@@ -159,14 +156,17 @@ main{
   width: 6vh;
 }
 .landingbuttons{
+  margin-top: 5vh;
+  align-items: center;
   display: flex;
-  gap: 5vw;
+  gap: 4vw;
 }
 .otherbutton{
   box-shadow: 5px 5px 10px #dddddd;
   background-color: var(--color2p);
   color: var(--color1);
   display: flex;
+  gap: 10px;
   align-items: center;
   cursor: auto;
   justify-content: center;
@@ -175,19 +175,48 @@ main{
   background-color: var(--color2p);
   box-shadow: 5px 5px 10px #c9c9c9;
 }
+.landinglink{
+  font-family: var(--font2);
+  font-size: 3vh;
+  color: var(--color2p);
+  text-decoration: none;
+}
+.landinglink:hover{
+  color: #c9c9c9;
+}
+.landingnavbar{
+  z-index: 1;
+  position: fixed;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  height: 12.5vh;
+  background-color: var(--color1);
+  width: 100vw;
+}
+.landingnavbar .titulo{
+  font-size: 7.5vh;
+  color: var(--color2p);
+}
+.landingfooter{
+  padding: 3vh 5vw;
+  width: 95vw;
+  display: grid;
+  place-items: center;
+}
 
 .tutorial{
-  width: 85vw;
+  width: 80vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 4vh 7.5vw 1vh 7.5vw;
+  padding: 0px 10vw;
 }
 .subtitle{
   color: var(--color1);
   font-family: var(--font1);
-  font-size: 2vw;
+  font-size: 25px;
 }
 .card{
   background-color: #ffffff;
@@ -632,8 +661,8 @@ main{
 }
 
 .addsvg{
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 input, textarea{
@@ -1169,13 +1198,13 @@ svg{
 
 .addbuttonswrapper{
   display: flex;
-  gap: 10px;
+  gap: 5px;
   flex-wrap: wrap;
 }
 .addbuttongroups{
   position: relative;
-  height: 50px;
-  width: 75px;
+  height: 40px;
+  width: 65px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1214,8 +1243,29 @@ svg{
 .exitpreview:hover{
   color: var(--color5);
 }
-.previewbox .littlelink{
+.previewbox .littlelink, .previewbox .wholeimage{
   pointer-events: none;
+}
+.previewbox .zoomicon{
+  display: none;
+}
+.zoomicon{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 30px;
+  color: var(--color4);
+}
+.imgwrapper{
+  position: relative;
+}
+.zoomout{
+  right: 0px;
+  width: 25px;
+  height: 25px;
+}
+.favanot .zoomicon{
+  right: 0px;
 }
 
 .previewnote{
@@ -1308,6 +1358,7 @@ svg{
   border-color: var(--color4);
   overflow: hidden;
   display: flex;
+  position: relative;
 }
 .wholeimage .outermenu{
   flex-direction: column;
@@ -1318,6 +1369,7 @@ svg{
 .entireimage{
   max-width: 90vw;
   max-height: 90vh;
+  user-select: none;
 }
 
 .userdata .imgpicture{
@@ -1483,6 +1535,15 @@ svg{
   }
   .loginbox{
     width: 100vw;
+  }
+  .landingbuttons{
+    flex-direction: column;
+    gap: 2vh;
+  }
+  .otherbutton{
+    font-size: 5vh;
+    padding: 10px 10px;
+    gap: 5px;
   }
 }
 

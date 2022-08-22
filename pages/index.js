@@ -4,9 +4,14 @@ import AnotationCard from "../components/AnotationCard";
 function Project({setProject, user}) {
     return (
         <div className="landingpage">
+            <div className="landingnavbar">
+                <a className="landinglink" href="#overview">Como funciona?</a>
+                <a className="landinglink" href="#features">Principais features</a>
+                <a className="landinglink" href="https://github.com/schaldach" target="_blank">Contato</a>
+            </div>
             <div className="upperlanding">
-                <div className="titulo">O site para organizar suas anotações pessoais</div>
-                <div className="subtitle">O Nolt permite que você faça diversos tipos de anotações, que ficam salvos na sua conta e podem ser acessados em qualquer lugar.</div>
+                <div className="titulo">nolt</div>
+                <div className="subtitle">O site para você organizar suas anotações pessoais, em qualquer lugar.</div>
                 <div className="landingbuttons">
                 <Link href={user?'/home':'/auth'}>
                     <button className="landingbutton" onClick={() => setProject(false)}>Entrar</button>
@@ -20,10 +25,9 @@ function Project({setProject, user}) {
                 
             </div>
             <div className="tutorial">
-                <div className="landingtext">Como funciona?</div>
+                <a className="landingtext" id="overview">Como funciona?</a>
                 <div className="landingtext minor">Após criar sua conta, você terá acesso ao site, onde
-                poderá fazer anotações.<br/> Elas incluem notas, listas, links e grupos, com o objetivo de
-                ajudar na sua organização pessoal.
+                poderá fazer anotações.<br/> Elas incluem notas, listas, links, fotos, e grupos.
                 </div>
                 <div className="landinggrid">
                     <AnotationCard anotation='Notas' description='As notas são a forma mais comum de anotação, e você pode optar por colocar uma data para elas.'>
@@ -42,7 +46,12 @@ function Project({setProject, user}) {
                             <path fillRule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clipRule="evenodd" />
                         </svg>
                     </AnotationCard>
-                    <AnotationCard anotation='Grupos' description='Os grupos são coleções de notas, listas e links, que servem para categorizar e organizar melhor as anotações.'>
+                    <AnotationCard anotation='Fotos' description='As fotos permitem que você faça o upload de imagens, para uma forma mais rápida de visuzalização.'>
+                        <svg xmlns="http://www.w3.org/2000/svg" className='cardsvg' viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
+                        </svg>
+                    </AnotationCard>
+                    <AnotationCard anotation='Grupos' description='Os grupos são coleções de notas, listas, links e imagens, para categorizar e organizar as anotações.'>
                         <svg xmlns="http://www.w3.org/2000/svg" className="cardsvg" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M3 12v3c0 1.657 3.134 3 7 3s7-1.343 7-3v-3c0 1.657-3.134 3-7 3s-7-1.343-7-3z" />
                             <path d="M3 7v3c0 1.657 3.134 3 7 3s7-1.343 7-3V7c0 1.657-3.134 3-7 3S3 8.657 3 7z" />
@@ -51,7 +60,7 @@ function Project({setProject, user}) {
                     </AnotationCard>
                 </div>
                 <div className="upperlanding secondlanding">
-                    <div className="landingtext blacktext">Principais features</div>
+                    <a id="features" className="landingtext blacktext">Principais features</a>
                     <div className="landingflex">
                         <div className="landingtext landinghalf minor blacktext">Os seus dados ficarão salvos na sua conta para que você possa acessá-los em qualquer dispositivo
                         que também esteja logado. 
@@ -76,20 +85,12 @@ function Project({setProject, user}) {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                         </svg>
                     </div>
-                    <div className="landingflex">
-                        <div className="landingtext landinghalf minor blacktext">Os seus dados são salvos automaticamente, sem que você precise
-                        se incomodar com carregamentos longos ou anotações não salvas.
-                        </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="landingsvg blacktext" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M17 16v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-7a2 2 0 012-2h2m3-4H9a2 2 0 00-2 2v7a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-1m-1 4l-3 3m0 0l-3-3m3 3V3" />
-                        </svg>
-                    </div>
                 </div>
-                <div className="landingfooter">
-                    <div className="landingtext minor">Este site foi desenvolvido com&#160;
-                        <span><a className="blacklink" href="https://nextjs.org/" target='_blank' rel='noreferrer'>Next.js</a></span>&#160;e&#160;<span><a className="greenlink" href="https://supabase.com/" target='_blank' rel='noreferrer'>Supabase</a></span>
-                        &#160;por <span><a className="purplelink" href="https://github.com/schaldach" target='_blank' rel='noreferrer'>Gabriel Schaldach Morgado</a></span></div>
-                </div>
+            </div>
+            <div className="landingfooter">
+                <div className="landingtext minor">Este site foi desenvolvido com&#160;
+                    <span><a className="blacklink" href="https://nextjs.org/" target='_blank' rel='noreferrer'>Next.js</a></span>&#160;e&#160;<span><a className="greenlink" href="https://supabase.com/" target='_blank' rel='noreferrer'>Supabase</a></span>
+                    &#160;por <span><a className="purplelink" href="https://github.com/schaldach" target='_blank' rel='noreferrer'>Gabriel Schaldach Morgado</a></span></div>
             </div>
         </div>
     );
