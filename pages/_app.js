@@ -106,7 +106,7 @@ function MyApp({ Component, pageProps }) {
       <Component currentNote={currentNote} changeCurrentPage={() => changeCurrentPage(currentNote)} addNote={addNote} propNotes={allNotes} addList={addList} propLists={allLists} addLink={addLink} propLinks={allLinks} setGroups={setGroups} propGroups={allGroups}
       propImages={allImages} addImage={addImage} reqlog={reqlog} user={user} {...pageProps} errorMessage={errorMessage} throwError={throwError}/>
     </main>
-    <PageFooter setProject={setProject}/>
+    <PageFooter changeCurrentPage={changeCurrentPage} setProject={setProject}/>
   </div>
   )
 }
