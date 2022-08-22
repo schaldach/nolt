@@ -7,7 +7,7 @@ function Project({setProject, user}) {
             <div className="landingnavbar">
                 <a className="landinglink" href="#overview">Como funciona?</a>
                 <a className="landinglink" href="#features">Principais features</a>
-                <a className="landinglink" href="https://github.com/schaldach" target="_blank">Contato</a>
+                <a className="landinglink" href="https://github.com/schaldach" target="_blank" rel="noreferrer">Contato</a>
             </div>
             <div className="upperlanding">
                 <div className="titulo">nolt</div>
