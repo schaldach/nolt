@@ -24,7 +24,7 @@ function ImageAnotation({storageurl, favorite, onDelete, id, onFavorite, image})
         <div className={imageOpen?"disabledpage":'displaynone'} onClick={() => setHover(false)}>
             <img className="imgpicture entireimage" alt={storageurl.split('/')[1]} src={`https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/${storageurl}`}></img>
         </div>
-        <SecurityBox onDelete={() => onDelete(id)} onCancel={() => setBox(false)} boxVisible={boxVisible}/>
+        <SecurityBox onDelete={() => onDelete(id, storageurl)} onCancel={() => setBox(false)} boxVisible={boxVisible}/>
         </>
     );
 }

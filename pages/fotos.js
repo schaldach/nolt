@@ -16,7 +16,10 @@ function Images({user, propImages, addImage, propGroups}) {
     useInterval(() => {syncImages(allImages, true)}, 2000)
 
     useEffect(() => {
-        addAnotation()
+        if(currentImage){
+            addAnotation()
+            setImage(null)
+        }
     }, [currentImage])
 
     async function addAnotation(){
@@ -31,7 +34,6 @@ function Images({user, propImages, addImage, propGroups}) {
             if(data){
                 image_url = data.Key
             }
-        
         let newImage = {'storageurl':image_url, userid:user.id}
         const eba = await supabase
             .from('images')
@@ -59,7 +61,7 @@ function Images({user, propImages, addImage, propGroups}) {
             })
     }
 
-    async function onDelete(imageId){
+    async function onDelete(imageId, imageUrl){
         conectionMade(2)
         let newGroups = [...allGroups]
         let groupChanges = false
@@ -76,6 +78,9 @@ function Images({user, propImages, addImage, propGroups}) {
                 .upsert(newGroups)
         }
         let newImages = allImages.filter(images => images.id!==imageId)
+        const oba = await supabase.storage
+            .from('images')
+            .remove([imageUrl.split('/')[1]])
         const eba = await supabase
             .from('images')
             .delete()

@@ -75,6 +75,7 @@ function MyApp({ Component, pageProps }) {
         return
       }
       Router.push('/home')
+      changeCurrentPage('home')
       const { data } = await supabase
         .from('profiles')
         .select('*')

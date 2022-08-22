@@ -5,13 +5,14 @@ import { useState } from "react"
 import InfoBox from '../components/InfoBox'
 import Router from 'next/router'
 
-function Profile({user}) {
+function Profile({user, reqlog}) {
     const profileUser = user?user:''
     const email = user?user.email:''
     const [username, setUsername] = useState(user?user.username:'')
     const [editMode, startEdit] = useState(false)
     const [successAnimation, setConnection] = useState(0)
     const [image, setImage] = useState(null)
+    const [imageCurrentUrl, setImageUrl] = useState(null)
 
     useEffect(() => {
         if(editMode){
@@ -20,8 +21,16 @@ function Profile({user}) {
     }, [username])
 
     useEffect(() => {
+        if(successAnimation===1){
+            startEdit(true)
+        }
+    }, [successAnimation])
+
+    useEffect(() => {
         if(image){
             setConnection(1)
+            const file = image
+            setImageUrl(URL.createObjectURL(file))
         }
     }, [image])
 
@@ -37,6 +46,9 @@ function Profile({user}) {
             }
             if(data){
                 avatar_url = data.Key
+                const oba = await supabase.storage
+                    .from('avatars')
+                    .remove([user.avatar_url.split('/')[1]])
             }
         }
                 
@@ -46,6 +58,7 @@ function Profile({user}) {
             .match({'email':user.email})
             .then(() => {
                 setConnection(0)
+                reqlog(Math.random())
             })
     }
 
@@ -65,7 +78,7 @@ function Profile({user}) {
             <div className="secondtext userdata">
                 <label htmlFor="formId" onChange={e => setImage(e.target.files[0])} className='profilepicwrapper'>
                     <input id="formId" type='file' accept='image/jpeg image/png' className="displaynone"/>
-                    {profileUser.avatar_url?<div className="imgpicture" style={{backgroundImage:`url(https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/${user.avatar_url})`}}></div>:<div className="imgpicture" style={{backgroundImage:"url(https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/avatars/user_placeholder.png)"}}/>}
+                    {!imageCurrentUrl?profileUser.avatar_url?<div className="imgpicture" style={{backgroundImage:`url(https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/${user.avatar_url})`}}></div>:<div className="imgpicture" style={{backgroundImage:"url(https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/avatars/user_placeholder.png)"}}/>:<div className="imgpicture" style={{backgroundImage:`url(${imageCurrentUrl})`}}/>}
                     <div className="loginpicturewrapper">
                         <svg xmlns="http://www.w3.org/2000/svg" className="loginpicturesvg" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
