@@ -1468,9 +1468,6 @@ svg{
   .titlesecond{
     text-align: center;
   }
-  .loginbox{
-    width: 60vw;
-  }
   .displayanotationswrapper{
     display: flex;
     flex-direction: column;
@@ -1478,9 +1475,6 @@ svg{
   }
   .infoflex{
     justify-content: center;
-  }
-  .totalwidth{
-    width: 0;
   }
   .displayanotations{
     justify-content: center;
@@ -1523,10 +1517,8 @@ svg{
   .navbar:hover .responsiveImg{
     display: none;
   }
-  .navbar-select{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .navbar-select:hover, .contentselection:hover .dropbutton{
+    color: var(--color1);
   }
   .dropdownswrapper{
     padding: 2px;
@@ -1543,9 +1535,6 @@ svg{
   .flex{
     gap: 0px;
     flex-direction: column;
-  }
-  .loginbox{
-    width: 85vw;
   }
   .previewflex{
     justify-content: center;
