@@ -94,7 +94,7 @@ main{
 .landingtext{
   font-family: var(--font1);
   color: #ffffff;
-  font-size: clamp(30px, 6vw, 75px);
+  font-size: clamp(40px, 6vw, 75px);
   font-weight: bold;
 }
 .landinggrid{
