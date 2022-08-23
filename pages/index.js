@@ -27,9 +27,6 @@ function Project({setProject, user}) {
             </div>
             <div className="tutorial cardtutorial">
                 <a className="landingtext secondlandingtitle" id="overview">Como funciona?</a>
-                <div className="landingtext minor">Após criar sua conta, você terá acesso ao site, onde
-                poderá fazer anotações. Elas incluem notas, listas, links, fotos, e grupos.
-                </div>
                 <div className="landinggrid">
                     <AnotationCard anotation='Notas' description='As notas são a forma mais comum de anotação, e você pode optar por colocar uma data para elas.'>
                         <svg xmlns="http://www.w3.org/2000/svg" className='cardsvg' viewBox="0 0 20 20" fill="currentColor">
