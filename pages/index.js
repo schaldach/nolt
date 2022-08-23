@@ -49,6 +49,7 @@ function Project({setProject, user}) {
                             <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
                         </svg>
                     </AnotationCard>
+                    <div className="groupcard">
                     <AnotationCard anotation='Grupos' description='Os grupos são coleções de notas, listas, links e imagens, para categorizar e organizar as anotações.'>
                         <svg xmlns="http://www.w3.org/2000/svg" className="cardsvg" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M3 12v3c0 1.657 3.134 3 7 3s7-1.343 7-3v-3c0 1.657-3.134 3-7 3s-7-1.343-7-3z" />
@@ -56,6 +57,7 @@ function Project({setProject, user}) {
                             <path d="M17 5c0 1.657-3.134 3-7 3S3 6.657 3 5s3.134-3 7-3 7 1.343 7 3z" />
                         </svg>
                     </AnotationCard>
+                    </div>
                 </div>
             </div>
             <div className="tutorial whitetutorial">

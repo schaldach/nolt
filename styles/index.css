@@ -245,7 +245,7 @@ main{
 .card{
   justify-content: center;
   box-sizing: border-box;
-  background-color: #212426;
+  background-color: #35393b;
   display: flex;
   gap: 20px;
   padding: 15px 5vw;
@@ -255,6 +255,12 @@ main{
 }
 .groupcard{
   width: 100vw;
+  background-color: #292c2e;
+  display: flex;
+  justify-content: center;
+}
+.groupcard .card{
+  background-color: inherit;
 }
 .card:nth-child(2n){
   background-color: #2C2F33;
@@ -263,7 +269,7 @@ main{
   background-color: #2C2F33;
 }
 .card:nth-child(4n){
-  background-color: #212426;
+  background-color: #35393b;
 }
 .cardsvg{
   color: #ffffff;
@@ -444,21 +450,14 @@ main{
   justify-content: center;
   display: flex;
   position: relative;
-  gap: 0;
   padding: 0.25vh;
   color: var(--color1);
-  border-style: solid;
-  border-width: 0px 0px 3px 0px;
-  border-color: var(--color2p);
   user-select: none;
   cursor: pointer;
 }
 .navbar-select:hover, .contentselection:hover .dropbutton{
   color: var(--color4);
   transition: 0.35s ease;
-}
-.contentselected{
-  border-color: var(--color4);
 }
 .contentselection{
   display: flex;
@@ -548,7 +547,8 @@ main{
   background-color: var(--color2p);
   cursor: pointer;
   border: none;
-  border-radius: 50px;
+  border-radius: 5vh;
+  padding: 3px 0px;
   width: 10vh;
   border: solid 2px var(--color4);
   color: var(--color4);
@@ -1573,7 +1573,7 @@ svg{
   }
   .landingbuttons{
     flex-direction: column;
-    gap: 2vh;
+    gap: 3vh;
   }
   .otherbutton{
     font-size: 5vh;
