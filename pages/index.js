@@ -5,6 +5,7 @@ function Project({setProject, user}) {
     return (
         <div className="landingpage">
             <div className="landingnavbar">
+                <a className="titulo" href="#">nolt</a>
                 <a className="landinglink" href="#overview">Como funciona?</a>
                 <a className="landinglink" href="#features">Principais features</a>
                 <a className="landinglink" href="https://github.com/schaldach" target="_blank" rel="noreferrer">Contato</a>
@@ -24,10 +25,10 @@ function Project({setProject, user}) {
                 </div>
                 
             </div>
-            <div className="tutorial">
-                <a className="landingtext" id="overview">Como funciona?</a>
+            <div className="tutorial cardtutorial">
+                <a className="landingtext secondlandingtitle" id="overview">Como funciona?</a>
                 <div className="landingtext minor">Após criar sua conta, você terá acesso ao site, onde
-                poderá fazer anotações.<br/> Elas incluem notas, listas, links, fotos, e grupos.
+                poderá fazer anotações. Elas incluem notas, listas, links, fotos, e grupos.
                 </div>
                 <div className="landinggrid">
                     <AnotationCard anotation='Notas' description='As notas são a forma mais comum de anotação, e você pode optar por colocar uma data para elas.'>
@@ -59,36 +60,50 @@ function Project({setProject, user}) {
                         </svg>
                     </AnotationCard>
                 </div>
-                <div className="upperlanding secondlanding">
-                    <a id="features" className="landingtext blacktext">Principais features</a>
+            </div>
+            <div className="tutorial whitetutorial">
+                    <a id="features" className="landingtext blacktext secondlandingtitle">Principais features</a>
+                    <div className="featuresshowcase">
                     <div className="landingflex">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="landingsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                        </svg>
+                        <div className="cardanotation">Networking</div>
                         <div className="landingtext landinghalf minor blacktext">Os seus dados ficarão salvos na sua conta para que você possa acessá-los em qualquer dispositivo
                         que também esteja logado. 
                         </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="landingsvg blacktext" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                        </svg>
                     </div>
                     <div className="landingflex">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="landingsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                        <div className="cardanotation">Responsividade</div>
                         <div className="landingtext landinghalf minor blacktext">Ele é totalmente compatível tanto com computadores quanto celulares &#40;responsivo&#41;
                         para aumentar a flexibilidade de acesso.
                         </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="landingsvg blacktext" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                        </svg>
                     </div>
                     <div className="landingflex">
-                        <div className="landingtext landinghalf minor blacktext">Os seus dados estão protegidos com a política de Row Level Security,
-                        que fornece privacidade e segurança para os seus dados.
-                        </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="landingsvg blacktext" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="landingsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                         </svg>
+                        <div className="cardanotation">Privacidade</div>
+                        <div className="landingtext landinghalf minor blacktext">A política de Row Level Security provida pela Supabase
+                        fornece privacidade e segurança para os seus dados.
+                        </div>
                     </div>
-                </div>
+                    <div className="landingflex">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="landingsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M17 16v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-7a2 2 0 012-2h2m3-4H9a2 2 0 00-2 2v7a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-1m-1 4l-3 3m0 0l-3-3m3 3V3" />
+                        </svg>
+                        <div className="cardanotation">Sincronização</div>
+                        <div className="landingtext landinghalf minor blacktext">O salvamento automático faz com que você não precise se preocupar
+                        com alterações não salvas ou carregamentos longos.
+                        </div>
+                    </div>
+                    </div>
             </div>
             <div className="landingfooter">
-                <div className="landingtext minor">Este site foi desenvolvido com&#160;
+                <div className="landingtext minor">Desenvolvido com&#160;
                     <span><a className="blacklink" href="https://nextjs.org/" target='_blank' rel='noreferrer'>Next.js</a></span>&#160;e&#160;<span><a className="greenlink" href="https://supabase.com/" target='_blank' rel='noreferrer'>Supabase</a></span>
                     &#160;por <span><a className="purplelink" href="https://github.com/schaldach" target='_blank' rel='noreferrer'>Gabriel Schaldach Morgado</a></span></div>
             </div>

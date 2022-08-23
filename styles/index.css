@@ -56,7 +56,7 @@ main{
 
 .landingpage{
   border: none;
-  background-color: var(--color5);
+  background-color: #212426;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -69,52 +69,64 @@ main{
   user-select: auto;
   color: #000000;
 }
+.landingnavbar .titulo{
+  color: #ffffff;
+  text-decoration: none;
+}
+
 .upperlanding{
   width: 90vw;
   padding: 12.5vh 5vw;
   height: 75vh;
-  background-color: var(--color2p);
+  background: linear-gradient(to right, #ffffff, #eeeeee);
   display: flex;
   flex-direction: column;
-  gap: 5vh;
+  gap: 2vh;
   justify-content: center;
   align-items: center;
 }
 .landingsvg{
   color: var(--color2p);
-  width: 100px;
-  height: 100px;
-  margin: 10px 0;
+  width: 75px;
+  height: 75px;
+  color: var(--color5);
 }
 .landingtext{
   font-family: var(--font1);
   color: #ffffff;
-  font-size: clamp(30px,7.5vw, 80px);
+  font-size: clamp(30px, 6vw, 75px);
   font-weight: bold;
 }
 .landinggrid{
+  margin-top: 3vh;
   display: flex;
   flex-wrap: wrap;
-  margin: 20px 0 50px 0;
-  gap: 25px;
   justify-content: center;
 }
 .minor{
-  font-size: 3vh;
+  font-size: 17px;
   font-weight: normal;
+}
+.featuresshowcase{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+.secondlandingtitle{
+  margin-bottom: 3vh;
 }
 .landingflex{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   gap: 5px;
-  justify-content: center;
+  max-width: 300px;
+  align-items: center;
+  justify-content: flex-start;
 }
 .blacktext{
   color: var(--color1);
-}
-.landinghalf{
-  max-width: 650px;
 }
 
 .blacklink{
@@ -177,7 +189,7 @@ main{
 }
 .landinglink{
   font-family: var(--font2);
-  font-size: 3vh;
+  font-size: 2.5vh;
   color: var(--color2p);
   text-decoration: none;
 }
@@ -188,7 +200,7 @@ main{
   z-index: 1;
   position: fixed;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1.5fr repeat(3, 1fr);
   place-items: center;
   height: 12.5vh;
   background-color: var(--color1);
@@ -200,9 +212,10 @@ main{
 }
 .landingfooter{
   padding: 3vh 5vw;
-  width: 95vw;
+  width: 90vw;
   display: grid;
   place-items: center;
+  background-color: var(--color5);
 }
 
 .tutorial{
@@ -211,44 +224,66 @@ main{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0px 10vw;
+  padding: 5vh 10vw;
+}
+.cardtutorial{
+  padding: 5vh 0 0 0;
+  width: 100vw;
+}
+.cardtutorial .minor{
+  margin: 0 20px;
+  max-width: 625px;
+}
+.whitetutorial{
+  background-color: var(--color2p);
 }
 .subtitle{
   color: var(--color1);
   font-family: var(--font1);
-  font-size: 25px;
+  font-size: 30px;
 }
 .card{
-  background-color: #ffffff;
-  border-radius: 10px;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: #212426;
   display: flex;
-  gap: 5px;
-  padding: 15px;
-  width: 300px;
-  height: 150px;
+  gap: 20px;
+  padding: 15px 5vw;
+  width: 50vw;
+  height: 200px;
   align-items: center;
 }
-.card:hover{
-  transform: scale(1.05);
+.groupcard{
+  width: 100vw;
+}
+.card:nth-child(2n){
+  background-color: #2C2F33;
+}
+.card:nth-child(3n){
+  background-color: #2C2F33;
+}
+.card:nth-child(4n){
+  background-color: #212426;
 }
 .cardsvg{
-  width: 100px;
-  height: 100px;
+  color: #ffffff;
+  width: 125px;
+  height: 125px;
+}
+.card .cardanotation{
+  color: #ffffff;
 }
 .cardanotation{
   font-size: 25px;
   font-family: var(--font1);
   font-weight: bold;
   margin-bottom: 10px;
+  color: var(--color5);
 }
 .carddescription{
   font-size: 16px;
+  color: #ffffff;
   font-family: var(--font1);
-}
-.secondlanding{
-  width: 95vw;
-  gap: 0;
-  padding: 4vh 2.5vw 3vh 2.5vw;
 }
 
 .login{
@@ -1544,6 +1579,22 @@ svg{
     font-size: 5vh;
     padding: 10px 10px;
     gap: 5px;
+  }
+  .landingnavbar .titulo{
+    display: none;
+  }
+  .landingnavbar{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .card{
+    width: 100vw;
+    gap: 10px;
+  }
+  .card:nth-child(3n){
+    background-color: #212426;
+  }
+  .card:nth-child(4n){
+    background-color: #2C2F33;
   }
 }
 
