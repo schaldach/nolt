@@ -1519,6 +1519,7 @@ svg{
   }
   .navbar-select:hover, .contentselection:hover .dropbutton{
     color: var(--color1);
+    transition: 0s;
   }
   .dropdownswrapper{
     padding: 2px;
