@@ -437,13 +437,13 @@ main{
 }
 .absolutesvg{
   position: absolute;
-  left: 7vh;
-  width: 3vh;
-  height: 3vh;
+  left: 40px;
+  width: 20px;
+  height: 20px;
 }
 .navbarsvg{
-  width: 5.5vh;
-  height: 5.5vh;
+  width: 35px;
+  height: 35px;
 }
 .navbar-select{
   align-items: center;
