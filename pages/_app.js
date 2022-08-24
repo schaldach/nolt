@@ -101,7 +101,7 @@ function MyApp({ Component, pageProps }) {
     <Head>
       <title>Nolt</title>
     </Head>
-    <NavBar currentNote={currentNote} currentPage={currentPage} changeCurrentNote={changeCurrentNote} changeCurrentPage={changeCurrentPage} darkMode={darkMode} setDarkMode={setDarkMode}/>
+    <NavBar user={user} currentNote={currentNote} currentPage={currentPage} changeCurrentNote={changeCurrentNote} changeCurrentPage={changeCurrentPage} darkMode={darkMode} setDarkMode={setDarkMode}/>
     <main>
       <Component currentNote={currentNote} changeCurrentPage={() => changeCurrentPage(currentNote)} addNote={addNote} propNotes={allNotes} addList={addList} propLists={allLists} addLink={addLink} propLinks={allLinks} setGroups={setGroups} propGroups={allGroups}
       propImages={allImages} addImage={addImage} reqlog={reqlog} user={user} {...pageProps} errorMessage={errorMessage} throwError={throwError}/>
