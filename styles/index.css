@@ -1508,7 +1508,7 @@ svg{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     place-items: center;
-    gap: 6vh;
+    gap: 12.5vw;
   }
   .navbar:hover .dark-wrapper{
     display: flex;
