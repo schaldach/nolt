@@ -663,7 +663,7 @@ main{
   background: linear-gradient(to top right, #f12711, #f5af19);
 }
 .homeanotation:nth-child(4n){
-  background: linear-gradient(to top right, #DA4453, #89216B);
+  background: linear-gradient(to top right, #11998e, #38ef7d);
 }
 .homeanotation:nth-child(5n){
   background: linear-gradient(to top right, #7F00FF, #E100FF);
