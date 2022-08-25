@@ -77,7 +77,7 @@ function Profile({user, reqlog}) {
             <SecondTitle titlecontent='Perfil'/>
             <div className="secondtext userdata">
                 <label htmlFor="formId" onChange={e => setImage(e.target.files[0])} className='profilepicwrapper'>
-                    <input id="formId" type='file' accept='image/jpeg image/png image/jpg' className="displaynone"/>
+                    <input id="formId" type='file' accept='image/*' className="displaynone"/>
                     {!imageCurrentUrl?profileUser.avatar_url?<div className="imgpicture" style={{backgroundImage:`url(https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/${user.avatar_url})`}}></div>:<div className="imgpicture" style={{backgroundImage:"url(https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/avatars/user_placeholder.png)"}}/>:<div className="imgpicture" style={{backgroundImage:`url(${imageCurrentUrl})`}}/>}
                     <div className="loginpicturewrapper">
                         <svg xmlns="http://www.w3.org/2000/svg" className="loginpicturesvg" viewBox="0 0 20 20" fill="currentColor">
