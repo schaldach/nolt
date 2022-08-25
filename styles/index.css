@@ -1622,9 +1622,6 @@ svg{
     justify-content: center;
     align-items: center;
   }
-  .absolutesvg{
-    left: 5.5vh;
-  }
   .flex{
     gap: 0px;
     flex-direction: column;
