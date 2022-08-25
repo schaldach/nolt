@@ -355,6 +355,13 @@ main{
   align-items: center;
   gap: 2vh;
 }
+form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+}
 .loginbox .titulo{
   font-size: 10vh;
   color: var(--color1);

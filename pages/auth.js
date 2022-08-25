@@ -25,12 +25,8 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
 
     async function signup() {
         const { error } = supabase.auth.signUp({
-            email: currentEmail,
             password: currentPassword,
-            aud: 'authenticated',
-            role: 'authenticated',
-            app_metadata: { provider: 'email' },
-            user_metadata: {},
+            email: currentEmail,
         })
         .then(() => {
             reqlog(Math.random())
@@ -55,9 +51,10 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
                 <Link href='/'><div onClick={() => setProject(true)} className="loginlink">Ir à Página inicial</div></Link>
                 </div>
                 <div className="logintext">{login?'Login':'Cadastro'}</div>
-                <div className="divinput"><input type='text' onInput={e => updateEmail(e.target.value)} value={currentEmail} placeholder='Email'></input></div>
+                <form>
+                <div className="divinput"><input autoComplete='current-password' type='text' onInput={e => updateEmail(e.target.value)} value={currentEmail} placeholder='Email'></input></div>
                 <div className="divinput minorpadding">
-                    <input type={passwordVisible?'text':'password'} onInput={e => updatePassword(e.target.value)} value={currentPassword} placeholder='Senha'></input>
+                    <input autoComplete='current-password' type={passwordVisible?'text':'password'} onInput={e => updatePassword(e.target.value)} value={currentPassword} placeholder='Senha'></input>
                     <button onClick={() => setVisible(!passwordVisible)}>
                         <svg xmlns="http://www.w3.org/2000/svg" className='loginsvg2' viewBox="0 0 20 20" fill={passwordVisible?'var(--color4)':'#000000'}>
                             <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
@@ -65,6 +62,7 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
                         </svg>
                     </button>
                 </div>
+                </form>
                 <button className={login?"loginbutton logintext":'displaynone'} onClick={signin}>Login
                 <svg xmlns="http://www.w3.org/2000/svg" className="loginsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
