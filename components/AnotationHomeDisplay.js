@@ -9,7 +9,7 @@ function AnotationHomeDisplay({children, type, number, changeCurrentPage, change
         <Link href={'/'+type}>
         <div className="homeanotation" onClick={changeBoth}>
             <div className="homenumber">{number}</div>
-            <div className="hometype">{children}{type}</div>
+            <div className="hometype">{children}{type.charAt(0).toUpperCase() + type.slice(1)}</div>
         </div>
         </Link>
     )
