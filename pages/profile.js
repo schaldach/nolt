@@ -46,9 +46,11 @@ function Profile({user, reqlog}) {
             }
             if(data){
                 avatar_url = data.Key
-                const oba = await supabase.storage
+                if(user.avatar_url){
+                    const oba = await supabase.storage
                     .from('avatars')
                     .remove([user.avatar_url.split('/')[1]])
+                }
             }
         }
                 
