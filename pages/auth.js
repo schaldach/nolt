@@ -27,6 +27,10 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
         const { error } = supabase.auth.signUp({
             email: currentEmail,
             password: currentPassword,
+            aud: 'authenticated',
+            role: 'authenticated',
+            app_metadata: { provider: 'email' },
+            user_metadata: {},
         })
         .then(() => {
             reqlog(Math.random())
