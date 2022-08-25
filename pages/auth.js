@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { supabase } from "../utils/supabaseClient"
+import LoginBackground from '../components/LoginBackground';
 
 function Auth({throwError, reqlog, errorMessage, setProject}) {
     const [login, changeMode] = useState(true)
@@ -74,6 +75,12 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
                 <div className="loginchangewrapper">{login?'Não possui uma conta?':'Já tem uma conta?'}
                     <button className="loginchange" onClick={() => changeMode(!login)}>{login?'Cadastro':'Login'}</button>                
                 </div>
+            </div>
+            <div className='loginbackground'>
+                <LoginBackground/>
+                <LoginBackground/>
+                <LoginBackground/>
+                <LoginBackground/>
             </div>
         </div>
     )

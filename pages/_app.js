@@ -103,7 +103,7 @@ function MyApp({ Component, pageProps }) {
     </Head>
     <NavBar user={user} currentNote={currentNote} currentPage={currentPage} changeCurrentNote={changeCurrentNote} changeCurrentPage={changeCurrentPage} darkMode={darkMode} setDarkMode={setDarkMode}/>
     <main>
-      <Component currentNote={currentNote} changeCurrentPage={() => changeCurrentPage(currentNote)} addNote={addNote} propNotes={allNotes} addList={addList} propLists={allLists} addLink={addLink} propLinks={allLinks} setGroups={setGroups} propGroups={allGroups}
+      <Component changeCurrentPage={changeCurrentPage} changeCurrentNote={changeCurrentNote} addNote={addNote} propNotes={allNotes} addList={addList} propLists={allLists} addLink={addLink} propLinks={allLinks} setGroups={setGroups} propGroups={allGroups}
       propImages={allImages} addImage={addImage} reqlog={reqlog} user={user} {...pageProps} errorMessage={errorMessage} throwError={throwError}/>
     </main>
     <PageFooter changeCurrentPage={changeCurrentPage} setProject={setProject}/>

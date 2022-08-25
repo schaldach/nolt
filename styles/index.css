@@ -10,6 +10,7 @@
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --font3: 'Inter', sans-serif;
+  --boxshadow: #b9b9b9;
 }
 [data-theme='dark'] {
   --color1: #ffffff;
@@ -21,6 +22,7 @@
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --font3: 'Inter', sans-serif;
+  --boxshadow: #414141;
 }
 
 body, html{
@@ -292,10 +294,48 @@ main{
   font-family: var(--font1);
 }
 
+.loginbackground{
+  background: linear-gradient(to top right, #0ca1db, #1a4bbd);
+  display: flex;
+  color: #ffffff;
+  width: 50vw;
+  height: 100vh;
+}
+.loginbackground>div{
+  top: calc(-5vh - 10px);
+  width: 12.5vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 110vh;
+}
+.loginbackground div div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+.loginbackground svg{
+  opacity: 0.5;
+  width: 50px;
+  height: 50px;
+}
+.loginbackground>div:nth-child(even){
+  top: calc(-5vh + 10px);
+  flex-direction: column-reverse;
+}
+.loginbackground>div:nth-child(odd) .loopsvg2{
+  display: none;
+}
+.loginbackground>div:nth-child(even) .loopsvg{
+  display: none;
+}
 .login{
-  background: linear-gradient(to top right, #1b4bbb, #0ea8e6);
+  background-color: var(--color2p);
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
   display: flex;
   align-items: center;
   text-align: center;
@@ -306,7 +346,7 @@ main{
 }
 .loginbox{
   padding: 5vh 0 5vh 0;
-  height: 90vh;
+  height: 75vh;
   width: 50vw;
   background-color: #ffffff;
   display: flex;
@@ -326,7 +366,7 @@ main{
   align-items: center;
   justify-content: center;
   width: 6vh;
-  height: 2.5vh;
+  height: 3vh;
   background-color: var(--color2p);
   border: none;
 }
@@ -336,8 +376,9 @@ main{
 }
 .loginbox .divinput{
   display: flex;
+  align-items: center;
   height: 4vh;
-  width: 75%;
+  width: 60%;
   border: solid 2px var(--color4);
   padding: 2vh 1vh;
   font-size: 2.5vh;
@@ -570,33 +611,6 @@ main{
   0% { box-shadow: 0 0 0 0 var(--color4); }
 }
 
-.homebutton{
-  padding: 0px 5px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  background: var(--color2s);
-  color: var(--color4);
-  font-family: var(--font2);
-  font-weight: bold;
-  font-size: 4.25vh;
-  border: solid;
-  border-color: var(--color4);
-  cursor: pointer;
-  align-self: center;
-  max-width: fit-content;
-  margin: 1.5vh 0 3vh 0;
-  box-shadow: none;
-  transition: 0.65s;
-}
-.homebutton:hover{
-  box-shadow: inset 11em 0 0 0 var(--color4);
-  color: #ffffff;
-}
-.homebutton::before{
-  content: 'Leve-me para lá';
-}
-
 .secondtext{
   margin: 3vh 0;
 }
@@ -611,6 +625,48 @@ main{
 .home{
   display: flex;
   flex-direction: column;
+}
+.displaynumbers{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+.homeanotation{
+  display: flex;
+  cursor: pointer;
+  padding: 10px;
+  gap: 5px;
+  border-radius: 20px;
+  background: linear-gradient(to top right, #bc4e9c, #f80759);
+}
+.homeanotation:hover{
+  transform: scale(1.05);
+  box-shadow: 4px 4px 4px var(--boxshadow);
+}
+.homeanotation div{
+  display: flex;
+  font-family: var(--font2);
+  font-size: 14px;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+  align-items: center;
+}
+.homeanotation .homenumber{
+  font-size: 50px;
+}
+.homeanotation:nth-child(2n){
+  background: linear-gradient(to top right, #24C6DC, #514A9D);
+}
+.homeanotation:nth-child(3n){
+  background: linear-gradient(to top right, #f12711, #f5af19);
+}
+.homeanotation:nth-child(4n){
+  background: linear-gradient(to top right, #DA4453, #89216B);
+}
+.homeanotation:nth-child(5n){
+  background: linear-gradient(to top right, #7F00FF, #E100FF);
 }
 
 .anot{
@@ -945,8 +1001,12 @@ svg{
   color: var(--color3);
 }
 .homesvg{
-  width: 4.5vh;
-  height: 4.5vh;
+  width: 30px;
+  height: 30px;
+}
+.homeanotationsvg{
+  width: 50px;
+  height: 50px;
 }
 
 .securitysvg{
@@ -987,7 +1047,7 @@ svg{
   background-color: var(--color5);
 }
 .securitybox{
-  box-shadow: 4px 4px 4px  rgba(80, 80, 80, 0.25);
+  box-shadow: 4px 4px 4px var(--boxshadow);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1217,7 +1277,7 @@ svg{
   flex-wrap: wrap;
 }
 .previewbox{
-  box-shadow: 4px 4px 4px  rgba(80, 80, 80, 0.25);
+  box-shadow: 4px 4px 4px var(--boxshadow);
   background-color: var(--color2s);
   border: none;
   position: relative;
@@ -1469,9 +1529,6 @@ svg{
   }
 }
 @media screen and (max-width: 768px){
-  .homebutton::before{
-    content: 'Leve-me lá';
-  }
   .specificgroup{
     justify-content: center;
   }
@@ -1568,8 +1625,20 @@ svg{
   .addbuttonswrapper{
     justify-content: center;
   }
+  .login{
+    flex-direction: column;
+  }
   .loginbox{
     width: 100vw;
+  }
+  .loginbox .divinput{
+    width: 80%;
+  }
+  .loginbackground{
+    width: 100vw;
+  }
+  .loginbackground div{
+    width: 25vw;
   }
   .landingbuttons{
     flex-direction: column;
@@ -1595,6 +1664,12 @@ svg{
   }
   .card:nth-child(4n){
     background-color: #2C2F33;
+  }
+  .displaynumbers{
+    justify-content: center;
+  }
+  .secondtext{
+    text-align: center;
   }
 }
 
