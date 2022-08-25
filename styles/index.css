@@ -553,7 +553,7 @@ form{
   background-color: var(--color2p);
   color: var(--color1);
   font-family: var(--font2);
-  font-size: 3.25vh;
+  font-size: 3vh;
   text-align: left;
   cursor: pointer;
 }
@@ -674,6 +674,9 @@ form{
 }
 .homeanotation:nth-child(5n){
   background: linear-gradient(to top right, #7F00FF, #E100FF);
+}
+.grayanotation:nth-child(1n){
+  background: linear-gradient(to top right, #bdc3c7, #2c3e50);
 }
 
 .anot{
@@ -1519,6 +1522,21 @@ svg{
   width: 30px;
   color: #ffffff;
   height: 30px;
+}
+
+.loadingpage{
+  position: absolute;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color2p);
+}
+.loadingpage svg{
+  width: 200px;
+  height: 200px;
 }
 
 @keyframes disabletouch {

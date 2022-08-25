@@ -9,6 +9,7 @@ import '../styles/index.css'
 
 function MyApp({ Component, pageProps }) {
   const[user, setUser] = useState(null)
+  const[loading, startLoad] = useState(false)
   const[loginrequest, reqlog] = useState(null)
   const[errorMessage, throwError] = useState(false)
   const[darkMode, setDarkMode] = useState(false)
@@ -49,6 +50,7 @@ function MyApp({ Component, pageProps }) {
     addLink(await syncNotetype('links'))
     addImage(await syncNotetype('images'))
     setGroups(await syncNotetype('grupos'))
+    startLoad(false)
   }
 
   useEffect(() => {
@@ -74,6 +76,7 @@ function MyApp({ Component, pageProps }) {
         if(pathname!=='/'){Router.push('/auth')}
         return
       }
+      startLoad(true)
       Router.push('/home')
       changeCurrentPage('home')
       const { data } = await supabase
@@ -86,18 +89,25 @@ function MyApp({ Component, pageProps }) {
     fetch()
   }, [loginrequest])
 
-  if(!user||project){
+  if(loading){
     return(
+      <div data-theme={darkMode?'dark':'light'}>
+        <LoadingPage/>
+      </div>
+    )
+  }
+  if(!user||project){
+  return(
     <div>
-      <Head>
-        <title>Nolt</title>
-      </Head>
-      <Component user={user} setProject={setProject} reqlog={reqlog} errorMessage={errorMessage} throwError={throwError}/>
-    </div> 
+    <Head>
+      <title>Nolt</title>
+    </Head>
+    <Component user={user} setProject={setProject} reqlog={reqlog} errorMessage={errorMessage} throwError={throwError}/>
+    </div>
     )
   }
   return(
-  <div data-theme={darkMode?'dark':'light'}>
+    <div data-theme={darkMode?'dark':'light'}>
     <Head>
       <title>Nolt</title>
     </Head>
@@ -107,8 +117,9 @@ function MyApp({ Component, pageProps }) {
       propImages={allImages} addImage={addImage} reqlog={reqlog} user={user} {...pageProps} errorMessage={errorMessage} throwError={throwError}/>
     </main>
     <PageFooter changeCurrentPage={changeCurrentPage} setProject={setProject}/>
-  </div>
+    </div>
   )
 }
+
 
 export default MyApp
