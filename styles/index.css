@@ -10,7 +10,7 @@
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --font3: 'Inter', sans-serif;
-  --boxshadow: #b9b9b9;
+  --boxshadow: #aaaaaa;
 }
 [data-theme='dark'] {
   --color1: #ffffff;
@@ -22,7 +22,7 @@
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --font3: 'Inter', sans-serif;
-  --boxshadow: #414141;
+  --boxshadow: #363636;
 }
 
 body, html{
@@ -66,13 +66,13 @@ main{
   overflow-x: hidden;
   min-height: 100vh;
 }
-.landingpage .titulo{
+.landingpage .titulo, .loadingpage .titulo{
   font-size: clamp(100px,10vw,200px);
   user-select: auto;
-  color: #000000;
+  color: var(--color1);
 }
 .landingnavbar .titulo{
-  color: #ffffff;
+  color: var(--color2p);
   text-decoration: none;
 }
 
@@ -300,14 +300,14 @@ main{
   grid-template-columns: repeat(6, 10vw);
   overflow: hidden;
   flex-wrap: nowrap;
+  justify-content: center;
   color: #ffffff;
   width: 50vw;
   height: 100vh;
 }
 .loginbackground>div{
+  top: calc(-5vh + 10px);
   transform: rotate(15deg);
-  top: calc(-5vh - 10px);
-  left: -5vw;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -325,7 +325,7 @@ main{
   height: 50px;
 }
 .loginbackground>div:nth-child(even){
-  top: calc(-5vh + 10px);
+  top: calc(-5vh - 10px);
   flex-direction: column-reverse;
 }
 .loginbackground>div:nth-child(odd) .loopsvg2{
@@ -653,7 +653,7 @@ form{
 }
 .homeanotation:hover{
   transform: scale(1.05);
-  box-shadow: 4px 4px 4px #f80759;
+  box-shadow: 4px 4px 8px #bc4e9c;
 }
 .homeanotation div{
   display: flex;
@@ -668,34 +668,34 @@ form{
   font-size: 50px;
 }
 .homeanotation:nth-child(2n){
-  background: linear-gradient(to top right, #24C6DC, #514A9D);
+  background: linear-gradient(to top right, #514A9D, #24C6DC);
 }
 .homeanotation:nth-child(2n):hover{
-  box-shadow: 4px 4px 4px #514A9D;
+  box-shadow: 4px 4px 8px #5b53b8;
 }
 .homeanotation:nth-child(3n){
   background: linear-gradient(to top right, #f12711, #f5af19);
 }
 .homeanotation:nth-child(3n):hover{
-  box-shadow: 4px 4px 4px #f12711;
+  box-shadow: 4px 4px 8px #f12711;
 }
 .homeanotation:nth-child(4n){
   background: linear-gradient(to top right, #11998e, #38ef7d);
 }
 .homeanotation:nth-child(4n):hover{
-  box-shadow: 4px 4px 4px #11998e;
+  box-shadow: 4px 4px 8px #11998e;
 }
 .homeanotation:nth-child(5n){
-  background: linear-gradient(to top right, #7F00FF, #E100FF);
+  background: linear-gradient(to top right, #7100e2, #E100FF);
 }
 .homeanotation:nth-child(5n):hover{
-  box-shadow: 4px 4px 4px #7F00FF;
+  box-shadow: 4px 4px 8px #7100e2;
 }
 .grayanotation:nth-child(1n){
   background: linear-gradient(to top right, #bdc3c7, #2c3e50);
 }
 .grayanotation:nth-child(1n):hover{
-  box-shadow: 4px 4px 4px #bdc3c7;
+  box-shadow: 4px 4px 8px #2c3e50;
 }
 
 .anot{
@@ -1549,13 +1549,18 @@ svg{
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   background-color: var(--color2p);
 }
-.loadingpage svg{
+.loader{
   width: 200px;
   height: 200px;
+  border: solid var(--boxshadow) 20px;
+  border-top: solid var(--color4) 20px;
+  border-radius: 50%;
 }
 
 @keyframes disabletouch {
@@ -1671,15 +1676,18 @@ svg{
   }
   .loginbox{
     width: 100vw;
+    height: 70vh;
   }
   .loginbox .divinput{
     width: 80%;
   }
   .loginbackground{
     width: 100vw;
+    height: 20vh;
+    grid-template-columns: repeat(6, 20vw);
   }
-  .loginbackground div{
-    width: 25vw;
+  .loginbackground>div{
+    transform: rotate(0deg);
   }
   .landingbuttons{
     flex-direction: column;
