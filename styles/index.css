@@ -398,6 +398,7 @@ form{
   font-family: var(--font3);
 }
 .loginerror{
+  width: 70%;
   font-size: 2.5vh;
   color: #e61e1e;
 }
@@ -1710,6 +1711,9 @@ svg{
   }
   .secondtext{
     text-align: center;
+  }
+  .loginerror{
+    width: 95%;
   }
 }
 

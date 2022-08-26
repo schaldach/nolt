@@ -33,16 +33,6 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
         }
     }
 
-    function errortext(){
-        let text
-        if(errorMessage&&(email||password)){
-            if(login){text = 'Usuário e/ou senha inválidos.'}
-            else{text = 'Os dados não são válidos. (Senha de 6 caracteres no mínimo)'}
-        }
-        else{text = ''}
-        return text
-    }
-
     return (
         <div className="login">
             <div className="loginbox">
@@ -73,7 +63,7 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
                 </svg>
                 </button>
-                <div className="loginerror logintext">{errortext()}</div>
+                <div className="loginerror logintext">{errorMessage&&(email||password)?login?<div>Usuário e/ou senha inválidos.</div>:<div>Os dados não são válidos.<br/>&#40;A senha precisa ter no mínimo 6 caracteres e não coloque &ldquo;espaço&rdquo; depois do e-mail&#41;</div>:''}</div>
                 <div className="loginchangewrapper">{login?'Não possui uma conta?':'Já tem uma conta?'}
                     <button className="loginchange" onClick={() => changeMode(!login)}>{login?'Cadastro':'Login'}</button>                
                 </div>
