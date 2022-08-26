@@ -4,8 +4,9 @@ import { supabase } from "../utils/supabaseClient"
 import { useState } from "react"
 import InfoBox from '../components/InfoBox'
 import Router from 'next/router'
+import DarkModeButton from "../components/DarkModeButton"
 
-function Profile({user, reqlog}) {
+function Profile({user, reqlog, darkMode, setDarkMode}) {
     const profileUser = user?user:''
     const email = user?user.email:''
     const [username, setUsername] = useState(user?user.username:'')
@@ -91,21 +92,24 @@ function Profile({user, reqlog}) {
             <div className="justifycenter">
                 <div className="editprofilebuttons">
                 <button onClick={() => startEdit(!editMode)} className='useredit'>
-                <svg xmlns="http://www.w3.org/2000/svg" className={!editMode?'dropdownsvg':'displaynone'} viewBox="0 0 20 20" fill="#ffffff">
+                <svg xmlns="http://www.w3.org/2000/svg" className={editMode?'dropdownsvg':'displaynone'} viewBox="0 0 20 20" fill="#ffffff">
                     <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
                     <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
                 </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" className={editMode?'dropdownsvg':'displaynone'} viewBox="0 0 20 20" fill="#ffffff">
+                <svg xmlns="http://www.w3.org/2000/svg" className={!editMode?'dropdownsvg':'displaynone'} viewBox="0 0 20 20" fill="#ffffff">
                     <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
                 </svg>
                 </button>
                 <button onClick={saveUserChanges} className={editMode?'useredit':'displaynone'}>Salvar</button>
+                </div>
                 <InfoBox successAnimation={successAnimation}/>
+                <div className="profiledark">
+                    <DarkModeButton darkMode={darkMode} setDarkMode={setDarkMode}/>
                 </div>
                 <button className="loginbutton logintext" onClick={logout}>Logout
                 <svg xmlns="http://www.w3.org/2000/svg" className="loginsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                </svg>      
+                </svg>
                 </button>
             </div>
         </div>

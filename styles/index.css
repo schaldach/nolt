@@ -54,7 +54,7 @@ main{
   padding: 4vh 8vw 10vh 8vw;
   min-height: 70vh;
 }
-/* 84vh (main, height+padding vertical) + 13vh (navbar, height+border) + 3vh (foot) = 100vh */
+/* 84vh (main, height+padding vertical) + 13vh (navbar) + 3vh (foot) = 100vh */
 
 .landingpage{
   border: none;
@@ -438,6 +438,7 @@ form{
   padding: 15px;
   margin-top: 2.5vh;
   box-shadow: 3px 3px var(--color5);
+  border-radius: 5px;
   cursor: pointer;
 }
 .loginbutton:hover{
@@ -447,10 +448,10 @@ form{
 
 .navbar{
   display: grid;
-  justify-items: center;
+  place-items: center;
   grid-template-columns: 1.25fr 2fr 1fr;
   height: 13vh;
-  align-items: center;
+  min-height: 80px;
   background: var(--color2p);
 }
 .loginlink{
@@ -467,14 +468,15 @@ form{
 .titulo{
   font-family: var(--font2);
   color: var(--color1);
-  font-size: 8vh;
+  font-size: 50px;
   font-weight: bold;
   user-select: none;
 }
 
 .sections{
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: center;
   gap: 7.5vw;
 }
 .navbarwrapper{
@@ -578,10 +580,9 @@ form{
   background: var(--color5);
   color: #ffffff;
   font-family: var(--font1);
-  font-size: 1.4vh;
-  bottom: 0;
-  left: 0;
+  font-size: 10px;
   height: 3vh;
+  min-height: 14px;
   gap: 5px;
   display: flex;
   align-items: center;
@@ -599,9 +600,9 @@ form{
   background-color: var(--color2p);
   cursor: pointer;
   border: none;
-  border-radius: 5vh;
+  border-radius: 25px;
   padding: 3px 0px;
-  width: 10vh;
+  width: 65px;
   border: solid 2px var(--color4);
   color: var(--color4);
 }
@@ -614,8 +615,8 @@ form{
   box-shadow: 0 0 0 1.2em transparent;
 }
 .darkicon{
-  width: 5vh;
-  height: 5vh;
+  width: 30px;
+  height: 30px;
 }
 
 @keyframes pulse {
@@ -1568,6 +1569,9 @@ svg{
   border-top: solid var(--color4) 20px;
   border-radius: 50%;
 }
+.profiledark{
+  display: none;
+}
 
 @keyframes disabletouch {
   0%{
@@ -1606,51 +1610,30 @@ svg{
   .status{
     justify-content: center;
   }
+  .navbar .titulo{
+    display: none;
+  }
   .navbar{
-    display: flex;
-    flex-direction: column;
-    overflow: visible;
-    height: fit-content;
-    padding-bottom: 3vh;
+    grid-template-columns: 1fr;
   }
   main{
-    padding: 4vh 5vw 8vh 5vw;
+    padding: 4vh 5vw 10vh 5vw;
   }
   .addanotation{
     bottom: calc(3vh + 6.5vh - 25px);
   }
-  .responsiveImg{
-    display: block;
-  }
   .sections{
-    display: none;
-  }
-  .navbar:hover .sections{
-    animation: disabletouch 0.5s;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    place-items: center;
-    gap: 12.5vw;
-  }
-  .navbar:hover .dark-wrapper{
-    display: flex;
-    animation: disabletouch 0.5s;
-  }
-  .navbar:hover .responsiveImg{
-    display: none;
+    gap: 10vw;
   }
   .navbar-select:hover, .contentselection:hover .dropbutton{
     color: var(--color1);
     transition: 0s;
   }
-  .dropdownswrapper{
-    padding: 2px;
-  }
   .dark-wrapper{
-    margin-top: 3vh;
     display: none;
-    justify-content: center;
-    align-items: center;
+  }
+  .profiledark{
+    display: flex;
   }
   .flex{
     gap: 0px;
@@ -1668,8 +1651,11 @@ svg{
   .secondtext input{
     width: 100%;
   }
-  .editprofilebuttons{
-    justify-content: center;
+  .userdata{
+    align-items: center;
+  }
+  .userdata input{
+    text-align: center;
   }
   .userdata div{
     flex-direction: column;
