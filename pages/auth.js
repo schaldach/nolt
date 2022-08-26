@@ -18,6 +18,9 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
         .then(() => {
             reqlog(Math.random())
         })
+        if(error){
+            console.log(error)
+        }
     }
 
     async function signup() {
@@ -25,6 +28,9 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
         .then(() => {
             reqlog(Math.random())
         })
+        if(error){
+            console.log(error)
+        }
     }
 
     function errortext(){

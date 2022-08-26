@@ -652,7 +652,7 @@ form{
 }
 .homeanotation:hover{
   transform: scale(1.05);
-  box-shadow: 4px 4px 4px var(--boxshadow);
+  box-shadow: 4px 4px 4px #f80759;
 }
 .homeanotation div{
   display: flex;
@@ -669,17 +669,32 @@ form{
 .homeanotation:nth-child(2n){
   background: linear-gradient(to top right, #24C6DC, #514A9D);
 }
+.homeanotation:nth-child(2n):hover{
+  box-shadow: 4px 4px 4px #514A9D;
+}
 .homeanotation:nth-child(3n){
   background: linear-gradient(to top right, #f12711, #f5af19);
+}
+.homeanotation:nth-child(3n):hover{
+  box-shadow: 4px 4px 4px #f12711;
 }
 .homeanotation:nth-child(4n){
   background: linear-gradient(to top right, #11998e, #38ef7d);
 }
+.homeanotation:nth-child(4n):hover{
+  box-shadow: 4px 4px 4px #11998e;
+}
 .homeanotation:nth-child(5n){
   background: linear-gradient(to top right, #7F00FF, #E100FF);
 }
+.homeanotation:nth-child(5n):hover{
+  box-shadow: 4px 4px 4px #7F00FF;
+}
 .grayanotation:nth-child(1n){
   background: linear-gradient(to top right, #bdc3c7, #2c3e50);
+}
+.grayanotation:nth-child(1n):hover{
+  box-shadow: 4px 4px 4px #bdc3c7;
 }
 
 .anot{
