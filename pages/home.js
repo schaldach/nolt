@@ -1,7 +1,6 @@
 import React from "react"
 import { useEffect } from "react"
 import SecondTitle from "../components/SecondTitle"
-import Link from 'next/link'
 import { useState } from "react"
 import FavoriteNote from "../components/SimpleAnotation"
 import FavoriteList from "../components/SimpleList"

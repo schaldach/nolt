@@ -296,18 +296,21 @@ main{
 
 .loginbackground{
   background: linear-gradient(to top right, #0ca1db, #1a4bbd);
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(6, 10vw);
+  overflow: hidden;
+  flex-wrap: nowrap;
   color: #ffffff;
   width: 50vw;
   height: 100vh;
 }
 .loginbackground>div{
+  transform: rotate(15deg);
   top: calc(-5vh - 10px);
-  width: 12.5vw;
+  left: -5vw;
   position: relative;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   height: 110vh;
 }
 .loginbackground div div{

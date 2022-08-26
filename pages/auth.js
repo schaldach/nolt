@@ -7,27 +7,21 @@ import LoginBackground from '../components/LoginBackground';
 
 function Auth({throwError, reqlog, errorMessage, setProject}) {
     const [login, changeMode] = useState(true)
-    const [currentEmail, updateEmail] = useState('')
-    const [currentPassword, updatePassword] = useState('')
+    const [email, updateEmail] = useState('')
+    const [password, updatePassword] = useState('')
     const [passwordVisible, setVisible] = useState(false)
 
-    useEffect(() => throwError(false), [currentEmail, currentPassword, login])
+    useEffect(() => throwError(false), [email, password, login])
 
     async function signin() {
-        const { error } = supabase.auth.signIn({
-            email: currentEmail,
-            password: currentPassword,
-        })
+        const { error } = supabase.auth.signIn({email,password})
         .then(() => {
             reqlog(Math.random())
         })
     }
 
     async function signup() {
-        const { error } = supabase.auth.signUp({
-            password: currentPassword,
-            email: currentEmail,
-        })
+        const { error } = supabase.auth.signUp({email,password})
         .then(() => {
             reqlog(Math.random())
         })
@@ -35,7 +29,7 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
 
     function errortext(){
         let text
-        if(errorMessage&&(currentEmail||currentPassword)){
+        if(errorMessage&&(email||password)){
             if(login){text = 'Usuário e/ou senha inválidos.'}
             else{text = 'Os dados não são válidos. (Senha de 6 caracteres no mínimo)'}
         }
@@ -52,9 +46,9 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
                 </div>
                 <div className="logintext">{login?'Login':'Cadastro'}</div>
                 <form>
-                <div className="divinput"><input autoComplete='current-password' type='text' onInput={e => updateEmail(e.target.value)} value={currentEmail} placeholder='Email'></input></div>
+                <div className="divinput"><input autoComplete='current-password' type='text' onInput={e => updateEmail(e.target.value)} value={email} placeholder='Email'></input></div>
                 <div className="divinput minorpadding">
-                    <input autoComplete='current-password' type={passwordVisible?'text':'password'} onInput={e => updatePassword(e.target.value)} value={currentPassword} placeholder='Senha'></input>
+                    <input autoComplete='current-password' type={passwordVisible?'text':'password'} onInput={e => updatePassword(e.target.value)} value={password} placeholder='Senha'></input>
                     <button type="button" onClick={() => setVisible(!passwordVisible)}>
                         <svg xmlns="http://www.w3.org/2000/svg" className='loginsvg2' viewBox="0 0 20 20" fill={passwordVisible?'var(--color4)':'#000000'}>
                             <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
@@ -79,6 +73,8 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
                 </div>
             </div>
             <div className='loginbackground'>
+                <LoginBackground/>
+                <LoginBackground/>
                 <LoginBackground/>
                 <LoginBackground/>
                 <LoginBackground/>
