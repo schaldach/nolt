@@ -26,6 +26,7 @@ function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite
 
     return (
         <>
+        <div className={viewMode?'disabledpage':''}>
         <div className={viewMode?'wholething view':'wholething'}>
         <DisplayModes editMode={editMode} favorite={favorite} calendar={calendar} viewMode={viewMode} small={small} />
         <div className={anotClass()}>
@@ -46,6 +47,7 @@ function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite
         onFavorite={() => onFavorite(note)} onView={() => startView(!viewMode)} onDelete={() => setBox(true)}/>
         </div>
         <SecurityBox onDelete={() => onDelete(note.id)} onCancel={() => setBox(false)} boxVisible={boxVisible}/>
+        </div>
         </>
     )
 }

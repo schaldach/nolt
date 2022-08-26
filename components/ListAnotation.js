@@ -64,6 +64,7 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
 
     return (
         <>
+        <div className={viewMode?'disabledpage':''}>
         <div className={viewMode ? 'wholething view' : 'wholething'}>
             <DisplayModes filtered={filtered} editMode={editMode} favorite={favorite} viewMode={viewMode} small={small}/>
             <div className="displaycompleted">{content.filter(item => item.complete).length}/{content.length}</div>
@@ -89,6 +90,7 @@ function ListAnotation({ title, content, onEdit, list, onDelete, favorite, onFav
             onFilter={() => onFilter(list)} filtered={filtered} small={small} onSmall={() => onSmall(list)} onFavorite={() => onFavorite(list)} onView={() => startView(!viewMode)} onDelete={() => setBox(true)}/>
         </div>
         <SecurityBox onDelete={() => onDelete(list.id)} onCancel={() => setBox(false)} boxVisible={boxVisible}/>
+        </div>
         </>
     )
 }
