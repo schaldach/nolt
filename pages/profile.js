@@ -67,10 +67,7 @@ function Profile({user, reqlog}) {
     async function logout() {
         const eba = await supabase.auth.signOut()
         .then(() => {
-            Router.push('/auth')
-            .then( async () => {
-                Router.reload()
-            })
+            Router.reload()
         })
     }
     
