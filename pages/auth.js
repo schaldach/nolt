@@ -35,11 +35,9 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
 
     return (
         <div className="login">
+            <Link href='/'><div onClick={() => setProject(true)} className="loginlink"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" /></svg>Voltar</div></Link>
             <div className="loginbox">
-                <div className='titulo'>
-                <div>nolt</div>
-                <Link href='/'><div onClick={() => setProject(true)} className="loginlink">Ir à Página inicial</div></Link>
-                </div>
+                <div className='titulo'>nolt</div>
                 <div className="logintext">{login?'Login':'Cadastro'}</div>
                 <form>
                 <div className="divinput"><input autoComplete='current-password' type='text' onInput={e => updateEmail(e.target.value)} value={email} placeholder='Email'></input></div>
@@ -63,7 +61,7 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
                 </svg>
                 </button>
-                <div className="loginerror logintext">{errorMessage&&(email||password)?login?<div>Usuário e/ou senha inválidos.<br/>&#40;A senha precisa ter no mínimo 6 caracteres e não coloque &ldquo;espaço&rdquo; depois do e-mail&#41;</div>:<div>Os dados não são válidos.<br/>&#40;A senha precisa ter no mínimo 6 caracteres e não coloque &ldquo;espaço&rdquo; depois do e-mail&#41;</div>:''}</div>
+                {errorMessage&&(email||password)?<div className="loginerror logintext">{login?<div>Usuário e/ou senha inválidos.<br/>&#40;A senha precisa ter no mínimo 6 caracteres e não coloque &ldquo;espaço&rdquo; depois do e-mail&#41;</div>:<div>Os dados não são válidos.<br/>&#40;A senha precisa ter no mínimo 6 caracteres e não coloque &ldquo;espaço&rdquo; depois do e-mail&#41;</div>}</div>:''}
                 <div className="loginchangewrapper">{login?'Não possui uma conta?':'Já tem uma conta?'}
                     <button className="loginchange" onClick={() => changeMode(!login)}>{login?'Cadastro':'Login'}</button>                
                 </div>

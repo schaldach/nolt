@@ -10,7 +10,7 @@
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --font3: 'Inter', sans-serif;
-  --boxshadow: #aaaaaa;
+  --boxshadow: #b9b9b9;
 }
 [data-theme='dark'] {
   --color1: #ffffff;
@@ -335,6 +335,7 @@ main{
   display: none;
 }
 .login{
+  position: relative;
   background-color: var(--color2p);
   height: 100vh;
   width: 100vw;
@@ -348,26 +349,22 @@ main{
   height: 100vh;
 }
 .loginbox{
-  padding: 5vh 0 5vh 0;
-  height: 75vh;
+  height: fit-content;
+  padding: 50px 0;
   width: 50vw;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2vh;
+  gap: 15px;
 }
 form{
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2vh;
-}
-.loginbox .titulo{
-  font-size: 10vh;
-  color: var(--color1);
+  gap: 10px;
 }
 .divinput button{
   cursor: pointer;
@@ -375,40 +372,44 @@ form{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 6vh;
-  height: 3vh;
+  width: 40px;
+  height: 100%;
   background-color: var(--color2p);
   border: none;
 }
 .loginsvg2{
-  width: 4.5vh;
-  height: 4.5vh;
+  width: 30px;
+  height: 30px;
+}
+.divinput input{
+  font-size: 16px;
 }
 .loginbox .divinput{
   display: flex;
   align-items: center;
-  height: 4vh;
+  height: 30px;
   width: 60%;
   border: solid 2px var(--color4);
-  padding: 2vh 1vh;
-  font-size: 2.5vh;
+  padding: 10px 5px;
+  font-size: 50px;
+}
+.loginbox .titulo{
+  font-size: 75px;
 }
 .logintext{
-  font-size: 4vh;
+  font-size: 25px;
   font-family: var(--font3);
 }
 .loginerror{
   width: 70%;
-  font-size: 2.5vh;
+  font-size: 15px;
   color: #e61e1e;
 }
 .loginchangewrapper{
-  font-size: 2.25vh;
+  font-size: 14px;
   font-family: var(--font1);
   display: flex;
   gap: 5px;
-  align-items: center;
-  justify-content: center;
 }
 .loginchange{
   outline: none;
@@ -436,7 +437,6 @@ form{
   border: none;
   width: fit-content;
   padding: 15px;
-  margin-top: 2.5vh;
   box-shadow: 3px 3px var(--color5);
   border-radius: 5px;
   cursor: pointer;
@@ -455,11 +455,20 @@ form{
   background: var(--color2p);
 }
 .loginlink{
-  font-family: var(--font1);
+  display: flex;
+  gap: 5px;
+  font-size: 20px;
+  align-items: center;
+  font-family: var(--font2);
   color: var(--color4);
-  font-weight: normal;
+  position: absolute;
+  top: 20px;
+  left: 20px;
   cursor: pointer;
-  font-size: 2.25vh;
+}
+.loginlink svg{
+  width: 40px;
+  height: 40px;
 }
 .loginlink:hover{
   color: var(--color5);
@@ -1268,7 +1277,6 @@ svg{
   font-family: var(--font2);
   font-weight: bold;
   font-size: 3vh;
-  background-color: var(--color2s);
   color: var(--color1);
   width: 100%;
   border: solid var(--color4);
@@ -1573,15 +1581,6 @@ svg{
   display: none;
 }
 
-@keyframes disabletouch {
-  0%{
-    pointer-events: none;
-  }
-  100%{
-    pointer-events: all;
-  }
-}
-
 @media screen and (max-width: 1024px){
   .dateinputs{
     max-width: 100%;
@@ -1668,14 +1667,13 @@ svg{
   }
   .loginbox{
     width: 100vw;
-    height: 70vh;
   }
   .loginbox .divinput{
     width: 80%;
   }
   .loginbackground{
     width: 100vw;
-    height: 20vh;
+    height: 100%;
     grid-template-columns: repeat(6, 20vw);
   }
   .loginbackground>div{
