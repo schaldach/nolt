@@ -636,11 +636,8 @@ form{
 
 .secondtext{
   margin: 3vh 0;
-}
-.secondtext, .secondtext input{
-  background-color: var(--color2s);
   font-family: var(--font3);
-  font-size: 3vh;
+  font-size: 22px;
   word-wrap: break-word;
   color: var(--color1);
 }
@@ -665,7 +662,7 @@ form{
 }
 .homeanotation:hover{
   transform: scale(1.05);
-  box-shadow: 4px 4px 8px #bc4e9c;
+  box-shadow: 4px 4px 8px #f80759;
 }
 .homeanotation div{
   display: flex;
@@ -683,25 +680,25 @@ form{
   background: linear-gradient(to top right, #514A9D, #24C6DC);
 }
 .homeanotation:nth-child(2n):hover{
-  box-shadow: 4px 4px 8px #5b53b8;
+  box-shadow: 4px 4px 8px #24C6DC;
 }
 .homeanotation:nth-child(3n){
   background: linear-gradient(to top right, #f12711, #f5af19);
 }
 .homeanotation:nth-child(3n):hover{
-  box-shadow: 4px 4px 8px #f12711;
+  box-shadow: 4px 4px 8px #f5af19;
 }
 .homeanotation:nth-child(4n){
   background: linear-gradient(to top right, #11998e, #38ef7d);
 }
 .homeanotation:nth-child(4n):hover{
-  box-shadow: 4px 4px 8px #11998e;
+  box-shadow: 4px 4px 8px #38ef7d;
 }
 .homeanotation:nth-child(5n){
   background: linear-gradient(to top right, #7100e2, #E100FF);
 }
 .homeanotation:nth-child(5n):hover{
-  box-shadow: 4px 4px 8px #7100e2;
+  box-shadow: 4px 4px 8px #E100FF;
 }
 .grayanotation:nth-child(1n){
   background: linear-gradient(to top right, #bdc3c7, #2c3e50);
@@ -1247,45 +1244,73 @@ svg{
   margin-top: 1.5vh;
 }
 
-.userdata{
+.justifycenter{
   display: flex;
   flex-direction: column;
-  gap: 10px
+  gap: 25px;
+  margin-top: 10px;
+}
+.justifycenter div{
+  display: flex;
+  gap: 20px;
+}
+.secondtext input{
+  font-family: inherit;
+  font-size: inherit;
+}
+.userdata button{
+  border: none;
+  width: fit-content;
+  height: fit-content;
+}
+.smalltextlogin{
+  font-size: 16px;
+}
+.userdata svg{
+  color: var(--color4);
+  width: 20px;
+  height: 20px;
+}
+.userdata{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+.bothdata{
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+.bothdata>div>div:nth-child(2n){
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--color4);
 }
 
-.userdata div{
-  display: flex;
-}
 .useredit{
-  padding: 8px;
-  background-color: var(--color4);
-  border: none;
+  padding: 5px 10px;
+  background-color: var(--color2s);
+  border: 2px solid var(--color4);
   outline: none;
   cursor: pointer;
   border-radius: 10px;
-  width: fit-content;
-  color: #ffffff;
-  font-family: var(--font3);
-  font-size: 3vh;
-  height: 5vh;
+  color: var(--color4);
+  font-family: var(--font2);
+  font-size: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .useredit:hover{
-  background-color: var(--color5);
-}
-
-.editprofilebuttons{
-  display: flex;
-  gap: 5px;
-  align-items: center;
+  color: var(--color5);
+  border: 2px solid var(--color5);
 }
 
 .loginsvg{
-  width: 5.5vh;
-  height: 5.5vh;
-  margin-left: 1.5vh;
+  width: 35px;
+  height: 35px;
+  margin-left: 10px;
 }
 .modesvg{
   height: 2.5vh;
@@ -1572,10 +1597,9 @@ svg{
 .profilepicwrapper:hover .loginpicturewrapper{
   display: flex;
 }
-.loginpicturesvg{
-  width: 30px;
-  color: #ffffff;
-  height: 30px;
+.userdata .loginpicturesvg{
+  width: 35px;
+  height: 35px;
 }
 
 .loadingpage{
@@ -1599,7 +1623,7 @@ svg{
   border-top: solid var(--color4) 20px;
   border-radius: 50%;
 }
-.profiledark{
+.justifycenter .profiledark{
   display: none;
 }
 
@@ -1609,6 +1633,25 @@ svg{
   }
 }
 @media screen and (max-width: 768px){
+  .justifycenter{
+    align-items: center;
+  }
+  .justifycenter div{
+    justify-content: center;
+  }
+  .justifycenter .profiledark{
+    display: flex;
+  }
+  .secondtext{
+    font-size: 17px;
+    text-align: center;
+  }
+  .userdata .secondtext{
+    text-align: left;
+  }
+  .userdata{
+    gap: 0px;
+  }
   .specificgroup{
     justify-content: center;
   }
@@ -1650,9 +1693,6 @@ svg{
   .dark-wrapper{
     display: none;
   }
-  .profiledark{
-    display: flex;
-  }
   .flex{
     gap: 0px;
     flex-direction: column;
@@ -1660,23 +1700,9 @@ svg{
   .previewflex{
     justify-content: center;
   }
-  .justifycenter{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .secondtext input{
-    width: 100%;
-  }
   .userdata{
-    align-items: center;
-  }
-  .userdata input{
-    text-align: center;
-  }
-  .userdata div{
     flex-direction: column;
+    align-items: center;
   }
   .addbuttonswrapper{
     justify-content: center;
@@ -1725,9 +1751,6 @@ svg{
   }
   .displaynumbers{
     justify-content: center;
-  }
-  .secondtext{
-    text-align: center;
   }
   .loginerror{
     width: 95%;
