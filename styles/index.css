@@ -1290,11 +1290,15 @@ svg{
   border-bottom: 2px solid var(--color4);
   overflow: hidden;
   text-overflow: ellipsis;
+  height: 30px;
+  white-space: nowrap;
 }
 .bothdata>div>input{
   border-bottom: 2px solid var(--color4);
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 30px;
 }
 .bothdata>div>input:focus{
   border-bottom: 2px solid var(--color5);
@@ -1778,7 +1782,3 @@ svg{
 .displaynone{
   display: none;
 }
-.bothdata{
-
-}
-.anottitle{}
