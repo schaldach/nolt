@@ -92,7 +92,7 @@ function NavBar({darkMode, setDarkMode, currentNote, changeCurrentNote, currentP
                 <Link href='/profile'>
                 <div onClick={() => changeCurrentPage('profile')} className='navbar-select'>
                     <div className={currentPage==='profile'?"profilepicwrapper whiteborder":'profilepicwrapper'}>
-                    {profileUser.avatar_url?<div className="imgpicture" style={{backgroundImage:`url(https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/${user.avatar_url})`}}></div>:<div className="imgpicture" style={{backgroundImage:"url(https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/avatars/user_placeholder.png)"}}/>}
+                    {profileUser.avatar_url?<img className="imgpicture" src={`https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/${user.avatar_url}`}/>:<img className="navbarsvg" src={"https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/avatars/user_placeholder.png"}/>}
                     </div>
                 </div>
                 </Link>

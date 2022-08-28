@@ -385,7 +385,7 @@ form{
 .divinput input{
   font-size: 16px;
 }
-.loginbox .divinput{
+.divinput{
   display: flex;
   align-items: center;
   height: 30px;
@@ -393,6 +393,9 @@ form{
   border: solid 2px var(--color4);
   padding: 10px 5px;
   font-size: 50px;
+}
+.divinput:focus-within{
+  border: solid 2px var(--color5);
 }
 .loginbox .titulo{
   font-size: 75px;
@@ -430,22 +433,22 @@ form{
 }
 .loginbutton{
   display: flex;
+  gap: 5px;
   align-items: center;
   justify-content: center;
-  background-color: var(--color4);
-  color: #ffffff;
+  background-color: var(--color2p);
+  color: var(--color4);
   font-size: 25px;
   outline: none;
-  border: none;
+  border: solid 2px var(--color4);
   width: fit-content;
-  padding: 15px;
-  box-shadow: 3px 3px var(--color5);
-  border-radius: 5px;
+  padding: 5px 10px;
+  border-radius: 10px;
   cursor: pointer;
 }
 .loginbutton:hover{
-  background-color: var(--color5);
-  box-shadow: none;
+  color: #ffffff;
+  background-color: var(--color4);
 }
 
 .navbar{
@@ -629,13 +632,17 @@ form{
   width: 30px;
   height: 30px;
 }
+.addsvg{
+  width: 25px;
+  height: 25px;
+}
 
 @keyframes pulse {
   0% { box-shadow: 0 0 0 0 var(--color4); }
 }
 
 .secondtext{
-  margin: 3vh 0;
+  margin: 15px 0px;
   font-family: var(--font3);
   font-size: 22px;
   word-wrap: break-word;
@@ -655,14 +662,16 @@ form{
 .homeanotation{
   display: flex;
   cursor: pointer;
+  justify-content: center;
   padding: 10px;
+  min-width: 100px;
   gap: 5px;
   border-radius: 20px;
-  background: linear-gradient(to top right, #bc4e9c, #f80759);
+  background: linear-gradient(to top right, rgb(188, 78, 156), rgb(248, 7, 89));
 }
 .homeanotation:hover{
   transform: scale(1.05);
-  box-shadow: 4px 4px 8px #f80759;
+  box-shadow: 0px 0px 12px rgb(248, 7, 89, 0.75);
 }
 .homeanotation div{
   display: flex;
@@ -677,34 +686,34 @@ form{
   font-size: 50px;
 }
 .homeanotation:nth-child(2n){
-  background: linear-gradient(to top right, #514A9D, #24C6DC);
+  background: linear-gradient(to top right, rgb(80, 73, 156), rgb(36, 198, 220));
 }
 .homeanotation:nth-child(2n):hover{
-  box-shadow: 4px 4px 8px #24C6DC;
+  box-shadow: 0px 0px 12px rgba(36, 198, 220, 0.75);
 }
 .homeanotation:nth-child(3n){
-  background: linear-gradient(to top right, #f12711, #f5af19);
+  background: linear-gradient(to top right, rgb(241, 39, 17), rgb(245, 175, 25));
 }
 .homeanotation:nth-child(3n):hover{
-  box-shadow: 4px 4px 8px #f5af19;
+  box-shadow: 0px 0px 12px rgba(245, 175, 25, 0.75);
 }
 .homeanotation:nth-child(4n){
-  background: linear-gradient(to top right, #11998e, #38ef7d);
+  background: linear-gradient(to top right, rgb(17, 153, 142), rgb(56, 239, 125));
 }
 .homeanotation:nth-child(4n):hover{
-  box-shadow: 4px 4px 8px #38ef7d;
+  box-shadow: 0px 0px 12px rgba(56, 239, 125, 0.75);
 }
 .homeanotation:nth-child(5n){
-  background: linear-gradient(to top right, #7100e2, #E100FF);
+  background: linear-gradient(to top right, rgb(113, 0, 226), rgb(225, 0, 255));
 }
 .homeanotation:nth-child(5n):hover{
-  box-shadow: 4px 4px 8px #E100FF;
+  box-shadow: 0px 0px 12px rgba(225, 0, 255, 0.75);
 }
 .grayanotation:nth-child(1n){
-  background: linear-gradient(to top right, #bdc3c7, #2c3e50);
+  background: linear-gradient(to top right, rgb(67, 83, 99), rgb(165, 177, 185));
 }
 .grayanotation:nth-child(1n):hover{
-  box-shadow: 4px 4px 8px #2c3e50;
+  box-shadow: 0px 0px 12px rgba(165, 177, 185, 0.75);
 }
 
 .anot{
@@ -759,7 +768,8 @@ form{
 .displayanotations{
   margin-top: 3.5vh;
   padding-bottom: 5vh;
-  gap: 1.5vw;
+  row-gap: 25px;
+  column-gap: 10px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -788,30 +798,25 @@ form{
 
 .addanotation{
   color: #ffffff;
-  background-color: var(--color3);
-  border-radius: 50px;
+  background-color: var(--color4);
+  border-radius: 50%;
   position: fixed;
-  animation: popup linear 0.5s;
+  animation: popup linear 0.4s;
   border: none;
-  width: 50px;
-  height: 50px;
-  bottom: calc(3vh + 7.5vh - 25px);
-  padding: 13px;
-  left: calc(50% - 25px);
-  display: flex;
-  align-items: center;
+  width: 60px;
+  height: 60px;
+  bottom: calc(3vh + 7.5vh - 30px);
+  box-shadow: 0px 0px 16px var(--color4);
+  padding: 15px;
+  left: calc(50% - 30px);
+  display: grid;
+  place-items: center;
   box-sizing: border-box;
-  justify-content: center;
   cursor: pointer;
   z-index: 5;
 }
 .addanotation:hover{
-  background-color: var(--color4);
-}
-
-.addsvg{
-  width: 25px;
-  height: 25px;
+  background-color: var(--color5);
 }
 
 input, textarea{
@@ -1209,7 +1214,7 @@ svg{
 }
 
 .displaymodes{
-  top: -3vh;
+  top: -18px;
   position: absolute;
   display: flex;
   gap: 3px;
@@ -1246,9 +1251,8 @@ svg{
 
 .justifycenter{
   display: flex;
-  flex-direction: column;
   gap: 25px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .justifycenter div{
   display: flex;
@@ -1266,7 +1270,7 @@ svg{
 .smalltextlogin{
   font-size: 16px;
 }
-.userdata svg{
+.bothdata svg{
   color: var(--color4);
   width: 20px;
   height: 20px;
@@ -1279,42 +1283,31 @@ svg{
 }
 .bothdata{
   display: flex;
-  gap: 20px;
+  gap: 30px;
   flex-direction: column;
 }
-.bothdata>div>div:nth-child(2n){
+.bothdata>div>div:nth-child(odd){
   display: flex;
   align-items: center;
+  gap: 5px;
+}
+.bothdata>div>div:nth-child(even){
   border-bottom: 2px solid var(--color4);
 }
-
-.useredit{
-  padding: 5px 10px;
-  background-color: var(--color2s);
-  border: 2px solid var(--color4);
-  outline: none;
-  cursor: pointer;
-  border-radius: 10px;
-  color: var(--color4);
-  font-family: var(--font2);
-  font-size: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.bothdata>div>input{
+  border-bottom: 2px solid var(--color4);
 }
-.useredit:hover{
-  color: var(--color5);
-  border: 2px solid var(--color5);
+.bothdata>div>input:focus{
+  border-bottom: 2px solid var(--color5);
 }
 
 .loginsvg{
-  width: 35px;
-  height: 35px;
-  margin-left: 10px;
+  width: 40px;
+  height: 40px;
 }
 .modesvg{
-  height: 2.5vh;
-  width: 2.5vh;
+  height: 17px;
+  width: 17px;
 }
 
 .grouptitle{
@@ -1469,8 +1462,8 @@ svg{
 }
 .previewcheckedsvg{
   position: absolute;
-  width: 15vh;
-  height: 15vh;
+  width: 75px;
+  height: 75px;
 }
 .previewcheckedsvglink{
   position: absolute;
@@ -1532,8 +1525,9 @@ svg{
   align-items: flex-start;
 }
 .imgpicture{
-  max-width: 275px;
-  max-height: 275px;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
   cursor: pointer;
 }
 .wholeimage{
@@ -1543,6 +1537,10 @@ svg{
   overflow: hidden;
   display: flex;
   position: relative;
+}
+.wholeimage>div:nth-child(odd){
+  max-width: 250px;
+  max-height: 250px;
 }
 .wholeimage .outermenu{
   flex-direction: column;
@@ -1556,16 +1554,17 @@ svg{
   user-select: none;
 }
 
-.userdata .imgpicture, .navbar-select .imgpicture{
-  width: 128px;
-  height: 128px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-.navbar-select .imgpicture{
+.navbar-select .profilepicwrapper{
   width: 38px;
   height: 38px;
+}
+.userdata .profilepicwrapper{
+  width: 175px;
+  height: 175px;
+}
+.userdata .imgpicture{
+  min-width: 175px;
+  min-height: 175px;
 }
 .profilepicwrapper{
   position: relative;
@@ -1573,8 +1572,6 @@ svg{
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  width: fit-content;
-  height: fit-content;
   border: 3px solid var(--color1);
   overflow: hidden;
   cursor: pointer;
@@ -1588,6 +1585,7 @@ svg{
 .userdata .loginpicturewrapper{
   position: absolute;
   background-color: rgba(0,0,0,0.2);
+  color: #ffffff;
   display: none;
   align-items: center;
   justify-content: center;
@@ -1633,17 +1631,19 @@ svg{
   }
 }
 @media screen and (max-width: 768px){
-  .justifycenter{
-    align-items: center;
+  .bothdata>div>input{
+    width: 90vw;
   }
-  .justifycenter div{
-    justify-content: center;
+  .justifycenter{
+    margin-top: 0px;
+    align-items: center;
+    flex-direction: column;
   }
   .justifycenter .profiledark{
     display: flex;
   }
-  .secondtext{
-    font-size: 17px;
+  .userdata .secondtext{
+    font-size: 18px;
     text-align: center;
   }
   .userdata .secondtext{
@@ -1668,8 +1668,6 @@ svg{
   }
   .displayanotations{
     justify-content: center;
-    row-gap: 3.5vh;
-    column-gap: 1vh;
   }
   .status{
     justify-content: center;
@@ -1760,3 +1758,7 @@ svg{
 .displaynone{
   display: none;
 }
+.previewcheckedsvg{
+
+}
+.homeanotation{}

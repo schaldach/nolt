@@ -41,7 +41,7 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
                 <div className="logintext">{login?'Login':'Cadastro'}</div>
                 <form>
                 <div className="divinput"><input autoComplete='current-password' type='text' onInput={e => updateEmail(e.target.value)} value={email} placeholder='Email'></input></div>
-                <div className="divinput minorpadding">
+                <div className="divinput">
                     <input autoComplete='current-password' type={passwordVisible?'text':'password'} onInput={e => updatePassword(e.target.value)} value={password} placeholder='Senha'></input>
                     <button type="button" onClick={() => setVisible(!passwordVisible)}>
                         <svg xmlns="http://www.w3.org/2000/svg" className='loginsvg2' viewBox="0 0 20 20" fill={passwordVisible?'var(--color4)':'#000000'}>
@@ -52,12 +52,12 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
                 </div>
                 </form>
                 <button className={login?"loginbutton logintext":'displaynone'} onClick={signin}>Login
-                <svg xmlns="http://www.w3.org/2000/svg" className="loginsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="loginsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
                 </svg>
                 </button>
                 <button className={login?'displaynone':"loginbutton logintext"} onClick={signup}>Cadastro
-                <svg xmlns="http://www.w3.org/2000/svg" className="loginsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="loginsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
                 </svg>
                 </button>

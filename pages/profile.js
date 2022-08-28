@@ -14,8 +14,7 @@ function Profile({user, reqlog, darkMode, setDarkMode}) {
 
     useEffect(() => {
         if(image){
-            const file = image
-            setImageUrl(URL.createObjectURL(file))
+            setImageUrl(URL.createObjectURL(image))
         }
     }, [image])
 
@@ -60,7 +59,7 @@ function Profile({user, reqlog, darkMode, setDarkMode}) {
             <div className="userdata">
                 <label htmlFor="formId" onChange={e => setImage(e.target.files[0])} className='profilepicwrapper'>
                     <input id="formId" type='file' accept='image/*' className="displaynone"/>
-                    {!imageCurrentUrl?profileUser.avatar_url?<div className="imgpicture" style={{backgroundImage:`url(https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/${user.avatar_url})`}}></div>:<div className="imgpicture" style={{backgroundImage:"url(https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/avatars/user_placeholder.png)"}}/>:<div className="imgpicture" style={{backgroundImage:`url(${imageCurrentUrl})`}}/>}
+                    {!imageCurrentUrl?profileUser.avatar_url?<img className="imgpicture" src={`https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/${user.avatar_url}`}></img>:<img className="imgpicture" src={`https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/avatars/user_placeholder.png`}></img>:<img className="imgpicture" src={`${imageCurrentUrl}`}></img>}
                     <div className="loginpicturewrapper">
                         <svg xmlns="http://www.w3.org/2000/svg" className="loginpicturesvg" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
@@ -68,19 +67,19 @@ function Profile({user, reqlog, darkMode, setDarkMode}) {
                     </div>
                 </label>
                 <div className="bothdata secondtext">
-                    <div><div className="smalltextlogin">Email:&nbsp;</div><div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="dropdownsvg"><path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/></svg>{email}</div></div>
-                    <div><div className="smalltextlogin">Usuário:&nbsp;</div><div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" /></svg><input value={username} placeholder={'Usuário...'} onInput={e => setUsername(e.target.value)}></input></div></div>
+                    <div><div className="smalltextlogin"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="dropdownsvg"><path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/></svg>Email:&nbsp;</div><div>{email}</div></div>
+                    <div><div className="smalltextlogin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" /></svg>Usuário:&nbsp;</div><input value={username} placeholder={'Usuário...'} onInput={e => setUsername(e.target.value)}></input></div>
                 </div>
             </div>
             <div className="justifycenter">
                 <div>
-                <button onClick={saveUserChanges} className='useredit'>Salvar perfil</button>
+                <button onClick={saveUserChanges} className='loginbutton logintext'>Salvar perfil</button>
                 <div className="profiledark">
                     <DarkModeButton darkMode={darkMode} setDarkMode={setDarkMode}/>
                 </div>
                 </div>
                 <button className="loginbutton logintext" onClick={logout}>Logout
-                <svg xmlns="http://www.w3.org/2000/svg" className="loginsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="loginsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                 </svg>
                 </button>
