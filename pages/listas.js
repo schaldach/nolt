@@ -5,6 +5,7 @@ import SecondTitle from "../components/SecondTitle"
 import useInterval from "../components/UseInterval"
 import InfoBox from "../components/InfoBox"
 import AddButton from "../components/AddButton"
+import EmptyAnotations from "../components/EmptyAnotations"
 
 function Lists({user, propLists, addList, propGroups}) {
     const [successAnimation, conectionMade] = useState(0)
@@ -114,13 +115,16 @@ function Lists({user, propLists, addList, propGroups}) {
             <SecondTitle titlecontent='Anotações' extra='/Listas'/>
             <InfoBox successAnimation={successAnimation}/>
             </div>
-            <div className='displayanotations'>
-                <AddButton addAnotation={addAnotation}/>
+            <AddButton addAnotation={addAnotation}/>
+            {allLists.length?
+            <div className='displayanotations'> 
                 {allLists.map(list =>
                     <ListAnotation onFavorite={onFavorite} favorite={list.favorite} list={list} onDelete={onDelete} onEdit={onEdit}
                     filtered={list.filtered} onFilter={onFilter} onSmall={onSmall} small={list.small} key={list.id} title={list.title} content={list.content}/>
                 )}
-            </div>
+            </div>:
+            <EmptyAnotations type='lista'/>
+            }
         </div>
     )
 }

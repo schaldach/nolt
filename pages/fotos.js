@@ -5,6 +5,7 @@ import AddFileButton from "../components/AddFileButton";
 import { supabase } from "../utils/supabaseClient"
 import ImageAnotation from "../components/ImageAnotation";
 import useInterval from "../components/UseInterval"
+import EmptyAnotations from "../components/EmptyAnotations";
 
 function Images({user, propImages, addImage, propGroups}) {
     const [successAnimation, conectionMade] = useState(0)
@@ -106,13 +107,16 @@ function Images({user, propImages, addImage, propGroups}) {
             <SecondTitle titlecontent='Anotações' extra='/Fotos'/>
             <InfoBox successAnimation={successAnimation}/>
             </div>
-            <div className='displayanotations displayimgs'>
-                <AddFileButton setImage={setImage}/>
+            <AddFileButton setImage={setImage}/>
+            {allImages.length?
+            <div className='displayanotations displayimgs displaylinks'>
                 {allImages.map(image =>
-                <ImageAnotation image={image} key={image.id} id={image.id} storageurl={image.storageurl} 
-                favorite={image.favorite} onDelete={onDelete} onFavorite={onFavorite}/>
+                    <ImageAnotation image={image} key={image.id} id={image.id} storageurl={image.storageurl} 
+                    favorite={image.favorite} onDelete={onDelete} onFavorite={onFavorite}/>
                 )}
-            </div>
+            </div>:
+            <EmptyAnotations type='foto'/>
+            }
         </div>
     );
 }

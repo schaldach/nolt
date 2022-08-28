@@ -6,6 +6,7 @@ import SecondTitle from "../components/SecondTitle"
 import useInterval from "../components/UseInterval"
 import InfoBox from "../components/InfoBox"
 import AddButton from "../components/AddButton"
+import EmptyAnotations from "../components/EmptyAnotations";
 
 function Links({user, propLinks, addLink, propGroups}) {
     const [successAnimation, conectionMade] = useState(0)
@@ -89,14 +90,18 @@ function Links({user, propLinks, addLink, propGroups}) {
             <SecondTitle titlecontent='Anotações' extra='/Links'/>
             <InfoBox successAnimation={successAnimation}/>
             </div>
-            <div className='displayanotations'>
-                <AddButton addAnotation={() => requestD(true)}/>
+            <AddButton addAnotation={() => requestD(true)}/>
+            {allLinks.length||needData?
+            <div className='displayanotations displaylinks'>
                 {allLinks.map(link =>
-                <SmallerAnotation onDelete={onDelete} key={link.id} id={link.id} link={link} 
-                linkname={link.name} linkcontent={link.href} onFavorite={onFavorite} favorite={link.favorite}></SmallerAnotation>
+                    <SmallerAnotation onDelete={onDelete} key={link.id} id={link.id} link={link} 
+                    linkname={link.name} linkcontent={link.href} onFavorite={onFavorite} favorite={link.favorite}></SmallerAnotation>
                 )}
                 <NecessaryDataLink requestD={requestD} onFinish={finishAnotation} visualclass={needData?'':'displaynone'}/>
-            </div>
+            </div>:
+            <EmptyAnotations type='link'/>
+            }
+            
         </div>
     )
 }

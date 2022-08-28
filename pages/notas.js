@@ -5,6 +5,7 @@ import SecondTitle from "../components/SecondTitle"
 import useInterval from "../components/UseInterval"
 import InfoBox from "../components/InfoBox"
 import AddButton from "../components/AddButton"
+import EmptyAnotations from "../components/EmptyAnotations"
 
 function Notes({user, propNotes, addNote, propGroups}) {
     const [successAnimation, conectionMade] = useState(0)
@@ -143,13 +144,16 @@ function Notes({user, propNotes, addNote, propGroups}) {
             <SecondTitle titlecontent='Anotações' extra='/Notas'/>
             <InfoBox successAnimation={successAnimation}/>
             </div>
-            <div className='displayanotations'>
-                <AddButton addAnotation={addAnotation}/>
+            <AddButton addAnotation={addAnotation}/>
+            {allNotes.length?
+            <div className='displayanotations'> 
                 {allNotes.map(note =>
                     <Anotation onFavorite={onFavorite} favorite={note.favorite} note={note} onDelete={onDelete} onEdit={onEdit}
                     onSmall={onSmall} small={note.small} date={note.date} onSchedule={onSchedule} calendar={note.calendar} onCalendar={onCalendar} key={note.id} title={note.title} content={note.content} />
                 )}
-            </div>
+            </div>:
+            <EmptyAnotations type='nota'/>
+            }
         </div>
     )
 }

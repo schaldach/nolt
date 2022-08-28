@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Plus+Jakarta+Sans:wght@300&family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300&family=Poppins:wght@300&display=swap');
 
 :root{
   --color1: #000000;
@@ -9,7 +9,6 @@
   --color5: #2155CD;
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
-  --font3: 'Inter', sans-serif;
   --boxshadow: #b9b9b9;
 }
 [data-theme='dark'] {
@@ -21,7 +20,6 @@
   --color5: #3e087c;
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
-  --font3: 'Inter', sans-serif;
   --boxshadow: #363636;
 }
 
@@ -542,7 +540,7 @@ form{
 }
 .dropdownswrapper{
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   place-items: center;
   grid-template-columns: auto;
   place-items: center;
@@ -584,7 +582,7 @@ form{
 
 .titlesecond{
   text-align: left;
-  font-size: 3.8vh;
+  font-size: 30px;
   font-weight: bold;
   font-family: var(--font1);
   color: var(--color1);
@@ -643,7 +641,7 @@ form{
 
 .secondtext{
   margin: 15px 0px;
-  font-family: var(--font3);
+  font-family: var(--font2);
   font-size: 22px;
   word-wrap: break-word;
   color: var(--color1);
@@ -766,15 +764,15 @@ form{
 }
 
 .displayanotations{
-  margin-top: 3.5vh;
+  margin-top: 20px;
   padding-bottom: 5vh;
   row-gap: 25px;
-  column-gap: 10px;
+  column-gap: 15px;
   display: flex;
   flex-wrap: wrap;
 }
-.displayfavorites{
-  margin-top: 2vh;
+.displaylinks{
+  row-gap: 15px;
 }
 
 @keyframes popup{
@@ -925,8 +923,9 @@ input, textarea{
   background-color: var(--color2p);
   color: var(--color1);
   border: solid var(--color4) 2px;
-  font-size: 3.5vh;
-  font-family: var(--font3);
+  font-size: 20px;
+  font-family: var(--font2);
+  font-weight: bold;
   cursor: pointer;
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px; 
@@ -975,7 +974,7 @@ input, textarea{
   padding-left: 3px;
   font-size: 2.5vh;
   background-color: var(--color2p);
-  font-family: var(--font3);
+  font-family: var(--font2);
   border: solid 2px var(--color4);
 }
 .requestdata:hover{
@@ -1060,8 +1059,8 @@ svg{
 .displaycompleted{
   position: absolute;
   right: 35px;
-  font-size: 2.125vh;
-  top: -3vh;
+  font-size: 14px;
+  top: -18px;
   text-align: right;
   font-family: var(--font2);
   font-weight: bold;
@@ -1147,16 +1146,12 @@ svg{
 }
 
 .status{
-  font-family: var(--font3);
+  font-family: var(--font2);
   display: flex;
   align-items: center;
   gap: 5px;
   color: var(--color1);
-  font-size: 2vh;
-}
-.displayanotationsgroups{
-  margin-top: 0;
-  gap: 0;
+  font-size: 13px;
 }
 
 @keyframes growDown {
@@ -1220,10 +1215,6 @@ svg{
   gap: 3px;
 }
 
-.favtitle{
-  margin: 2vh 0 0 0;
-}
-
 .rotating{
   animation: rotation 0.75s infinite;
 }
@@ -1244,9 +1235,9 @@ svg{
 
 .empty{
   color: var(--color1);
-  font-size: 2.25vh;
-  font-family: var(--font3);
-  margin-top: 1.5vh;
+  font-size: 15px;
+  margin-top: 0px;
+  font-family: var(--font2);
 }
 
 .justifycenter{
@@ -1285,6 +1276,11 @@ svg{
   display: flex;
   gap: 30px;
   flex-direction: column;
+}
+.bothdata>div{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 .bothdata>div>div:nth-child(odd){
   display: flex;
@@ -1346,7 +1342,6 @@ svg{
 }
 .group{
   width: 100%;
-  margin-top: 3vh;
   background-color: var(--color2s);
   display: flex;
   flex-direction: column;
@@ -1403,7 +1398,7 @@ svg{
 }
 .previewtitle{
   padding: 10px 30px 10px 15px;
-  font-family: var(--font3);
+  font-family: var(--font2);
   background-color: var(--color2p);
   color: var(--color1);
   font-size: 3vh;
@@ -1559,12 +1554,12 @@ svg{
   height: 38px;
 }
 .userdata .profilepicwrapper{
-  width: 175px;
-  height: 175px;
+  width: 150px;
+  height: 150px;
 }
 .userdata .imgpicture{
-  min-width: 175px;
-  min-height: 175px;
+  min-width: 150px;
+  min-height: 150px;
 }
 .profilepicwrapper{
   position: relative;
@@ -1625,6 +1620,24 @@ svg{
   display: none;
 }
 
+.emptyanotations{
+  display: flex;
+  margin-top: 50px;
+  font-size: 16px;
+  flex-direction: column;
+  text-align: center;
+  word-wrap: break-word;
+  color: var(--color1);
+  font-family: var(--font2);
+  align-items: center;
+  gap: 10px;
+}
+.emptyanotations svg{
+  color: var(--color1);
+  width: 125px;
+  height: 125px;
+}
+
 @media screen and (max-width: 1024px){
   .dateinputs{
     max-width: 100%;
@@ -1634,6 +1647,12 @@ svg{
   .bothdata>div>input{
     width: 90vw;
   }
+  .secondtext{
+    text-align: center;
+  }
+  .userdata .secondtext{
+    text-align: left;
+  }
   .justifycenter{
     margin-top: 0px;
     align-items: center;
@@ -1641,13 +1660,6 @@ svg{
   }
   .justifycenter .profiledark{
     display: flex;
-  }
-  .userdata .secondtext{
-    font-size: 18px;
-    text-align: center;
-  }
-  .userdata .secondtext{
-    text-align: left;
   }
   .userdata{
     gap: 0px;
@@ -1758,7 +1770,3 @@ svg{
 .displaynone{
   display: none;
 }
-.previewcheckedsvg{
-
-}
-.homeanotation{}

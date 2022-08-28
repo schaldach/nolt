@@ -89,7 +89,7 @@ function Groups({user, propNotes, propLists, propLinks, propImages, propGroups, 
             <SecondTitle titlecontent='Grupos'/>
             <InfoBox successAnimation={successAnimation}/>
             </div>
-            <div className="displaygroups">
+            <div className="displayanotations">
                 <AddButton addAnotation={addGroup}/>
                 {allGroups.map(group => 
                     <Group allNotes={allNotes} allLists={allLists} allLinks={allLinks} allImages={allImages}

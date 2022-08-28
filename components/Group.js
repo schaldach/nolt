@@ -143,7 +143,7 @@ function Group({allNotes, allLists, allLinks, allImages, notes, lists, links, im
             <PreviewImages addImage={addImage} type='Fotos' imagesBox={imagesBox} images={images} allImages={allImages} showImages={showImages}/>
             <PreviewLists addList={addList} type='Listas' listsBox={listsBox} lists={lists} allLists={allLists} showLists={showLists}/>
             <PreviewLinks addLink={addLink} type='Links' linksBox={linksBox} links={links} allLinks={allLinks} showLinks={showLinks}/>
-            <div className='empty'>{notes.length+lists.length+links.length||editMode?'':'O grupo está vazio...'}</div>
+            <div className={notes.length+lists.length+links.length||editMode?'displaynone':'empty'}>O grupo está vazio...</div>
         </div>
         <SecurityBox onDelete={onDelete} onCancel={() => setBox(false)} boxVisible={boxVisible}/>
         </>
