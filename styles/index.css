@@ -1311,7 +1311,7 @@ svg{
   gap: 10px;
   font-family: var(--font2);
   font-weight: bold;
-  font-size: 15px;
+  font-size: 20px;
   color: var(--color1);
   width: 100%;
   border: solid var(--color4);
@@ -1320,7 +1320,7 @@ svg{
 .titleinput{
   overflow: hidden;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 20px;
 }
 .grouptitle input, .grouptitle div{
   width: 100%;
@@ -1400,12 +1400,12 @@ svg{
   font-family: var(--font2);
   background-color: var(--color2p);
   color: var(--color1);
-  font-size: 15px;
+  font-size: 20px;
 }
 .exitpreview{
   position: absolute;
   right: 10px;
-  top: 5px;
+  top: 10px;
   cursor: pointer;
   color: var(--color4);
   background-color: var(--color2p);
