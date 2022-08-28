@@ -5,6 +5,7 @@ import InfoBox from "../components/InfoBox";
 import useInterval from "../components/UseInterval"
 import Group from '../components/Group'
 import AddButton from "../components/AddButton"
+import EmptyAnotations from "../components/EmptyAnotations";
 
 function Groups({user, propNotes, propLists, propLinks, propImages, propGroups, setGroups}) {
     const [successAnimation, conectionMade] = useState(0)
@@ -89,18 +90,22 @@ function Groups({user, propNotes, propLists, propLinks, propImages, propGroups, 
             <SecondTitle titlecontent='Grupos'/>
             <InfoBox successAnimation={successAnimation}/>
             </div>
+            <AddButton addAnotation={addGroup}/>
+            {allGroups.length?
             <div className="displayanotations">
-                <AddButton addAnotation={addGroup}/>
-                {allGroups.map(group => 
-                    <Group allNotes={allNotes} allLists={allLists} allLinks={allLinks} allImages={allImages}
-                    notes={allNotes.filter(note => group['notes'].indexOf(note.id)!==-1)} 
-                    lists={allLists.filter(list => group['lists'].indexOf(list.id)!==-1)}
-                    links={allLinks.filter(link => group['links'].indexOf(link.id)!==-1)}
-                    images={allImages.filter(image => group['images'].indexOf(image.id)!==-1)}
-                    favorite={group.favorite} title={group.title} key={group.id} group={group} 
-                    onDelete={() => onDelete(group.id)} onFavorite={() => onFavorite(group)} onEdit={onEdit}/>
-                )}
-            </div>
+            {allGroups.map(group => 
+                <Group allNotes={allNotes} allLists={allLists} allLinks={allLinks} allImages={allImages}
+                notes={allNotes.filter(note => group['notes'].indexOf(note.id)!==-1)} 
+                lists={allLists.filter(list => group['lists'].indexOf(list.id)!==-1)}
+                links={allLinks.filter(link => group['links'].indexOf(link.id)!==-1)}
+                images={allImages.filter(image => group['images'].indexOf(image.id)!==-1)}
+                favorite={group.favorite} title={group.title} key={group.id} group={group} 
+                onDelete={() => onDelete(group.id)} onFavorite={() => onFavorite(group)} onEdit={onEdit}/>
+            )}
+            </div>:
+            <EmptyAnotations type='grupo'/>
+            }
+            
         </div>
     )
 }
