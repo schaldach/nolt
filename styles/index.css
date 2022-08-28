@@ -1397,7 +1397,7 @@ svg{
   padding: 0 10px;
 }
 .previewtitle{
-  padding: 10px 30px 10px 15px;
+  padding: 5px 30px 5px 15px;
   font-family: var(--font2);
   background-color: var(--color2p);
   color: var(--color1);
