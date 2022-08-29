@@ -10,6 +10,7 @@
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --boxshadow: #b9b9b9;
+  --idlehover: #999999;
 }
 [data-theme='dark'] {
   --color1: #ffffff;
@@ -20,7 +21,8 @@
   --color5: #3e087c;
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
-  --boxshadow: #424242;
+  --boxshadow: #494949;
+  --idlehover: #acacac;
 }
 
 body, html{
@@ -864,6 +866,12 @@ input, textarea{
 .functionbutton:hover{
   color: var(--color5);
 }
+.idlefunction{
+  color: var(--color1);
+}
+.idlefunction:hover{
+  color: var(--idlehover);
+}
 
 .coloredtext{
   color: var(--color4);
@@ -1027,7 +1035,7 @@ svg{
   gap: 5px;
 }
 .listinstruction{
-  color: #808080;
+  color: #999999;
   user-select: none;
   font-size: 10px;
   word-wrap: break-word;
@@ -1745,8 +1753,5 @@ svg{
 
 .displaynone{
   display: none;
+  color: #999999;
 }
-.functionalitywrapper{}
-.wholething{}
-.displaynumbers{}
-.displaycompleted{}
