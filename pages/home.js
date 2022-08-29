@@ -2,11 +2,7 @@ import React from "react"
 import { useEffect } from "react"
 import SecondTitle from "../components/SecondTitle"
 import { useState } from "react"
-import FavoriteNote from "../components/SimpleAnotation"
-import FavoriteList from "../components/SimpleList"
-import FavoriteLink from "../components/SimpleLink"
 import SimpleGroup from "../components/SimpleGroup"
-import SimpleImage from "../components/SimpleImage"
 import AnotationHomeDisplay from "../components/AnotationHomeDisplay"
 
 function Home({user, propNotes, propLists, propLinks, propImages, propGroups, changeCurrentPage, changeCurrentNote}) {
@@ -89,10 +85,10 @@ function Home({user, propNotes, propLists, propLinks, propImages, propGroups, ch
                 </div>
             </div>
             <div className={showType==='anotations'?'displayanotations displaylinks':'displaynone'}>
-            <SimpleGroup title='Notas' favorite={favorites} lists={[]} links={[]} images={[]} notes={favorites?allNotes.filter(note=>note.favorite):allNotes}/>
-            <SimpleGroup title='Listas' favorite={favorites} notes={[]} links={[]} images={[]} lists={favorites?allLists.filter(list=>list.favorite):allLists}/>
-            <SimpleGroup title='Links' favorite={favorites} lists={[]} notes={[]} images={[]} links={favorites?allLinks.filter(link=>link.favorite):allLinks}/>
-            <SimpleGroup title='Fotos' favorite={favorites} lists={[]} links={[]} notes={[]} images={favorites?allImages.filter(image=>image.favorite):allImages}/>
+            <SimpleGroup type='main' title='Notas' favorite={favorites} lists={[]} links={[]} images={[]} notes={favorites?allNotes.filter(note=>note.favorite):allNotes}/>
+            <SimpleGroup type='main' title='Listas' favorite={favorites} notes={[]} links={[]} images={[]} lists={favorites?allLists.filter(list=>list.favorite):allLists}/>
+            <SimpleGroup type='main' title='Links' favorite={favorites} lists={[]} notes={[]} images={[]} links={favorites?allLinks.filter(link=>link.favorite):allLinks}/>
+            <SimpleGroup type='main' title='Fotos' favorite={favorites} lists={[]} links={[]} notes={[]} images={favorites?allImages.filter(image=>image.favorite):allImages}/>
             </div>
             <div className={showType==='groups'?'displayanotations displaylinks':'displaynone'}>
                 {allGroups.map(group =>

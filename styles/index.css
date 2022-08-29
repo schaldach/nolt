@@ -20,7 +20,7 @@
   --color5: #3e087c;
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
-  --boxshadow: #363636;
+  --boxshadow: #424242;
 }
 
 body, html{
@@ -717,23 +717,22 @@ form{
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  background-color: var(--color4);
+  background-color: var(--color2p);
   width: 225px;
   height: 275px;
-  border: solid;
-  border-color: var(--color4);
-  border-width: 6px 2px 2px 2px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 4px 4px 10px var(--boxshadow);
 }
 .editting{
   box-shadow: 0px 0px 25px var(--color4) ;
 }
 .smallanot{
   width: 150px;
-  height: calc(175px + 2px - 6px);
+  height: 179px;
 }
 .smallanot .anotcontent{
-  height: calc(calc(175px + 2px - 6px) - 30px)
+  height: calc(179px - 30px)
 }
 
 .anotcontent::-webkit-scrollbar, .previewbox::-webkit-scrollbar{
@@ -783,13 +782,13 @@ form{
   }
   20%{
     opacity: 1;
-    transform: rotate(0deg) scale(0.25);
+    transform: scale(0.25);
   }
   80%{
-    transform: rotate(270deg) scale(1.25);
+    transform: scale(1.25);
   }
   100%{
-    transform: rotate(360deg) scale(1);
+    transform: scale(1);
   }
 }
 
@@ -798,7 +797,7 @@ form{
   background-color: var(--color4);
   border-radius: 50%;
   position: fixed;
-  animation: popup linear 0.4s;
+  animation: popup linear 0.35s;
   border: none;
   width: 60px;
   height: 60px;
@@ -817,7 +816,6 @@ form{
 }
 
 input, textarea{
-  box-sizing: border-box;
   resize: none;
   border: none;
   font-family: var(--font2);
@@ -826,8 +824,9 @@ input, textarea{
 }
 
 .anottitle{
+  border-bottom: 3px solid var(--color4);
   white-space: nowrap;
-  padding-left: 2px;
+  padding-left: 4px;
   height: 27px;
   font-size: 18px;
   font-weight: bold;
@@ -1000,10 +999,10 @@ svg{
   position: relative;
   z-index: 3;
   width: 30px;
+  top: calc(50% - 87.5px);
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin: 0;
   column-gap: 2px;
   height: 25px;
   border: none;
@@ -1400,7 +1399,7 @@ svg{
 .previewflex{
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 10px;
   padding: 0 10px;
 }
 .previewtitle{
@@ -1517,7 +1516,7 @@ svg{
   padding: 4px;
 }
 .calendarspace{
-  height: 40px;
+  height: 42px;
 }
 .dateinputs{
   max-width: 82.5%;
@@ -1782,3 +1781,5 @@ svg{
 .displaynone{
   display: none;
 }
+.anot{}
+.calendarspace{}

@@ -74,7 +74,7 @@ function Images({user, propImages, addImage, propGroups}) {
             }
         })
         if(groupChanges){
-            const eba = await supabase
+            const legal = await supabase
                 .from('grupos')
                 .upsert(newGroups)
         }
