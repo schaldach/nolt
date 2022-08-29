@@ -8,6 +8,7 @@ function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite
     const[editMode, startEdit] = useState(!content||!title)
     const[viewMode, startView] = useState(false)
     const[boxVisible, setBox] = useState(false)
+    const[activated, showDropdowns] = useState(false)
     const searchInput = useRef(null)
 
     function handleTextFocus(e){
@@ -42,7 +43,7 @@ function Anotation({title, content, onEdit, note, onDelete, favorite, onFavorite
             </div>
             <AnotationDate note={note} date={date} calendar={calendar} onSchedule={onSchedule} editMode={editMode}/>
         </div>
-        <DropdownMenu editMode={editMode} onEdit={() => startEdit(!editMode)} viewMode={viewMode} favorite={favorite} 
+        <DropdownMenu showDropdowns={() => showDropdowns(!activated)} activated={activated} editMode={editMode} onEdit={() => startEdit(!editMode)} viewMode={viewMode} favorite={favorite} 
         small={small} onSmall={() => onSmall(note)} calendar={calendar} onCalendar={() => onCalendar(note)} 
         onFavorite={() => onFavorite(note)} onView={() => startView(!viewMode)} onDelete={() => setBox(true)}/>
         </div>
