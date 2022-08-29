@@ -10,7 +10,7 @@
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --boxshadow: #b9b9b9;
-  --idlehover: #999999;
+  --idlehover: #919191;
 }
 [data-theme='dark'] {
   --color1: #ffffff;
