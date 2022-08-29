@@ -797,7 +797,7 @@ form{
   background-color: var(--color4);
   border-radius: 50%;
   position: fixed;
-  animation: popup linear 0.35s;
+  animation: popup linear 0.3s;
   border: none;
   width: 60px;
   height: 60px;
