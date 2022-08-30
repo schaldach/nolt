@@ -10,7 +10,7 @@ import PreviewImages from "./PreviewImages";
 import { useState } from "react";
 
 function Group({allNotes, allLists, allLinks, allImages, notes, lists, links, images, title, onEdit, group, onFavorite, favorite, onDelete}) {
-    const [editMode, setEdit] = useState(!(notes.length+lists.length+links.length||title))
+    const [editMode, setEdit] = useState(!(notes.length+lists.length+links.length+images.length||title))
     const [boxVisible, setBox] = useState(false)
     const [notesBox, showNotes] = useState(false)
     const [listsBox, showLists] = useState(false)
