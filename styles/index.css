@@ -3,19 +3,19 @@
 :root{
   --color1: #000000;
   --color2p: #ffffff;
-  --color2s: #f9f9f9;
+  --color2s: #f7f7f7;
   --color3: #50cdff;
   --color4: #0AA1DD;
   --color5: #2155CD;
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --boxshadow: #b9b9b9;
-  --idlehover: #919191;
+  --idlehover: #828282;
 }
 [data-theme='dark'] {
   --color1: #ffffff;
   --color2p: #212426;
-  --color2s: #2C2F33;
+  --color2s: #303336;
   --color3: #af45e0;
   --color4: #8E2DE2;
   --color5: #3e087c;
@@ -26,7 +26,7 @@
 }
 
 body, html{
-  scroll-padding-top: 12vh;
+  scroll-padding-top: 15vh;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -1207,7 +1207,6 @@ svg{
 .empty{
   color: var(--color1);
   font-size: 15px;
-  margin-top: 0px;
   font-family: var(--font2);
 }
 
@@ -1327,7 +1326,7 @@ svg{
   gap: 10px;
 }
 .specificgroup{
-  gap: 1.5vw;
+  gap: 15px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -1755,4 +1754,3 @@ svg{
   display: none;
   color: #999999;
 }
-.anot{}
