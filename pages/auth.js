@@ -31,6 +31,9 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
             .resetPasswordForEmail(email, {
             redirectTo: `${window.location.origin}/password-recovery`,
         })
+        .then(() => {
+            throwSuccess(true)
+        })
     }
 
     async function signup() {
@@ -86,7 +89,7 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
                 </svg>
                 </button>
                 {errorMessage&&(email||password)?<div className="loginerror logintext">{login?<div>Usuário e/ou senha inválidos<br/>&#40;A senha precisa ter no mínimo 6 caracteres&#41;</div>:<div>Os dados não são válidos<br/>&#40;A senha precisa ter no mínimo 6 caracteres&#41;</div>}</div>:''}
-                {successMessage?<div className="loginsuccess logintext"><div>Usuário e/ou senha inválidos<br/>&#40;A senha precisa ter no mínimo 6 caracteres&#41;</div></div>:''}
+                {successMessage?<div className="loginsuccess logintext"><div>O token de recuperação foi enviado para o email acima com sucesso.</div></div>:''}
                 <div className="loginchangewrapper">
                     <button className="loginchange" onClick={() => setRecover(!recoverPassword)}>{recoverPassword?'Voltar':'Esqueci a senha'}</button>                
                 </div>

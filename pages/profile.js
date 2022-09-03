@@ -11,6 +11,7 @@ function Profile({user, reqlog, darkMode, setDarkMode}) {
     const [username, setUsername] = useState(user?user.username:'')
     const [image, setImage] = useState(null)
     const [imageCurrentUrl, setImageUrl] = useState(null)
+    const [successMessage, throwSuccess] = useState(false)
 
     useEffect(() => {
         if(image){
@@ -50,6 +51,9 @@ function Profile({user, reqlog, darkMode, setDarkMode}) {
         supabase.auth.api
             .resetPasswordForEmail(user.email, {
             redirectTo: `${window.location.origin}/password-recovery`,
+        })
+        .then(() => {
+            throwSuccess(true)
         })
     }
 
@@ -92,6 +96,7 @@ function Profile({user, reqlog, darkMode, setDarkMode}) {
                 </svg>
                 </button>
             </div>
+            {successMessage?<div className="loginsuccess logintext"><div>O token de recuperação foi enviado para o email acima com sucesso.</div></div>:''}
         </div>
     )
 }
