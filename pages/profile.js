@@ -48,6 +48,7 @@ function Profile({user, reqlog, darkMode, setDarkMode}) {
     }
 
     function alterPassword(){
+        throwSuccess(false)
         supabase.auth.api
             .resetPasswordForEmail(user.email, {
             redirectTo: `${window.location.origin}/password-recovery`,

@@ -405,7 +405,7 @@ form{
   font-family: var(--font2);
 }
 .loginerror{
-  width: 70%;
+  width: 75%;
   font-size: 15px;
   color: #e61e1e;
   animation: shake 0.4s linear;
@@ -419,7 +419,7 @@ form{
   100% { transform: translate(0px); }
 }
 .loginsuccess{
-  width: 70%;
+  width: 75%;
   font-size: 15px;
   color: var(--color3);
   animation: shake 0.4s linear;
@@ -1237,7 +1237,7 @@ svg{
 .justifycenter{
   display: flex;
   gap: 25px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .justifycenter div{
   display: flex;
@@ -1300,9 +1300,7 @@ svg{
 }
 .errorwrapper{
   margin-top: 15px;
-  width: 100%;
-}
-.errorwrapper .loginsuccess{
+  display: flex;
   width: 100%;
 }
 
@@ -1680,6 +1678,10 @@ svg{
   .errorwrapper .loginsuccess{
     text-align: center;
   }
+  .errorwrapper{
+    display: flex;
+    justify-content: center;
+  }
   .secondtext{
     text-align: center;
   }
@@ -1687,7 +1689,6 @@ svg{
     text-align: left;
   }
   .justifycenter{
-    margin-top: 0px;
     align-items: center;
     flex-direction: column;
   }
@@ -1790,12 +1791,6 @@ svg{
   }
   .displaynumbers{
     justify-content: center;
-  }
-  .loginerror{
-    width: 95%;
-  }
-  .loginsuccess{
-    width: 95%;
   }
   .loginbutton{
     padding: 7px 14px;
