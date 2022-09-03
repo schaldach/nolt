@@ -6,7 +6,7 @@ function PasswordRecovery() {
     const [newpassword, alterpassword] = useState('')
     const accessToken = Router.query.access_token;
 
-    function finalChange(){
+    async function finalChange(){
         supabase.auth.api.updateUser(accessToken, { newpassword })
             .then(() => {
                 Router.push("/auth");
