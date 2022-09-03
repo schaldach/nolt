@@ -8,16 +8,16 @@ function PasswordRecovery({setpassword}) {
     const accessToken = typeof window !== 'undefined'?router.query.access_token:''
 
     async function finalChange(){
-        supabase.auth.api.updateUser(accessToken, { newpassword })
+        const eba = await supabase.auth.signOut()
         .then(() => {
-            setpassword(false)
+            supabase.auth.updateUser(accessToken, { newpassword })
             router.push("/")
             .then(() => {
                 router.reload()
             })
         })
-        .catch(() => {
-            notify.error("token-expirou");
+        .catch((error) => {
+            console.log(error)
         });
     }
 
