@@ -8,6 +8,7 @@ function PasswordRecovery({user}) {
 
     useEffect(() => {
         setToken(Router.query.access_token)
+        console.log(Router.query.access_token)
     }, [])
 
     async function finalChange(){
