@@ -140,9 +140,9 @@ function Group({allNotes, allLists, allLinks, allImages, notes, lists, links, im
                 )}
             </div>
             {notesBox?<PreviewNotes addNote={addNote} type='Notas' notesBox={notesBox} notes={notes} allNotes={allNotes} showNotes={showNotes}/>:''}
-            {listsBox?<PreviewImages addImage={addImage} type='Fotos' imagesBox={imagesBox} images={images} allImages={allImages} showImages={showImages}/>:''}
-            {linksBox?<PreviewLists addList={addList} type='Listas' listsBox={listsBox} lists={lists} allLists={allLists} showLists={showLists}/>:''}
-            {imagesBox?<PreviewLinks addLink={addLink} type='Links' linksBox={linksBox} links={links} allLinks={allLinks} showLinks={showLinks}/>:''}
+            {imagesBox?<PreviewImages addImage={addImage} type='Fotos' imagesBox={imagesBox} images={images} allImages={allImages} showImages={showImages}/>:''}
+            {listsBox?<PreviewLists addList={addList} type='Listas' listsBox={listsBox} lists={lists} allLists={allLists} showLists={showLists}/>:''}
+            {linksBox?<PreviewLinks addLink={addLink} type='Links' linksBox={linksBox} links={links} allLinks={allLinks} showLinks={showLinks}/>:''}
             <div className={notes.length+lists.length+links.length+images.length||editMode?'displaynone':'empty'}>O grupo está vazio...</div>
         </div>
         <SecurityBox onDelete={onDelete} onCancel={() => setBox(false)} boxVisible={boxVisible}/>
