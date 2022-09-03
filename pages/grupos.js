@@ -28,15 +28,12 @@ function Groups({user, propNotes, propLists, propLinks, propImages, propGroups, 
             .then(() => syncGroups(allGroups))
     }
 
-    function onEdit(group, title, notes, lists, links, images){
+    function onEdit(group, title, anotations, type){
         setChange(true)
         let newGroups = [...allGroups]
         const index = newGroups.indexOf(group)
         newGroups[index].title = title
-        newGroups[index]['notes'] = notes
-        newGroups[index]['lists'] = lists
-        newGroups[index]['links'] = links
-        newGroups[index]['images'] = images
+        newGroups[index][type] = anotations
         setGroups(newGroups)
         conectionMade(1)
     }

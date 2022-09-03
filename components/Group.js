@@ -25,7 +25,7 @@ function Group({allNotes, allLists, allLinks, allImages, notes, lists, links, im
         else{
             newNotes.push(note.id)
         }
-        onEdit(group, title, newNotes, group['lists'], group['links'], group['images'])
+        onEdit(group, title, newNotes, 'notes')
     }
 
     function addList(list){
@@ -36,7 +36,7 @@ function Group({allNotes, allLists, allLinks, allImages, notes, lists, links, im
         else{
             newLists.push(list.id)
         }
-        onEdit(group, title, group['notes'], newLists, group['links'], group['images'])
+        onEdit(group, title, newLists, 'lists')
     }
 
     function addLink(link){
@@ -47,7 +47,7 @@ function Group({allNotes, allLists, allLinks, allImages, notes, lists, links, im
         else{
             newLinks.push(link.id)
         }
-        onEdit(group, title, group['notes'], group['lists'], newLinks, group['images'])
+        onEdit(group, title, newLinks, 'links')
     }
 
     function addImage(image){
@@ -58,7 +58,7 @@ function Group({allNotes, allLists, allLinks, allImages, notes, lists, links, im
         else{
             newImages.push(image.id)
         }
-        onEdit(group, title, group['notes'], group['lists'], group['links'], newImages)
+        onEdit(group, title, newImages, 'images')
     }
 
     return (
@@ -67,7 +67,7 @@ function Group({allNotes, allLists, allLinks, allImages, notes, lists, links, im
             <div className="grouptitle">
                 <div className={!editMode?"":'displaynone'}>{title}</div>
                 <input className={editMode?"titleinput":'displaynone'} placeholder='Nome do grupo' 
-                value={title} onChange={e => onEdit(group, e.target.value, group['notes'], group['lists'], group['links'], group['images'])}></input>
+                value={title} onChange={e => onEdit(group, e.target.value)}></input>
                 <button onClick={() => setEdit(!editMode)}>
                     <svg xmlns="http://www.w3.org/2000/svg" className={!editMode?"dropdownsvg":"displaynone"} fill="none" viewBox="0 0 24 24" stroke='currentColor' strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
