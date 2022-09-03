@@ -451,9 +451,11 @@ form{
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
+  box-shadow: 3px 3px 12px var(--color3);
 }
 .loginbutton:hover{
   background-color: var(--color5);
+  box-shadow: 3px 3px 12px var(--color4);
 }
 
 .navbar{
