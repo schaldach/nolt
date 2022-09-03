@@ -4,8 +4,8 @@ import React, { useState } from "react";
 
 function PasswordRecovery({setpassword}) {
     const [newpassword, alterpassword] = useState('')
-    const accessToken = typeof window !== 'undefined'?router.query.access_token:''
     const router = useRouter();
+    const accessToken = typeof window !== 'undefined'?router.query.access_token:''
 
     async function finalChange(){
         supabase.auth.api.updateUser(accessToken, { newpassword })
