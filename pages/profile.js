@@ -46,6 +46,13 @@ function Profile({user, reqlog, darkMode, setDarkMode}) {
             })
     }
 
+    function alterPassword(){
+        supabase.auth.api
+            .resetPasswordForEmail(user.email, {
+            redirectTo: `${window.location.origin}/password-recovery`,
+        })
+    }
+
     async function logout() {
         const eba = await supabase.auth.signOut()
         .then(() => {
@@ -74,12 +81,13 @@ function Profile({user, reqlog, darkMode, setDarkMode}) {
             <div className="justifycenter">
                 <div>
                 <button onClick={saveUserChanges} className='loginbutton logintext'>Salvar perfil</button>
+                <button onClick={alterPassword} className='loginbutton logintext'>Alterar senha</button>
                 <div className="profiledark">
                     <DarkModeButton darkMode={darkMode} setDarkMode={setDarkMode}/>
                 </div>
                 </div>
                 <button className="loginbutton logintext" onClick={logout}>Logout
-                <svg xmlns="http://www.w3.org/2000/svg" className="loginsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="loginsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                 </svg>
                 </button>

@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }) {
   const[darkMode, setDarkMode] = useState(false)
   const[settable, releaseLocalStorage] = useState(false)
   const[project, setProject] = useState(false)
+  const[passwordrecovery, setpassword] = useState(false)
   const [allGroups, setGroups] = useState([])
   const [allNotes, addNote] = useState([])
   const [allLists, addList] = useState([])
@@ -70,6 +71,9 @@ function MyApp({ Component, pageProps }) {
       const router = Router
       let {pathname} = router
       const newUser = supabase.auth.user()
+      if(pathname==='/password-recovery'){
+        setpassword(true)
+      }
       if(!newUser){
         if(pathname==='/'){setProject(true)}
         throwError(true)
@@ -96,7 +100,7 @@ function MyApp({ Component, pageProps }) {
       </div>
     )
   }
-  if(!user||project){
+  if(!user||project||passwordrecovery){
   return(
     <div>
     <Head>
