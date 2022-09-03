@@ -96,7 +96,9 @@ function Profile({user, reqlog, darkMode, setDarkMode}) {
                 </svg>
                 </button>
             </div>
-            {successMessage?<div className="loginsuccess logintext"><div>O token de recuperação foi enviado para o email acima com sucesso.</div></div>:''}
+            <div className="errorwrapper">
+                {successMessage?<div className="loginsuccess logintext"><div>O token de recuperação foi enviado para o email acima com sucesso.</div></div>:''}
+            </div>
         </div>
     )
 }

@@ -1298,8 +1298,12 @@ svg{
 .bothdata>div>input:focus{
   border-bottom: 2px solid var(--color5);
 }
-.justifycenter~.loginsuccess{
+.errorwrapper{
   margin-top: 15px;
+  width: 100%;
+}
+.errorwrapper .loginsuccess{
+  width: 100%;
 }
 
 .loginsvg{
@@ -1673,9 +1677,8 @@ svg{
   .bothdata>div>input, .bothdata>div>div:nth-child(even){
     width: 90vw;
   }
-  .justifycenter~.loginsuccess{
+  .errorwrapper .loginsuccess{
     text-align: center;
-    width: 100%;
   }
   .secondtext{
     text-align: center;
