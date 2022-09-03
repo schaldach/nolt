@@ -73,6 +73,7 @@ function MyApp({ Component, pageProps }) {
       const newUser = supabase.auth.user()
       if(pathname==='/password-recovery'){
         setpassword(true)
+        return
       }
       if(!newUser){
         if(pathname==='/'){setProject(true)}
