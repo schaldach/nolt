@@ -91,7 +91,7 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
                 {errorMessage&&(email||password)?<div className="loginerror logintext">{login?<div>Usuário e/ou senha inválidos<br/>&#40;A senha precisa ter no mínimo 6 caracteres&#41;</div>:<div>Os dados não são válidos<br/>&#40;A senha precisa ter no mínimo 6 caracteres&#41;</div>}</div>:''}
                 {successMessage?<div className="loginsuccess logintext"><div>O token de recuperação foi enviado para o email acima com sucesso.</div></div>:''}
                 <div className="loginchangewrapper">
-                    <button className="loginchange" onClick={() => {setRecover(!recoverPassword);throwSuccess(false)}}>{recoverPassword?'Voltar':'Esqueci a senha'}</button>                
+                    <button className="loginchange" onClick={() => {setRecover(!recoverPassword);throwSuccess(false)}}>{recoverPassword?'Voltar':'Esqueceu a senha?'}</button>                
                 </div>
                 <div className={!recoverPassword?"loginchangewrapper":'displaynone'}>{login?'Não possui uma conta?':'Já tem uma conta?'}
                     <button className="loginchange" onClick={() => changeMode(!login)}>{login?'Cadastro':'Login'}</button>                
