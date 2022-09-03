@@ -3,7 +3,7 @@ import Router from "next/router";
 import React, { useEffect, useState } from "react";
 import LoginBackground from "../components/LoginBackground";
 
-function PasswordRecovery() {
+function PasswordRecovery({setpassword}) {
     const [newpassword, alterpassword] = useState('')
     const [newpassword2, alterpassword2] = useState('')
     const [errorMsg, throwError] = useState(false)
@@ -18,6 +18,7 @@ function PasswordRecovery() {
         if(error){throwError(true);return}
         const eba = await supabase.auth.signOut()
         .then(() => {
+            setpassword(false)
             Router.push('/auth')
         })
     }
