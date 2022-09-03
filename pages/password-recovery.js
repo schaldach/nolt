@@ -14,7 +14,7 @@ function PasswordRecovery() {
 
     async function finalChange(){
         if(newpassword!==newpassword2){throwError(true);return}
-        const {error} = supabase.auth.update({ password: newpassword })
+        const {error} = await supabase.auth.update({ password: newpassword })
         if(error){throwError(true);return}
         const eba = await supabase.auth.signOut()
         .then(() => {
