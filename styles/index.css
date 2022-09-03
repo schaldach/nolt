@@ -412,7 +412,7 @@ form{
 .loginsuccess{
   width: 70%;
   font-size: 15px;
-  color: #2e856e;
+  color: var(--color3);
 }
 .loginchangewrapper{
   font-size: 15px;
@@ -1287,6 +1287,9 @@ svg{
 .bothdata>div>input:focus{
   border-bottom: 2px solid var(--color5);
 }
+.justifycenter~.loginsuccess{
+  margin-top: 15px;
+}
 
 .loginsvg{
   width: 40px;
@@ -1767,9 +1770,11 @@ svg{
   .loginerror{
     width: 95%;
   }
+  .loginsuccess{
+    width: 95%;
+  }
 }
 
 .displaynone{
   display: none;
 }
-.loginerror{}
