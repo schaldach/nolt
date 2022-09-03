@@ -1,15 +1,20 @@
 import {supabase} from "../utils/supabaseClient"
-import Router from "next/router";
+import {useRouter} from "next/router";
 import React, { useState } from "react";
 
-function PasswordRecovery() {
+function PasswordRecovery({setpassword}) {
     const [newpassword, alterpassword] = useState('')
-    const accessToken = typeof window !== 'undefined'?JSON.stringify(Router.query.access_token):''
+    const accessToken = typeof window !== 'undefined'?router.query.access_token:''
+    const router = useRouter();
 
     async function finalChange(){
         supabase.auth.api.updateUser(accessToken, { newpassword })
         .then(() => {
-            Router.push("/auth");
+            setpassword(false)
+            router.push("/")
+            .then(() => {
+                router.reload()
+            })
         })
         .catch(() => {
             notify.error("token-expirou");

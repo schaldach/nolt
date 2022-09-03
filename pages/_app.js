@@ -107,7 +107,7 @@ function MyApp({ Component, pageProps }) {
     <Head>
       <title>Nolt</title>
     </Head>
-    <Component user={user} setProject={setProject} reqlog={reqlog} errorMessage={errorMessage} throwError={throwError}/>
+    <Component setpassword={setpassword} user={user} setProject={setProject} reqlog={reqlog} errorMessage={errorMessage} throwError={throwError}/>
     </div>
     )
   }
