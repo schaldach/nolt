@@ -65,10 +65,10 @@ function Project({setProject, user}) {
                     <a id="features" className="landingtext blacktext secondlandingtitle">Principais features</a>
                     <div className="featuresshowcase">
                     <div className="landingflex">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="landingsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                        <svg xmlns="http://www.w3.org/2000/svg" className="landingsvg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                         </svg>
-                        <div className="cardanotation">Networking</div>
+                        <div className="cardanotation">Usuário</div>
                         <div className="landingtext minor blacktext">Os seus dados ficarão salvos na sua conta para que você possa acessá-los em qualquer dispositivo
                         que também esteja logado. 
                         </div>
@@ -114,7 +114,7 @@ function Project({setProject, user}) {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
                         </svg>
                         <div className="cardanotation">Organização</div>
-                        <div className="landingtext minor blacktext">Personalize as anotações em destaque através dos favoritos e grupos, para visualizar
+                        <div className="landingtext minor blacktext">Personalize as principais anotações através dos favoritos e grupos, para deixar em destaque
                         somente aquelas que você precisa.
                         </div>
                     </div>
