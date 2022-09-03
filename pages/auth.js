@@ -8,8 +8,10 @@ import LoginBackground from '../components/LoginBackground';
 function Auth({throwError, reqlog, errorMessage, setProject}) {
     const [login, changeMode] = useState(true)
     const [email, updateEmail] = useState('')
+    const [repeatEmail, updateRepeatEmail] = useState('')
     const [password, updatePassword] = useState('')
     const [passwordVisible, setVisible] = useState(false)
+    const [recoverPassword, setRecover] = useState(false)
 
     useEffect(() => throwError(false), [email, password, login])
 
@@ -23,7 +25,18 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
         }
     }
 
+    function alterPassword(){
+        supabase.auth.api
+            .resetPasswordForEmail(email, {
+            redirectTo: `${window.location.origin}/password-recovery`,
+        })
+    }
+
     async function signup() {
+        if(email!==repeatEmail){
+            throwError(true)
+            return
+        }
         const { error } = supabase.auth.signUp({email,password})
         .then(() => {
             reqlog(Math.random())
@@ -38,10 +51,11 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
             <Link href='/'><div onClick={() => setProject(true)} className="loginlink"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" /></svg>Voltar</div></Link>
             <div className="loginbox">
                 <div className='titulo'>nolt</div>
-                <div className="logintext">{login?'Login':'Cadastro'}</div>
+                <div className="logintext">{recoverPassword?'Esqueci a senha':login?'Login':'Cadastro'}</div>
                 <form>
                 <div className="divinput"><input autoComplete='current-password' type='text' onInput={e => updateEmail(e.target.value)} value={email} placeholder='Email'></input></div>
-                <div className="divinput">
+                <div className={!login&&!recoverPassword?"divinput":'displaynone'}><input type='text' onInput={e => updateRepeatEmail(e.target.value)} value={repeatEmail} placeholder='Confirmar email'></input></div>
+                {recoverPassword?'':<div className="divinput">
                     <input autoComplete='current-password' type={passwordVisible?'text':'password'} onInput={e => updatePassword(e.target.value)} value={password} placeholder='Senha'></input>
                     <button type="button" onClick={() => setVisible(!passwordVisible)}>
                         <svg xmlns="http://www.w3.org/2000/svg" className={!passwordVisible?'loginsvg2':'displaynone'} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -53,20 +67,28 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
                             <path fillRule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clipRule="evenodd" />
                         </svg>
                     </button>
-                </div>
+                </div>}
                 </form>
-                <button className={login?"loginbutton logintext":'displaynone'} onClick={signin}>Login
+                <button className={recoverPassword?"loginbutton logintext":'displaynone'} onClick={alterPassword}>Enviar email
+                <svg xmlns="http://www.w3.org/2000/svg" className="loginsvg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                </svg>
+                </button>
+                <button className={login&&!recoverPassword?"loginbutton logintext":'displaynone'} onClick={signin}>Login
                 <svg xmlns="http://www.w3.org/2000/svg" className="loginsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
                 </svg>
                 </button>
-                <button className={login?'displaynone':"loginbutton logintext"} onClick={signup}>Cadastro
+                <button className={!login&&!recoverPassword?'loginbutton logintext':"displaynone"} onClick={signup}>Cadastro
                 <svg xmlns="http://www.w3.org/2000/svg" className="loginsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
                 </svg>
                 </button>
-                {errorMessage&&(email||password)?<div className="loginerror logintext">{login?<div>Usuário e/ou senha inválidos.<br/>&#40;A senha precisa ter no mínimo 6 caracteres e não coloque &ldquo;espaço&rdquo; depois do e-mail&#41;</div>:<div>Os dados não são válidos.<br/>&#40;A senha precisa ter no mínimo 6 caracteres e não coloque &ldquo;espaço&rdquo; depois do e-mail&#41;</div>}</div>:''}
-                <div className="loginchangewrapper">{login?'Não possui uma conta?':'Já tem uma conta?'}
+                {errorMessage&&(email||password)?<div className="loginerror logintext">{login?<div>Usuário e/ou senha inválidos.<br/>&#40;A senha precisa ter no mínimo 6 caracteres.</div>:<div>Os dados não são válidos.<br/>&#40;A senha precisa ter no mínimo 6 caracteres.</div>}</div>:''}
+                <div className="loginchangewrapper">
+                    <button className="loginchange" onClick={() => setRecover(!recoverPassword)}>{recoverPassword?'Voltar':'Esqueci a senha'}</button>                
+                </div>
+                <div className={!recoverPassword?"loginchangewrapper":'displaynone'}>{login?'Não possui uma conta?':'Já tem uma conta?'}
                     <button className="loginchange" onClick={() => changeMode(!login)}>{login?'Cadastro':'Login'}</button>                
                 </div>
             </div>

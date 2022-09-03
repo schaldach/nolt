@@ -1,22 +1,17 @@
 import {supabase} from "../utils/supabaseClient"
 import Router from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import LoginBackground from "../components/LoginBackground";
 
-function PasswordRecovery({user}) {
+function PasswordRecovery() {
     const [newpassword, alterpassword] = useState('')
-    const [accessToken, setToken] = useState(null)
-
-    useEffect(() => {
-        setToken(Router.query.access_token)
-        console.log(Router.query.access_token)
-    }, [])
 
     async function finalChange(){
         supabase.auth.update({ password: newpassword })
         .then(async () => {
             const eba = await supabase.auth.signOut()
             .then(() => {
-                Router.push('/')
+                Router.push('/auth')
                 .then(() => {
                     Router.reload()
                 })
@@ -25,10 +20,20 @@ function PasswordRecovery({user}) {
     }
 
     return (
-        <div>
-            <div className="passwordrecover">
-                <input value={newpassword} placeholder='Nova senha' onChange={e => alterpassword(e.target.value)}></input>
-                <button onClick={() => finalChange()}>Alterar senha</button>
+        <div className="login">
+            <div className='loginbackground'>
+                <LoginBackground/>
+                <LoginBackground/>
+                <LoginBackground/>
+                <LoginBackground/>
+                <LoginBackground/>
+                <LoginBackground/>
+            </div>
+            <div className="loginbox">
+                <div className='titulo'>nolt</div>
+                <div className="logintext">Alterar Senha</div>
+                <div className="divinput"><input type='text' onInput={e => alterpassword(e.target.value)} value={newpassword} placeholder='Nova senha'></input></div>
+                <button className="loginbutton logintext" onClick={() => finalChange()}>Alterar senha</button>
             </div>
         </div>
     )
