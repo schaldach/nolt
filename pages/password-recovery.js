@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 
 function PasswordRecovery({user}) {
     const [newpassword, alterpassword] = useState('')
-    const [accesToken, setToken] = useState(null)
+    const [accessToken, setToken] = useState(null)
 
     useEffect(() => {
         setToken(Router.query.access_token)
@@ -12,12 +12,8 @@ function PasswordRecovery({user}) {
 
     async function finalChange(){
         if(user){const eba = await supabase.auth.signOut()}
-        const {error} = supabase.auth.updateUser(accesToken, { newpassword })
+        const {error} = supabase.auth.updateUser(accessToken, { newpassword })
         if(error){console.log(error)}
-        Router.push("/")
-        .then(() => {
-            Router.reload()
-        })
     }
 
     return (
