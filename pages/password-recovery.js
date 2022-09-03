@@ -12,8 +12,16 @@ function PasswordRecovery({user}) {
     }, [])
 
     async function finalChange(){
-        if(user){const eba = await supabase.auth.signOut()}
-        supabase.auth.api.updateUser(accessToken, { newpassword })
+        supabase.auth.update({ password: newpassword })
+        .then(async () => {
+            const eba = await supabase.auth.signOut()
+            .then(() => {
+                Router.push('/')
+                .then(() => {
+                    Router.reload()
+                })
+            })
+        })
     }
 
     return (
