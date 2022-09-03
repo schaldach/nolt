@@ -13,8 +13,11 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
     const [passwordVisible, setVisible] = useState(false)
     const [recoverPassword, setRecover] = useState(false)
     const [successMessage, throwSuccess] = useState(false)
+    const [emailError, throwEmailError] = useState(false)
 
     useEffect(() => throwError(false), [email, password, login])
+    useEffect(() => throwEmailError(false), [email, login])
+    useEffect(() => throwSuccess(false), [login])
 
     async function signin() {
         const { error } = supabase.auth.signIn({email,password})
@@ -26,14 +29,14 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
         }
     }
 
-    function alterPassword(){
-        supabase.auth.api
+    async function alterPassword(){
+        throwEmailError(false);throwSuccess(false)
+        const {error} = await supabase.auth.api
             .resetPasswordForEmail(email, {
             redirectTo: `${window.location.origin}/password-recovery`,
         })
-        .then(() => {
-            throwSuccess(true)
-        })
+        if(error){throwEmailError(true)}
+        else{throwSuccess(true)}
     }
 
     async function signup() {
@@ -57,8 +60,8 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
                 <div className='titulo'>nolt</div>
                 <div className="logintext">{recoverPassword?'Esqueci a senha':login?'Login':'Cadastro'}</div>
                 <form>
-                <div className="divinput"><input autoComplete='current-password' type='text' onInput={e => updateEmail(e.target.value)} value={email} placeholder='Email'></input></div>
-                <div className={!login&&!recoverPassword?"divinput":'displaynone'}><input type='text' onInput={e => updateRepeatEmail(e.target.value)} value={repeatEmail} placeholder='Confirmar email'></input></div>
+                <div className="divinput"><input autoComplete='username' type='text' onInput={e => updateEmail(e.target.value)} value={email} placeholder='Email'></input></div>
+                <div className={!login&&!recoverPassword?"divinput":'displaynone'}><input type='text' onInput={e => updateRepeatEmail(e.target.value)} value={repeatEmail} placeholder='Confirmar email' autoComplete='username'></input></div>
                 {recoverPassword?'':<div className="divinput">
                     <input autoComplete='current-password' type={passwordVisible?'text':'password'} onInput={e => updatePassword(e.target.value)} value={password} placeholder='Senha'></input>
                     <button type="button" onClick={() => setVisible(!passwordVisible)}>
@@ -90,6 +93,7 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
                 </button>
                 {errorMessage&&(email||password)?<div className="loginerror logintext">{login?<div>Usuário e/ou senha inválidos<br/>&#40;A senha precisa ter no mínimo 6 caracteres&#41;</div>:<div>Os dados não são válidos<br/>&#40;A senha precisa ter no mínimo 6 caracteres&#41;</div>}</div>:''}
                 {successMessage?<div className="loginsuccess logintext"><div>O token de recuperação foi enviado para o email acima com sucesso.</div></div>:''}
+                {emailError?<div className="loginerror logintext"><div>O email não é válido.</div></div>:''}
                 <div className="loginchangewrapper">
                     <button className="loginchange" onClick={() => {setRecover(!recoverPassword);throwSuccess(false)}}>{recoverPassword?'Voltar':'Esqueceu a senha?'}</button>                
                 </div>

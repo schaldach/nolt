@@ -408,11 +408,21 @@ form{
   width: 70%;
   font-size: 15px;
   color: #e61e1e;
+  animation: shake 0.4s linear;
+}
+@keyframes shake {
+  0% { transform: translate(30px); }
+  20% { transform: translate(-30px); }
+  40% { transform: translate(15px); }
+  60% { transform: translate(-15px); }
+  80% { transform: translate(8px); }
+  100% { transform: translate(0px); }
 }
 .loginsuccess{
   width: 70%;
   font-size: 15px;
   color: var(--color3);
+  animation: shake 0.4s linear;
 }
 .loginchangewrapper{
   font-size: 15px;
@@ -619,7 +629,6 @@ form{
 .darkmode{
   background-color: var(--color2p);
   cursor: pointer;
-  border: none;
   border-radius: 25px;
   padding: 3px 0px;
   width: 65px;
