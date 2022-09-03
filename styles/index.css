@@ -411,11 +411,11 @@ form{
   animation: shake 0.4s linear;
 }
 @keyframes shake {
-  0% { transform: translate(30px); }
-  20% { transform: translate(-30px); }
-  40% { transform: translate(15px); }
-  60% { transform: translate(-15px); }
-  80% { transform: translate(8px); }
+  0% { transform: translate(21px); }
+  20% { transform: translate(-21px); }
+  40% { transform: translate(14px); }
+  60% { transform: translate(-14px); }
+  80% { transform: translate(7px); }
   100% { transform: translate(0px); }
 }
 .loginsuccess{
