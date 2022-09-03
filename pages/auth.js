@@ -12,6 +12,7 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
     const [password, updatePassword] = useState('')
     const [passwordVisible, setVisible] = useState(false)
     const [recoverPassword, setRecover] = useState(false)
+    const [successMessage, throwSuccess] = useState(false)
 
     useEffect(() => throwError(false), [email, password, login])
 
@@ -84,7 +85,8 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
                 </svg>
                 </button>
-                {errorMessage&&(email||password)?<div className="loginerror logintext">{login?<div>Usuário e/ou senha inválidos.<br/>&#40;A senha precisa ter no mínimo 6 caracteres.</div>:<div>Os dados não são válidos.<br/>&#40;A senha precisa ter no mínimo 6 caracteres.</div>}</div>:''}
+                {errorMessage&&(email||password)?<div className="loginerror logintext">{login?<div>Usuário e/ou senha inválidos<br/>&#40;A senha precisa ter no mínimo 6 caracteres&#41;</div>:<div>Os dados não são válidos<br/>&#40;A senha precisa ter no mínimo 6 caracteres&#41;</div>}</div>:''}
+                {successMessage?<div className="loginsuccess logintext"><div>Usuário e/ou senha inválidos<br/>&#40;A senha precisa ter no mínimo 6 caracteres&#41;</div></div>:''}
                 <div className="loginchangewrapper">
                     <button className="loginchange" onClick={() => setRecover(!recoverPassword)}>{recoverPassword?'Voltar':'Esqueci a senha'}</button>                
                 </div>

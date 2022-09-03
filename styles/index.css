@@ -409,6 +409,11 @@ form{
   font-size: 15px;
   color: #e61e1e;
 }
+.loginsuccess{
+  width: 70%;
+  font-size: 15px;
+  color: #2e856e;
+}
 .loginchangewrapper{
   font-size: 15px;
   font-family: var(--font1);
@@ -1767,3 +1772,4 @@ svg{
 .displaynone{
   display: none;
 }
+.loginerror{}
