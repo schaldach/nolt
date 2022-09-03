@@ -10,7 +10,6 @@
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --boxshadow: #b9b9b9;
-  --idlehover: #828282;
 }
 [data-theme='dark'] {
   --color1: #ffffff;
@@ -18,11 +17,10 @@
   --color2s: #303336;
   --color3: #af45e0;
   --color4: #8E2DE2;
-  --color5: #3e087c;
+  --color5: #440c85;
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --boxshadow: #050505;
-  --idlehover: #acacac;
 }
 
 body, html{
@@ -313,12 +311,14 @@ main{
   display: flex;
   flex-direction: column;
   height: 110vh;
+  min-height: 660px;
 }
 .loginbackground div div{
   display: flex;
   justify-content: center;
   align-items: center;
   height: 10vh;
+  min-height: 60px;
 }
 .loginbackground svg{
   opacity: 0.5;
@@ -358,7 +358,7 @@ main{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 form{
   width: 100%;
@@ -379,8 +379,8 @@ form{
   border: none;
 }
 .loginsvg2{
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
 }
 .divinput input{
   font-size: 16px;
@@ -436,19 +436,19 @@ form{
   gap: 5px;
   align-items: center;
   justify-content: center;
-  background-color: var(--color2p);
-  color: var(--color4);
-  font-size: 25px;
+  background-color: var(--color4);
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: bold;
   outline: none;
-  border: solid 2px var(--color4);
+  border: none;
   width: fit-content;
-  padding: 5px 10px;
+  padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
 }
 .loginbutton:hover{
-  color: #ffffff;
-  background-color: var(--color4);
+  background-color: var(--color5);
 }
 
 .navbar{
@@ -652,6 +652,9 @@ form{
   display: flex;
   flex-direction: column;
 }
+.home .displayanotations{
+  padding-bottom: 0;
+}
 .displaynumbers{
   display: flex;
   flex-wrap: wrap;
@@ -727,14 +730,18 @@ form{
   box-shadow: 4px 4px 10px -4px var(--boxshadow);
 }
 .editting{
-  box-shadow: 0px 0px 25px var(--color4) ;
+  box-shadow: 0px 0px 10px var(--color3) ;
 }
 .smallanot{
   width: 150px;
   height: 175px;
 }
 .smallanot .anotcontent{
-  height: calc(175px - 30px)
+  height: calc(175px - 30px);
+  width: 150px;
+}
+.smallanot .anottitle{
+  width: 150px;
 }
 
 .anotcontent::-webkit-scrollbar, .previewbox::-webkit-scrollbar{
@@ -766,7 +773,7 @@ form{
 .displayanotations{
   margin-top: 20px;
   padding-bottom: 5vh;
-  row-gap: 25px;
+  row-gap: 30px;
   column-gap: 15px;
   display: flex;
   flex-wrap: wrap;
@@ -799,14 +806,14 @@ form{
   background-color: var(--color4);
   border-radius: 50%;
   position: fixed;
-  animation: popup linear 0.3s;
+  animation: popup linear 0.25s;
   border: none;
-  width: 60px;
-  height: 60px;
-  bottom: calc(3vh + 7.5vh - 30px);
+  width: 56px;
+  height: 56px;
+  bottom: calc(3vh + 7.5vh - 28px);
   box-shadow: 0px 0px 16px var(--color4);
   padding: 15px;
-  left: calc(50% - 30px);
+  left: calc(50% - 28px);
   display: grid;
   place-items: center;
   box-sizing: border-box;
@@ -829,7 +836,9 @@ input, textarea{
   border-bottom: 3px solid var(--color4);
   white-space: nowrap;
   padding-left: 2px;
-  height: 27px;
+  box-sizing: border-box;
+  height: 30px;
+  width: 225px;
   font-size: 18px;
   font-weight: bold;
   overflow: hidden;
@@ -840,6 +849,8 @@ input, textarea{
 }
 
 .anotcontent{
+  width: 225px;
+  box-sizing: border-box;
   background-color: var(--color2p);
   color: var(--color1);
   font-family: var(--font2);
@@ -868,9 +879,6 @@ input, textarea{
 }
 .idlefunction{
   color: var(--color1);
-}
-.idlefunction:hover{
-  color: var(--idlehover);
 }
 
 .coloredtext{
@@ -1590,7 +1598,7 @@ svg{
 .loader{
   width: 200px;
   height: 200px;
-  border: solid var(--boxshadow) 20px;
+  border: solid var(--color2s) 20px;
   border-top: solid var(--color4) 20px;
   border-radius: 50%;
 }
@@ -1621,11 +1629,24 @@ svg{
   .dateinputs{
     max-width: 100%;
   }
+  .navbar-select:hover, .contentselection:hover .dropbutton{
+    color: var(--color1);
+    transition: 0s;
+  }
+  .functionbutton:hover{
+    color: var(--color4);
+  }
+  .foot{
+    min-height: 3vh;
+    height: 20px;
+  }
+  .addanotation{
+    bottom: calc(20px + 7.5vh - 28px);
+  }
 }
 @media screen and (max-width: 768px){
   .bothdata>div>input, .bothdata>div>div:nth-child(even){
     width: 90vw;
-
   }
   .secondtext{
     text-align: center;
@@ -1640,9 +1661,6 @@ svg{
   }
   .justifycenter .profiledark{
     display: flex;
-  }
-  .foot{
-    min-height: 20px;
   }
   .userdata{
     gap: 0px;
@@ -1678,10 +1696,6 @@ svg{
   }
   .sections{
     gap: 10vw;
-  }
-  .navbar-select:hover, .contentselection:hover .dropbutton{
-    color: var(--color1);
-    transition: 0s;
   }
   .dark-wrapper{
     display: none;
@@ -1752,4 +1766,7 @@ svg{
 
 .displaynone{
   display: none;
+}
+.home{
+
 }
