@@ -1,24 +1,23 @@
 import {supabase} from "../utils/supabaseClient"
-import {useRouter} from "next/router";
-import React, { useState } from "react";
+import Router from "next/router";
+import React, { useEffect, useState } from "react";
 
-function PasswordRecovery({setpassword}) {
+function PasswordRecovery({user}) {
     const [newpassword, alterpassword] = useState('')
-    const router = useRouter();
-    const accessToken = typeof window !== 'undefined'?router.query.access_token:''
+    const [accesToken, setToken] = useState(null)
+
+    useEffect(() => {
+        setToken(Router.query.access_token)
+    }, [])
 
     async function finalChange(){
-        const eba = await supabase.auth.signOut()
+        if(user){const eba = await supabase.auth.signOut()}
+        const {error} = supabase.auth.updateUser(accesToken, { newpassword })
+        if(error){console.log(error)}
+        Router.push("/")
         .then(() => {
-            supabase.auth.updateUser(accessToken, { newpassword })
-            router.push("/")
-            .then(() => {
-                router.reload()
-            })
+            Router.reload()
         })
-        .catch((error) => {
-            console.log(error)
-        });
     }
 
     return (
