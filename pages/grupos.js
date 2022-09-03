@@ -33,7 +33,9 @@ function Groups({user, propNotes, propLists, propLinks, propImages, propGroups, 
         let newGroups = [...allGroups]
         const index = newGroups.indexOf(group)
         newGroups[index].title = title
-        newGroups[index][type] = anotations
+        if(type){
+            newGroups[index][type] = anotations
+        }
         setGroups(newGroups)
         conectionMade(1)
     }
