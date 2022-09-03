@@ -1321,6 +1321,9 @@ svg{
 }
 .grouptitle input, .grouptitle div{
   width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .grouptitle button{
   border: none;
@@ -1645,6 +1648,9 @@ svg{
   }
   .functionbutton:hover{
     color: var(--color4);
+  }
+  .idlefunction:hover{
+    color: var(--color1);
   }
   .foot{
     min-height: 3vh;

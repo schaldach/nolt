@@ -104,7 +104,6 @@ function Groups({user, propNotes, propLists, propLinks, propImages, propGroups, 
             </div>:
             <EmptyAnotations type='grupo'/>
             }
-            
         </div>
     )
 }
