@@ -139,10 +139,10 @@ function Group({allNotes, allLists, allLinks, allImages, notes, lists, links, im
                     <SimpleLink key={link.id} href={link.href} name={link.name}/>
                 )}
             </div>
-            <PreviewNotes addNote={addNote} type='Notas' notesBox={notesBox} notes={notes} allNotes={allNotes} showNotes={showNotes}/>
-            <PreviewImages addImage={addImage} type='Fotos' imagesBox={imagesBox} images={images} allImages={allImages} showImages={showImages}/>
-            <PreviewLists addList={addList} type='Listas' listsBox={listsBox} lists={lists} allLists={allLists} showLists={showLists}/>
-            <PreviewLinks addLink={addLink} type='Links' linksBox={linksBox} links={links} allLinks={allLinks} showLinks={showLinks}/>
+            {notesBox?<PreviewNotes addNote={addNote} type='Notas' notesBox={notesBox} notes={notes} allNotes={allNotes} showNotes={showNotes}/>:''}
+            {listsBox?<PreviewImages addImage={addImage} type='Fotos' imagesBox={imagesBox} images={images} allImages={allImages} showImages={showImages}/>:''}
+            {linksBox?<PreviewLists addList={addList} type='Listas' listsBox={listsBox} lists={lists} allLists={allLists} showLists={showLists}/>:''}
+            {imagesBox?<PreviewLinks addLink={addLink} type='Links' linksBox={linksBox} links={links} allLinks={allLinks} showLinks={showLinks}/>:''}
             <div className={notes.length+lists.length+links.length+images.length||editMode?'displaynone':'empty'}>O grupo está vazio...</div>
         </div>
         <SecurityBox onDelete={onDelete} onCancel={() => setBox(false)} boxVisible={boxVisible}/>
