@@ -358,7 +358,7 @@ main{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 form{
   width: 100%;
@@ -385,17 +385,26 @@ form{
 .divinput input{
   font-size: 16px;
 }
+.divinputwrapper{
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font2);
+  color: var(--color1);
+  font-weight: bold;
+  text-align: left;
+  width: 60%;
+}
 .divinput{
   display: flex;
   align-items: center;
   height: 30px;
-  width: 60%;
-  border: solid 2px var(--color4);
+  border-radius: 5px;
+  border: solid 2px #b9b9b9;
   padding: 10px 5px;
   font-size: 50px;
 }
 .divinput:focus-within{
-  border: solid 2px var(--color5);
+  border: solid 2px var(--color4);
 }
 .loginbox .titulo{
   font-size: 75px;
@@ -534,6 +543,7 @@ form{
   align-items: center;
   justify-content: center;
   display: flex;
+  flex-direction: column-reverse;
   position: relative;
   padding: 0.25vh;
   color: var(--color1);
@@ -657,9 +667,9 @@ form{
 }
 
 .secondtext{
-  margin: 15px 0px;
+  margin: 5px 0px 15px 0px;
   font-family: var(--font2);
-  font-size: 22px;
+  font-size: 20px;
   word-wrap: break-word;
   color: var(--color1);
 }
@@ -1800,3 +1810,4 @@ svg{
 .displaynone{
   display: none;
 }
+.home{}

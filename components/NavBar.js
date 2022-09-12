@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import Link from "next/link"
 import DarkModeButton from "./DarkModeButton"
 
@@ -25,7 +25,7 @@ function NavBar({darkMode, setDarkMode, currentNote, changeCurrentNote, currentP
                 </div>
                 </Link>
                 <div className="navbarwrapper">
-                <Link href={'/'+currentNote} >
+                <Link href={'/'+currentNote}>
                     <div className='contentselection' onClick={() => changeCurrentPage(currentNote)}>
                         <div className='navbar-select'>
                         <div className={currentNote==='notas'?'':'displaynone'}>
