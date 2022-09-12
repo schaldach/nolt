@@ -61,7 +61,7 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
                 <div className="logintext">{recoverPassword?'Esqueci a senha':login?'Login':'Cadastro'}</div>
                 <form>
                 <div className='divinputwrapper'>Email<div className="divinput"><input autoComplete='username' type='text' onInput={e => updateEmail(e.target.value)} value={email} placeholder='exemplo@gmail.com'></input></div></div>
-                <div className={!login&&!recoverPassword?'divinputwrapper':'displaynone'}>Confirmar Email<div className='divinput'><input type='text' onInput={e => updateRepeatEmail(e.target.value)} value={repeatEmail} placeholder='Confirmar email' autoComplete='username'></input></div></div>
+                <div className={!login&&!recoverPassword?'divinputwrapper':'displaynone'}>Confirmar Email<div className='divinput'><input type='text' onInput={e => updateRepeatEmail(e.target.value)} value={repeatEmail} placeholder='exemplo@gmail.com' autoComplete='username'></input></div></div>
                 {recoverPassword?'':<div className='divinputwrapper'>Senha<div className="divinput">
                     <input autoComplete='current-password' type={passwordVisible?'text':'password'} onInput={e => updatePassword(e.target.value)} value={password}></input>
                     <button type="button" onClick={() => setVisible(!passwordVisible)}>
