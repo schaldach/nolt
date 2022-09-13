@@ -1526,7 +1526,7 @@ svg{
   font-family: var(--font2);
   font-weight: bolder;
   font-size: 15px;
-  border-radius: 20px;
+  border-radius: 12px;
   padding: 4px;
 }
 .calendarspace{
