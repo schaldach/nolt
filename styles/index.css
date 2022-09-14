@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300&family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&family=Poppins:wght@300&display=swap');
 
 :root{
   --color1: #000000;
@@ -350,15 +350,16 @@ main{
   height: 100vh;
 }
 .loginbox{
-  height: fit-content;
-  padding: 50px 0;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 25px 0;
   width: 50vw;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 form{
   width: 100%;
@@ -392,6 +393,7 @@ form{
   color: var(--color1);
   font-weight: bold;
   text-align: left;
+  min-width: 300px;
   width: 60%;
 }
 .divinput{
@@ -667,8 +669,9 @@ form{
 }
 
 .secondtext{
-  margin: 5px 0px 15px 0px;
-  font-family: var(--font2);
+  margin: 5px 0px 20px 0px;
+  font-family: var(--font1);
+  font-weight: 400;
   font-size: 20px;
   word-wrap: break-word;
   color: var(--color1);
@@ -691,7 +694,7 @@ form{
   display: flex;
   cursor: pointer;
   justify-content: center;
-  padding: 10px;
+  padding: 12px 6px;
   min-width: 100px;
   gap: 5px;
   border-radius: 20px;
@@ -703,7 +706,8 @@ form{
 }
 .homeanotation div{
   display: flex;
-  font-family: var(--font2);
+  font-family: var(--font1);
+  font-weight: 400;
   font-size: 14px;
   flex-direction: column;
   justify-content: center;
@@ -1660,6 +1664,13 @@ svg{
 }
 
 @media screen and (max-width: 1024px){
+  .login{
+    align-items: stretch;
+  }
+  .loginbox{
+    overflow-y: scroll;
+    justify-content: flex-start;
+  }
   .dateinputs{
     max-width: 100%;
   }
@@ -1688,6 +1699,9 @@ svg{
   }
 }
 @media screen and (max-width: 768px){
+  .divinputwrapper{
+    width: 80%;
+  }
   .bothdata>div>input, .bothdata>div>div:nth-child(even){
     width: 90vw;
   }
@@ -1765,12 +1779,12 @@ svg{
   }
   .login{
     flex-direction: column;
+    overflow: auto;
   }
   .loginbox{
     width: 100vw;
-  }
-  .loginbox .divinput{
-    width: 80%;
+    height: fit-content;
+    overflow-y: visible;
   }
   .loginbackground{
     width: 100vw;
