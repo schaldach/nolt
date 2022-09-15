@@ -462,6 +462,7 @@ form{
   align-items: center;
   justify-content: center;
   border: 2px solid var(--color4);
+  background-color: var(--color2p);
   color: var(--color4);
   font-family: var(--font1);
   font-weight: 400;
@@ -1142,7 +1143,7 @@ svg{
   box-shadow: 4px 4px 10px -4px var(--boxshadow);
   display: flex;
   flex-direction: column;
-  padding: 0 20px 5px 20px;
+  padding: 0 20px 2px 20px;
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
