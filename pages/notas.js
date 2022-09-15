@@ -31,6 +31,7 @@ function Notes({user, propNotes, addNote, propGroups}) {
 
     async function syncNotes(notes, auto) {
         if(!user||!changed&&auto){return}
+        setChange(false)
         conectionMade(2)
         const bla = await supabase
             .from('notas')
@@ -49,7 +50,6 @@ function Notes({user, propNotes, addNote, propGroups}) {
                     addNote(data)
                 }
                 conectionMade(0)
-                setChange(false)
             })
     }
 

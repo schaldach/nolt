@@ -64,6 +64,7 @@ function Groups({user, propNotes, propLists, propLinks, propImages, propGroups, 
 
     async function syncGroups(groups, auto){
         if(!user||!changed&&auto){return}
+        setChange(false)
         conectionMade(2)
         const bla = await supabase
             .from('grupos')
@@ -79,7 +80,6 @@ function Groups({user, propNotes, propLists, propLinks, propImages, propGroups, 
                     setGroups(formattedData)
                 }
                 conectionMade(0)
-                setChange(false)
             })
     }
 

@@ -19,6 +19,7 @@ function Links({user, propLinks, addLink, propGroups}) {
 
     async function syncLinks(links, auto){
         if(!user||!changed&&auto){return}
+        setChange(false)
         conectionMade(2)
         const bla = await supabase
             .from('links')
@@ -33,7 +34,6 @@ function Links({user, propLinks, addLink, propGroups}) {
                     addLink(data)
                 }
                 conectionMade(0)
-                setChange(false)
             })
     }
 

@@ -17,6 +17,7 @@ function Lists({user, propLists, addList, propGroups}) {
 
     async function syncLists(lists, auto){
         if(!user||!changed&&auto){return}
+        setChange(false)
         conectionMade(2)
         const bla = await supabase
             .from('listas')
@@ -31,7 +32,6 @@ function Lists({user, propLists, addList, propGroups}) {
                     addList(data)
                 }
                 conectionMade(0)
-                setChange(false)
             })
     }
 
