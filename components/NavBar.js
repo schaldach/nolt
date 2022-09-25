@@ -70,10 +70,10 @@ function NavBar({darkMode, setDarkMode, currentNote, changeCurrentNote, currentP
                 </Link>
                 <div className='dropdowns'>
                     <div className="dropdownswrapper">
-                    <Link href='/notas'><button onClick={() => dropLink('notas')} className='dropdownitem droptop'>Notas</button></Link>
-                    <Link href='/listas'><button onClick={() => dropLink('listas')} className='dropdownitem'>Listas</button></Link>
-                    <Link href='/links'><button onClick={() => dropLink('links')} className='dropdownitem'>Links</button></Link>
-                    <Link href='/fotos'><button onClick={() => dropLink('fotos')} className='dropdownitem dropbottom'>Fotos</button></Link>
+                    <Link href='/notas'><button onClick={() => dropLink('notas')} className={currentNote==='notas'?'dropdownitem droptop selecteddropdownitem':'dropdownitem droptop'}>Notas</button></Link>
+                    <Link href='/listas'><button onClick={() => dropLink('listas')} className={currentNote==='listas'?'dropdownitem selecteddropdownitem':'dropdownitem'}>Listas</button></Link>
+                    <Link href='/links'><button onClick={() => dropLink('links')} className={currentNote==='links'?'dropdownitem selecteddropdownitem':'dropdownitem'}>Links</button></Link>
+                    <Link href='/fotos'><button onClick={() => dropLink('fotos')} className={currentNote==='fotos'?'dropdownitem dropbottom selecteddropdownitem':'dropdownitem dropbottom'}>Fotos</button></Link>
                     </div>
                 </div>
                 </div>

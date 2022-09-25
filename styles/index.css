@@ -365,7 +365,7 @@ form{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
 }
 .divinput button{
   cursor: pointer;
@@ -398,11 +398,10 @@ form{
 .divinput{
   display: flex;
   align-items: center;
-  height: 30px;
+  height: 45px;
+  padding: 0px 6px;
   border-radius: 5px;
   border: solid 2px #b9b9b9;
-  padding: 10px 5px;
-  font-size: 50px;
 }
 .divinput:focus-within{
   border: solid 2px var(--color4);
@@ -461,6 +460,26 @@ form{
   gap: 5px;
   align-items: center;
   justify-content: center;
+  border: none;
+  background-color: var(--color4);
+  color: #ffffff;
+  font-family: var(--font1);
+  font-weight: 400;
+  font-size: 24px;
+  outline: none;
+  width: 60%;
+  padding: 8px 0px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.loginbutton:hover{
+  background-color: var(--color5);
+}
+.editprofilebutton{
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
   border: 2px solid var(--color4);
   background-color: var(--color2p);
   color: var(--color4);
@@ -473,7 +492,7 @@ form{
   border-radius: 10px;
   cursor: pointer;
 }
-.loginbutton:hover{
+.editprofilebutton:hover{
   background-color: var(--color4);
   color: #ffffff;
 }
@@ -551,10 +570,6 @@ form{
   user-select: none;
   cursor: pointer;
 }
-.navbar-select:hover, .contentselection:hover .dropbutton{
-  color: var(--color4);
-  transition: 0.35s ease;
-}
 .contentselection{
   display: flex;
   align-items: center;
@@ -605,7 +620,7 @@ form{
   text-align: left;
   cursor: pointer;
 }
-.dropdownitem:hover{
+.selecteddropdownitem, .dropdownitem:hover{
   background-color: var(--color4);
   color: #ffffff;
 }
@@ -1358,9 +1373,6 @@ svg{
   cursor: pointer;
   color: var(--color4);
 }
-.grouptitle button:hover{
-  color: var(--color5);
-}
 .grouptitle .groupdeletebutton{
   color: #e61e1e;
 }
@@ -1677,15 +1689,8 @@ svg{
   .dateinputs{
     max-width: 100%;
   }
-  .grouptitle button:hover{
-    color: var(--color4);
-  }
   .favoritelink:hover{
     color: var(--color4);
-  }
-  .navbar-select:hover, .contentselection:hover .dropbutton{
-    color: var(--color1);
-    transition: 0s;
   }
   .functionbutton:hover{
     color: var(--color4);

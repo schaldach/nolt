@@ -58,7 +58,6 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
             <Link href='/'><div onClick={() => setProject(true)} className="loginlink"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" /></svg>Voltar</div></Link>
             <div className="loginbox">
                 <div className='titulo'>nolt</div>
-                <div className="logintext">{recoverPassword?'Esqueci a senha':login?'Login':'Cadastro'}</div>
                 <form>
                 <div className='divinputwrapper'>Email<div className="divinput"><input autoComplete='username' type='text' onInput={e => updateEmail(e.target.value)} value={email} placeholder='exemplo@gmail.com'></input></div></div>
                 <div className={!login&&!recoverPassword?'divinputwrapper':'displaynone'}>Confirmar Email<div className='divinput'><input type='text' onInput={e => updateRepeatEmail(e.target.value)} value={repeatEmail} placeholder='exemplo@gmail.com' autoComplete='username'></input></div></div>
@@ -81,12 +80,12 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                 </svg>
                 </button>
-                <button className={login&&!recoverPassword?"loginbutton logintext":'displaynone'} onClick={signin}>Entrar
+                <button className={login&&!recoverPassword?"loginbutton logintext":'displaynone'} onClick={signin}>Login
                 <svg xmlns="http://www.w3.org/2000/svg" className="loginsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
                 </svg>
                 </button>
-                <button className={!login&&!recoverPassword?'loginbutton logintext':"displaynone"} onClick={signup}>Entrar
+                <button className={!login&&!recoverPassword?'loginbutton logintext':"displaynone"} onClick={signup}>Cadastro
                 <svg xmlns="http://www.w3.org/2000/svg" className="loginsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
                 </svg>
