@@ -1685,6 +1685,9 @@ svg{
   .login{
     align-items: stretch;
   }
+  .grouptitle button:hover{
+    color: var(--color4);
+  }
   .loginbox{
     overflow-y: scroll;
     justify-content: flex-start;
@@ -1698,7 +1701,7 @@ svg{
   .functionbutton:hover{
     color: var(--color4);
   }
-  .idlefunction:hover{
+  .idlefunction:hover, .grouptitle .idlefunction:hover{
     color: var(--color1);
   }
   .foot{
