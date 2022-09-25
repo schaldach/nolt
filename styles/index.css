@@ -1835,6 +1835,7 @@ svg{
   }
   .displaynumbers{
     justify-content: center;
+    gap: 8px;
   }
   .loginbutton{
     padding: 7px 14px;
