@@ -17,7 +17,7 @@
   --color2s: #303336;
   --color3: #af45e0;
   --color4: #8E2DE2;
-  --color5: #440c85;
+  --color5: #5811a8;
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --boxshadow: #050505;
@@ -921,7 +921,7 @@ input, textarea{
 .functionbutton:hover{
   color: var(--color5);
 }
-.idlefunction{
+.idlefunction, .grouptitle .idlefunction{
   color: var(--color1);
 }
 
@@ -1372,6 +1372,9 @@ svg{
   border: none;
   cursor: pointer;
   color: var(--color4);
+}
+.grouptitle button:hover{
+  color: var(--color5);
 }
 .grouptitle .groupdeletebutton{
   color: #e61e1e;
