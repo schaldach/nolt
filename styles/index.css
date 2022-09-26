@@ -1701,6 +1701,10 @@ svg{
   .functionbutton:hover{
     color: var(--color4);
   }
+  .removesvg:hover {
+    background-color: var(--color2p);
+    color: #ad1212;
+  }
   .idlefunction:hover, .grouptitle .idlefunction:hover{
     color: var(--color1);
   }
