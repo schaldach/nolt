@@ -74,7 +74,6 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
                         </svg>
                     </button>
                 </div></div>}
-                </form>
                 <button className={recoverPassword?"loginbutton logintext":'displaynone'} onClick={alterPassword}>Enviar email
                 <svg xmlns="http://www.w3.org/2000/svg" className="loginsvg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
@@ -90,6 +89,7 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
                 </svg>
                 </button>
+                </form>
                 {errorMessage&&(email||password)?<div className="loginerror logintext">{login?<div>Usuário e/ou senha inválidos<br/>&#40;A senha precisa ter no mínimo 6 caracteres&#41;</div>:<div>Os dados não são válidos<br/>&#40;A senha precisa ter no mínimo 6 caracteres&#41;</div>}</div>:''}
                 {successMessage?<div className="loginsuccess logintext"><div>O token de recuperação foi enviado para o email acima com sucesso.</div></div>:''}
                 {emailError?<div className="loginerror logintext"><div>O email não é válido.</div></div>:''}

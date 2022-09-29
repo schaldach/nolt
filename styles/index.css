@@ -365,7 +365,10 @@ form{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
+}
+form>button{
+  margin-top: 12px;
 }
 .divinput button{
   cursor: pointer;
@@ -466,6 +469,7 @@ form{
   font-family: var(--font1);
   font-weight: 400;
   font-size: 24px;
+  min-width: 300px;
   outline: none;
   width: 60%;
   padding: 8px 0px;
@@ -1718,6 +1722,9 @@ svg{
 }
 @media screen and (max-width: 768px){
   .divinputwrapper{
+    width: 80%;
+  }
+  .loginbutton{
     width: 80%;
   }
   .bothdata>div>input, .bothdata>div>div:nth-child(even){
