@@ -70,12 +70,12 @@ function MyApp({ Component, pageProps }) {
     async function fetch(){
       const router = Router
       let {pathname} = router
-      const { user, error } = await supabase.auth.api.getUser('ACCESS_TOKEN_JWT',)
+      const newUser = supabase.auth.user()
       if(pathname==='/password-recovery'){
         setpassword(true)
         return
       }
-      if(!user){
+      if(!newUser){
         if(pathname==='/'){setProject(true)}
         throwError(true)
         if(pathname!=='/'){Router.push('/auth')}
@@ -87,7 +87,7 @@ function MyApp({ Component, pageProps }) {
       const { data } = await supabase
         .from('profiles')
         .select('*')
-        .eq('id', user.id)
+        .eq('id', newUser.id)
         .single()
       setUser(data)
     }
