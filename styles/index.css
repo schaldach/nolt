@@ -555,19 +555,21 @@ form>button{
 }
 .absolutesvg{
   position: absolute;
-  left: 38px;
+  left: 42px;
   width: 20px;
   height: 20px;
 }
 .navbarsvg{
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
 }
 .navbar-select{
   align-items: center;
   justify-content: center;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  font-family: var(--font1);
+  font-size: 14px;
   position: relative;
   padding: 0.25vh;
   color: var(--color1);
@@ -581,7 +583,7 @@ form>button{
   user-select: none;
 }
 .dropdowns{
-  top: 40px;
+  top: 60px;
   padding-top: 5px;
   position: absolute;
   display: none;
