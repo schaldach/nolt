@@ -104,7 +104,7 @@ function MyApp({ Component, pageProps }) {
   if(!user||project||passwordrecovery){
   return(
     <div>
-    <HeadElement darkMode={darkMode}>
+    <HeadElement standard={true}>
       <title>Nolt</title>
     </HeadElement>
     <Component setpassword={setpassword} user={user} setProject={setProject} reqlog={reqlog} errorMessage={errorMessage} throwError={throwError}/>
