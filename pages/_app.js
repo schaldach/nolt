@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Router from "next/router";
-import Head from 'next/head'
+import HeadElement from '../components/HeadElement'
 import {supabase} from '../utils/supabaseClient'
 import NavBar from '../components/NavBar'
 import PageFooter from '../components/PageFooter'
@@ -104,18 +104,18 @@ function MyApp({ Component, pageProps }) {
   if(!user||project||passwordrecovery){
   return(
     <div>
-    <Head>
+    <HeadElement darkMode={darkMode}>
       <title>Nolt</title>
-    </Head>
+    </HeadElement>
     <Component setpassword={setpassword} user={user} setProject={setProject} reqlog={reqlog} errorMessage={errorMessage} throwError={throwError}/>
     </div>
     )
   }
   return(
     <div data-theme={darkMode?'dark':'light'}>
-    <Head>
+    <HeadElement darkMode={darkMode}>
       <title>Nolt</title>
-    </Head>
+    </HeadElement>
     <NavBar user={user} currentNote={currentNote} currentPage={currentPage} changeCurrentNote={changeCurrentNote} changeCurrentPage={changeCurrentPage} darkMode={darkMode} setDarkMode={setDarkMode}/>
     <main>
       <Component changeCurrentPage={changeCurrentPage} changeCurrentNote={changeCurrentNote} addNote={addNote} propNotes={allNotes} addList={addList} propLists={allLists} addLink={addLink} propLinks={allLinks} setGroups={setGroups} propGroups={allGroups}

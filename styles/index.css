@@ -10,6 +10,8 @@
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --boxshadow: #b9b9b9;
+  --scroll: #b9b9b9;
+  --scrollhover: #8d8d8d;
 }
 [data-theme='dark'] {
   --color1: #ffffff;
@@ -21,14 +23,43 @@
   --font1: 'Plus Jakarta Sans', sans-serif;
   --font2: 'Poppins', sans-serif;
   --boxshadow: #050505;
+  --scroll: #cccccc;
+  --scrollhover: #b9b9b9;
 }
 
 body, html{
   scroll-padding-top: 15vh;
+  scroll-behavior: smooth;
   margin: 0;
   padding: 0;
   height: 100%;
-  background: var(--color2s);
+  background-color: var(--color2s);
+}
+
+body::-webkit-scrollbar{
+  width: 18px;
+}
+body::-webkit-scrollbar-track{
+  background-color: #f7f7f7;
+}
+body::-webkit-scrollbar-thumb{
+  background-color: #a1a1a1;
+  border: 4px solid #f7f7f7;
+  border-radius: 8px;
+}
+body::-webkit-scrollbar-thumb:hover{
+  background-color: #6b6b6b;
+}
+.darkBody::-webkit-scrollbar-track{
+  background-color: #303336;
+}
+.darkBody::-webkit-scrollbar-thumb{
+  border: 4px solid #303336;
+  background-color: #b8b8b8;
+  border-radius: 8px;
+}
+.darkBody::-webkit-scrollbar-thumb:hover{
+  background-color: #929292;
 }
 
 button, input, textarea{
@@ -50,7 +81,7 @@ a{
 main{
   background-color: var(--color2s);
   padding: 2vh 8vw 5vh 8vw;
-  min-height: 77vh;
+  min-height: calc(80vh - 20px);
 }
 
 .landingpage{
@@ -640,11 +671,11 @@ form>button{
 }
 
 .foot{
-  background: var(--color5);
-  color: #ffffff;
+  background: var(--color2s);
+  color: var(--color1);
   font-family: var(--font1);
-  font-size: 10px;
-  height: 3vh;
+  font-size: 11px;
+  height: 20px;
   gap: 5px;
   display: flex;
   align-items: center;
@@ -707,7 +738,7 @@ form>button{
 .displaynumbers{
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 8px;
   margin-bottom: 15px;
 }
 .homeanotation{
@@ -1714,10 +1745,6 @@ svg{
   .idlefunction:hover, .grouptitle .idlefunction:hover{
     color: var(--color1);
   }
-  .foot{
-    min-height: 3vh;
-    height: 20px;
-  }
   .addanotation{
     bottom: calc(20px + 7.5vh - 28px);
   }
@@ -1848,7 +1875,6 @@ svg{
   }
   .displaynumbers{
     justify-content: center;
-    gap: 8px;
   }
   .loginbutton{
     padding: 7px 14px;
@@ -1857,4 +1883,7 @@ svg{
 
 .displaynone{
   display: none;
+}
+.foot{
+
 }
