@@ -749,11 +749,12 @@ form>button{
   min-width: 100px;
   gap: 5px;
   border-radius: 20px;
+  border: 2px solid var(--color2s);
   background: linear-gradient(to top right, rgb(188, 78, 156), rgb(248, 7, 89));
 }
 .homeanotation:hover{
   transform: scale(1.05);
-  box-shadow: 0px 0px 12px rgb(248, 7, 89, 0.75);
+  border: 2px solid var(--color1);
 }
 .homeanotation div{
   display: flex;
@@ -771,32 +772,17 @@ form>button{
 .homeanotation:nth-child(2n){
   background: linear-gradient(to top right, rgb(80, 73, 156), rgb(36, 198, 220));
 }
-.homeanotation:nth-child(2n):hover{
-  box-shadow: 0px 0px 12px rgba(36, 198, 220, 0.75);
-}
 .homeanotation:nth-child(3n){
   background: linear-gradient(to top right, rgb(241, 39, 17), rgb(245, 175, 25));
-}
-.homeanotation:nth-child(3n):hover{
-  box-shadow: 0px 0px 12px rgba(241, 39, 17, 0.75);
 }
 .homeanotation:nth-child(4n){
   background: linear-gradient(to top right, rgb(17, 153, 142), rgb(56, 239, 125));
 }
-.homeanotation:nth-child(4n):hover{
-  box-shadow: 0px 0px 12px rgba(56, 239, 125, 0.75);
-}
 .homeanotation:nth-child(5n){
   background: linear-gradient(to top right, rgb(113, 0, 226), rgb(225, 0, 255));
 }
-.homeanotation:nth-child(5n):hover{
-  box-shadow: 0px 0px 12px rgba(225, 0, 255, 0.75);
-}
 .grayanotation:nth-child(1n){
   background: linear-gradient(to top right, rgb(67, 83, 99), rgb(165, 177, 185));
-}
-.grayanotation:nth-child(1n):hover{
-  box-shadow: 0px 0px 12px rgba(165, 177, 185, 0.75);
 }
 
 .anot{
