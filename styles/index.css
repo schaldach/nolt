@@ -603,9 +603,13 @@ form>button{
   font-size: 14px;
   position: relative;
   padding: 0.25vh;
+  border-bottom: 2px solid var(--color2p);
   color: var(--color1);
   user-select: none;
   cursor: pointer;
+}
+.navbar-select:hover{
+  border-bottom: 2px solid var(--color4);
 }
 .contentselection{
   display: flex;
@@ -661,7 +665,9 @@ form>button{
   background-color: var(--color4);
   color: #ffffff;
 }
-
+.selected-item{
+  color: var(--color4);
+}
 .titlesecond{
   text-align: left;
   font-size: 30px;
@@ -749,12 +755,11 @@ form>button{
   min-width: 100px;
   gap: 5px;
   border-radius: 20px;
-  border: 2px solid var(--color2s);
+  transition: all 0.3s;
   background: linear-gradient(to top right, rgb(188, 78, 156), rgb(248, 7, 89));
 }
 .homeanotation:hover{
-  transform: scale(1.05);
-  border: 2px solid var(--color1);
+  transform: scale(1.075);
 }
 .homeanotation div{
   display: flex;
@@ -1640,7 +1645,7 @@ svg{
   border-color: var(--color2p);
 }
 .navbar-select .whiteborder{
-  border-color: var(--color1);
+  border-color: var(--color4);
 }
 .userdata .loginpicturewrapper{
   position: absolute;
@@ -1870,3 +1875,4 @@ svg{
 .displaynone{
   display: none;
 }
+.whiteborder{}

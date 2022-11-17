@@ -15,7 +15,7 @@ function NavBar({darkMode, setDarkMode, currentNote, changeCurrentNote, currentP
             <div className="titulo">nolt</div>
             <div className='sections'>
                 <Link href='/home'>
-                <div onClick={() => changeCurrentPage('home')} className='navbar-select'>
+                <div onClick={() => changeCurrentPage('home')} className={currentPage==='home'?'navbar-select selected-item':'navbar-select'}>
                     <svg xmlns="http://www.w3.org/2000/svg" className={currentPage!=='home'?'navbarsvg':'displaynone'} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                     </svg>
@@ -28,7 +28,7 @@ function NavBar({darkMode, setDarkMode, currentNote, changeCurrentNote, currentP
                 <div className="navbarwrapper">
                 <Link href={'/'+currentNote}>
                     <div className='contentselection' onClick={() => changeCurrentPage(currentNote)}>
-                        <div className='navbar-select'>
+                        <div className={currentPage===currentNote?'navbar-select selected-item':'navbar-select'}>
                         {currentNote==='notas' && 
                         <>
                             <svg xmlns="http://www.w3.org/2000/svg" className={currentPage==='notas'?"navbarsvg":"displaynone"} viewBox="0 0 20 20" fill="currentColor">
@@ -88,7 +88,7 @@ function NavBar({darkMode, setDarkMode, currentNote, changeCurrentNote, currentP
                 </div>
                 </div>
                 <Link href='/grupos'>
-                <div onClick={() => changeCurrentPage('grupos')} className='navbar-select'>
+                <div onClick={() => changeCurrentPage('grupos')} className={currentPage==='grupos'?'navbar-select selected-item':'navbar-select'}>
                     <svg xmlns="http://www.w3.org/2000/svg" className={currentPage==='grupos'?'navbarsvg':'displaynone'} viewBox="0 0 20 20" fill="currentColor">
                         <path d="M3 12v3c0 1.657 3.134 3 7 3s7-1.343 7-3v-3c0 1.657-3.134 3-7 3s-7-1.343-7-3z" />
                         <path d="M3 7v3c0 1.657 3.134 3 7 3s7-1.343 7-3V7c0 1.657-3.134 3-7 3S3 8.657 3 7z" />
@@ -101,7 +101,7 @@ function NavBar({darkMode, setDarkMode, currentNote, changeCurrentNote, currentP
                 </div>
                 </Link>
                 <Link href='/profile'>
-                <div onClick={() => changeCurrentPage('profile')} className='navbar-select'>
+                <div onClick={() => changeCurrentPage('profile')} className={currentPage==='profile'?'navbar-select selected-item':'navbar-select'}>
                     <div className={currentPage==='profile'?"profilepicwrapper whiteborder":'profilepicwrapper'}>
                     {profileUser.avatar_url?<img className="imgpicture" src={`https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/${user.avatar_url}`}/>:<img className="navbarsvg" src={"https://uvvzrlvaqkcqmzdblein.supabase.co/storage/v1/object/public/avatars/user_placeholder.png"}/>}
                     </div>
