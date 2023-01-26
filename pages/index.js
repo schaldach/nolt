@@ -11,27 +11,27 @@ function Project({ setProject, user }) {
     const allAnotations = [
         {
             title: 'Notas',
-            description: 'As notas são a forma mais comum de anotação, e você pode optar por colocar uma data para elas.',
+            description: 'As notas são a forma mais comum de anotação, e consistem em um bloco com um título e uma descrição. Você pode optar por ter uma nota grande ou pequena, e colocar uma data para elas.',
             image: <NoteSvg/>
         },
         {
             title: 'Listas',
-            description: 'As listas são compostas por vários itens, e cada um pode ser marcado por completo ou incompleto.',
+            description: 'As listas são compostas por vários itens, e a numeração é atualizada automaticamente. Cada item pode ser marcado por completo ou incompleto para você ter um controle maior sobre os itens da lista.',
             image: <ListSvg/>
         },
         {
             title: 'Links',
-            description: 'Os links são anotações simples, que possuem um título e um URL para o qual eles redirecionam quando clicados.',
+            description: 'Os links são anotações simples, que possuem um título e um URL para o qual eles redirecionam quando clicados, para organizar os seus sites mais visitados em somente um lugar. O ícone do site também aparecerá.',
             image: <LinkSvg/>
         },
         {
             title: 'Fotos',
-            description: 'As fotos permitem que você faça o upload de imagens, para uma forma mais rápida de visuzalização.',
+            description: 'As fotos permitem que você faça o upload de imagens, para ajudar a organizar as suas imagens mais importantes em somente um lugar.',
             image: <ImageSvg/>
         },
         {
             title: 'Grupos',
-            description: 'Os grupos são coleções de notas, listas, links e imagens, para categorizar e organizar suas anotações.',
+            description: 'Os grupos são coleções de notas, listas, links e imagens, para você categorizar e organizar todas as suas anotações em tópicos comuns.',
             image: <GroupSvg/>
         }
     ]
