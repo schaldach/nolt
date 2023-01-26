@@ -65,7 +65,7 @@ function Project({ setProject, user }) {
                     <div className='left-arrow' onClick={() => { if (currentImage > 0) { changeImage(currentImage - 1) } else { changeImage(4) } }}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg></div>
                     <div className='right-arrow' onClick={() => { if (currentImage < 4) { changeImage(currentImage + 1) } else { changeImage(0) } }}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg></div>
                     {allAnotations.map((anotation, index) =>
-                        <div className="innerpannel" style={{display:currentImage===index?'grid':'none'}}>
+                        <div key={index} className="innerpannel" style={{display:currentImage===index?'grid':'none'}}>
                             <div className="anotation-image">{anotation.image}</div>
                             <div className="anotation-name">{anotation.title}</div>
                             <div className="anotation-description">{anotation.description}</div>
@@ -73,7 +73,7 @@ function Project({ setProject, user }) {
                     )
                     }
                     <div className="image-circles">
-                        {allAnotations.map((anotation, index) => <div onClick={() => changeImage(index)} className={currentImage === index ? 'filled' : ''} />)}
+                        {allAnotations.map((anotation, index) => <div key={index} onClick={() => changeImage(index)} className={currentImage === index ? 'filled' : ''} />)}
                     </div>
                 </div>
             </div>
