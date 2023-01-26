@@ -28,7 +28,7 @@
 }
 
 body, html{
-  scroll-padding-top: 15vh;
+  scroll-padding-top: 5vh;
   scroll-behavior: smooth;
   margin: 0;
   padding: 0;
@@ -86,7 +86,7 @@ main{
 
 .landingpage{
   border: none;
-  background-color: #212426;
+  background-color: #fff;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -106,14 +106,16 @@ main{
 
 .upperlanding{
   width: 90vw;
-  padding: 12.5vh 5vw;
-  height: 75vh;
-  background: linear-gradient(to right, #ffffff, #eeeeee);
+  padding-bottom: 15vh;
+  margin: 0 5vw;
+  height: 65vh;
+  background: #fff;
   display: flex;
   flex-direction: column;
   gap: 2vh;
   justify-content: center;
   align-items: center;
+  border-bottom: 2px solid #efefef;
 }
 .landingsvg{
   color: var(--color2p);
@@ -123,8 +125,8 @@ main{
 }
 .landingtext{
   font-family: var(--font1);
-  color: #ffffff;
-  font-size: clamp(35px, 6vw, 75px);
+  color: var(--color1);
+  font-size: 55px;
   font-weight: bold;
 }
 .landinggrid{
@@ -134,7 +136,11 @@ main{
   justify-content: center;
 }
 .minor{
-  font-size: 17px;
+  font-size: 18px;
+  font-weight: normal;
+}
+.secondminor{
+  font-size: 25px;
   font-weight: normal;
 }
 .featuresshowcase{
@@ -155,20 +161,20 @@ main{
   align-items: center;
   justify-content: flex-start;
 }
-.blacktext{
-  color: var(--color1);
-}
 
 .blacklink{
   color: var(--color1);
+  font-weight: bold;
   text-decoration: none;
 }
 .greenlink{
   color: #34b27b;
+  font-weight: bold;
   text-decoration: none;
 }
 .purplelink{
-  color: #430f7e;
+  color: var(--color4);
+  font-weight: bold;
   text-decoration: none;
 }
 .purplelink:hover, .greenlink:hover, .blacklink:hover{
@@ -219,33 +225,33 @@ main{
 }
 .landinglink{
   font-family: var(--font2);
-  font-size: 2.5vh;
-  color: var(--color2p);
+  font-size: 2.75vh;
+  color: var(--color1);
   text-decoration: none;
 }
 .landinglink:hover{
-  color: #c9c9c9;
+  color: #a0a0a0;
 }
 .landingnavbar{
-  z-index: 1;
-  position: fixed;
   display: grid;
-  grid-template-columns: 1.5fr repeat(3, 1fr);
+  grid-template-columns: 1.5fr repeat(3, 0.5fr);
   place-items: center;
-  height: 12.5vh;
-  background-color: var(--color1);
+  height: 15vh;
+  background-color: #fff;
   width: 100vw;
 }
 .landingnavbar .titulo{
   font-size: 7.5vh;
-  color: var(--color2p);
+  width: 50%;
+  text-align: left;
+  color: var(--color1);
 }
 .landingfooter{
   padding: 3vh 5vw;
   width: 90vw;
   display: grid;
   place-items: center;
-  background-color: var(--color5);
+  background-color: #fff;
 }
 
 .tutorial{
@@ -257,13 +263,133 @@ main{
   padding: 5vh 10vw;
 }
 .cardtutorial{
-  padding: 5vh 0 0 0;
-  width: 100vw;
+  padding: 7.5vh 2.5vw;
+  margin: 0 5vw;
+  width: 90vw;
+  box-sizing: border-box;
+  border-bottom: 2px solid #efefef;
 }
-.cardtutorial .minor{
-  margin: 0 20px;
-  max-width: 625px;
+.pannel{
+  border-radius: 15px;
+  margin-top: 40px;
+  width: 80vw;
+  height: 60vh;
+  box-sizing: border-box;
+  position: relative;
+  padding: 35px;
+  background: linear-gradient(to right, #0ca1db, #1a4bbd);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
+
+@keyframes fadein {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.innerpannel{
+  height: 100%;
+  width: 100%;
+  grid-template-columns: 0.3fr 0.7fr;
+  grid-template-rows: 0.3fr 0.7fr;
+  place-items: center;
+  grid-template-areas: 
+  'image title'
+  'image description';
+  animation: fadein 0.5s linear;
+}
+.anotation-name{
+  grid-area: title;
+  font-family: var(--font1);
+  color: #fff;
+  font-size: 60px;
+  width: 80%;
+  font-weight: bold;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+.anotation-image{
+  grid-area: image;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  color: #fff
+}
+.anotation-image svg{
+  height: 50vh;
+  max-height: 250px;
+  width: 50vh;
+  max-width: 250px;
+}
+.anotation-description{
+  grid-area: description;
+  color: #fff;
+  font-family: var(--font1);
+  font-size: 25px;
+  width: 80%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+.image-circles{
+  z-index: 2;
+  display: flex;
+  position: absolute;
+  width: 80vw;
+  gap: 10px;
+  bottom: 20px;
+  justify-content: center;
+}
+.image-circles>div{
+  border: solid #fff 2px;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
+.image-circles>.filled{
+  background-color: #fff;
+}
+.image-circles>div:hover{
+  border: solid #efefef 2px;
+}
+.image-circles>.filled:hover{
+  background-color: #efefef;
+}
+.right-arrow{
+  z-index: 2;
+  right: 20px;
+  cursor: pointer;
+  top: calc(27.5vh - 25px);
+  position: absolute;
+}
+.left-arrow{
+  z-index: 2;
+  left: 20px;
+  cursor: pointer;
+  top: calc(27.5vh - 25px);
+  position: absolute;
+}
+.left-arrow svg, .right-arrow svg{
+  height: 50px;
+  width: 50px;
+  color: #fff;
+}
+.left-arrow svg:hover, .right-arrow svg:hover{
+  color: #efefef;
+}
+.cardanotation{
+  font-family: var(--font1);
+  font-weight: bold;
+  font-size: 30px;
+}
+
 .whitetutorial{
   background-color: var(--color2p);
 }
@@ -271,56 +397,6 @@ main{
   color: var(--color1);
   font-family: var(--font1);
   font-size: 30px;
-}
-.card{
-  justify-content: center;
-  box-sizing: border-box;
-  background-color: #35393b;
-  display: flex;
-  gap: 20px;
-  padding: 15px 5vw;
-  width: 50vw;
-  height: fit-content;
-  min-height: 200px;
-  align-items: center;
-}
-.groupcard{
-  width: 100vw;
-  background-color: #292c2e;
-  display: flex;
-  justify-content: center;
-}
-.groupcard .card{
-  background-color: inherit;
-}
-.card:nth-child(2n){
-  background-color: #2C2F33;
-}
-.card:nth-child(3n){
-  background-color: #2C2F33;
-}
-.card:nth-child(4n){
-  background-color: #35393b;
-}
-.cardsvg{
-  color: #ffffff;
-  width: 125px;
-  height: 125px;
-}
-.card .cardanotation{
-  color: #ffffff;
-}
-.cardanotation{
-  font-size: 25px;
-  font-family: var(--font1);
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: var(--color5);
-}
-.carddescription{
-  font-size: 16px;
-  color: #ffffff;
-  font-family: var(--font1);
 }
 
 .loginbackground{
