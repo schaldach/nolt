@@ -1992,9 +1992,11 @@ svg{
   .loginbutton{
     padding: 7px 14px;
   }
+  .upperlanding{
+    padding-bottom: 7.5vh;
+  }
 }
 
 .displaynone{
   display: none;
 }
-.cardtutorial{}
