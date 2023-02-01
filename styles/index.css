@@ -1845,7 +1845,7 @@ svg{
   .pannel{
     padding: 10px;
     width: 92vw;
-    height: 84vh;
+    height: auto;
   }
   .anotation-name{
     display: flex;
