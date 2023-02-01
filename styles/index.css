@@ -95,7 +95,7 @@ main{
   min-height: 100vh;
 }
 .landingpage .titulo, .loadingpage .titulo{
-  font-size: clamp(75px,8vw,150px);
+  font-size: clamp(85px,9vw,175px);
   user-select: auto;
   color: var(--color1);
 }
@@ -1843,7 +1843,7 @@ svg{
     align-items: flex-start;
   }
   .pannel{
-    padding: 20px 20px 50px 20px;
+    padding: 25px 25px 75px 25px;
     width: 92vw;
     height: auto;
   }
