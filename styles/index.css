@@ -95,7 +95,7 @@ main{
   min-height: 100vh;
 }
 .landingpage .titulo, .loadingpage .titulo{
-  font-size: clamp(100px,10vw,200px);
+  font-size: clamp(75px,8vw,150px);
   user-select: auto;
   color: var(--color1);
 }
@@ -296,7 +296,7 @@ main{
   height: 100%;
   width: 100%;
   grid-template-columns: 0.3fr 0.7fr;
-  grid-template-rows: 0.3fr 0.7fr;
+  grid-template-rows: 0.2fr 0.8fr;
   place-items: center;
   grid-template-areas: 
   'image title'
@@ -1820,6 +1820,49 @@ svg{
   }
 }
 @media screen and (max-width: 768px){
+  .innerpannel{
+    grid-template-columns: 0.75fr 0.5fr;
+    grid-template-rows: 0.2fr 0.8fr;
+    column-gap: 12px;
+    grid-template-areas: 
+    'title image'
+    'description description';
+  }
+  .right-arrow svg, .left-arrow svg{
+    width: 40px;
+    height: 40px;
+  }
+  .right-arrow, .left-arrow{
+    bottom: 15px;
+    top: unset;
+  }
+  .anotation-description{
+    width: 100%;
+    display: flex;
+    font-size: 24px;
+    align-items: flex-start;
+  }
+  .pannel{
+    padding: 10px;
+    width: 92vw;
+    height: 84vh;
+  }
+  .anotation-name{
+    display: flex;
+    width: 100%;
+    font-size: 40px;
+    justify-content: right;
+    align-items: center;
+  }
+  .anotation-image svg{
+    height: 75px;
+    width: 75px;
+  }
+  .anotation-image{
+    justify-content: left;
+    align-items: center;
+    height: 100%;
+  }
   .divinputwrapper{
     width: 80%;
   }
@@ -1948,6 +1991,9 @@ svg{
   }
   .loginbutton{
     padding: 7px 14px;
+  }
+  .subtitle{
+    font-size: 25px;
   }
 }
 
