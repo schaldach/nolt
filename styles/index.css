@@ -260,10 +260,10 @@ main{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 5vh 10vw;
+  padding: 2.5vh 10vw 5vh 10vw;
 }
 .cardtutorial{
-  padding: 5vh 2.5vw;
+  padding: 2.5vh 2.5vw 5vh 2.5vw;
   margin: 0 5vw;
   width: 90vw;
   box-sizing: border-box;
@@ -1997,3 +1997,4 @@ svg{
 .displaynone{
   display: none;
 }
+.cardtutorial{}
