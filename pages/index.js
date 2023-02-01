@@ -39,7 +39,7 @@ function Project({ setProject, user }) {
         <div className="landingpage">
             <div className="landingnavbar">
                 <a className="titulo">nolt</a>
-                <a className="landinglink" href="#overview">Como funciona?</a>
+                <a className="landinglink" href="#overview">Como funciona</a>
                 <a className="landinglink" href="#features">Principais features</a>
                 <a className="landinglink" href="mailto:gabimorgado0311@gmail.com" target='_blank' rel="noreferrer">Contato</a>
             </div>
@@ -59,7 +59,7 @@ function Project({ setProject, user }) {
 
             </div>
             <div className="tutorial whitetutorial cardtutorial">
-                <a className="landingtext secondlandingtitle" id="overview">Como funciona?</a>
+                <a className="landingtext secondlandingtitle" id="overview">Como funciona</a>
                 <div className="landingtext secondminor">Após criar sua conta, você terá acesso ao Nolt, onde poderá fazer diferentes tipos de anotações para ajudar a organizar o seu dia-a-dia. Confira os diferentes tipos de anotações:</div>
                 <div className="pannel">
                     <div className='left-arrow' onClick={() => { if (currentImage > 0) { changeImage(currentImage - 1) } else { changeImage(4) } }}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg></div>
