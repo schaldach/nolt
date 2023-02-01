@@ -1843,7 +1843,7 @@ svg{
     align-items: flex-start;
   }
   .pannel{
-    padding: 10px;
+    padding: 20px 20px 50px 20px;
     width: 92vw;
     height: auto;
   }
@@ -1991,9 +1991,6 @@ svg{
   }
   .loginbutton{
     padding: 7px 14px;
-  }
-  .subtitle{
-    font-size: 25px;
   }
 }
 
