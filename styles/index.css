@@ -331,8 +331,8 @@ main{
   grid-area: description;
   color: #fff;
   font-family: var(--font1);
-  font-size: 25px;
-  width: 80%;
+  font-size: 24px;
+  width: 90%;
   height: 100%;
   display: grid;
   place-items: center;
@@ -1818,8 +1818,9 @@ svg{
   .addanotation{
     bottom: calc(20px + 7.5vh - 28px);
   }
-}
-@media screen and (max-width: 768px){
+  .upperlanding{
+    padding-bottom: 10vh;
+  }
   .innerpannel{
     grid-template-columns: 0.75fr 0.5fr;
     grid-template-rows: 0.2fr 0.8fr;
@@ -1839,7 +1840,6 @@ svg{
   .anotation-description{
     width: 100%;
     display: flex;
-    font-size: 24px;
     align-items: flex-start;
   }
   .pannel{
@@ -1863,6 +1863,8 @@ svg{
     align-items: center;
     height: 100%;
   }
+}
+@media screen and (max-width: 768px){
   .divinputwrapper{
     width: 80%;
   }
@@ -1991,9 +1993,6 @@ svg{
   }
   .loginbutton{
     padding: 7px 14px;
-  }
-  .upperlanding{
-    padding-bottom: 10vh;
   }
 }
 
