@@ -295,7 +295,7 @@ main{
 .innerpannel{
   height: 100%;
   width: 100%;
-  grid-template-columns: 0.25fr 0.75fr;
+  grid-template-columns: 0.3fr 0.7fr;
   grid-template-rows: 0.2fr 0.8fr;
   place-items: center;
   grid-template-areas: 
@@ -317,6 +317,7 @@ main{
 .anotation-image{
   grid-area: image;
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: right;
   color: #fff
