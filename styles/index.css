@@ -295,7 +295,7 @@ main{
 .innerpannel{
   height: 100%;
   width: 100%;
-  grid-template-columns: 0.3fr 0.7fr;
+  grid-template-columns: 0.25fr 0.75fr;
   grid-template-rows: 0.2fr 0.8fr;
   place-items: center;
   grid-template-areas: 
@@ -332,7 +332,7 @@ main{
   color: #fff;
   font-family: var(--font1);
   font-size: 24px;
-  width: 90%;
+  width: 80%;
   height: 100%;
   display: grid;
   place-items: center;
