@@ -59,10 +59,10 @@ function Auth({throwError, reqlog, errorMessage, setProject}) {
             <div className="loginbox">
                 <div className='titulo'>nolt</div>
                 <form>
-                <div className='divinputwrapper'>Email<div className="divinput"><input autoComplete='username' type='text' onInput={e => updateEmail(e.target.value)} value={email} placeholder='exemplo@gmail.com'></input></div></div>
+                <div className='divinputwrapper'>Email<div className="divinput"><input name='email' autoComplete='username' type='text' onInput={e => updateEmail(e.target.value)} value={email} placeholder='exemplo@gmail.com'></input></div></div>
                 <div className={!login&&!recoverPassword?'divinputwrapper':'displaynone'}>Confirmar Email<div className='divinput'><input type='text' onInput={e => updateRepeatEmail(e.target.value)} value={repeatEmail} placeholder='exemplo@gmail.com' autoComplete='username'></input></div></div>
                 {recoverPassword?'':<div className='divinputwrapper'>Senha<div className="divinput">
-                    <input autoComplete='current-password' type={passwordVisible?'text':'password'} onInput={e => updatePassword(e.target.value)} value={password} placeholder='&#40;Ao menos 6 caracteres&#41;'></input>
+                    <input name='password' autoComplete='current-password' type={passwordVisible?'text':'password'} onInput={e => updatePassword(e.target.value)} value={password} placeholder='&#40;Ao menos 6 caracteres&#41;'></input>
                     <button type="button" onClick={() => setVisible(!passwordVisible)}>
                         <svg xmlns="http://www.w3.org/2000/svg" className={!passwordVisible?'loginsvg2':'displaynone'} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
